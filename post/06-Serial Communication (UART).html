@@ -165,28 +165,37 @@ window.addEventListener('load',()=> { preloader.endLoading() })
 if (false) {
   document.addEventListener('pjax:send', () => { preloader.initLoading() })
   document.addEventListener('pjax:complete', () => { preloader.endLoading() })
-}</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/%E5%A4%B4%E5%83%8F.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">66</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 图库</span></a></div><div class="menus_item"><a class="site-page" href="/charts/"><i class="fa-fw fa fa-heartbeat"></i><span> 统计</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202306161931372.webp')"><nav id="nav"><span id="blog-info"><a href="/" title="Chilh"><span class="site-name">Chilh</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 图库</span></a></div><div class="menus_item"><a class="site-page" href="/charts/"><i class="fa-fw fa fa-heartbeat"></i><span> 统计</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">06-Serial Communication (UART)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-06-16T10:00:35.000Z" title="发表于 2023-06-16 18:00:35">2023-06-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-07-21T06:15:11.628Z" title="更新于 2023-07-21 14:15:11">2023-07-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A4%A7%E5%AD%A6%E7%AC%94%E8%AE%B0/">大学笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">4.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>19分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="06-Serial Communication (UART)"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Serial-Communication-UART"><a href="#Serial-Communication-UART" class="headerlink" title="Serial Communication (UART)"></a>Serial Communication (UART)</h1><h2 id="Serial-vs-Parallel"><a href="#Serial-vs-Parallel" class="headerlink" title="Serial vs Parallel"></a><strong>Serial vs Parallel</strong></h2><p><strong>Serial</strong>: one bit is presented per cycle (<em>N</em> clock periods)</p>
+}</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/%E5%A4%B4%E5%83%8F.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">66</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 图库</span></a></div><div class="menus_item"><a class="site-page" href="/charts/"><i class="fa-fw fa fa-heartbeat"></i><span> 统计</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202306161931372.webp')"><nav id="nav"><span id="blog-info"><a href="/" title="Chilh"><span class="site-name">Chilh</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 图库</span></a></div><div class="menus_item"><a class="site-page" href="/charts/"><i class="fa-fw fa fa-heartbeat"></i><span> 统计</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">06-Serial Communication (UART)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-06-16T10:00:35.000Z" title="发表于 2023-06-16 18:00:35">2023-06-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-07-21T06:15:11.628Z" title="更新于 2023-07-21 14:15:11">2023-07-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A4%A7%E5%AD%A6%E7%AC%94%E8%AE%B0/">大学笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">4.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>19分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="06-Serial Communication (UART)"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1>Serial Communication (UART)</h1>
+<h2 id="Serial-vs-Parallel"><strong>Serial vs Parallel</strong></h2>
+<p><strong>Serial</strong>: one bit is presented per cycle (<em>N</em> clock periods)</p>
 <p><strong>Parallel</strong>: <em>N</em> bits together at a cycle (1 clock period)</p>
 <p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202304181920897.png" alt="image-20230418192014840"></p>
-<h2 id="Serial-Communication"><a href="#Serial-Communication" class="headerlink" title="Serial Communication"></a><strong>Serial Communication</strong></h2><p>如果你想尽量减少连接两个系统的数据线的数量，那么串行通信是首选。</p>
+<h2 id="Serial-Communication"><strong>Serial Communication</strong></h2>
+<p>如果你想尽量减少连接两个系统的数据线的数量，那么串行通信是首选。</p>
 <p>Tradeoff: the latency/efficiency is lower</p>
-<h4 id="3种模式"><a href="#3种模式" class="headerlink" title="3种模式"></a>3种模式</h4><ul>
-<li><p><strong>Simplex</strong>：单向的，固定一个发一个收</p>
+<h4 id="3种模式">3种模式</h4>
+<ul>
+<li>
+<p><strong>Simplex</strong>：单向的，固定一个发一个收</p>
 </li>
-<li><p><strong>Half Duplex</strong>：是双向传输但是不能同时进行</p>
+<li>
+<p><strong>Half Duplex</strong>：是双向传输但是不能同时进行</p>
 </li>
-<li><p><strong>Full Duplex</strong>：可以同时双向收发</p>
+<li>
+<p><strong>Full Duplex</strong>：可以同时双向收发</p>
 </li>
 </ul>
 <img src="https://typorastroage.oss-cn-beijing.aliyuncs.com/img/image-20220526233855525.png" alt="image-20220526233855525" style="zoom:80%;">
-
-<h4 id="同步"><a href="#同步" class="headerlink" title="同步"></a>同步</h4><p>传输的时一个<strong>二进制</strong>数据<strong>流</strong>，即一个“0”或“1”的序列</p>
+<h4 id="同步">同步</h4>
+<p>传输的时一个<strong>二进制</strong>数据<strong>流</strong>，即一个“0”或“1”的序列</p>
 <ul>
-<li>发送端：encode the stream<ul>
+<li>发送端：encode the stream
+<ul>
 <li>例如，<code>'A' = 0x41=b"01000001"</code></li>
 </ul>
 </li>
-<li>接收端：decode the stream<ul>
+<li>接收端：decode the stream
+<ul>
 <li><strong>为了成功通信，系统在传输过程中必须保持同步</strong>。</li>
 </ul>
 </li>
@@ -196,15 +205,16 @@ if (false) {
 <li>==Synchronous==：系统使用统一的时钟</li>
 <li>==Asynchronous==：系统使用分开的时钟</li>
 </ul>
-<h3 id="Synchronous-Transmission"><a href="#Synchronous-Transmission" class="headerlink" title="Synchronous Transmission"></a><strong>Synchronous Transmission</strong></h3><p>==依靠信号中的时钟分量来保持时钟一致==</p>
+<h3 id="Synchronous-Transmission"><strong>Synchronous Transmission</strong></h3>
+<p>==依靠信号中的时钟分量来保持时钟一致==</p>
 <img src="https://typorastroage.oss-cn-beijing.aliyuncs.com/img/image-20220526234600512.png" alt="image-20220526234600512" style="zoom:80%;">
-
 <ul>
 <li>使用<strong>移位寄存器和一个时钟信号</strong>完成<strong>串并转换</strong></li>
 </ul>
-<p><strong>同步：</strong>与数据信号一起的称为explicit clock（显式时钟信号）</p>
-<p> an explicit clock signal is along with the data signal</p>
-<h3 id="Asynchronous-Transmission"><a href="#Asynchronous-Transmission" class="headerlink" title="Asynchronous Transmission"></a><strong>Asynchronous Transmission</strong></h3><p>==使用不同的时钟==Separate clocks</p>
+<p>**同步：**与数据信号一起的称为explicit clock（显式时钟信号）</p>
+<p>an explicit clock signal is along with the data signal</p>
+<h3 id="Asynchronous-Transmission"><strong>Asynchronous Transmission</strong></h3>
+<p>==使用不同的时钟==Separate clocks</p>
 <ul>
 <li>正确解码的前提：接收机必须与发射机同步采样。</li>
 </ul>
@@ -213,7 +223,8 @@ if (false) {
 <li>所以，我们必须定期重新同步以确保时钟保持同步。</li>
 </ul>
 <p>为了解决同步问题，我们使用==Asynchronous Communication Protocol==</p>
-<h3 id="Asynchronous-Comm-Protocol"><a href="#Asynchronous-Comm-Protocol" class="headerlink" title="Asynchronous Comm. Protocol"></a><strong>Asynchronous Comm. Protocol</strong></h3><p>串行通信协议，其原理是将数据编码成一个个帧，包含起始位、数据位和停止位。起始位用于接收方同步，数据位用于传输数据，停止位表示帧的结束。</p>
+<h3 id="Asynchronous-Comm-Protocol"><strong>Asynchronous Comm. Protocol</strong></h3>
+<p>串行通信协议，其原理是将数据编码成一个个帧，包含起始位、数据位和停止位。起始位用于接收方同步，数据位用于传输数据，停止位表示帧的结束。</p>
 <ul>
 <li><strong>Start bit</strong>：接收器同步的起始位（感应到这个就开始同步）</li>
 <li><strong>Data bits</strong>：传输的word的data</li>
@@ -221,30 +232,32 @@ if (false) {
 </ul>
 <p>==Frame与Frame之间保持高电位==(IDLE)【空闲状态保持高电平】。</p>
 <img src="https://typorastroage.oss-cn-beijing.aliyuncs.com/img/image-20220527002122960.png" alt="image-20220527002122960" style="zoom:80%;">
-
 <p>接收机检测<strong>Start bit</strong>前沿，然后将其作为采样数据线的timing reference，在时间$T_{bit}*(N+1.5)$内提取N个数据比特</p>
 <p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202304181928357.png" alt="image-20230418171629342"></p>
-<h4 id="difference"><a href="#difference" class="headerlink" title="difference"></a>difference</h4><p>对于8位数据，我们可以容忍大约5%的时钟速度差异。</p>
+<h4 id="difference">difference</h4>
+<p>对于8位数据，我们可以容忍大约5%的时钟速度差异。</p>
 <img src="https://typorastroage.oss-cn-beijing.aliyuncs.com/img/image-20220527002504352.png" alt="image-20220527002504352" style="zoom:80%;">
-
-<h4 id="Data-Frame格式"><a href="#Data-Frame格式" class="headerlink" title="Data Frame格式"></a>Data Frame格式</h4><p><strong>Start bit</strong>：1个bit</p>
+<h4 id="Data-Frame格式">Data Frame格式</h4>
+<p><strong>Start bit</strong>：1个bit</p>
 <p><strong>Data</strong>：LSB最先，总长度为7-9个bits</p>
 <p>Parity Bit：（可选）用于检测数据中是否有error</p>
 <p><strong>Stop bit</strong>：1个bit或者2个bits</p>
 <p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202304182320605.png" alt="image-20230418232025553"></p>
-<h4 id="串口通信速率"><a href="#串口通信速率" class="headerlink" title="串口通信速率"></a>串口通信速率</h4><p>All devices must use the same communications parameters </p>
+<h4 id="串口通信速率">串口通信速率</h4>
+<p>All devices must use the same communications parameters</p>
 <p>所有设备必须使用相同的通信参数</p>
 <ul>
 <li>例如通信速度(300波特、600、1200、2400、9600、14400、19200等)</li>
 </ul>
-<p>Sophisticated network protocols have more information in each data </p>
+<p>Sophisticated network protocols have more information in each data</p>
 <p>frame</p>
 <p>• Medium access control – when multiple nodes are on bus, they must arbitrate for permission to transmit</p>
 <p>• Addressing information – for which node is this message intended?</p>
 <p>• Larger data payload</p>
 <p>• Stronger error detection or error correction information</p>
 <p>• Request for immediate response (“in-frame”)</p>
-<h4 id="Error-Detection"><a href="#Error-Detection" class="headerlink" title="Error Detection"></a><strong>Error Detection</strong></h4><p>Can send additional information to verify data was received correctly</p>
+<h4 id="Error-Detection"><strong>Error Detection</strong></h4>
+<p>Can send additional information to verify data was received correctly</p>
 <p>Need to specify which parity to expect: even, odd or none(指定校验模式)</p>
 <p>补一位使1的个数为奇数——奇校验</p>
 <p>为偶数——偶校验</p>
@@ -252,19 +265,23 @@ if (false) {
 <p>• 01100111 has 5 “1” bits, so parity bit will be 0 for odd parity, 1 for even parity</p>
 <p>Single parity bit detects if 1, 3, 5, 7 or 9 bits are corrupted, but doesn’t detect an even number of corrupted bits</p>
 <p>只有发生奇数个错误时候，才能检测到，偶数个无法检测</p>
-<p>Stronger error detection codes (e.g. Cyclic Redundancy Check) exist and use multiple bits (e.g. 8, 16), and can detect many more corruptions. </p>
+<p>Stronger error detection codes (e.g. Cyclic Redundancy Check) exist and use multiple bits (e.g. 8, 16), and can detect many more corruptions.</p>
 <p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202304182331375.png" alt="image-20230418233126328"></p>
 <p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202304182332225.png" alt="image-20230418233220186"></p>
 <p>• <strong>Advantages</strong>: simple &amp; inexpensive</p>
 <p>• <strong>Disadvantages</strong>: high overhead because of start and stop bits: 2 / 10 (or more) of bandwidth.</p>
-<h4 id="synchronous-communication-protocol"><a href="#synchronous-communication-protocol" class="headerlink" title="synchronous communication protocol"></a><strong>synchronous communication protocol</strong></h4><p>A common clock signal solves synchronisation problem: more efficient (but more complex) than asynchronous</p>
+<h4 id="synchronous-communication-protocol"><strong>synchronous communication protocol</strong></h4>
+<p>A common clock signal solves synchronisation problem: more efficient (but more complex) than asynchronous</p>
 <ol>
-<li><p>separate clock and data lines</p>
+<li>
+<p>separate clock and data lines</p>
 </li>
-<li><p>encode clock in the data steam e.g. Manchester coding</p>
+<li>
+<p>encode clock in the data steam e.g. Manchester coding</p>
 </li>
 </ol>
-<h3 id="Asynchronous-protocol-–-RS232C"><a href="#Asynchronous-protocol-–-RS232C" class="headerlink" title="Asynchronous protocol – RS232C"></a>Asynchronous protocol – RS232C</h3><blockquote>
+<h3 id="Asynchronous-protocol-–-RS232C">Asynchronous protocol – RS232C</h3>
+<blockquote>
 <p>RS232C: Recommended Standard number 232 revision Commonly used asynchronous standard</p>
 </blockquote>
 <p>It specifies voltages in Reversed Polarity.(电压反极性表示)</p>
@@ -276,17 +293,29 @@ if (false) {
 <p>Full duplex communication link between DTE1 and DTE2.</p>
 <p><strong>DTE1 TXD is effectively connected to DTE2 RXD.</strong></p>
 <p><strong>DTE2 TXD is effectively connected to DTE1 RXD</strong></p>
-<h4 id="RS232C-Flow-Control"><a href="#RS232C-Flow-Control" class="headerlink" title="RS232C: Flow Control"></a><strong>RS232C: Flow Control</strong></h4><p>一次传太多会使接收端buffer溢出</p>
+<h4 id="RS232C-Flow-Control"><strong>RS232C: Flow Control</strong></h4>
+<p>一次传太多会使接收端buffer溢出</p>
 <p>Request-to-send (RTS) and clear-to-send (CTS) allow hardware control of the data flow.</p>
 <p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202304182341336.png" alt="image-20230418234108292"></p>
-<h3 id="Parsing-Messages-–-decoding-content-from-received-BITs"><a href="#Parsing-Messages-–-decoding-content-from-received-BITs" class="headerlink" title="Parsing Messages – decoding content from received BITs"></a>Parsing Messages – decoding content from received BITs</h3><ul>
-<li><p>Two types of messages:<br>• Actual binary data sent<br>• First identify message type<br>• Second, based on this message type, copy binary data from message fields into variables<br>• May need to use pointers and casting to get code to translate formats correctly and safely</p>
+<h3 id="Parsing-Messages-–-decoding-content-from-received-BITs">Parsing Messages – decoding content from received BITs</h3>
+<ul>
+<li>
+<p>Two types of messages:<br>
+• Actual binary data sent<br>
+• First identify message type<br>
+• Second, based on this message type, copy binary data from message fields into variables<br>
+• May need to use pointers and casting to get code to translate formats correctly and safely</p>
 </li>
-<li><p>ASCII text characters representing data sent<br>• First identify message type<br>• Second, based on this message type, translate (parse) the data from the ASCII message format into a binary format<br>• Third, copy the binary  将二进制数据复制到变量中</p>
+<li>
+<p>ASCII text characters representing data sent<br>
+• First identify message type<br>
+• Second, based on this message type, translate (parse) the data from the ASCII message format into a binary format<br>
+• Third, copy the binary  将二进制数据复制到变量中</p>
 </li>
 </ul>
 <p>==第一步都是要<strong>识别消息类型</strong>==</p>
-<h4 id="Example-Binary-Serial-Data-TSIP"><a href="#Example-Binary-Serial-Data-TSIP" class="headerlink" title="Example Binary Serial Data: TSIP"></a><strong>Example Binary Serial Data: TSIP</strong></h4><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">switch</span> <span class="token punctuation">(</span>id<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<h4 id="Example-Binary-Serial-Data-TSIP"><strong>Example Binary Serial Data: TSIP</strong></h4>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">switch</span> <span class="token punctuation">(</span>id<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 <span class="token keyword">case</span> <span class="token number">0x84</span><span class="token operator">:</span>
 lat <span class="token operator">=</span> <span class="token operator">*</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">double</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>msg<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 lon <span class="token operator">=</span> <span class="token operator">*</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">double</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>msg<span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -298,11 +327,11 @@ tof <span class="token operator">=</span> <span class="token operator">*</span><
 <span class="token keyword">default</span><span class="token operator">:</span>
 <span class="token keyword">break</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202304182346164.png" alt="image-20230418234645128"></p>
-<p>The Trimble Standard Interface Protocol (TSIP) allows you to control the GPS receiver and set GPS configuration parameters. </p>
+<p>The Trimble Standard Interface Protocol (TSIP) allows you to control the GPS receiver and set GPS configuration parameters.</p>
 <p>Trimble标准接口协议（TSIP）是一种用于控制GPS接收器和设置GPS配置参数的协议。</p>
-<h4 id="Example-ASCII-Serial-Data-NMEA-0183"><a href="#Example-ASCII-Serial-Data-NMEA-0183" class="headerlink" title="Example ASCII Serial Data: NMEA-0183"></a><strong>Example ASCII Serial Data: NMEA-0183</strong></h4><p>消息格式：$IDMSG,D1,D2,D3,D4,…,Dn*CS\r\n</p>
+<h4 id="Example-ASCII-Serial-Data-NMEA-0183"><strong>Example ASCII Serial Data: NMEA-0183</strong></h4>
+<p>消息格式：$IDMSG,D1,D2,D3,D4,…,Dn*CS\r\n</p>
 <p>• $ denotes the start of a message</p>
 <p>• ID is a two letter mnemonic to describe the source of data, e.g. GP signifies GPS</p>
 <p>• MSG is a three letter mnemonic to describe the message content.</p>
@@ -310,13 +339,14 @@ tof <span class="token operator">=</span> <span class="token operator">*</span><
 <p>• Dn represents each of the data fields.</p>
 <p>• * is used to separate the data from the checksum.</p>
 <p>• CS contains two ASCII characters representing the hex value of the checksum.</p>
-<p>• \r\n is the carriage return character followed by the new line character to denote </p>
+<p>• \r\n is the carriage return character followed by the new line character to denote</p>
 <p>the end of a message.</p>
 <p>其中，$表示消息的开始，ID是一个两个字母的助记符，用于描述数据源（例如GP表示GPS），MSG是一个三个字母的助记符，用于描述消息内容。逗号用于分隔数据字段，Dn代表每个数据字段。星号用于将数据与校验和分隔开来。CS包含两个ASCII字符，表示校验和的十六进制值。\r\n是回车符和换行符，用于表示消息结束。</p>
 <p>NMEA 0183接口标准在全球许多行业领域使用。该标准定义了4800波特串行数据总线的电信号要求、数据传输协议和时间以及特定的句子格式</p>
 <p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202304182355595.png" alt="image-20230418235517544"></p>
-<p>当状态机处于Start状态时，它等待接收到一个字符。如果接收到的字符是’$’，则状态机将切换到Talker状态。否则，它将保持在Start状态。 当状态机处于Talker状态时，它等待接收两个字母作为数据源标识符，并将其存储在缓冲区中。一旦接收到两个字母，状态机将切换到Sentence Type状态。 当状态机处于Sentence Type状态时，它等待接收三个字母作为消息类型标识符，并将其存储在缓冲区中。一旦接收到三个字母，状态机将切换到Sentence Body状态。 当状态机处于Sentence Body状态时，它等待接收逗号分隔的数据字段，并将每个字段存储在缓冲区中。一旦接收到星号（’*’），则表示消息体已经结束，并且校验和即将开始。此时，状态机将切换到Checksum 1 状态。 当状态机处于Checksum 1 状态时，它等待接收校验和的第一个十六进制字符，并将其存储在缓冲区中。一旦接收到第一个字符，则会切换到Checksum 2 状态。 当状态机处于Checksum 2 状态时，它等待接收校验和的第二个十六进制字符，并将其存储在缓冲区中。一旦接收到第二个字符，则状态机将计算校验和并检查其是否正确。如果校验和正确，则状态机将传递缓冲区中存储的完整消息给下一个处理步骤。否则，它将丢弃该消息并重新开始解析过程</p>
-<h3 id="Asynchronous-x2F-Synchronous-serial-USART-Communications"><a href="#Asynchronous-x2F-Synchronous-serial-USART-Communications" class="headerlink" title="Asynchronous / Synchronous serial (USART) Communications"></a><strong>Asynchronous / Synchronous</strong> <strong>serial (USART) Communications</strong></h3><p><strong>STM32f401 features</strong></p>
+<p>当状态机处于Start状态时，它等待接收到一个字符。如果接收到的字符是’$‘，则状态机将切换到Talker状态。否则，它将保持在Start状态。 当状态机处于Talker状态时，它等待接收两个字母作为数据源标识符，并将其存储在缓冲区中。一旦接收到两个字母，状态机将切换到Sentence Type状态。 当状态机处于Sentence Type状态时，它等待接收三个字母作为消息类型标识符，并将其存储在缓冲区中。一旦接收到三个字母，状态机将切换到Sentence Body状态。 当状态机处于Sentence Body状态时，它等待接收逗号分隔的数据字段，并将每个字段存储在缓冲区中。一旦接收到星号（’*'），则表示消息体已经结束，并且校验和即将开始。此时，状态机将切换到Checksum 1 状态。 当状态机处于Checksum 1 状态时，它等待接收校验和的第一个十六进制字符，并将其存储在缓冲区中。一旦接收到第一个字符，则会切换到Checksum 2 状态。 当状态机处于Checksum 2 状态时，它等待接收校验和的第二个十六进制字符，并将其存储在缓冲区中。一旦接收到第二个字符，则状态机将计算校验和并检查其是否正确。如果校验和正确，则状态机将传递缓冲区中存储的完整消息给下一个处理步骤。否则，它将丢弃该消息并重新开始解析过程</p>
+<h3 id="Asynchronous-Synchronous-serial-USART-Communications"><strong>Asynchronous / Synchronous</strong> <strong>serial (USART) Communications</strong></h3>
+<p><strong>STM32f401 features</strong></p>
 <p>STM32F401是一款微控制器，它包含了多个通信接口，其中之一就是USART（Universal Synchronous/Asynchronous Receiver/Transmitter）。USART是一种通用的同步/异步收发器，可以实现全双工通信。它支持NRZ标准格式</p>
 <p>• Full duplex, asynchronous communications==全双工，异步==</p>
 <p>• NRZ standard format (Mark/Space)用NRZ来传号和传空</p>
@@ -330,10 +360,12 @@ tof <span class="token operator">=</span> <span class="token operator">*</span><
 <p>• <strong>Ten</strong> interrupt sources with flags</p>
 <p>• <strong>Synchronous mode</strong></p>
 <p>• Hardware flow control mode</p>
-<h4 id="USART区块图"><a href="#USART区块图" class="headerlink" title="USART区块图"></a>USART区块图</h4><p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202304190014608.png" alt="image-20230419001405562"></p>
-<h4 id="USART-modes"><a href="#USART-modes" class="headerlink" title="USART modes"></a><strong>USART modes</strong></h4><p><strong>Normal mode</strong>-TX pin and RX pin are used:</p>
+<h4 id="USART区块图">USART区块图</h4>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202304190014608.png" alt="image-20230419001405562"></p>
+<h4 id="USART-modes"><strong>USART modes</strong></h4>
+<p><strong>Normal mode</strong>-TX pin and RX pin are used:</p>
 <p>• <strong>RX</strong>: Receive Data Input is the serial data input</p>
-<p>• <strong>TX:</strong> Transmit Data Output. When the transmitter is disabled, the output pin returns to its I/O port configuration. When the transmitter is enabled and nothing is to be transmitted, the TX pin is at high level. </p>
+<p>• <strong>TX:</strong> Transmit Data Output. When the transmitter is disabled, the output pin returns to its I/O port configuration. When the transmitter is enabled and nothing is to be transmitted, the TX pin is at high level.</p>
 <p>当发送器被禁用时，输出引脚会返回到其I/O端口配置状态。当发送器被启用且没有要传输的数据时，TX引脚处于高电平状态。</p>
 <p><strong>Synchronous mode- CLK</strong> pin is used in addition to Tx and RX</p>
 <p>除了TX和RX引脚之外，还需要使用CLK引脚。在这种模式下，数据传输是由一个显式的时钟信号控制的，这个时钟信号会与数据信号一起传输。</p>
@@ -342,13 +374,14 @@ tof <span class="token operator">=</span> <span class="token operator">*</span><
 <li>CTS：clear to send，有效电平为低（阻断发送）</li>
 <li>RTS：用来指示USART以及准备好接收数据了，有效电平为低</li>
 </ul>
-<h4 id="Software-Structure"><a href="#Software-Structure" class="headerlink" title="Software Structure"></a><strong>Software Structure</strong></h4><p>通信和程序是异步的 - 不知道程序会执行什么代码【不知道什么时候收到消息】</p>
+<h4 id="Software-Structure"><strong>Software Structure</strong></h4>
+<p>通信和程序是异步的 - 不知道程序会执行什么代码【不知道什么时候收到消息】</p>
 <ul>
 <li>不知道下一个item什么时候来</li>
 <li>不知道当前的item什么时候完成传输</li>
 <li>不知道有没有error发生</li>
 </ul>
-<p>Need to synchronize between program and serial communication </p>
+<p>Need to synchronize between program and serial communication</p>
 <p>interface somehow. Two options:</p>
 <p><strong>Polling</strong>:</p>
 <p>• Wait until data is available</p>
@@ -356,7 +389,8 @@ tof <span class="token operator">=</span> <span class="token operator">*</span><
 <p><strong>Interrupt</strong>:</p>
 <p>• CPU interrupts program when data is available</p>
 <p>• Efficient, but more <strong>complex</strong></p>
-<h4 id="Serial-Communications-and-Interrupts"><a href="#Serial-Communications-and-Interrupts" class="headerlink" title="Serial Communications and Interrupts"></a><strong>Serial Communications and</strong> <strong>Interrupts</strong></h4><p>Want to provide multiple threads of control in the program</p>
+<h4 id="Serial-Communications-and-Interrupts"><strong>Serial Communications and</strong> <strong>Interrupts</strong></h4>
+<p>Want to provide multiple threads of control in the program</p>
 <p>需要==一个主线程，三个ISR==</p>
 <p>• Main program (and subroutines it calls)</p>
 <p>• Transmit ISR – executes when serial interface is ready to send another character</p>
@@ -366,31 +400,32 @@ tof <span class="token operator">=</span> <span class="token operator">*</span><
 <p>Need a way of buffering information between threads</p>
 <p>• Solution: circular queue with head and tail pointers（循环队列）</p>
 <p>• One for TX, one for RX</p>
-<h4 id="Code-to-Implement-Queues"><a href="#Code-to-Implement-Queues" class="headerlink" title="Code to Implement Queues"></a><strong>Code to Implement Queues</strong></h4><p>Enqueue（入队列） at tail: tail is the index of the next free entry</p>
+<h4 id="Code-to-Implement-Queues"><strong>Code to Implement Queues</strong></h4>
+<p>Enqueue（入队列） at tail: tail is the index of the next free entry</p>
 <p>Dequeue （出队列）from head: head is the index of the item to remove</p>
 <p><strong>==队尾写新，队头读取==</strong></p>
 <p>Queue size is initialised and stored in size</p>
 <p>• One queue per direction（TX RX各有一个队列）</p>
 <p>• TX ISR unloads tx_q</p>
 <p>• RX ISR loads rx_q</p>
-<p> <strong>Need to wrap pointer at end of buffer to make it circular,</strong> </p>
+<p><strong>Need to wrap pointer at end of buffer to make it circular,</strong></p>
 <p>• Use % (modulus, remainder) operator if queue size is not power of two</p>
 <p>假设队列大小为10，那么在enqueue操作中，可以使用以下代码来更新尾指针：</p>
-<p> <code>tail = (tail + 1) % 10;</code></p>
+<p><code>tail = (tail + 1) % 10;</code></p>
 <p>• Use &amp; (bitwise and) if queue size is a power of two</p>
 <p>如果队列大小是2的幂，例如16，则可以使用以下代码来更新尾指针：</p>
-<p> <code>tail = (tail + 1) &amp; 15;</code></p>
+<p><code>tail = (tail + 1) &amp; 15;</code></p>
 <ul>
 <li>==判断队列空==：<code>tail == head</code></li>
 <li>==判断队列满==：<code>(tail + 1) % size == head</code></li>
 </ul>
-<h5 id="Defining-and-initializing-Queues"><a href="#Defining-and-initializing-Queues" class="headerlink" title="Defining and initializing Queues"></a><strong>Defining and initializing Queues</strong></h5><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+<h5 id="Defining-and-initializing-Queues"><strong>Defining and initializing Queues</strong></h5>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token punctuation">{</span>
 <span class="token class-name">uint8_t</span> <span class="token operator">*</span>data<span class="token punctuation">;</span> <span class="token comment">//!&lt; Array of data, stored on the heap.</span>
 <span class="token class-name">uint32_t</span> head<span class="token punctuation">;</span> <span class="token comment">//!&lt; Index in the array of the oldest element.</span>
 <span class="token class-name">uint32_t</span> tail<span class="token punctuation">;</span> <span class="token comment">//!&lt; Index in the array of the youngest element.</span>
 <span class="token class-name">uint32_t</span> size<span class="token punctuation">;</span> <span class="token comment">//!&lt; Size of the data array.</span>
 <span class="token punctuation">}</span> Queue<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">queue_init</span><span class="token punctuation">(</span>Queue <span class="token operator">*</span>queue<span class="token punctuation">,</span> <span class="token class-name">uint32_t</span> size<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 queue<span class="token operator">-&gt;</span>data <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">uint8_t</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token class-name">uint8_t</span><span class="token punctuation">)</span> <span class="token operator">*</span> size<span class="token punctuation">)</span><span class="token punctuation">;</span>
 queue<span class="token operator">-&gt;</span>head <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
@@ -399,7 +434,6 @@ queue<span class="token operator">-&gt;</span>size <span class="token operator">
 <span class="token comment">// If malloc returns NULL (0) the allocation has failed.</span>
 <span class="token keyword">return</span> queue<span class="token operator">-&gt;</span>data <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>判断是否为满</p>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">queue_is_full</span><span class="token punctuation">(</span>Queue <span class="token operator">*</span>queue<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>queue<span class="token operator">-&gt;</span>tail <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">%</span> queue<span class="token operator">-&gt;</span>size<span class="token punctuation">)</span> <span class="token operator">==</span> queue<span class="token operator">-&gt;</span>head<span class="token punctuation">;</span>
@@ -407,11 +441,12 @@ queue<span class="token operator">-&gt;</span>size <span class="token operator">
 <span class="token keyword">int</span> <span class="token function">queue_is_empty</span><span class="token punctuation">(</span>Queue <span class="token operator">*</span>queue<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 <span class="token keyword">return</span> queue<span class="token operator">-&gt;</span>tail <span class="token operator">==</span> queue<span class="token operator">-&gt;</span>head<span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202304191000896.png" alt="image-20230419100056824"></p>
-<h5 id="入队-amp-出队"><a href="#入队-amp-出队" class="headerlink" title="入队&amp; 出队"></a>入队&amp; 出队</h5><p>使用queue_enqueue函数将要发送的数据存储在队列中，然后在tx_isr中从队列中读取数据并发送到USART。类似地，可以使用rx_isr从USART接收数据，并使用queue_dequeue函数将接收到的数据存储在uint8_t item中。 </p>
+<h5 id="入队-出队">入队&amp; 出队</h5>
+<p>使用queue_enqueue函数将要发送的数据存储在队列中，然后在tx_isr中从队列中读取数据并发送到USART。类似地，可以使用rx_isr从USART接收数据，并使用queue_dequeue函数将接收到的数据存储在uint8_t item中。</p>
 <p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202304191021393.png" alt="image-20230419102136352"></p>
-<h5 id="tx-入队"><a href="#tx-入队" class="headerlink" title="tx 入队"></a>tx 入队</h5><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">queue_enqueue</span><span class="token punctuation">(</span>Queue <span class="token operator">*</span>queue<span class="token punctuation">,</span> <span class="token class-name">uint8_t</span> item<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<h5 id="tx-入队">tx 入队</h5>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">queue_enqueue</span><span class="token punctuation">(</span>Queue <span class="token operator">*</span>queue<span class="token punctuation">,</span> <span class="token class-name">uint8_t</span> item<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">queue_is_full</span><span class="token punctuation">(</span>queue<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 queue<span class="token operator">-&gt;</span>data<span class="token punctuation">[</span>queue<span class="token operator">-&gt;</span>tail<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> item<span class="token punctuation">;</span>
 queue<span class="token operator">-&gt;</span>tail <span class="token operator">%=</span> queue<span class="token operator">-&gt;</span>size<span class="token punctuation">;</span>
@@ -420,9 +455,9 @@ queue<span class="token operator">-&gt;</span>tail <span class="token operator">
 <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>uint8_t　无符号8位整数　通常用于存储字节数据</p>
-<h5 id="rx出队"><a href="#rx出队" class="headerlink" title="rx出队"></a>rx出队</h5><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">queue_dequeue</span><span class="token punctuation">(</span>Queue <span class="token operator">*</span>queue<span class="token punctuation">,</span> <span class="token class-name">uint8_t</span> <span class="token operator">*</span>item<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<h5 id="rx出队">rx出队</h5>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">queue_dequeue</span><span class="token punctuation">(</span>Queue <span class="token operator">*</span>queue<span class="token punctuation">,</span> <span class="token class-name">uint8_t</span> <span class="token operator">*</span>item<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">queue_is_empty</span><span class="token punctuation">(</span>queue<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 <span class="token operator">*</span>item <span class="token operator">=</span> queue<span class="token operator">-&gt;</span>data<span class="token punctuation">[</span>queue<span class="token operator">-&gt;</span>head<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 queue<span class="token operator">-&gt;</span>head <span class="token operator">%=</span> queue<span class="token operator">-&gt;</span>size<span class="token punctuation">;</span>
@@ -431,51 +466,64 @@ queue<span class="token operator">-&gt;</span>head <span class="token operator">
 <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="Control-registers"><a href="#Control-registers" class="headerlink" title="Control registers"></a>Control registers</h3><h4 id="USART-CR1"><a href="#USART-CR1" class="headerlink" title="USART_CR1"></a>USART_CR1</h4><p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202304191023955.png" alt="image-20230419102305917"></p>
+<h3 id="Control-registers">Control registers</h3>
+<h4 id="USART-CR1">USART_CR1</h4>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202304191023955.png" alt="image-20230419102305917"></p>
 <ul>
-<li><p>UE: USART使能位。当该位为1时，USART才能正常工作。</p>
+<li>
+<p>UE: USART使能位。当该位为1时，USART才能正常工作。</p>
 </li>
-<li><p>M: 字长位。当该位为0时，数据帧长度为8位；当该位为1时，数据帧长度为9位。</p>
+<li>
+<p>M: 字长位。当该位为0时，数据帧长度为8位；当该位为1时，数据帧长度为9位。</p>
 </li>
-<li><p>PCE: 奇偶校验使能位。当该位为1时，启用奇偶校验；当该位为0时，禁用奇偶校验。</p>
+<li>
+<p>PCE: 奇偶校验使能位。当该位为1时，启用奇偶校验；当该位为0时，禁用奇偶校验。</p>
 </li>
-<li><p>PS: 奇偶校验选择位。当PCE=1时，PS=0表示选择偶校验；PS=1表示选择奇校验。</p>
+<li>
+<p>PS: 奇偶校验选择位。当PCE=1时，PS=0表示选择偶校验；PS=1表示选择奇校验。</p>
 </li>
-<li><p>TE: 发送使能位。当该位为1时，允许发送数据。 - RE: 接收使能位。当该位为1时，允许接收数据。 </p>
+<li>
+<p>TE: 发送使能位。当该位为1时，允许发送数据。 - RE: 接收使能位。当该位为1时，允许接收数据。</p>
 </li>
-<li><p>OVER8: 过采样率选择位。当OVER8=0时，使用16倍过采样率；当OVER8=1时，使用8倍过采样率。</p>
+<li>
+<p>OVER8: 过采样率选择位。当OVER8=0时，使用16倍过采样率；当OVER8=1时，使用8倍过采样率。</p>
 </li>
-<li><p>PEIE: 它的全称是Parity Error Interrupt Enable。当PEIE位被设置为1时，如果接收到的数据帧出现奇偶校验错误，将会产生一个奇偶校验错误中断。</p>
+<li>
+<p>PEIE: 它的全称是Parity Error Interrupt Enable。当PEIE位被设置为1时，如果接收到的数据帧出现奇偶校验错误，将会产生一个奇偶校验错误中断。</p>
 </li>
 </ul>
-<h4 id="USART-CR2"><a href="#USART-CR2" class="headerlink" title="USART_CR2"></a>USART_CR2</h4><p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202304191025843.png" alt="image-20230419102550804"></p>
+<h4 id="USART-CR2">USART_CR2</h4>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202304191025843.png" alt="image-20230419102550804"></p>
 <ul>
-<li>ADD[3:0]: 地址位。当LINEN=1时，ADD[3:0]表示从机地址；当LINEN=0时，ADD[3:0]表示节点地址。 </li>
-<li>LBDL: LIN波特率检测长度位。当LINEN=1时，LBDL=0表示检测10个比特时间；LBDL=1表示检测11个比特时间。 </li>
-<li>LBDIE: LIN波特率检测中断使能位。当LINEN=1且LBDIE=1时，在检测到LIN波特率错误时会产生一个中断。 </li>
+<li>ADD[3:0]: 地址位。当LINEN=1时，ADD[3:0]表示从机地址；当LINEN=0时，ADD[3:0]表示节点地址。</li>
+<li>LBDL: LIN波特率检测长度位。当LINEN=1时，LBDL=0表示检测10个比特时间；LBDL=1表示检测11个比特时间。</li>
+<li>LBDIE: LIN波特率检测中断使能位。当LINEN=1且LBDIE=1时，在检测到LIN波特率错误时会产生一个中断。</li>
 <li><strong>STOP[1:0]</strong>: 停止位长度位。STOP[1:0]=00表示使用1个停止位；STOP[1:0]=01表示使用0.5个停止位；STOP[1:0]=10表示使用2个停止位；STOP[1:0]=11保留。</li>
 <li><strong>CLKEN:</strong> 时钟使能位。当该位为1时，允许外部时钟输入到USART。 - CPOL: 时钟极性选择位。当CLKEN=1时，<strong>CPOL为串行同步模式下的时钟极性选择位</strong>。</li>
 <li>CPHA: 时钟相位选择位。当CLKEN=1时，CPHA为串行同步模式下的时钟相位选择位。</li>
 </ul>
-<h4 id="Status-register-USART-SR"><a href="#Status-register-USART-SR" class="headerlink" title="Status register: USART_SR"></a>Status register: USART_SR</h4><p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202304191028338.png" alt="image-20230419102812298"></p>
+<h4 id="Status-register-USART-SR">Status register: USART_SR</h4>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202304191028338.png" alt="image-20230419102812298"></p>
 <ul>
-<li>PE: 奇偶校验错误标志位。当接收到的数据帧出现奇偶校验错误时，该位被置为1。 </li>
-<li>FE: 帧错误标志位。当接收到的数据帧出现帧错误（即停止位不正确）时，该位被置为1。 </li>
+<li>PE: 奇偶校验错误标志位。当接收到的数据帧出现奇偶校验错误时，该位被置为1。</li>
+<li>FE: 帧错误标志位。当接收到的数据帧出现帧错误（即停止位不正确）时，该位被置为1。</li>
 <li>NF: 噪声检测标志位。当接收到的数据帧中出现噪声时，该位被置为1。</li>
-<li>ORE: 溢出错误标志位。当接收缓冲区溢出时，该位被置为1。 </li>
+<li>ORE: 溢出错误标志位。当接收缓冲区溢出时，该位被置为1。</li>
 <li>IDLE: 空闲线路状态标志位。当接收线路空闲一段时间后，该位被置为1。</li>
-<li>RXNE: 接收缓冲区非空标志位。当接收缓冲区中有未读取的数据时，该位被置为1。 </li>
-<li>TC: 传输完成标志位。当发送数据完成后（包括最后一个停止位），该位被置为1。 </li>
+<li>RXNE: 接收缓冲区非空标志位。当接收缓冲区中有未读取的数据时，该位被置为1。</li>
+<li>TC: 传输完成标志位。当发送数据完成后（包括最后一个停止位），该位被置为1。</li>
 <li>TXE: 发送缓冲区空标志位。当发送缓冲区为空时，该位被置为1。</li>
 </ul>
-<h4 id="Baud-rate-register-USART-BRR"><a href="#Baud-rate-register-USART-BRR" class="headerlink" title="Baud rate register: USART_BRR"></a>Baud rate register: USART_BRR</h4><p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202304191034434.png" alt="image-20230419103441387"></p>
-<h3 id="USART-Character-description"><a href="#USART-Character-description" class="headerlink" title="USART Character description"></a><strong>USART Character description</strong></h3><p>• Word length (depends on M in USAR_CR1)</p>
+<h4 id="Baud-rate-register-USART-BRR">Baud rate register: USART_BRR</h4>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202304191034434.png" alt="image-20230419103441387"></p>
+<h3 id="USART-Character-description"><strong>USART Character description</strong></h3>
+<p>• Word length (depends on M in USAR_CR1)</p>
 <p>• TX pin is in <strong>low state during the start bit</strong>. It is in <strong>high state during the stop bit</strong></p>
-<p>• Idle character**:** an entire frame of “1”s</p>
+<p>• Idle character**😗* an entire frame of “1”s</p>
 <p>• Break character: receiving “0”s for a frame period</p>
 <p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202304191037203.png" alt="image-20230419103703159"></p>
-<h3 id="USART-Transmitter"><a href="#USART-Transmitter" class="headerlink" title="USART Transmitter"></a>USART Transmitter</h3><p>当【USART_AR1中的】TE设定后，在<u>transmit shift register</u>中的数据会输出到TX上（LSB先出）</p>
+<h3 id="USART-Transmitter">USART Transmitter</h3>
+<p>当【USART_AR1中的】TE设定后，在<u>transmit shift register</u>中的数据会输出到TX上（LSB先出）</p>
 <p>USART_DR（TDR）用于缓存内部总线和发送移位寄存器之间的数据</p>
 <p>写入USART_DR（TDR）时将TXE（Transmit buffer empty）标清除。</p>
 <p>TXE set by HW if:</p>
@@ -483,10 +531,11 @@ queue<span class="token operator">-&gt;</span>head <span class="token operator">
 <p>• TDR register is empty.</p>
 <p>• Next data can be written in the USART_DR register</p>
 <p>USART_DR是一个数据寄存器，用于缓存接收和发送的数据。具体来说，当接收到一个字符时，该字符会被存储在USART_DR寄存器中；当发送一个字符时，该字符会从USART_DR寄存器中读取并传到发送移位寄存器中。</p>
-<p>在空闲状态时**,<strong>传送线为逻辑“</strong>1<strong>”状态，而数据的传送总是以一个起始位“</strong>**0*<em><strong>”开始，所以当接收器检测到一个从“</strong></em>*1*<em><strong>”向“</strong></em>*0*<em><strong>”的跳变时，便视为可能的起始位</strong></em>*,*<em><strong>传送线为逻辑“</strong></em>*1*<em><strong>”状态，而数据的传送总是以一个起始位“</strong></em>*0*<em><strong>”开始，所以当接收器检测到一个从“</strong></em>*1*<em><strong>”向“</strong></em>*0****”的跳变时，便视为可能的起始位</p>
+<p>在空闲状态时**,<strong>传送线为逻辑“<strong>1</strong>”状态，而数据的传送总是以一个起始位“</strong><em>*0*</em><strong>”开始，所以当接收器检测到一个从“</strong><em>*1*</em><strong>”向“</strong><em>*0*</em><strong>”的跳变时，便视为可能的起始位</strong>**,*<em><strong>传送线为逻辑“</strong></em>*1*<em><strong>”状态，而数据的传送总是以一个起始位“</strong></em>*0*<em><strong>”开始，所以当接收器检测到一个从“</strong></em>*1*<em><strong>”向“</strong></em>*0****”的跳变时，便视为可能的起始位</p>
 <p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202304191045124.png" alt="image-20220531205633643"></p>
 <p>TXE告诉：总线空了、总线开始</p>
-<h3 id="USART-Receiver"><a href="#USART-Receiver" class="headerlink" title="USART Receiver"></a><strong>USART Receiver</strong></h3><p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202304191054959.png" alt="image-20220531205933543"></p>
+<h3 id="USART-Receiver"><strong>USART Receiver</strong></h3>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202304191054959.png" alt="image-20220531205933543"></p>
 <p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202304191055675.png" alt="image-20230419105502622"></p>
 <p>八倍过采样（一个bit采8个点），时钟容忍偏差会降低</p>
 <p>在过采样过程中，每个数据位都会被重复采样多次，以提高数据传输的可靠性和精度。而在这些重复采样的数据位中，只有中间三个样值是必要的，因为它们可以提供足够的信息来确定数据位的值。</p>
@@ -494,7 +543,8 @@ queue<span class="token operator">-&gt;</span>head <span class="token operator">
 <p>当接收器在预期时间内未能识别到停止位（stop bit）时，就会发生帧错误，并且USART_SR寄存器中的FE位会被设置为1。FE位通过USART_SR寄存器读操作和USART_DR寄存器读操作复位。</p>
 <p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202304191100096.png" alt="image-20230419110056053"></p>
 <p>中间的都是noise</p>
-<h3 id="USART-Baud-Rate-generation"><a href="#USART-Baud-Rate-generation" class="headerlink" title="USART Baud Rate generation"></a><strong>USART Baud Rate generation</strong></h3><p>The baud rate for Rx and TX are both set to the same value as programmed in the Mantissa and Fraction values of USARTDIV in USART_BRR.</p>
+<h3 id="USART-Baud-Rate-generation"><strong>USART Baud Rate generation</strong></h3>
+<p>The baud rate for Rx and TX are both set to the same value as programmed in the Mantissa and Fraction values of USARTDIV in USART_BRR.</p>
 <p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202304191104855.png" alt="image-20220531210710399"></p>
 <p>OVER8在使用16 oversampling的时候设为0；当使用8 oversampling的时候设为1</p>
 <p><code>USARTDIV</code>是一个在<em><strong>USART_BRR</strong></em>寄存器上编码的unsigned fix number。</p>
@@ -506,8 +556,9 @@ queue<span class="token operator">-&gt;</span>head <span class="token operator">
 <ul>
 <li>0x1BC转为二进制为11011 1100，取前五位为Mantissa，<strong>后四位为Fraction</strong>【永远用四位为Fraction，是固定的，最多12位表示整数】</li>
 </ul>
-<p>The lower the CPU clock the lower the accuracy for a particular baud rate. </p>
-<h3 id="USART-Parity-check"><a href="#USART-Parity-check" class="headerlink" title="USART Parity check"></a><strong>USART Parity check</strong></h3><p>• Parity control = generation of parity bit in transmission and parity checking in reception.</p>
+<p>The lower the CPU clock the lower the accuracy for a particular baud rate.</p>
+<h3 id="USART-Parity-check"><strong>USART Parity check</strong></h3>
+<p>• Parity control = generation of parity bit in transmission and parity checking in reception.</p>
 <p>• Enabled by setting the PCE bit in the USART_CR1.</p>
 <p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202304191209885.png" alt="image-20230419120916841"></p>
 <p>SB：开始位   STB：结束位  PB：校验位</p>
@@ -521,7 +572,7 @@ queue<span class="token operator">-&gt;</span>head <span class="token operator">
 <p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202304191230886.png" alt="image-20230419123059821"></p>
 <p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202304191231269.png" alt="image-20230419123112202"></p>
 <p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202304191231247.png" alt="image-20230419123119195"></p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://chilh.top">chilh</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://chilh.top/post/06-Serial%20Communication%20(UART).html">https://chilh.top/post/06-Serial%20Communication%20(UART).html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://chilh.top" target="_blank">Chilh</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%A4%A7%E4%B8%89%E4%B8%8B%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">大三下课程笔记</a><a class="post-meta__tags" href="/tags/BUPT/">BUPT</a></div><div class="post_share"><div class="social-share" data-image="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202306161931372.webp" data-sites="twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/03-C%20as%20Implemented%20in%20Assembly%20Language.html" title="03-C as Implemented in Assembly Language"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202306161931372.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">03-C as Implemented in Assembly Language</div></div></a></div><div class="next-post pull-right"><a href="/post/05-GPIO.html" title="05-GPIO"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202306161931372.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">05-GPIO</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/post/01%20Introduction.html" title="互联网应用笔记（一）"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202306221734670.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-20</div><div class="title">互联网应用笔记（一）</div></div></a></div><div><a href="/post/01-introduction.html" title="01- introduction"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202306161931372.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-16</div><div class="title">01- introduction</div></div></a></div><div><a href="/post/02.5%20linux.html" title="互联网应用笔记（三）"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202306221734670.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-20</div><div class="title">互联网应用笔记（三）</div></div></a></div><div><a href="/post/02%20stocker%20programming.html" title="互联网应用笔记（二）"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202306221734670.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-20</div><div class="title">互联网应用笔记（二）</div></div></a></div><div><a href="/post/02-ARM%20Cortex-M4.html" title="02-ARM Cortex-M4"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202306161931372.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-16</div><div class="title">02-ARM Cortex-M4</div></div></a></div><div><a href="/post/04%20DHCP.html" title="互联网应用笔记（四）"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202306221734670.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-20</div><div class="title">互联网应用笔记（四）</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/%E5%A4%B4%E5%83%8F.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">chilh</div><div class="author-info__description">记录学习笔记，学艺不精，大家多多评论指教</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">66</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:1547405085@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Serial-Communication-UART"><span class="toc-number">1.</span> <span class="toc-text">Serial Communication (UART)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Serial-vs-Parallel"><span class="toc-number">1.1.</span> <span class="toc-text">Serial vs Parallel</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Serial-Communication"><span class="toc-number">1.2.</span> <span class="toc-text">Serial Communication</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3%E7%A7%8D%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.2.0.1.</span> <span class="toc-text">3种模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%8C%E6%AD%A5"><span class="toc-number">1.2.0.2.</span> <span class="toc-text">同步</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Synchronous-Transmission"><span class="toc-number">1.2.1.</span> <span class="toc-text">Synchronous Transmission</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Asynchronous-Transmission"><span class="toc-number">1.2.2.</span> <span class="toc-text">Asynchronous Transmission</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Asynchronous-Comm-Protocol"><span class="toc-number">1.2.3.</span> <span class="toc-text">Asynchronous Comm. Protocol</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#difference"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">difference</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Data-Frame%E6%A0%BC%E5%BC%8F"><span class="toc-number">1.2.3.2.</span> <span class="toc-text">Data Frame格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%B2%E5%8F%A3%E9%80%9A%E4%BF%A1%E9%80%9F%E7%8E%87"><span class="toc-number">1.2.3.3.</span> <span class="toc-text">串口通信速率</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Error-Detection"><span class="toc-number">1.2.3.4.</span> <span class="toc-text">Error Detection</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#synchronous-communication-protocol"><span class="toc-number">1.2.3.5.</span> <span class="toc-text">synchronous communication protocol</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Asynchronous-protocol-%E2%80%93-RS232C"><span class="toc-number">1.2.4.</span> <span class="toc-text">Asynchronous protocol – RS232C</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#RS232C-Flow-Control"><span class="toc-number">1.2.4.1.</span> <span class="toc-text">RS232C: Flow Control</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Parsing-Messages-%E2%80%93-decoding-content-from-received-BITs"><span class="toc-number">1.2.5.</span> <span class="toc-text">Parsing Messages – decoding content from received BITs</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Example-Binary-Serial-Data-TSIP"><span class="toc-number">1.2.5.1.</span> <span class="toc-text">Example Binary Serial Data: TSIP</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Example-ASCII-Serial-Data-NMEA-0183"><span class="toc-number">1.2.5.2.</span> <span class="toc-text">Example ASCII Serial Data: NMEA-0183</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Asynchronous-x2F-Synchronous-serial-USART-Communications"><span class="toc-number">1.2.6.</span> <span class="toc-text">Asynchronous &#x2F; Synchronous serial (USART) Communications</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#USART%E5%8C%BA%E5%9D%97%E5%9B%BE"><span class="toc-number">1.2.6.1.</span> <span class="toc-text">USART区块图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#USART-modes"><span class="toc-number">1.2.6.2.</span> <span class="toc-text">USART modes</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Software-Structure"><span class="toc-number">1.2.6.3.</span> <span class="toc-text">Software Structure</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Serial-Communications-and-Interrupts"><span class="toc-number">1.2.6.4.</span> <span class="toc-text">Serial Communications and Interrupts</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Code-to-Implement-Queues"><span class="toc-number">1.2.6.5.</span> <span class="toc-text">Code to Implement Queues</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Defining-and-initializing-Queues"><span class="toc-number">1.2.6.5.1.</span> <span class="toc-text">Defining and initializing Queues</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%85%A5%E9%98%9F-amp-%E5%87%BA%E9%98%9F"><span class="toc-number">1.2.6.5.2.</span> <span class="toc-text">入队&amp; 出队</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#tx-%E5%85%A5%E9%98%9F"><span class="toc-number">1.2.6.5.3.</span> <span class="toc-text">tx 入队</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#rx%E5%87%BA%E9%98%9F"><span class="toc-number">1.2.6.5.4.</span> <span class="toc-text">rx出队</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Control-registers"><span class="toc-number">1.2.7.</span> <span class="toc-text">Control registers</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#USART-CR1"><span class="toc-number">1.2.7.1.</span> <span class="toc-text">USART_CR1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#USART-CR2"><span class="toc-number">1.2.7.2.</span> <span class="toc-text">USART_CR2</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Status-register-USART-SR"><span class="toc-number">1.2.7.3.</span> <span class="toc-text">Status register: USART_SR</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Baud-rate-register-USART-BRR"><span class="toc-number">1.2.7.4.</span> <span class="toc-text">Baud rate register: USART_BRR</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#USART-Character-description"><span class="toc-number">1.2.8.</span> <span class="toc-text">USART Character description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#USART-Transmitter"><span class="toc-number">1.2.9.</span> <span class="toc-text">USART Transmitter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#USART-Receiver"><span class="toc-number">1.2.10.</span> <span class="toc-text">USART Receiver</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#USART-Baud-Rate-generation"><span class="toc-number">1.2.11.</span> <span class="toc-text">USART Baud Rate generation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#USART-Parity-check"><span class="toc-number">1.2.12.</span> <span class="toc-text">USART Parity check</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/2023%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9%E7%9A%84%E7%95%99%E8%A8%80.html" title="2023最后一天的留言"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202312312339644.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2023最后一天的留言"/></a><div class="content"><a class="title" href="/post/2023%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9%E7%9A%84%E7%95%99%E8%A8%80.html" title="2023最后一天的留言">2023最后一天的留言</a><time datetime="2023-12-31T14:59:00.000Z" title="发表于 2023-12-31 22:59:00">2023-12-31</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/%E6%B5%B7%E8%B4%BC%E7%8E%8B%E7%9C%9F%E4%BA%BA%E7%89%88%E8%A7%82%E6%84%9F.html" title="海贼王真人版观感">海贼王真人版观感</a><time datetime="2023-09-07T02:16:37.000Z" title="发表于 2023-09-07 10:16:37">2023-09-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/ysyx%E9%A2%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-pa1.html" title="ysyx预学习记录--pa1"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202308101531521.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ysyx预学习记录--pa1"/></a><div class="content"><a class="title" href="/post/ysyx%E9%A2%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-pa1.html" title="ysyx预学习记录--pa1">ysyx预学习记录--pa1</a><time datetime="2023-08-10T07:27:15.000Z" title="发表于 2023-08-10 15:27:15">2023-08-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/DFT-S-OFDM.html" title="DFT-S-OFDM"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202307211649897.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DFT-S-OFDM"/></a><div class="content"><a class="title" href="/post/DFT-S-OFDM.html" title="DFT-S-OFDM">DFT-S-OFDM</a><time datetime="2023-07-21T08:45:03.000Z" title="发表于 2023-07-21 16:45:03">2023-07-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/%E9%98%BB%E5%A1%9E%E8%B5%8B%E5%80%BC%E5%92%8C%E9%9D%9E%E9%98%BB%E5%A1%9E%E8%B5%8B%E5%80%BC%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF.html" title="阻塞赋值和非阻塞赋值的应用场景"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202307121444978.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="阻塞赋值和非阻塞赋值的应用场景"/></a><div class="content"><a class="title" href="/post/%E9%98%BB%E5%A1%9E%E8%B5%8B%E5%80%BC%E5%92%8C%E9%9D%9E%E9%98%BB%E5%A1%9E%E8%B5%8B%E5%80%BC%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF.html" title="阻塞赋值和非阻塞赋值的应用场景">阻塞赋值和非阻塞赋值的应用场景</a><time datetime="2023-07-12T06:43:44.000Z" title="发表于 2023-07-12 14:43:44">2023-07-12</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202306161931372.webp')"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2023 By chilh</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadWaline () {
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://chilh.top">chilh</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://chilh.top/post/06-Serial%20Communication%20(UART).html">https://chilh.top/post/06-Serial%20Communication%20(UART).html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://chilh.top" target="_blank">Chilh</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%A4%A7%E4%B8%89%E4%B8%8B%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">大三下课程笔记</a><a class="post-meta__tags" href="/tags/BUPT/">BUPT</a></div><div class="post_share"><div class="social-share" data-image="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202306161931372.webp" data-sites="twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/07-timer.html" title="07-timer"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202306161931372.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">07-timer</div></div></a></div><div class="next-post pull-right"><a href="/post/05-GPIO.html" title="05-GPIO"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202306161931372.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">05-GPIO</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/post/01%20Introduction.html" title="互联网应用笔记（一）"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202306221734670.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-20</div><div class="title">互联网应用笔记（一）</div></div></a></div><div><a href="/post/01-introduction.html" title="01- introduction"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202306161931372.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-16</div><div class="title">01- introduction</div></div></a></div><div><a href="/post/02%20stocker%20programming.html" title="互联网应用笔记（二）"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202306221734670.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-20</div><div class="title">互联网应用笔记（二）</div></div></a></div><div><a href="/post/02-ARM%20Cortex-M4.html" title="02-ARM Cortex-M4"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202306161931372.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-16</div><div class="title">02-ARM Cortex-M4</div></div></a></div><div><a href="/post/02.5%20linux.html" title="互联网应用笔记（三）"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202306221734670.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-20</div><div class="title">互联网应用笔记（三）</div></div></a></div><div><a href="/post/03-C%20as%20Implemented%20in%20Assembly%20Language.html" title="03-C as Implemented in Assembly Language"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202306161931372.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-16</div><div class="title">03-C as Implemented in Assembly Language</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/%E5%A4%B4%E5%83%8F.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">chilh</div><div class="author-info__description">记录学习笔记，学艺不精，大家多多评论指教</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">66</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:1547405085@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">Serial Communication (UART)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Serial-vs-Parallel"><span class="toc-number">1.1.</span> <span class="toc-text">Serial vs Parallel</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Serial-Communication"><span class="toc-number">1.2.</span> <span class="toc-text">Serial Communication</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3%E7%A7%8D%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.2.0.1.</span> <span class="toc-text">3种模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%8C%E6%AD%A5"><span class="toc-number">1.2.0.2.</span> <span class="toc-text">同步</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Synchronous-Transmission"><span class="toc-number">1.2.1.</span> <span class="toc-text">Synchronous Transmission</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Asynchronous-Transmission"><span class="toc-number">1.2.2.</span> <span class="toc-text">Asynchronous Transmission</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Asynchronous-Comm-Protocol"><span class="toc-number">1.2.3.</span> <span class="toc-text">Asynchronous Comm. Protocol</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#difference"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">difference</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Data-Frame%E6%A0%BC%E5%BC%8F"><span class="toc-number">1.2.3.2.</span> <span class="toc-text">Data Frame格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%B2%E5%8F%A3%E9%80%9A%E4%BF%A1%E9%80%9F%E7%8E%87"><span class="toc-number">1.2.3.3.</span> <span class="toc-text">串口通信速率</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Error-Detection"><span class="toc-number">1.2.3.4.</span> <span class="toc-text">Error Detection</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#synchronous-communication-protocol"><span class="toc-number">1.2.3.5.</span> <span class="toc-text">synchronous communication protocol</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Asynchronous-protocol-%E2%80%93-RS232C"><span class="toc-number">1.2.4.</span> <span class="toc-text">Asynchronous protocol – RS232C</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#RS232C-Flow-Control"><span class="toc-number">1.2.4.1.</span> <span class="toc-text">RS232C: Flow Control</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Parsing-Messages-%E2%80%93-decoding-content-from-received-BITs"><span class="toc-number">1.2.5.</span> <span class="toc-text">Parsing Messages – decoding content from received BITs</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Example-Binary-Serial-Data-TSIP"><span class="toc-number">1.2.5.1.</span> <span class="toc-text">Example Binary Serial Data: TSIP</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Example-ASCII-Serial-Data-NMEA-0183"><span class="toc-number">1.2.5.2.</span> <span class="toc-text">Example ASCII Serial Data: NMEA-0183</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Asynchronous-Synchronous-serial-USART-Communications"><span class="toc-number">1.2.6.</span> <span class="toc-text">Asynchronous &#x2F; Synchronous serial (USART) Communications</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#USART%E5%8C%BA%E5%9D%97%E5%9B%BE"><span class="toc-number">1.2.6.1.</span> <span class="toc-text">USART区块图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#USART-modes"><span class="toc-number">1.2.6.2.</span> <span class="toc-text">USART modes</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Software-Structure"><span class="toc-number">1.2.6.3.</span> <span class="toc-text">Software Structure</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Serial-Communications-and-Interrupts"><span class="toc-number">1.2.6.4.</span> <span class="toc-text">Serial Communications and Interrupts</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Code-to-Implement-Queues"><span class="toc-number">1.2.6.5.</span> <span class="toc-text">Code to Implement Queues</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Defining-and-initializing-Queues"><span class="toc-number">1.2.6.5.1.</span> <span class="toc-text">Defining and initializing Queues</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%85%A5%E9%98%9F-%E5%87%BA%E9%98%9F"><span class="toc-number">1.2.6.5.2.</span> <span class="toc-text">入队&amp; 出队</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#tx-%E5%85%A5%E9%98%9F"><span class="toc-number">1.2.6.5.3.</span> <span class="toc-text">tx 入队</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#rx%E5%87%BA%E9%98%9F"><span class="toc-number">1.2.6.5.4.</span> <span class="toc-text">rx出队</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Control-registers"><span class="toc-number">1.2.7.</span> <span class="toc-text">Control registers</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#USART-CR1"><span class="toc-number">1.2.7.1.</span> <span class="toc-text">USART_CR1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#USART-CR2"><span class="toc-number">1.2.7.2.</span> <span class="toc-text">USART_CR2</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Status-register-USART-SR"><span class="toc-number">1.2.7.3.</span> <span class="toc-text">Status register: USART_SR</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Baud-rate-register-USART-BRR"><span class="toc-number">1.2.7.4.</span> <span class="toc-text">Baud rate register: USART_BRR</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#USART-Character-description"><span class="toc-number">1.2.8.</span> <span class="toc-text">USART Character description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#USART-Transmitter"><span class="toc-number">1.2.9.</span> <span class="toc-text">USART Transmitter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#USART-Receiver"><span class="toc-number">1.2.10.</span> <span class="toc-text">USART Receiver</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#USART-Baud-Rate-generation"><span class="toc-number">1.2.11.</span> <span class="toc-text">USART Baud Rate generation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#USART-Parity-check"><span class="toc-number">1.2.12.</span> <span class="toc-text">USART Parity check</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/2023%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9%E7%9A%84%E7%95%99%E8%A8%80.html" title="2023最后一天的留言"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202312312339644.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2023最后一天的留言"/></a><div class="content"><a class="title" href="/post/2023%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9%E7%9A%84%E7%95%99%E8%A8%80.html" title="2023最后一天的留言">2023最后一天的留言</a><time datetime="2023-12-31T14:59:00.000Z" title="发表于 2023-12-31 22:59:00">2023-12-31</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/%E6%B5%B7%E8%B4%BC%E7%8E%8B%E7%9C%9F%E4%BA%BA%E7%89%88%E8%A7%82%E6%84%9F.html" title="海贼王真人版观感">海贼王真人版观感</a><time datetime="2023-09-07T02:16:37.000Z" title="发表于 2023-09-07 10:16:37">2023-09-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/ysyx%E9%A2%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-pa1.html" title="ysyx预学习记录--pa1"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202308101531521.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ysyx预学习记录--pa1"/></a><div class="content"><a class="title" href="/post/ysyx%E9%A2%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-pa1.html" title="ysyx预学习记录--pa1">ysyx预学习记录--pa1</a><time datetime="2023-08-10T07:27:15.000Z" title="发表于 2023-08-10 15:27:15">2023-08-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/DFT-S-OFDM.html" title="DFT-S-OFDM"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202307211649897.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DFT-S-OFDM"/></a><div class="content"><a class="title" href="/post/DFT-S-OFDM.html" title="DFT-S-OFDM">DFT-S-OFDM</a><time datetime="2023-07-21T08:45:03.000Z" title="发表于 2023-07-21 16:45:03">2023-07-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/%E9%98%BB%E5%A1%9E%E8%B5%8B%E5%80%BC%E5%92%8C%E9%9D%9E%E9%98%BB%E5%A1%9E%E8%B5%8B%E5%80%BC%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF.html" title="阻塞赋值和非阻塞赋值的应用场景"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202307121444978.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="阻塞赋值和非阻塞赋值的应用场景"/></a><div class="content"><a class="title" href="/post/%E9%98%BB%E5%A1%9E%E8%B5%8B%E5%80%BC%E5%92%8C%E9%9D%9E%E9%98%BB%E5%A1%9E%E8%B5%8B%E5%80%BC%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF.html" title="阻塞赋值和非阻塞赋值的应用场景">阻塞赋值和非阻塞赋值的应用场景</a><time datetime="2023-07-12T06:43:44.000Z" title="发表于 2023-07-12 14:43:44">2023-07-12</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202306161931372.webp')"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2023 By chilh</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadWaline () {
   function insertCSS () {
     const link = document.createElement("link")
     link.rel = "stylesheet"
