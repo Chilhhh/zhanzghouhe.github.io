@@ -1,0 +1,541 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>2.2-HTTP | Chilh</title><meta name="author" content="chilh"><meta name="copyright" content="chilh"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="高编http的笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2.2-HTTP">
+<meta property="og:url" content="https://chilh.top/post/2.2-HTTP.html">
+<meta property="og:site_name" content="Chilh">
+<meta property="og:description" content="高编http的笔记">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1671047417610-8d1f6beb773d">
+<meta property="article:published_time" content="2022-12-26T10:13:52.000Z">
+<meta property="article:modified_time" content="2023-07-21T06:14:01.078Z">
+<meta property="article:author" content="chilh">
+<meta property="article:tag" content="BUPT">
+<meta property="article:tag" content="大三上课程笔记">
+<meta property="article:tag" content="ANP">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1671047417610-8d1f6beb773d"><link rel="shortcut icon" href="/"><link rel="canonical" href="https://chilh.top/post/2.2-HTTP.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"prismjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: chilh","link":"链接: ","source":"来源: Chilh","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '2.2-HTTP',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-07-21 14:14:01'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script><script>LA.init({id:"Jz34H84gllFAWP2o",ck:"Jz34H84gllFAWP2o"})</script><script src="https://sdk.51.la/perf/js-sdk-perf.min.js" crossorigin="anonymous"></script><script> new LingQue.Monitor().init({id:"Jz365mPYN13QqIwT"});</script><script src="https://npm.elemecdn.com/echarts@4.9.0/dist/echarts.min.js"></script><script src="https://npm.elemecdn.com/echarts@4.9.0/map/js/china.js"></script><script src="https://npm.elemecdn.com/echarts@4.9.0/dist/echarts.min.js"></script><meta name="generator" content="Hexo 6.1.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+
+if (false) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/%E5%A4%B4%E5%83%8F.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">66</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 图库</span></a></div><div class="menus_item"><a class="site-page" href="/charts/"><i class="fa-fw fa fa-heartbeat"></i><span> 统计</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1671047417610-8d1f6beb773d')"><nav id="nav"><span id="blog-info"><a href="/" title="Chilh"><span class="site-name">Chilh</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 图库</span></a></div><div class="menus_item"><a class="site-page" href="/charts/"><i class="fa-fw fa fa-heartbeat"></i><span> 统计</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">2.2-HTTP</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-12-26T10:13:52.000Z" title="发表于 2022-12-26 18:13:52">2022-12-26</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-07-21T06:14:01.078Z" title="更新于 2023-07-21 14:14:01">2023-07-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A4%A7%E5%AD%A6%E7%AC%94%E8%AE%B0/">大学笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>12分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="2.2-HTTP"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h1><h2 id="http"><a href="#http" class="headerlink" title="http"></a>http</h2><p><strong>HyperText Transfer Protocol</strong></p>
+<p>An application layer protocol used to transfer web pages (and other content) from a sever to a client</p>
+<p><strong>What is a web page?</strong></p>
+<p> A web page consists of objects:</p>
+<p>– e.g. an HTML file, a JPEG image, an audio clip, an applet <em>that are addressable by a single URL</em>;</p>
+<p>– also called a <strong>document</strong>.</p>
+<p>Usually consists of a base HTML document and several other referenced objects.</p>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221105001209590.png" alt="image-20221105001209590"></p>
+<h3 id="CLIENT-SERVER-WEB-ARCHITECTURE"><a href="#CLIENT-SERVER-WEB-ARCHITECTURE" class="headerlink" title="CLIENT-SERVER WEB ARCHITECTURE"></a><strong>CLIENT-SERVER</strong> <strong>WEB ARCHITECTURE</strong></h3><p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221105001012106.png" alt="image-20221105001012106"></p>
+<ul>
+<li>A Server</li>
+</ul>
+<p>exposes a listening socket Send a response containing e.g. html (other referenced resources)</p>
+<p>Extract (and validate) user data, perform task and send response.</p>
+<ul>
+<li>A Client</li>
+</ul>
+<p>software that initiates a request </p>
+<p>Send a request for the resource/document (webpage) addressable by ONE URL :</p>
+<blockquote>
+<p>HTTP follow the client-server model</p>
+</blockquote>
+<h3 id="Context-of-HTTP"><a href="#Context-of-HTTP" class="headerlink" title="Context of HTTP"></a><strong>Context of HTTP</strong></h3><p>HTTP is an application-layer protocol( it operates at the top of the OSI)</p>
+<p>It relies on many other protocols to achieve its goals:</p>
+<p>– <strong>TCP</strong> provides reliable in-order delivery</p>
+<p>– <strong>IP</strong> delivers data packets between the end hosts (i.e. client and server)</p>
+<p>– <strong>Layer 2</strong> (e.g. Ethernet) protocols deal with the individual networks (MAC)</p>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221026130155185.png" alt="image-20221026130155185"></p>
+<ul>
+<li><p>Network Layer delivers data <strong>packets</strong> between end hosts</p>
+</li>
+<li><p>Transport Layer delivers data <strong>segments</strong> between processes</p>
+</li>
+<li><p>Application Layer delivers services and applications <strong>Deals with advanced application specific functionality,</strong></p>
+</li>
+</ul>
+<p><strong>Each layer adds routing information</strong></p>
+<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221026130729072.png" alt="image-20221026130729072" style="zoom:50%;">
+
+<h3 id="HTTP-and-TCP"><a href="#HTTP-and-TCP" class="headerlink" title="HTTP and TCP"></a><strong>HTTP and TCP</strong></h3><p>HTTP is built over TCP</p>
+<p>Socket socket = new Socket(“10.0.0.1”, 80)就是建立TCP连接的过程</p>
+<p>– Initiates a TCP connection to 10.0.0.1’s port 80</p>
+<p>TCP makes life much easier for HTTP</p>
+<p>– No (perceived) packet loss</p>
+<p>– No out-of-order delivery</p>
+<p>– Congestion/flow control automatically handled</p>
+<h4 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a><strong>TCP</strong></h4><p><strong>TCP = Transmission Control Protocol</strong></p>
+<p>Connection-oriented protocol</p>
+<p>Provides a reliable unicast(单播) 可靠的点对点传播 (i.e., one-to-one) end-to-end byte stream over an unreliable internetwork</p>
+<p>Before any data transfer, TCP establishes a connection（建立socket时）:</p>
+<p>– One TCP entity is waiting for a connection (“server”)</p>
+<p>– The other TCP entity (“client”) contacts the server</p>
+<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221026134405131.png" alt="image-20221026134405131" style="zoom:67%;">
+
+<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221026134540421.png" alt="image-20221026134540421" style="zoom:67%;">
+
+<p>To the higher layers, TCP exposes a byte stream service</p>
+<p>– i.e., OutputStream in your Socket class</p>
+<p>在更高层看来TCP提供流服务，看不到报文段</p>
+<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221026135018823.png" alt="image-20221026135018823" style="zoom:67%;">
+
+<p>• System services reserve the use of <em>ports 0 through 1023</em>.</p>
+<p>– Do not use them!</p>
+<p>• Default port for web server is <strong>port 80</strong></p>
+<h3 id="URL-Uniform-Resource-Locator"><a href="#URL-Uniform-Resource-Locator" class="headerlink" title="URL: Uniform Resource Locator"></a><strong>URL: Uniform Resource Locator</strong></h3><p>HTTP使用统一资源标识符（Uniform Resource Identifiers, URI）来传输数据和建立连接。</p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/406d19dfabd3">快速搞懂URL的构成 - 简书 (jianshu.com)</a></p>
+<p>A way of locating a <em>resource</em> on the Internet</p>
+<p>– a file, an e-mail address, a CGI program</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">protocol://hostname<span class="token punctuation">[</span>:port<span class="token punctuation">]</span>/path/filename<span class="token comment">#section</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li><p>protocol– the <em>protocol</em> used to access the server</p>
+</li>
+<li><p>hostname– the <em>name of the server</em></p>
+</li>
+<li><p>/path/filename– the <em>location of a file on the server</em></p>
+<p>Points to a file in the directory specified by <strong>path</strong>:</p>
+<p>if omitted, it is left to the server to decide which file to send</p>
+<p>• e.g. it may send an index of the directory, often in a file called <strong>index.html</strong></p>
+</li>
+<li><p>path - 定义服务器上的路径（如果省略，则文档必须位于网站的根目录中）。</p>
+</li>
+<li><p>#section is a <em>named anchor</em> in an HTML document:</p>
+<p>– also called <em>fragment</em> or <em>Ref</em></p>
+<p>– created using a tag 与HTML中的<a>标签相连</a></p><a>
+<pre class="line-numbers language-none"><code class="language-none">&lt;A NAME="abc123"&gt; &lt;/A&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>in the HTML file specified</p>
+</a></li><a>
+</a></ul><a>
+<p><code>fragment</code>可以理解为资源内部的<code>书签</code>.用来想服务器指明展示的内容所在的<code>书签</code>的点.例如对于<code>HTML</code>文件来说,浏览器会滚动到特定的或者上次浏览过的位置.对于音频或者视频资源来说,浏览器又会跳转到对应的时间节点.</p>
+</a><h5 id="Other-possible-protocols-to-use-with-URLs"><a></a><a href="#Other-possible-protocols-to-use-with-URLs" class="headerlink" title="Other possible protocols to use with URLs"></a><strong>Other possible protocols to use with URLs</strong></h5><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221026190542344.png" alt="image-20221026190542344" style="zoom:50%;">
+
+
+
+
+<h2 id="HTTP-PROTOCOL-DETAILS"><a href="#HTTP-PROTOCOL-DETAILS" class="headerlink" title="HTTP PROTOCOL DETAILS"></a><strong>HTTP PROTOCOL DETAILS</strong></h2><ul>
+<li><p>无状态：It is <em>stateless</em>: it does not remember anything about previous connections, so it’s simple and robust</p>
+<p><em>can lead to inefficiencies</em>：client请求一个页面，然而这个页面没变化，就需要重发</p>
+</li>
+</ul>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221026220836214.png" alt="image-20221026220836214"></p>
+<p>HTTP/1.0, HTTP/1.1 and HTTP/2.0 use <em>TCP as the underlying</em> <em>transport protocol</em>.</p>
+<p>– Client writes HTTP request messages into its socket and reads responses from the socket.</p>
+<p>– Server reads HTTP requests and writes it responses to its sockets**.**</p>
+<h5 id="持续连接与非持续"><a href="#持续连接与非持续" class="headerlink" title="持续连接与非持续"></a>持续连接与非持续</h5><p>persistent connection：一个请求建立一个TCP</p>
+<p> Server leaves a TCP connection open (for some time) after sending a response.Subsequent requests and responses between same client and server can be made over same connection</p>
+<p>Usually multiple resources are obtained by parallel TCP connections</p>
+<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221026223201320.png" alt="image-20221026223201320" style="zoom:67%;">
+
+<p>non-persistent　connection：一系列请求基于一个相同的TCP</p>
+<ul>
+<li><p>非流水线方式： 客户在收到前一个响应后才能发出下 一个请求。这比非持续连接的两倍 RTT 的开销节省了 建立 TCP 连接所需的一个 RTT时间。但服务器在发 送完一个对象后，其 TCP 连接就处于空闲状态，浪费 了服务器资源。</p>
+</li>
+<li><p>流水线方式： 客户在收到 HTTP的响应报文之前就能够接着发送新的请求报文。一个接一个的请求报文到 达服务器后，服务器就可连续发回响应报文。使用流水线方式时，客户访问所有的对象只需花费一个 RTT 时间，使 TCP 连接中的空闲时间减少，提高了下载文档效率。</p>
+</li>
+<li><p><strong>http 1.1及以后才支持persistent connection 和pipeline</strong></p>
+</li>
+</ul>
+<h5 id="建立HTTP过程（no-persistent-connection）："><a href="#建立HTTP过程（no-persistent-connection）：" class="headerlink" title="建立HTTP过程（no-persistent connection）："></a>建立HTTP过程（no-persistent connection）：</h5><p>1个HTTP响应对应一个TCP连接</p>
+<ol>
+<li><p>Set up TCP connection from client to server.</p>
+</li>
+<li><p>HTTP client sends a message to the server requesting the page at specified URL using the TCP connection established in <em>step 1</em>.– Request includes the path name.</p>
+</li>
+<li><p>HTTP server receives message via connection socket set up in <em>step</em> 1 and then:</p>
+<p>– retrieves the requested object from its data storage;</p>
+<p>– encapsulates the object in an HTTP response message;</p>
+<p>– sends the response back via the connection socket.</p>
+</li>
+<li><p>HTTP server tells TCP to close connection.</p>
+<p>– TCP doesn’t actually do this until the client has successfully received the response.</p>
+</li>
+<li><p>Client receives message, and the TCP connection terminates.</p>
+</li>
+<li><p>The message tells the client that the response object is an HTML file.</p>
+<p>– Client extracts the file from the response message, parses the HTML file and finds references to other referenced objects.</p>
+</li>
+</ol>
+<p><em>7. Steps 1-5</em> are repeated for each of these referenced objects.</p>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221026220929714.png" alt="image-20221026220929714"></p>
+<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221026215424833.png" alt="image-20221026215424833" style="zoom:67%;">
+
+<p>如果是persistent　connections　所有element　in　HTML都经过这一个TCP传</p>
+<h4 id="HTTP-message-format"><a href="#HTTP-message-format" class="headerlink" title="HTTP  message format"></a><strong>HTTP  message format</strong></h4><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/myseries/p/11239662.html">HTTP报文结构和内容（转） - myseries - 博客园 (cnblogs.com)</a></p>
+<p>HTTP有两种报文：请求报文和响应报文</p>
+<h5 id="请求报文"><a href="#请求报文" class="headerlink" title="请求报文"></a>请求报文</h5><p>Two key HTTP <strong>request</strong> methods:</p>
+<p>– <strong>GET</strong></p>
+<p>• Query string incorporated in the request URL.</p>
+<p>• Idempotent（幂等性）: multiple requests have the same effect as a single one.</p>
+<p>一次和多次请求某一个资源对于资源本身应该具有同样的结果（关注产生的影响而不是结果），也就是说任意执行对资源本身所产生的影响均与第一次执行的影响相同。<br>注意：（一次和多次结果中）可能返回得到不同的结果，当时并不影响资源</p>
+<p>• Cachable.</p>
+<p>– <strong>POST</strong></p>
+<p>• Query string placed in the body of the HTTP request. 不显示在URL</p>
+<p>• Non-idempotent: e.g. pressing a shopping button twice would result in two orders!</p>
+<p>• Used when e.g. want to alter data on the server-side</p>
+<p>GET 用于获取信息，是无副作用的，是幂等的，且可缓存</p>
+<p> POST 用于修改<a target="_blank" rel="noopener" href="https://cloud.tencent.com/product/cvm?from=10680">服务器</a>上的数据，有副作用，非幂等，不可缓存</p>
+<h6 id="GET-message-request"><a href="#GET-message-request" class="headerlink" title="GET message request"></a><strong>GET message request</strong></h6><pre class="line-numbers language-http" data-language="http"><code class="language-http"><span class="token request-line"><span class="token method property">GET</span> <span class="token request-target url">/somedir/index.html</span> <span class="token http-version property">HTTP/1.1</span></span>
+<span class="token header"><span class="token header-name keyword">Host</span><span class="token punctuation">:</span> <span class="token header-value">www.qmul.ac.uk</span></span>
+<span class="token header"><span class="token header-name keyword">Connection</span><span class="token punctuation">:</span> <span class="token header-value">close</span></span>
+<span class="token header"><span class="token header-name keyword">User-agent</span><span class="token punctuation">:</span> <span class="token header-value">Mozilla/5.0</span></span>
+<span class="token header"><span class="token header-name keyword">Accept-language</span><span class="token punctuation">:</span><span class="token header-value">fr</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ol>
+<li>==第一行叫 request line==</li>
+</ol>
+<p><strong>请求行</strong>由三部分组成：<strong>请求方法</strong>，<strong>请求URL</strong>（不包括域名），<strong>HTTP协议版本</strong>请求方法比较多：<strong>GET、POST、HEAD、PUT、DELETE、OPTIONS、TRACE、CONNECT</strong></p>
+<p>　　最常用的是GET和POST。</p>
+<ol start="2">
+<li><p>==2-4行都是header line==</p>
+<p>请求头部由关键字/值对组成，每行一对</p>
+<ul>
+<li><p>User-Agent : 产生请求的浏览器类型</p>
+</li>
+<li><p>Connection：设置persistent connect 是否启用</p>
+</li>
+<li><p>Accept : 客户端希望接受的数据类型，比如 Accept：text/xml（application/json）表示希望接受到的是xml（json）类型</p>
+</li>
+<li><p>Content-Type：发送端发送的实体数据的数据类型。<br>  比如，Content-Type：text/html（application/json）表示发送的是html类型。</p>
+</li>
+<li><p>Host : 请求的主机名</p>
+</li>
+</ul>
+</li>
+<li><p>请求头之后是一个空行（<em>extra carriage return（回车） and line feed（换行）</em>），通知服务器以下不再有请求头</p>
+</li>
+</ol>
+<p>通用格式：</p>
+<pre class="line-numbers language-none"><code class="language-none">＜request-line＞ //请求行
+
+＜headers＞ //首部行
+
+＜blank line＞ //空行 
+
+＜entity body＞ //请求体（只有post有）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>This text is simply written into a socket!</strong></p>
+<h6 id="request-message-format"><a href="#request-message-format" class="headerlink" title="request message format"></a><strong>request message format</strong></h6><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221026222400602.png" alt="image-20221026222400602" style="zoom:67%;">
+
+<p>使用post时才使用entity body（用户的输入值）</p>
+<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221026222434133.png" alt="image-20221026222434133" style="zoom:67%;">
+
+<h5 id="A-response-message"><a href="#A-response-message" class="headerlink" title="A response message"></a><strong>A response message</strong></h5><p>　HTTP响应报文和请求报文的结构差不多，也是由四个部分组成：</p>
+<pre class="line-numbers language-none"><code class="language-none">＜status-line＞   //状态行
+
+＜headers＞   //消息报头
+
+＜blank line＞   //空行
+
+＜entity-body＞    //响应体<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-http" data-language="http"><code class="language-http"><span class="token response-status"><span class="token http-version property">HTTP/1.1</span> <span class="token status-code number">200</span> <span class="token reason-phrase string">OK</span></span>
+Connection : close
+<span class="token header"><span class="token header-name keyword">Date</span><span class="token punctuation">:</span> <span class="token header-value">Fri, 10th Nov 2000 12:01:14 GMT</span></span>
+<span class="token header"><span class="token header-name keyword">Server</span><span class="token punctuation">:</span> <span class="token header-value">Apache/1.3.0 (Unix)</span></span>
+<span class="token header"><span class="token header-name keyword">Last-Modified</span><span class="token punctuation">:</span> <span class="token header-value">Mon, 20 July 1999 08:44:01 GMT</span></span>
+<span class="token header"><span class="token header-name keyword">Content-Length</span><span class="token punctuation">:</span> <span class="token header-value">5993</span></span>
+<span class="token header"><span class="token header-name keyword">Content-Type</span><span class="token punctuation">:</span> <span class="token header-value">text/html</span></span>
+<span class="token text-html">(data data data ...)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li><p>初始状态行（status line）（服务器HTTP协议版本，响应状态码，状态码的文本描述）</p>
+<p>常用状态码：</p>
+<ol>
+<li>1xx：指示信息，表示请求已接收，继续处理</li>
+<li>2xx：成功，表示请求已被成功接受，处理</li>
+<li>3xx: 重定向，需要进一步的操作以完成请求</li>
+<li>4xx：客户端错误</li>
+<li>5xx：服务器端错误，服务器未能实现合法的请求</li>
+</ol>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221026222845045.png" alt="image-20221026222845045"></p>
+<p>300:有多个返回对象</p>
+</li>
+</ul>
+<p><strong>response message format</strong><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221026222832936.png" alt="image-20221026222832936" style="zoom:67%;"></p>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221026222738091.png" alt="image-20221026222738091"></p>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221026225818291.png" alt="image-20221026225818291"></p>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221026225825791.png" alt="image-20221026225825791"></p>
+<h4 id="IMPORTANT-HEADERS"><a href="#IMPORTANT-HEADERS" class="headerlink" title="IMPORTANT HEADERS"></a><strong>IMPORTANT HEADERS</strong></h4><ul>
+<li><p>Cache-Control 缓存控制</p>
+<p>Holds instructions for caching in both  requests and responses</p>
+<p>服务器使用此Header来向客户端建议缓存策略（是否缓存该响应）</p>
+<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221105143613273.png" alt="image-20221105143613273" style="zoom:67%;">
+</li>
+<li><p>Etag</p>
+<p>an identifier for a specific version of a resource</p>
+<p>ETag是一个可以与<a target="_blank" rel="noopener" href="http://www.hudong.com/wiki/Web">Web</a>资源关联的记号</p>
+<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221105143726676.png" alt="image-20221105143726676" style="zoom:67%;">
+</li>
+<li><p>Vary</p>
+<p>Allows to determine if a cached response may be returned for a subsequent request</p>
+<p>应该使用一个缓存作为响应还是向源服务器请求一个新的响应</p>
+</li>
+<li><p>Date</p>
+<p>– Shows the timestamp of when the response was generated</p>
+<p>显示生成响应的时间戳</p>
+</li>
+<li><p>Expires</p>
+<p>– Shows the time that the resource expires</p>
+<p>显示资源过期的时间</p>
+<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221105144243766.png" alt="image-20221105144243766" style="zoom:67%;">
+</li>
+<li><p>Pragma</p>
+<p>Similar to cache-control (e.g. often used to disable caching)</p>
+</li>
+<li><p>Content-Length</p>
+<p>– Shows the length of the resource in bytes</p>
+</li>
+<li><p>Content-Encoding</p>
+</li>
+</ul>
+<p>  – Describes how the content is encoded, e.g. gzip</p>
+<ul>
+<li><p>Content-Type</p>
+<p>– MIME type of object, e.g. text/html</p>
+<p>MIME (Multipurpose Internet Mail Extensions) 是描述消息内容类型的标准，用来表示文档、文件或字节流的性质和格式。</p>
+</li>
+</ul>
+<h5 id="Set-Cookie-Header"><a href="#Set-Cookie-Header" class="headerlink" title="Set-Cookie Header"></a><strong>Set-Cookie Header</strong></h5><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/27669892">认识HTTP—-Cookie和Session篇 - 知乎 (zhihu.com)</a></p>
+<p>Many major websites use cookies. </p>
+<p>Cookie 技术通过在请求和响应报文中写入Cookie 信息来控制客户端的状态。<br>Cookie 会根据从服务器端发送的响应报文内的一个叫做Set-Cookie的首部字段信息，通知客户端保存Cookie。当下次客户端再往该服务器发送请求时，客户端会自动在请求报文中加入Cookie 值后发送出去。服务器端发现客户端发送过来的Cookie 后，会去检查究竟是从哪一个客户端发来的连接请求，然后对比服务器上的记录，最后得到之前的状态信息。</p>
+<ol>
+<li><p>cookie header line of HTTP response message;</p>
+</li>
+<li><p>cookie header line in HTTP request message;</p>
+</li>
+<li><p>cookie file kept on user’s host, managed by user’s browser;</p>
+</li>
+<li><p>backend database at website</p>
+</li>
+</ol>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221026231132043.png" alt="image-20221026231132043"></p>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221027002550840.png" alt="image-20221027002550840"></p>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221027002610744.png" alt="image-20221027002610744"></p>
+<p>When initial HTTP request arrives at site, site creates:</p>
+<ol>
+<li><p>unique ID;</p>
+</li>
+<li><p>entry in backend database for ID</p>
+</li>
+</ol>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221027002325120.png" alt="image-20221027002325120"></p>
+<h3 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a><strong>HTTPS</strong></h3><p>HTTP <strong>S</strong>ecure</p>
+<p>The same as HTTP but</p>
+<p>– Runs over **TLS (Transport Layer Security)**不是基于TCP，基于TLS</p>
+<p>– <strong>Port 443</strong></p>
+<p><strong>All traffic (headers and payloads) are encrypted</strong></p>
+<h5 id="HTTPS-Issues"><a href="#HTTPS-Issues" class="headerlink" title="HTTPS Issues"></a><strong>HTTPS Issues</strong></h5><p>• <strong>Adds extra overhead</strong></p>
+<p>• Increases connection setup time</p>
+<p>– Requires TCP setup + TLS handshake</p>
+<p>Thus, <strong>increases page load time</strong></p>
+<p><em>The security of HTTPS depends on that of the underlying TLS protocol</em></p>
+<p>Moreover, a website that uses mixed protocols (e.g., images served via HTTP, login info via HTTPS) can still make the user vulnerable to attacks/surveillance</p>
+<h3 id="HTTP-2-0"><a href="#HTTP-2-0" class="headerlink" title="HTTP 2.0"></a><strong>HTTP 2.0</strong></h3><p>Initiated by the IETF to design a new version of HTTP</p>
+<p>HTTP 2.0 has had a focus on reducing page load times</p>
+<ul>
+<li>Multiplexing</li>
+</ul>
+<p>– Multiple resources can be requested and fetched in parallel</p>
+<p>可以并行地请求和获取多个资源</p>
+<p>– Prevents “head of line” blocking</p>
+<ul>
+<li>Universal encryption</li>
+</ul>
+<p>– All traffic is encrypted by default</p>
+<p>– Equivalent of running everything over HTTPS</p>
+<ul>
+<li>Server push/hint</li>
+</ul>
+<p>– Server can push resources before being requested</p>
+<p> 服务器可以在请求之前推送资源</p>
+<p>– Server can “hint” that clients fetch resources (e.g. if the server knows the client will need something in the future)</p>
+<p>服务器可以“提示”客户端获取资源(例如，如果服务器知道客户端将来会需要某些东西)</p>
+<ul>
+<li>Content prioritization</li>
+</ul>
+<p>– Specify the preferred order and priority that server transfers resources to clie</p>
+<p>指定服务器向客户端传输资源的首选顺序和优先级</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://chilh.top">chilh</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://chilh.top/post/2.2-HTTP.html">https://chilh.top/post/2.2-HTTP.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://chilh.top" target="_blank">Chilh</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/BUPT/">BUPT</a><a class="post-meta__tags" href="/tags/%E5%A4%A7%E4%B8%89%E4%B8%8A%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">大三上课程笔记</a><a class="post-meta__tags" href="/tags/ANP/">ANP</a></div><div class="post_share"><div class="social-share" data-image="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1671047417610-8d1f6beb773d" data-sites="twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/1.1-Threads%20and%20Concurrency%20in%20Java%EF%BC%88%E4%B8%8A%EF%BC%89.html" title="1.1-Threads and Concurrency in Java（上）"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/porter-raab--mNr_4WfdCg-unsplash.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">1.1-Threads and Concurrency in Java（上）</div></div></a></div><div class="next-post pull-right"><a href="/post/2.3-HTML.html" title="2.3-HTML"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1671371129996-a65e1f24267e" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">2.3-HTML</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/post/1.1-Threads%20and%20Concurrency%20in%20Java%EF%BC%88%E4%B8%8A%EF%BC%89.html" title="1.1-Threads and Concurrency in Java（上）"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/porter-raab--mNr_4WfdCg-unsplash.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-30</div><div class="title">1.1-Threads and Concurrency in Java（上）</div></div></a></div><div><a href="/post/1.2-Threads%20and%20Concurrency%20in%20Java%EF%BC%88%E4%B8%8B%EF%BC%89.html" title="1.2-Threads and Concurrency in Java（下）"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1671085957836-60848fafaf75" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-30</div><div class="title">1.2-Threads and Concurrency in Java（下）</div></div></a></div><div><a href="/post/2.1-Socket.html" title="2.1-Socket"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1671046488676-bd3b8fb2f397" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-30</div><div class="title">2.1-Socket</div></div></a></div><div><a href="/post/2.3-HTML.html" title="2.3-HTML"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1671371129996-a65e1f24267e" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-26</div><div class="title">2.3-HTML</div></div></a></div><div><a href="/post/2.4-JavaScript.html" title="2.4-JavaScript"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1671154680544-6b89302d26b9" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-26</div><div class="title">2.4-JavaScript</div></div></a></div><div><a href="/post/3.2-JavaBean.html" title="3.2-JSP"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1655071516490-1bd37e1e690e" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-26</div><div class="title">3.2-JSP</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/%E5%A4%B4%E5%83%8F.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">chilh</div><div class="author-info__description">记录学习笔记，学艺不精，大家多多评论指教</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">66</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:1547405085@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#HTTP"><span class="toc-number">1.</span> <span class="toc-text">HTTP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#http"><span class="toc-number">1.1.</span> <span class="toc-text">http</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CLIENT-SERVER-WEB-ARCHITECTURE"><span class="toc-number">1.1.1.</span> <span class="toc-text">CLIENT-SERVER WEB ARCHITECTURE</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Context-of-HTTP"><span class="toc-number">1.1.2.</span> <span class="toc-text">Context of HTTP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP-and-TCP"><span class="toc-number">1.1.3.</span> <span class="toc-text">HTTP and TCP</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#TCP"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">TCP</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#URL-Uniform-Resource-Locator"><span class="toc-number">1.1.4.</span> <span class="toc-text">URL: Uniform Resource Locator</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Other-possible-protocols-to-use-with-URLs"><span class="toc-number">1.1.4.0.1.</span> <span class="toc-text">Other possible protocols to use with URLs</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP-PROTOCOL-DETAILS"><span class="toc-number">1.2.</span> <span class="toc-text">HTTP PROTOCOL DETAILS</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8C%81%E7%BB%AD%E8%BF%9E%E6%8E%A5%E4%B8%8E%E9%9D%9E%E6%8C%81%E7%BB%AD"><span class="toc-number">1.2.0.0.1.</span> <span class="toc-text">持续连接与非持续</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8BHTTP%E8%BF%87%E7%A8%8B%EF%BC%88no-persistent-connection%EF%BC%89%EF%BC%9A"><span class="toc-number">1.2.0.0.2.</span> <span class="toc-text">建立HTTP过程（no-persistent connection）：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTTP-message-format"><span class="toc-number">1.2.0.1.</span> <span class="toc-text">HTTP  message format</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E6%8A%A5%E6%96%87"><span class="toc-number">1.2.0.1.1.</span> <span class="toc-text">请求报文</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#GET-message-request"><span class="toc-number">1.2.0.1.1.1.</span> <span class="toc-text">GET message request</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#request-message-format"><span class="toc-number">1.2.0.1.1.2.</span> <span class="toc-text">request message format</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#A-response-message"><span class="toc-number">1.2.0.1.2.</span> <span class="toc-text">A response message</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#IMPORTANT-HEADERS"><span class="toc-number">1.2.0.2.</span> <span class="toc-text">IMPORTANT HEADERS</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Set-Cookie-Header"><span class="toc-number">1.2.0.2.1.</span> <span class="toc-text">Set-Cookie Header</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTPS"><span class="toc-number">1.2.1.</span> <span class="toc-text">HTTPS</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#HTTPS-Issues"><span class="toc-number">1.2.1.0.1.</span> <span class="toc-text">HTTPS Issues</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP-2-0"><span class="toc-number">1.2.2.</span> <span class="toc-text">HTTP 2.0</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/2023%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9%E7%9A%84%E7%95%99%E8%A8%80.html" title="2023最后一天的留言"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202312312339644.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2023最后一天的留言"/></a><div class="content"><a class="title" href="/post/2023%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9%E7%9A%84%E7%95%99%E8%A8%80.html" title="2023最后一天的留言">2023最后一天的留言</a><time datetime="2023-12-31T14:59:00.000Z" title="发表于 2023-12-31 22:59:00">2023-12-31</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/%E6%B5%B7%E8%B4%BC%E7%8E%8B%E7%9C%9F%E4%BA%BA%E7%89%88%E8%A7%82%E6%84%9F.html" title="海贼王真人版观感">海贼王真人版观感</a><time datetime="2023-09-07T02:16:37.000Z" title="发表于 2023-09-07 10:16:37">2023-09-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/ysyx%E9%A2%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-pa1.html" title="ysyx预学习记录--pa1"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202308101531521.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ysyx预学习记录--pa1"/></a><div class="content"><a class="title" href="/post/ysyx%E9%A2%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-pa1.html" title="ysyx预学习记录--pa1">ysyx预学习记录--pa1</a><time datetime="2023-08-10T07:27:15.000Z" title="发表于 2023-08-10 15:27:15">2023-08-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/DFT-S-OFDM.html" title="DFT-S-OFDM"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202307211649897.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DFT-S-OFDM"/></a><div class="content"><a class="title" href="/post/DFT-S-OFDM.html" title="DFT-S-OFDM">DFT-S-OFDM</a><time datetime="2023-07-21T08:45:03.000Z" title="发表于 2023-07-21 16:45:03">2023-07-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/%E9%98%BB%E5%A1%9E%E8%B5%8B%E5%80%BC%E5%92%8C%E9%9D%9E%E9%98%BB%E5%A1%9E%E8%B5%8B%E5%80%BC%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF.html" title="阻塞赋值和非阻塞赋值的应用场景"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202307121444978.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="阻塞赋值和非阻塞赋值的应用场景"/></a><div class="content"><a class="title" href="/post/%E9%98%BB%E5%A1%9E%E8%B5%8B%E5%80%BC%E5%92%8C%E9%9D%9E%E9%98%BB%E5%A1%9E%E8%B5%8B%E5%80%BC%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF.html" title="阻塞赋值和非阻塞赋值的应用场景">阻塞赋值和非阻塞赋值的应用场景</a><time datetime="2023-07-12T06:43:44.000Z" title="发表于 2023-07-12 14:43:44">2023-07-12</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1671047417610-8d1f6beb773d')"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2023 By chilh</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadWaline () {
+  function insertCSS () {
+    const link = document.createElement("link")
+    link.rel = "stylesheet"
+    link.href = "https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.css"
+    document.head.appendChild(link)
+  }
+
+  function initWaline () {
+    const waline = Waline.init(Object.assign({
+      el: '#waline-wrap',
+      serverURL: 'https://chilh-comment-nwkfkyqk8-zhanzghouhe.vercel.app',
+      pageview: false,
+      dark: 'html[data-theme="dark"]',
+      path: window.location.pathname,
+      comment: false,
+    }, null))
+  }
+
+  if (typeof Waline === 'function') initWaline()
+  else {
+    insertCSS()
+    getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.js').then(initWaline)
+  }
+}
+
+if ('Waline' === 'Waline' || !true) {
+  if (true) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+  else setTimeout(loadWaline, 0)
+} else {
+  function loadOtherComment () {
+    loadWaline()
+  }
+}</script></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":85,"height":400,"hOffset":-18,"vOffset":25},"mobile":{"show":true},"react":{"opacity":0.7},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html>

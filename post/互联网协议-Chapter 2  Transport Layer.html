@@ -1,0 +1,806 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>互联网协议-Chapter 2  Transport Layer | Chilh</title><meta name="author" content="chilh"><meta name="copyright" content="chilh"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="互联协议 Chapter 2  Transport Layer 的笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="互联网协议-Chapter 2  Transport Layer">
+<meta property="og:url" content="https://chilh.top/post/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE-Chapter%202%20%20Transport%20Layer.html">
+<meta property="og:site_name" content="Chilh">
+<meta property="og:description" content="互联协议 Chapter 2  Transport Layer 的笔记">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1664737061963-862d6a174a3b">
+<meta property="article:published_time" content="2022-12-29T11:24:52.000Z">
+<meta property="article:modified_time" content="2023-07-21T06:11:18.797Z">
+<meta property="article:author" content="chilh">
+<meta property="article:tag" content="BUPT">
+<meta property="article:tag" content="大三上课程笔记">
+<meta property="article:tag" content="互联网协议">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1664737061963-862d6a174a3b"><link rel="shortcut icon" href="/"><link rel="canonical" href="https://chilh.top/post/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE-Chapter%202%20%20Transport%20Layer.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"prismjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: chilh","link":"链接: ","source":"来源: Chilh","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '互联网协议-Chapter 2  Transport Layer',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-07-21 14:11:18'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script><script>LA.init({id:"Jz34H84gllFAWP2o",ck:"Jz34H84gllFAWP2o"})</script><script src="https://sdk.51.la/perf/js-sdk-perf.min.js" crossorigin="anonymous"></script><script> new LingQue.Monitor().init({id:"Jz365mPYN13QqIwT"});</script><script src="https://npm.elemecdn.com/echarts@4.9.0/dist/echarts.min.js"></script><script src="https://npm.elemecdn.com/echarts@4.9.0/map/js/china.js"></script><script src="https://npm.elemecdn.com/echarts@4.9.0/dist/echarts.min.js"></script><meta name="generator" content="Hexo 6.1.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+
+if (false) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/%E5%A4%B4%E5%83%8F.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">66</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 图库</span></a></div><div class="menus_item"><a class="site-page" href="/charts/"><i class="fa-fw fa fa-heartbeat"></i><span> 统计</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1664737061963-862d6a174a3b')"><nav id="nav"><span id="blog-info"><a href="/" title="Chilh"><span class="site-name">Chilh</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 图库</span></a></div><div class="menus_item"><a class="site-page" href="/charts/"><i class="fa-fw fa fa-heartbeat"></i><span> 统计</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">互联网协议-Chapter 2  Transport Layer</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-12-29T11:24:52.000Z" title="发表于 2022-12-29 19:24:52">2022-12-29</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-07-21T06:11:18.797Z" title="更新于 2023-07-21 14:11:18">2023-07-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A4%A7%E5%AD%A6%E7%AC%94%E8%AE%B0/">大学笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">6.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>26分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="互联网协议-Chapter 2  Transport Layer"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Chapter-2-Transport-Layer"><a href="#Chapter-2-Transport-Layer" class="headerlink" title="Chapter 2   Transport Layer"></a>Chapter 2   Transport Layer</h1><h2 id="提纲"><a href="#提纲" class="headerlink" title="提纲"></a>提纲</h2><p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221003130033331.png" alt="image-20221003130033331"></p>
+<p>[TOC]</p>
+<h2 id="Application-layer"><a href="#Application-layer" class="headerlink" title="Application layer"></a>Application layer</h2><h3 id="1-Application-layer"><a href="#1-Application-layer" class="headerlink" title="1. Application layer"></a>1. Application layer</h3><p>application layer 不是本课重点，所以只用几页ppt简介（高编里重点讲了）</p>
+<p>This is the layer you (mostly) work with as a programmer.</p>
+<p>At the application layer the “network” is abstracted away and you access a stream of data that arrives at a “socket”.通过套接字socket访问网络层数据流</p>
+<p> <strong>Different applications have different formats:</strong></p>
+<p>• HTTP (Hypertext transfer protocol) world-wide web</p>
+<p>• FTP (File transfer protocol) moving data</p>
+<p>• SMTP (Send Mail transfer protocol) sending email</p>
+<p>• IMAP (Internet message access protocol) receiving email</p>
+<h4 id="Sockets"><a href="#Sockets" class="headerlink" title="Sockets"></a><strong>Sockets</strong></h4><p>process sends/receives messages to/from its socket</p>
+<p>进程通过socket传递信息</p>
+<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220914211304193.png" alt="image-20220914211304193" style="zoom:67%;">
+
+<ul>
+<li>套接字 &lt;=&gt; 门户</li>
+</ul>
+<p>发送进程将报文<strong>推出</strong>门户，发送进程依赖于传输层设施在另外一侧的门将报文交付给接受进程 </p>
+<p> 接收进程从另外一端的门户<strong>收到</strong>报文（依赖于传输层设施）</p>
+<h4 id="Addressing-processes"><a href="#Addressing-processes" class="headerlink" title="Addressing processes"></a>Addressing processes</h4><p>进程寻址</p>
+<p>to receive messages, process must have <em>identifier</em></p>
+<p>host device has unique 32- bit IP address</p>
+<blockquote>
+<p><em>identifier</em> includes both IP address and port numbers（进程端口号） associated with process on host.</p>
+</blockquote>
+<p>example port numbers:</p>
+<p>• HTTP server: 80</p>
+<p>• mail server: 25</p>
+<p><em>Q:</em> does IP address of host on which process runs suffice for identifying the process?</p>
+<p> <em>A:</em> no, <em>many</em> processes can be running on same host（一个主机多个进程）</p>
+<h4 id="4-different-addresses-in-TCP-x2F-IP"><a href="#4-different-addresses-in-TCP-x2F-IP" class="headerlink" title="4 different addresses in TCP/IP"></a>4 different addresses in TCP/IP</h4><h5 id="Physical-address-Layer-2"><a href="#Physical-address-Layer-2" class="headerlink" title="Physical address Layer 2"></a><strong>Physical address Layer 2</strong></h5><p>• ==Also known as the link address, is the address of a node as defined by its LAN or WAN== </p>
+<p><strong>物理地址</strong>称为链路地址，是由接点所在的局域网或广域网为该结点指定的地址。</p>
+<h5 id="Logical-address-Layer-3-32-bit-IPv4-128-bit-IPv6"><a href="#Logical-address-Layer-3-32-bit-IPv4-128-bit-IPv6" class="headerlink" title="Logical address Layer 3 (32-bit , IPv4 128-bit IPv6)"></a><strong>Logical address Layer 3 (32-bit , IPv4 128-bit IPv6)</strong></h5><p>• Logical (IP) addresses are for universal communications（ 全局通信 ）that are independent of underlying physical networks <strong>与底层物理网络无关</strong></p>
+<h5 id="Port-address-Layer-4-16-bit"><a href="#Port-address-Layer-4-16-bit" class="headerlink" title="Port address Layer 4 (16-bit)"></a><strong>Port address Layer 4 (16-bit)</strong></h5><p>• Port addresses differentiate different processes</p>
+<h5 id="Application-specific-address-Layer-7-特定应用地址"><a href="#Application-specific-address-Layer-7-特定应用地址" class="headerlink" title="**Application-specific address Layer 7 **特定应用地址"></a>**Application-specific address Layer 7 **特定应用地址</h5><p>• Some applications have user-friendly addresses that are designed for that specific application, <strong>such as email address, URL.</strong> </p>
+<p>有些应用程序具有专门为其量身定做的用户友好型地址。</p>
+<h4 id="application-protocol-defines"><a href="#application-protocol-defines" class="headerlink" title="application protocol defines"></a>application protocol defines</h4><p>应用层协议定义了在不同端系统如何传递报文</p>
+<h5 id="1-types-of-messages-exchanged"><a href="#1-types-of-messages-exchanged" class="headerlink" title="1. types of messages exchanged"></a>1. <strong>types of messages exchanged</strong></h5><p>• e.g., request, response </p>
+<h5 id="2-message-syntax"><a href="#2-message-syntax" class="headerlink" title="2. message syntax"></a>2. <strong>message syntax</strong></h5><p>what fields（字段） in messages &amp; how fields are delineated</p>
+<h5 id="3-message-semantics-语义"><a href="#3-message-semantics-语义" class="headerlink" title="3. message semantics (语义)"></a>3. <strong>message semantics</strong> (语义)</h5><p>meaning of information in fields</p>
+<h5 id="4-rules-for-when-and-how-processes-send-amp-respond-to-messages"><a href="#4-rules-for-when-and-how-processes-send-amp-respond-to-messages" class="headerlink" title="4. rules for when and how processes send &amp; respond to messages"></a>4. <strong>rules for when and how processes send &amp; respond to messages</strong></h5><h5 id="open-protocols"><a href="#open-protocols" class="headerlink" title="open protocols:"></a>open protocols:</h5><p>defined in RFCs (request for comments) 由RFC文档定义</p>
+<p>allows for interoperability 允许互操作</p>
+<p> e.g., HTTP (web), SMTP (email)</p>
+<h5 id="proprietary-protocols专用（私有）协议"><a href="#proprietary-protocols专用（私有）协议" class="headerlink" title="proprietary protocols专用（私有）协议:"></a>proprietary protocols专用（私有）协议:</h5><p> e.g., Skype</p>
+<h2 id="translation-layer"><a href="#translation-layer" class="headerlink" title="translation layer"></a>translation layer</h2><p>provide <em>logical communication</em> between app processes running on different hosts</p>
+<ul>
+<li><p>send side: breaks app messages into <em>segments</em>, passes to network layer</p>
+</li>
+<li><p>rcv side: reassembles segments into messages, passes to app layer</p>
+</li>
+</ul>
+<blockquote>
+<p>network layer: logical communication between hosts</p>
+</blockquote>
+<blockquote>
+<p>transport layer: logical communication between processes</p>
+</blockquote>
+<h3 id="Multiplexing-x2F-demultiplexing"><a href="#Multiplexing-x2F-demultiplexing" class="headerlink" title="Multiplexing/demultiplexing"></a>Multiplexing/demultiplexing</h3><h5 id="Multiplexing-Mux"><a href="#Multiplexing-Mux" class="headerlink" title="Multiplexing (Mux):"></a>Multiplexing (Mux):</h5><p>• Combining several streams of data into a single stream.</p>
+<p>• Example – your phone is browsing the web, refreshing your email, connecting to WeChat at the same time. All these connections are sent over the same link.</p>
+<h5 id="Demultipliexing-Demux"><a href="#Demultipliexing-Demux" class="headerlink" title="Demultipliexing (Demux)"></a>Demultipliexing (Demux)</h5><p>A stream of data is separated out into its individual components.</p>
+<p>The stream of packets the phone received is split up and sent to the appropriate program for web, email, wechat.</p>
+<p><em>multiplexing at sender:</em> handle data from multiple sockets, add transport header (later used for demultiplexing, 提供进程的信息：IP+port) </p>
+<p><em>demultiplexing at receiver:</em> use header info to deliver received segments to correct socket</p>
+<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220916181140758.png" alt="image-20220916181140758" style="zoom:67%;">
+
+<h5 id="How-demultiplexing-works"><a href="#How-demultiplexing-works" class="headerlink" title="How demultiplexing works"></a>How demultiplexing works</h5><p>host receives IP datagrams(数据报：第三层的packet)</p>
+<p>• each datagram has source IP address, destination IP address</p>
+<p>• each datagram carries one transport-layer segment</p>
+<p>• each segment has source, destination port number </p>
+<p>无论tcp udp 都有source port and destination port(当然还有其它字段)</p>
+<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220922212050738.png" alt="image-20220922212050738" style="zoom:67%;">
+
+<ul>
+<li>host uses <em>IP addresses &amp;</em> <em>port numbers</em> to direct（引导） segment to appropriate socket</li>
+</ul>
+<h4 id="Connectionless-demux"><a href="#Connectionless-demux" class="headerlink" title="Connectionless demux"></a>Connectionless demux</h4><p> <strong>UDP socket identified by 2-tuple</strong></p>
+<p>• checks destination port # in segment</p>
+<p>• directs UDP segment to socket with that port #</p>
+<p>如果两个不同源IP地址/源端口号的数据报，但是有相同的目标IP地址和端口号，则被定位到相同的套接字（一个UDP套接字是被目标IP与目标port唯一标识的）</p>
+<blockquote>
+<p>IP datagrams with <em>same</em> <em>dest. port #,</em> but different source IP addresses and/or source port numbers will be directed to <em>same socket</em> at dest 具备相同目标IP地址和目标端口号，即使是源IP地址或/且源端口号不同的IP数据报，将会被传到相同的目标UDP套接字上</p>
+</blockquote>
+<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220916204454938.png" alt="image-20220916204454938" style="zoom:67%;">
+
+<h4 id="Connection-oriented-demux"><a href="#Connection-oriented-demux" class="headerlink" title="Connection-oriented demux"></a>Connection-oriented demux</h4><p> <strong>TCP socket identified by 4-tuple</strong></p>
+<p><strong>( demux: receiver uses all four values to direct segment to appropriate socket):</strong> </p>
+<p>• source IP address</p>
+<p>• source port number</p>
+<p>• dest IP address</p>
+<p>• dest port number</p>
+<p>TCP socket是由四元组（目标ip 目标port 源IP 源port）唯一确定的</p>
+<p>一个port可以有多个进程</p>
+<blockquote>
+<p>web servers have different sockets for each connecting client</p>
+</blockquote>
+<p>server host may support many simultaneous TCP sockets:</p>
+<ul>
+<li>web servers have different sockets for each connecting client</li>
+<li>所以每有一个客户端连接，就新建一个process（p4 p5 p6）</li>
+</ul>
+<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220916205726093.png" alt="image-20220916205726093" style="zoom:67%;">
+
+<p>但是进程与socket并不是一一对应关系，当一个进程包含多个thread时可能对应多个socket</p>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220922215853886.png" alt="image-20220922215853886"></p>
+<h4 id="Typical-port-numbers-for-applications"><a href="#Typical-port-numbers-for-applications" class="headerlink" title="Typical port numbers for applications"></a>Typical port numbers for applications</h4><p>背一下，可能考</p>
+<ul>
+<li><p>Port 80: Standard HTTP (Hypertext Transfer Protocol – browse the web</p>
+</li>
+<li><p>Port 22: ssh (secure shell) log in from remote computer</p>
+</li>
+<li><p>Port 25: SMTP (simple mail transfer protocol) – send mail via this host</p>
+</li>
+<li><p>Port 143: IMAP (Internet Message Access Protocol) – read your email </p>
+</li>
+<li><p>Port 443: HTTPS (secure HTTP) browse the web securely</p>
+</li>
+</ul>
+<h3 id="UDP-User-Datagram-Protocol"><a href="#UDP-User-Datagram-Protocol" class="headerlink" title="UDP: User Datagram Protocol"></a>UDP: User Datagram Protocol</h3><h5 id="Simplest-usable-Internet-transport-protocol"><a href="#Simplest-usable-Internet-transport-protocol" class="headerlink" title="Simplest usable Internet transport protocol"></a>Simplest usable Internet transport protocol</h5><p>“best effort”尽力而为 service, UDP segments may be:</p>
+<p>• lost</p>
+<p>• delivered out-of-order to app 失序</p>
+<h5 id="connectionless"><a href="#connectionless" class="headerlink" title="connectionless:"></a><em>connectionless:</em></h5><p>• no “handshaking” between UDP sender, receiver (can send immediately without asking first)</p>
+<p>每个UDP报文段都被独立地处理handled independently </p>
+<h5 id="UDP-use"><a href="#UDP-use" class="headerlink" title="UDP use:"></a>UDP use:</h5><p>streaming multimedia(流媒体) apps (loss tolerant, rate sensitive)</p>
+<p> DNS</p>
+<p>NMP</p>
+<h5 id="reliable-transfer-over-UDP-用udp实现可靠传输的方法"><a href="#reliable-transfer-over-UDP-用udp实现可靠传输的方法" class="headerlink" title="reliable transfer over UDP: 用udp实现可靠传输的方法"></a>reliable transfer over UDP: 用udp实现可靠传输的方法</h5><ul>
+<li>add reliability at application layer</li>
+<li>application-specific error recovery!应用特定的差错恢复</li>
+</ul>
+<p>多了length 和checksum</p>
+<p>头部一共8byte</p>
+<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220917110357366.png" alt="image-20220917110357366" style="zoom:67%;">
+
+<p>为什么要有UDP(UDP 好处)?</p>
+<ul>
+<li><p>不建立连接 （会增加延时）</p>
+</li>
+<li><p>简单：在发送端和接收端没有连接状态</p>
+</li>
+<li><p>报文段的头部很小(开销小)也就是报文段可以占更多空间 </p>
+</li>
+<li><p>无拥塞控制和流量控制：UDP可以尽可能快的发送报文段</p>
+</li>
+</ul>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220917111918022.png" alt="image-20220917111918022"></p>
+<h4 id="UDP-checksum"><a href="#UDP-checksum" class="headerlink" title="UDP checksum"></a>UDP checksum</h4><p><em>Goal:</em> detect “ errors ”（flipped bits 比特翻转）</p>
+<p><strong>sender:</strong> </p>
+<ol>
+<li><p>treat segment contents, including header fields, as sequence of 16-bit integers.</p>
+<p>分成多个十六比特序列</p>
+</li>
+<li><p>checksum: addition of all of segment contents(各数据段相加回卷反码)</p>
+</li>
+<li><p>sender puts checksum value into UDP checksum field 把结果放到检验和区域</p>
+</li>
+</ol>
+<p><strong>receiver:</strong></p>
+<ol>
+<li><p>compute checksum of received segment（先用segment compute）</p>
+</li>
+<li><p>check if computed checksum equals checksum field value: （再和发来的checksum比）</p>
+<p>不相同一定传输有错，相同不一定没错</p>
+</li>
+</ol>
+<p>• NO - error detected</p>
+<p>• YES - no error detected.</p>
+<p>还是有可能有错误：checksum传输错误，payload也错误，并且最后比对结果一致</p>
+<h3 id="Principles-of-reliable-data-transfer-（rdf）"><a href="#Principles-of-reliable-data-transfer-（rdf）" class="headerlink" title="Principles of reliable data transfer （rdf）"></a>Principles of reliable data transfer （rdf）</h3><h4 id="可靠数据传输原理"><a href="#可靠数据传输原理" class="headerlink" title="可靠数据传输原理"></a>可靠数据传输原理</h4><p>将较低层直接视为不可靠信道（在不可可靠的下层协议基础上实现reliable data transfer）</p>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220922222354580.png" alt="image-20220922222354580"></p>
+<p>**rdt_send():**发送方上层调用，将数据发往接收方application layer</p>
+<p><strong>udt_send():</strong> rdt调用将数据发给udt(下层)</p>
+<p>**rdt_rcv():**数据到达接收方</p>
+<p>**deliver_data():**rdt调用将数据交付更高层</p>
+<p><strong>consider only unidirectional data transfer（单向数据传输）</strong>因为双向仅仅是重复</p>
+<h4 id="rdt1-0-reliable-transfer-over-a-reliable-channel"><a href="#rdt1-0-reliable-transfer-over-a-reliable-channel" class="headerlink" title="rdt1.0: reliable transfer over a reliable channel"></a>rdt1.0: reliable transfer over a reliable channel</h4><p>完全可靠信道的rdf(假设底层信道完全可靠)</p>
+<ul>
+<li>underlying channel perfectly reliable</li>
+</ul>
+<p>​         • no bit errors</p>
+<p>​         • no loss of packets</p>
+<ul>
+<li><p>separate FSMs（Finite State Machine） for sender, receiver</p>
+</li>
+<li><p>横线上是event横线下是action</p>
+<p>独立fsm:</p>
+</li>
+</ul>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220922223426930.png" alt="image-20220922223426930"></p>
+<h4 id="rdt2-0-channel-with-bit-errors"><a href="#rdt2-0-channel-with-bit-errors" class="headerlink" title="rdt2.0: channel with bit errors"></a>rdt2.0: channel with bit errors</h4><ol>
+<li><p>underlying channel may flip bits in packet（下层信道可能发生bit受损）</p>
+<p>• checksum to detect bit errors</p>
+</li>
+</ol>
+<p>• <em>acknowledgements (ACKs):</em> receiver explicitly tells sender that pkt received OK</p>
+<p>• <em>negative acknowledgements (NAKs):</em> receiver explicitly tells sender that pkt had errors</p>
+<p>• sender retransmits pkt on receipt of NAK(重传)</p>
+<p><strong>Sender（状态机上所有信息都是指某一方的）:</strong></p>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220922223853232.png" alt="image-20220922223853232"></p>
+<p>当reciver wait for call时，来了一个ACK/NACK -&gt;do nothing（stop-wait）</p>
+<p><strong>receiver:</strong></p>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220922223917457.png" alt="image-20220922223917457"></p>
+<p>corrupt(rcvpkt)接收方发现分组损坏</p>
+<p> <strong>fatal flaw</strong>： ACK/NAK corrupted，can’t just retransmit: possible duplicate  （sender 发送完后等待ACK，此时reciver接收到data但是返回的ack在传输过程中corrupt，发送方被迫重传，造成duplicate）</p>
+<p><strong>handling duplicates:</strong> </p>
+<p>▪ sender retransmits current pkt if ACK/NAK corrupted</p>
+<p>▪ sender adds <em>sequence</em> number (seq) to each pkt编号防止重复</p>
+<p>▪ receiver discards (doesn’t deliver up) duplicate pkt</p>
+<blockquote>
+<p>sender sends one packet, then waits for receiver’s response</p>
+</blockquote>
+<h4 id="rdt2-1-sender-handles-corrupt-ACK-x2F-NAKs"><a href="#rdt2-1-sender-handles-corrupt-ACK-x2F-NAKs" class="headerlink" title="rdt2.1: sender, handles corrupt ACK/NAKs"></a>rdt2.1: sender, handles corrupt ACK/NAKs</h4><p>sender:</p>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220922234658714.png" alt="image-20220922234658714"></p>
+<p> receiver:</p>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220922234734873.png" alt="image-20220922234734873"></p>
+<ul>
+<li><p>为什么两个状态数（0 1）就足够？</p>
+<p>只需要让发送发知道是在传last packet（seq same）还是 now packet(seq different)</p>
+</li>
+<li><p>receiver can <em>not</em> know if its last ACK/NAK received OK at sender</p>
+<p>接收端无法确定ACK/NAK是否会被发送端接受，通过观察发送端的反应来判断它是否成功收到。</p>
+<p>比如：本身应该wait for 1但是由于上一次接收端没收到ack，重新发数据（0）接收端发现发来的不是1，那就明白发送端当时收错了，所以发<strong>ACK</strong>回去，继续等待1.</p>
+<p>只要接收到packet没有corrupt就发ack，不管序号是否正确</p>
+</li>
+<li><p>状态数量是前者两倍</p>
+</li>
+</ul>
+<h4 id="rdt2-2-a-NAK-free-protocol"><a href="#rdt2-2-a-NAK-free-protocol" class="headerlink" title="rdt2.2: a NAK-free protocol"></a>rdt2.2: a NAK-free protocol</h4><p>▪ instead of NAK, receiver sends ACK for last pkt received OK</p>
+<p>• receiver must <em>explicitly</em> include seq # of pkt being ACKed</p>
+<p>不用NAK,而是用一个带序号的ACKA(上一个数据分组的序号)-确认上个分组收到了（没收到现在的分组）</p>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220922235616504.png" alt="image-20220922235616504"></p>
+<h4 id="rdt3-0-channels-with-errors-and-loss"><a href="#rdt3-0-channels-with-errors-and-loss" class="headerlink" title="rdt3.0: channels with errors and loss"></a>rdt3.0: channels with errors <em>and</em> loss</h4><p>underlying channel can also lose packets （假设底层也丢包）</p>
+<p><strong>approach:</strong> </p>
+<p><strong>每发一个分组</strong>就启动一个倒计时计时器(cutdown timer) 当收到该分组的ACK或重发分组时重建一个计时器</p>
+<p>sender waits “reasonable” amount of time for ACK </p>
+<p>界定一个合理的时间，如果时间耗尽则界定为丢包——重发该分组</p>
+<p> 如果这个分组只是delay了（没loss）retransmission will be duplicate, but seq. #’ s already handles this</p>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220923001412614.png" alt="image-20220923001412614"></p>
+<p>四种情况：</p>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221013211248929.png" alt="image-20221013211248929"></p>
+<p>d接收到ACK1什么都不做（不重发）ppt有点问题</p>
+<h4 id="Performance-of-rdt3-0"><a href="#Performance-of-rdt3-0" class="headerlink" title="Performance of rdt3.0"></a>Performance of rdt3.0</h4><p>3.0 rdt的性能 </p>
+<p>rdt3.0 is correct, but performance is very bad</p>
+<blockquote>
+<p>Define round-trip-time as time to propagate there and back – (2 x end-to-end delay)</p>
+</blockquote>
+<p> e.g.: 1 Gbps link, 15 ms delay, 8000 bit packet</p>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220923173911550.png" alt="image-20220923173911550"></p>
+<p>1Gbps的链路只能每秒发33kB数据，利用率很低</p>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220923174108957.png" alt="image-20220923174108957"></p>
+<p>为了解决如上问题使用pipelined protocols不用stop-wait协议</p>
+<h3 id="Pipelined-protocols"><a href="#Pipelined-protocols" class="headerlink" title="Pipelined protocols"></a>Pipelined protocols</h3><p><strong>pipelining:</strong> Allows a sender to send more than one message at a time without receiving acknowledged</p>
+<p><strong>one after one</strong>  </p>
+<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220923174605251.png" alt="image-20220923174605251" style="zoom:67%;">
+
+<ul>
+<li><p>range of sequence numbers must be increased（每个输送的分组必须有唯一序号）</p>
+</li>
+<li><p>buffering at sender and/or receiver(缓存那些已经发送但没有确认的分组)（停等协议不需要buffer）</p>
+</li>
+</ul>
+<p><strong>two</strong> generic forms of pipelined protocols: <em>go-Back-N回退N步,</em> <em>selective repeat选择重传</em></p>
+<h4 id="slide-window流程"><a href="#slide-window流程" class="headerlink" title="slide window流程"></a>slide window流程</h4><p>发送窗口N=1 接收窗口N=1 此时称为stop-wait</p>
+<p>发送窗口N&gt;1 接收窗口N=1 此时称为GBN</p>
+<p>发送窗口N&gt;1 接收窗口N&gt;1 此时称为SR</p>
+<p>滑动窗口(slide window)：</p>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220924094559245.png" alt="image-20220924094559245"></p>
+<h5 id="sender"><a href="#sender" class="headerlink" title="sender:"></a>sender:</h5><ol>
+<li><p>未发送任何数据：后沿=前沿 , 之间为发送窗口的尺寸=0</p>
+<p>发送窗口的最大值&lt;=发送缓冲区的值</p>
+</li>
+</ol>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220924095144137.png" alt="image-20220924095144137"></p>
+<ol start="2">
+<li><p>上层传递一个分组，发送该分组但还没确认</p>
+<p>前沿移动的极限：不能够超过发送缓冲区</p>
+</li>
+</ol>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220924095343242.png" alt="image-20220924095343242"></p>
+<ol start="3">
+<li><p>老分组得到确认</p>
+<p>发送窗口后沿移动 ：收到老分组的确认，不能够超过前沿</p>
+</li>
+</ol>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220924095510350.png" alt="image-20220924095510350"></p>
+<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220924095606883.png" alt="image-20220924095606883" style="zoom:67%;">
+
+<h5 id="reciver"><a href="#reciver" class="headerlink" title="reciver"></a>reciver</h5><p>接收窗口用于控制哪些分组可以接收； </p>
+<p>• 只有收到的分组序号落入接收窗口内才允许接收 </p>
+<p>• 若序号在接收窗口之外，则丢弃；</p>
+<p>也就是说</p>
+<p><strong>接收窗口尺寸Wr=1，则只能顺序接收；</strong>(GBN stop-wait)</p>
+<p>就一个槽位没法接收其他序号</p>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220924100119226.png" alt="image-20220924100119226"></p>
+<p><strong>接收窗口尺寸Wr&gt;1 ，则可以乱序接收</strong></p>
+<p>低序号的分组到来（0到来）接收窗口移动</p>
+<p>如果高序号到来（1先到来）接收窗口不移动直到0到来直接移动到2（一起交付给上层）</p>
+<p>（因为要实现rdt，不允许失序）</p>
+<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220924100209693.png" alt="image-20220924100209693" style="zoom:67%;">
+
+<p>• 接收窗口尺寸=1 ； 发送连续收到的最大的分组确认（累计确认）</p>
+<p>看上上图 ：如果收到3仍然发送0的确认（表示没收到0，重发）</p>
+<p>• 接收窗口尺寸&gt;1 ； 收到分组，发送那个分组的确认（非累计确认）</p>
+<p>收到几就发几</p>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220924100610233.png" alt="image-20220924100610233"></p>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220924100651409.png" alt="image-20220924100651409"></p>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220924100703428.png" alt="image-20220924100703428"></p>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220924100713986.png" alt="image-20220924100713986"></p>
+<h4 id="Go-Back-N"><a href="#Go-Back-N" class="headerlink" title="Go-Back-N"></a>Go-Back-N</h4><p>sender can have up to N unacked packets in pipeline</p>
+<p> receiver only sends <em>cumulative ACK</em>（累计确认：当前序号的分组被acknowledged意味着前面所有序号的分组都被acknowledged）</p>
+<blockquote>
+<p>累计确认：一个确认包确认了累积到某一序号的所有包，而不是对每个序号都发确认包。</p>
+<p>分别确认：每个包都单独确认</p>
+</blockquote>
+<p>doesn’t ACK packet if there’ s a gap（如果分组乱序：接收packet1-&gt;packet3，则不会acknowledge packet3，会返回packet2继续等待packet2）</p>
+<p>sender has timer for oldest unacked packet(发送方对最早发出去的未被确认的数据有计时器，一旦此数据被acknowledged计时停止，如果超时则重发该分组之后所有已发送但未确认的分组，尽管有些序号更大的分组可能已经成功确认)也只有一个计时器</p>
+<p>when timer expires, retransmit <em>all</em> unacked packets(重传所有未被确认的分组)</p>
+<h5 id="sender："><a href="#sender：" class="headerlink" title="sender："></a>sender：</h5><ol>
+<li><p><strong>ACK(n):</strong> ACKs all packets up to, including sequence # n -<em>“<strong>cumulative ACK（sender）</strong>”</em> </p>
+<p>• may receive duplicate ACKs (see receiver)</p>
+</li>
+<li><p><strong>timer for oldest in-flight pkt</strong></p>
+</li>
+<li><p><em>timeout(n):</em> retransmit packet n and all higher seq # pkts in window</p>
+<p>发送方只维持已发送但未被确认的最小序号</p>
+</li>
+</ol>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220924101227037.png" alt="image-20220924101227037"></p>
+<p>GBN：当发现N没发，就回到N，发N及之后的</p>
+<h4 id="Selective-repeat"><a href="#Selective-repeat" class="headerlink" title="Selective repeat"></a>Selective repeat</h4><ul>
+<li><p>sender can have up to N unacked packets in pipeline</p>
+</li>
+<li><p>Receiver sends <em>individual</em> <em>ACK</em> for each packet</p>
+<p>buffers packets, as needed, for eventual in-order delivery to upper layer</p>
+</li>
+<li><p>sender maintains timer for each packet with no ACK</p>
+<p>• when timer expires（到期）, retransmit only that unacked packet（只重传没有确认的分组）</p>
+</li>
+</ul>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220924101729671.png" alt="image-20220924101729671"></p>
+<ul>
+<li><p>out-of-order: buffer</p>
+</li>
+<li><p>in-order: deliver (also deliver buffered, in-order pkts), advance window to next not-yet-received pkt</p>
+</li>
+</ul>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220924102206821.png" alt="image-20220924102206821"></p>
+<h4 id="窗口长度必须小于等于序号空间大小一半"><a href="#窗口长度必须小于等于序号空间大小一半" class="headerlink" title="窗口长度必须小于等于序号空间大小一半"></a>窗口长度必须小于等于序号空间大小一半</h4><p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220924103927507.png" alt="image-20220924103927507"></p>
+<p>第一种情况：pkt3丢失，此时应该传第二轮的pkt0</p>
+<p>第二种情况：ack0 ack1 ack2丢失，此时应该传第一轮的pkt0</p>
+<p>但是这俩情况无法区分，所以<strong>窗口长度必须小于等于序号空间大小一半</strong></p>
+<h3 id="TCP-（Transmission-Control-Protocol）"><a href="#TCP-（Transmission-Control-Protocol）" class="headerlink" title="TCP （Transmission Control Protocol）"></a>TCP （Transmission Control Protocol）</h3><h4 id="TCP-header"><a href="#TCP-header" class="headerlink" title="TCP header"></a>TCP header</h4><p>头部20B~60B</p>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220924160336189.png" alt="image-20220924160336189"></p>
+<ul>
+<li><strong>sequence number:</strong></li>
+</ul>
+<p>• byte stream “number” of first <strong>byte</strong> in segment’s data</p>
+<p>本报文段中第一个字节在字节流中的编号（0、1000）</p>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220924160909990.png" alt="image-20220924160909990"></p>
+<ul>
+<li><strong>acknowledgements确认号:</strong></li>
+</ul>
+<p>•seq # of <strong>next byte</strong> <strong>expected from other side</strong>(<strong>cumulative ACK</strong>)</p>
+<p>期望从另一方收到的<strong>下一个</strong>字节的序号（与rdt不一样）</p>
+<ul>
+<li><p><strong>how receiver handles out-of-order segments</strong></p>
+<p>如果以乱序到达，TCP没有规定一定要向GBN一样丢弃PKT,提供可编程实现的操作，可以丢弃也可以保留（后等待前面的到来）</p>
+</li>
+</ul>
+<p>注意区分seq和ack的不同，这里ack是期待的序号而不是本位序号</p>
+<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220924162403745.png" alt="image-20220924162403745" style="zoom:50%;">
+
+<p>这个图是一收一发的过程：seq=上一个的ack, 但ack等于上一个seq＋1</p>
+<h4 id="TCP-round-trip-time-timeout"><a href="#TCP-round-trip-time-timeout" class="headerlink" title="TCP round trip time, timeout"></a>TCP round trip time, timeout</h4><p><strong>how to set TCP timeout value?</strong></p>
+<p>如何设置TCP超时等待时间，应该比RTT长，但是RTT随阻塞和负载情况变化</p>
+<ul>
+<li>longer than RTT</li>
+<li>but RTT varies</li>
+</ul>
+<p><em>too short:</em> early timeout, <strong>unnecessary retransmissions</strong></p>
+<p><em>too long:</em> slow reaction to segment loss</p>
+<p><strong>how to estimate RTT?</strong></p>
+<p><strong>SampleRTT</strong>: measured time from segment transmission until ACK receipt</p>
+<p><strong>SampleRTT</strong> will vary, average several <em>recent</em> measurements, not just current <strong>SampleRTT</strong></p>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220924172108930.png" alt="image-20220924172108930"></p>
+<p>exponential weighted moving average: 移动平均系统？dsp里那个</p>
+<p>influence of past sample decreases exponentially fast 因为只想与最近的值有关（实时更新数据？）</p>
+<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220924172343876.png" alt="image-20220924172343876" style="zoom:67%;">
+
+<p><strong>timeout interval: EstimatedRTT</strong> plus “safety margin”</p>
+<p><strong>EstimtedRTT</strong> + 安全边界时间</p>
+<p>• large variation in <strong>EstimatedRTT -&gt;</strong> larger safety margin（变化大边界也设置大一点）</p>
+<p>偏移量（实际值与平均值的偏移）：</p>
+<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220924172841826.png" alt="image-20220924172841826" style="zoom:67%;">
+
+<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220924172915984.png" alt="image-20220924172915984" style="zoom:67%;">
+
+<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220924173032974.png" alt="image-20220924173032974" style="zoom:67%;">
+
+<p>TCP不同于rdt中每个packet设置一个timer，tcp使用单一的重传定时器。</p>
+<p>定时器只与最早的，未被确认的报文有关系</p>
+<h4 id="retransmission-scenarios"><a href="#retransmission-scenarios" class="headerlink" title="retransmission scenarios"></a>retransmission scenarios</h4><ol>
+<li>丢包导致超时</li>
+</ol>
+<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220924190440712.png" alt="image-20220924190440712" style="zoom:67%;">
+
+<ol start="2">
+<li><p>过早超时</p>
+<p>此时报文段seq=100没有重传，因为在ack=100返回HostA时将再启动一个计时器，上一个计时器结束，这ACK=120在新计时区间里被找到，不用重传</p>
+<p>定时器只与seq </p>
+<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220924190528434.png" alt="image-20220924190528434" style="zoom:67%;">
+</li>
+<li><p>累计确认</p>
+<p>当第一段报文在网络中丢失，但在超时前主机A收到120号ack,因为是<strong>累积确认</strong>，所以HostA知道Host B收到了119前的所有数据只会传120</p>
+</li>
+</ol>
+<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220924190815926.png" alt="image-20220924190815926" style="zoom:67%;">
+
+<p>cumulative ACK像GBN</p>
+<p>虽然ACK=100没到，但是ACK=120到了，那么sender知道reciver已经收到ack=100,这很像GBN</p>
+<h4 id="TCP-fast-retransmit"><a href="#TCP-fast-retransmit" class="headerlink" title="TCP fast retransmit"></a>TCP fast retransmit</h4><p>不等timeout就重传：</p>
+<p>time-out period often relatively long:</p>
+<p>• long delay before resending lost packet</p>
+<p><strong>detect lost segments via duplicate ACKs</strong></p>
+<p>if the segment is lost, there will likely be many duplicate ACKs（接收方反复期待）</p>
+<p>if sender receives <strong>3  duplicate ACKs</strong>（一共四个） for same data(“triple duplicate ACKs”), resend unacked segment with smallest seq# </p>
+<p>三次冗余后才重传</p>
+<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220924193340373.png" alt="image-20220924193340373" style="zoom:67%;">
+
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220924194604857.png" alt="image-20220924194604857"></p>
+<h4 id="TCP-flow-control"><a href="#TCP-flow-control" class="headerlink" title="TCP flow control"></a>TCP flow control</h4><p>控制rwnd来控制发送发数据量，防止丢失</p>
+<p>receiver controls sender, so sender will not overflow receiver buffer by transmitting too much, too fast</p>
+<p><strong>发送方根据接收方的处理能力来发送数据，不会导致接收方处理不过来，是流量控制</strong>(这是由接收窗口实现的)</p>
+<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220928200219780.png" alt="image-20220928200219780" style="zoom:67%;">
+
+<p>从TCP socket缓冲区中移走数据的速度比接收方交付数据的速度慢</p>
+<p>receiver “advertises” free buffer space by including <strong>rwnd</strong> value in TCP header of receiver-to-sender segments</p>
+<p>TCP通过发送方维护一个称为receive window（接收窗口）的变量（TCPpacket头部中一个变量）来提供流量控制，接收窗口用于告诉发送方，还有多少可以用于接收的缓存空间</p>
+<p><strong>rwnd</strong> = receive window</p>
+<p>• <strong>RcvBuffer</strong> size set via socket options (typical default is 4096 bytes) 接收缓存</p>
+<p>• many operating systems autoadjust <strong>RcvBuffer</strong></p>
+<ul>
+<li>sender limits amount of unacked (“in-flight”) data to receiver’ s <strong>rwnd</strong> value</li>
+</ul>
+<p><strong>guarantees receive buffer will not overflow</strong></p>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220928200852965.png" alt="image-20220928200852965"></p>
+<h4 id="MSS-and-MTU"><a href="#MSS-and-MTU" class="headerlink" title="MSS and MTU"></a>MSS and MTU</h4><p>MSS (Maximum Segment Size最大报文长度) is a parameter specifying the largest amount of data in a single IP datagram that should be sent by a remote host. </p>
+<p>报文段里应用层数据的最大长度</p>
+<p>MTU is a parameter specifying the largest amount of data that a communication protocol or system can pass onwards. For example, standards (e.g. Ethernet) can fix the size of an MTU, or systems (such as point- to-point serial links) may set MTU at connect time.</p>
+<p>MSS size is set according to MTU:</p>
+<p><strong>MSS = MTU – IP header size – TCP header size.</strong></p>
+<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220928202026280.png" alt="image-20220928202026280" style="zoom:67%;">
+
+<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220928205502637.png" alt="image-20220928205502637" style="zoom:67%;">
+
+<h4 id="Nagle’s-algorithm"><a href="#Nagle’s-algorithm" class="headerlink" title="Nagle’s algorithm"></a>Nagle’s algorithm</h4><p>问题：</p>
+<ul>
+<li><p>TCP will send the data as it arrives at the send buffer if there is space left in the send buffer.</p>
+</li>
+<li><p>This means (for ssh/telnet) one packet sent every time user hits key.</p>
+</li>
+<li><p>Overhead of this is huge (TCP header + IP header + frame header to send one byte)</p>
+<p>应用程序一次产生一字节数据，这样会导致网络由于太多的包而过载（一个常见的情况是发送端的”<strong>糊涂窗口综合症(Silly Window Syndrome)</strong>“）。从键盘输入的一个字符，占用一个字节，可能在传输上造成41字节的包，其中包括1字节的有用信息和40字节的首部数据。</p>
+</li>
+</ul>
+<h5 id="Nagle’s-algorithm-1"><a href="#Nagle’s-algorithm-1" class="headerlink" title="Nagle’s algorithm"></a>Nagle’s algorithm</h5><ol>
+<li><p>The sending TCP sends the first piece of data it receives – no matter no small or large</p>
+</li>
+<li><p>Sending TCP accumulates data in the buffer and waits until one of the following before sending the segment:</p>
+<ul>
+<li><p>The receiving TCP sends an ACK</p>
+</li>
+<li><p>Data has accumulated to fill a maximum size segment （数据达到MSS）</p>
+</li>
+</ul>
+</li>
+<li><p>Repeat step 2</p>
+<p>当需要较快的交互/需要传递small pkt时不用Nagle’s algorithm</p>
+</li>
+</ol>
+<h5 id="Silly-Window-Syndrome"><a href="#Silly-Window-Syndrome" class="headerlink" title="Silly Window Syndrome"></a>Silly Window Syndrome</h5><p>糊涂窗口综合症是指当发送端应用进程产生数据很慢、或接收端应用进程处理接收缓冲区数据很慢，或二者兼而有之；就会使应用进程间传送的报文段很小，特别是有效载荷很小； 极端情况下，有效载荷可能只有1个字节；传输开销有40字节(20字节的IP头+20字节的TCP头) 这种现象。</p>
+<h6 id="发送端引起的糊涂窗口综合症"><a href="#发送端引起的糊涂窗口综合症" class="headerlink" title="发送端引起的糊涂窗口综合症"></a>发送端引起的糊涂窗口综合症</h6><p>​       Sender produces data very slowly</p>
+<h6 id="接收端引起的糊涂窗口综合症"><a href="#接收端引起的糊涂窗口综合症" class="headerlink" title="接收端引起的糊涂窗口综合症"></a>接收端引起的糊涂窗口综合症</h6><p>• Single byte or small number removed from full receive buffer.</p>
+<p>• Sender is informed of opportunity to send <strong>small number of</strong> bytes and immediately sends filling buffer.</p>
+<p>• Process repeats</p>
+<p>接收端的TCP可能产生糊涂窗口综合症，如果它为消耗数据很慢的应用程序服务，例如，一次消耗一个字节。假定发送应用程序产生了1000字节的数据块，但接收应用程序每次只吸收1字节的数据。再假定接收端的TCP的输入缓存为4000字节。发送端先发送第一个4000字节的数据。接收端将它存储在其缓存中。缓存满了。它通知窗口大小为零，这表示发送端必须停止发送数据。接收应用程序从接收端的TCP的输入缓存中读取第一个字节的数据。在入缓存中有了1字节的空间。接收端的TCP宣布其窗口大小为1字节，这表示正渴望等待发送数据的发送端的TCP会把这个宣布当作一个好消息，并发送只包括一个字节数据的报文段。这样的过程一直继续下去。一个字节的数据被消耗掉，然后发送只包含一个字节数据的报文段。</p>
+<p>解决办法– receiver does not advertise windows that <strong>would</strong> </p>
+<p>**cause sender to send small amounts of data.**等buffer空间足够大再发送rwnd的值</p>
+<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220928211203211.png" alt="image-20220928211203211" style="zoom:67%;">
+
+<h4 id="Connection-Management"><a href="#Connection-Management" class="headerlink" title="Connection Management"></a>Connection Management</h4><p>连接管理 handshake</p>
+<ul>
+<li><p>agree to establish connection (each knowing the other willing to establish connection)</p>
+</li>
+<li><p>agree on connection parameters</p>
+</li>
+</ul>
+<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220928211406116.png" alt="image-20220928211406116" style="zoom:50%;">
+
+
+
+<p><em>Q:</em> will 2-way handshake always work in network?</p>
+<ul>
+<li><p>variable delays</p>
+</li>
+<li><p>retransmitted messages (e.g. req_conn(x)) due to message loss</p>
+</li>
+<li><p>message reordering</p>
+</li>
+<li><p>cannot  “ see ” other side</p>
+</li>
+</ul>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220928213357259.png" alt="image-20220928213357259"></p>
+<p>req_conn(x)第一次超时，导致重传，然而第一次发出去的req_conn(x)并没有丢失，而是回到sender，与之建立了连接，此时连接x已经完成。但是重传的req_conn(x)到达接收端后，再向发送端发送的ack被拒绝了也就是建立了half open connection持续占用资源</p>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220928220319877.png" alt="image-20220928220319877"></p>
+<p>关闭连接后，发送方重传的报文才到达，此时server会误认为又新建一个连接，于是保持一个连接状态，但是client不这么认为（它知道是重传的）所以不会建立连接，白白浪费主机资源</p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/7152855718817693726">TCP之三次握手和四次挥手 - 掘金 (juejin.cn)</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/430799766">深入浅出TCP三次握手 （多图详解） - 知乎 (zhihu.com)</a></p>
+<h5 id="TCP-3-way-handshake"><a href="#TCP-3-way-handshake" class="headerlink" title="TCP 3-way handshake"></a><strong>TCP 3-way handshake</strong></h5><p>将小明当作客户端，小红当作服务器端，两人写信告白：<br> <strong>第一次握手：</strong><br> 小明告诉小红：我喜欢你。<br> <strong>第二次握手：</strong><br> 小红告诉小明：我知道了，我也喜欢你。<br> 此时小红并不确定小明是否收到了告白信，直到<br> <strong>第三次握手：</strong><br> 小明回信：我也知道了，我们在一起吧。此时才真正建立连接。</p>
+<p>(DHCP 也是这么个逻辑)</p>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220928220916474.png" alt="image-20220928220916474"></p>
+<p>主机A发送位码为syn＝1，随机产生seq number=x的数据包到服务器，主机B由SYN=1知道，A要求建立联机；</p>
+<p>主机B收到请求后要确认联机信息，向A发送ack number=(主机A的seq+1)，syn=1，ack=1，随机产生seq=y的包</p>
+<p>主机A收到后检查ack number是否正确，即第一次发送的seq number+1，以及位码ack是否为1，若正确，主机A会再发送ack number=(主机B的seq+1)，ack=1，主机B收到后确认seq值与ack=1则连接建立成功。</p>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220928221429468.png" alt="image-20220928221429468"></p>
+<h5 id="TCP-closing-a-connection-四次挥手"><a href="#TCP-closing-a-connection-四次挥手" class="headerlink" title="TCP: closing a connection 四次挥手"></a>TCP: closing a connection 四次挥手</h5><p>client, server each close their side of connection</p>
+<p>• send TCP segment with FIN bit = 1respond to received FIN with ACK</p>
+<p>• on receiving FIN, ACK can be combined with own FIN</p>
+<p>simultaneous FIN exchanges can be handled</p>
+<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220928221631257.png" alt="image-20220928221631257" style="zoom:67%;">
+
+
+
+<p>恋爱之后，小明和小红煲电话粥。依旧将小明当作客户端，小红当作服务器端。小明跟小红说话<br> 第一次挥手：<br> 小明说：我说完了。<br> 第二次挥手：<br> 小红说：好的，我知道了，我还没说完。<br> 小红继续吧啦吧啦，说完之后<br> 第三次挥手：<br> 小红告诉小明：我说完了。<br> 第四次挥手：<br> 小明收到后告诉小红：好的，我知道了。等了2MSL之后小明挂断了。<br> 如果此时小红说完，等了2MSL，小明一直不出声，这个时候就会重新说一次：我说完了。直到收到小明最后的回复，才挂断电话。</p>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20220928222126446.png" alt="image-20220928222126446"></p>
+<h4 id="Principles-of-congestion-control"><a href="#Principles-of-congestion-control" class="headerlink" title="Principles of congestion control"></a>Principles of congestion control</h4><p><em>congestion</em>:too many sources sending too much data too fast for <em>network</em> to handle</p>
+<ol>
+<li>表现为</li>
+</ol>
+<p>• lost packets (buffer overflow at routers)</p>
+<p>• long delays (queueing in router buffers)</p>
+<ol start="2">
+<li>原因（网络自身问题）：</li>
+</ol>
+<ul>
+<li><p>Too much traffic enters router – buffer fills up, this increases delay</p>
+</li>
+<li><p>Much too much traffic enters router – buffer overfills and causes loss. Packet needs to be retransmitted</p>
+</li>
+<li><p>If packet is lost after several “hops” then many resources are wasted. (e.g. Packet travels from A to B to C to D then lost at D – it has taken up space at A, B and C unnecessarily)</p>
+</li>
+<li><p>前面的流量控制是避免「发送方」的数据填满「接收方」的缓存，但是并不知道网络的中发生了什么。一般来说，计算机网络都处在一个共享的环境。因此也有可能会因为其他主机之间的通信使得网络拥堵。TCP 不能忽略网络上发生的事，它被设计成一个无私的协议，当网络发送拥塞时，TCP 会自我牺牲，降低发送的数据量。那么怎么知道当前网络是否出现了拥塞呢？</p>
+<p>其实只要「发送方」没有在规定时间内接收到 ACK 应答报文，也就是<strong>发生了超时重传，就会认为网络出现了拥塞。</strong></p>
+</li>
+</ul>
+<ol start="3">
+<li><strong>goodput</strong>（实际吞吐量） – this is the rate at which data reaches the application layer. Different from throughput because of:</li>
+</ol>
+<p>​      • loss</p>
+<p>​      • retransmission</p>
+<p>​      • corrupted packets </p>
+<ol start="4">
+<li><p>rwnd = flow control (not too fast for receiver)</p>
+<p>cwnd = congestion control (not too fast for network)</p>
+</li>
+</ol>
+<h4 id="TCP-congestion-control"><a href="#TCP-congestion-control" class="headerlink" title="TCP congestion control"></a>TCP congestion control</h4><p>congestion window由发送方主动调节</p>
+<p>两种控制方式</p>
+<h6 id="Slow-Start"><a href="#Slow-Start" class="headerlink" title="Slow Start"></a>Slow Start</h6><p>在TCP建立连接的开始：increase rate exponentially until first loss event</p>
+<p>• initially <strong>cwnd</strong> = 1 MSS</p>
+<p>• double <strong>cwnd</strong> every RTT</p>
+<p>• done by incrementing <strong>cwnd</strong> for every ACK received（收到一个ACK cwnd×2）</p>
+<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221003115215903.png" alt="image-20221003115215903" style="zoom:50%;">
+
+<h5 id="AIMD（additive-increase-multiplicative-decrease）"><a href="#AIMD（additive-increase-multiplicative-decrease）" class="headerlink" title="AIMD（additive increase multiplicative decrease）"></a>AIMD（additive increase multiplicative decrease）</h5><p>加性增，乘性减</p>
+<p><em>approach:</em> sender increases transmission rate (window size), probing for usable bandwidth, until loss occurs</p>
+<p>• Set cwnd – congestion window to initial value</p>
+<p>additive increase <em>:</em> increase <strong>cwnd</strong> by 1 MSS（一个窗口大小） every RTT until loss detected</p>
+<p>multiplicative decrease ：cut <strong>cwnd</strong> in half after loss </p>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221003114347991.png" alt="image-20221003114347991"></p>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221003114520503.png" alt="image-20221003114520503"></p>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221003114549589.png" alt="image-20221003114549589"></p>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221003114616597.png" alt="image-20221003114616597"></p>
+<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221003115513562.png" alt="image-20221003115513562" style="zoom:67%;">
+
+
+
+<p>TCP Tahoe和Reno是处理TCP拥塞控制的两种形式（在三次冗余ack上有不同）</p>
+<p> <strong>TCP RENO:</strong></p>
+<p>由于超时所引发的loss ，将cwnd设为1 MSS(重设threshold为上次丢包值的一半)，重新慢启动至ssthresh慢启动门限，再使用AIMD</p>
+<p>由3 duplicate ACK引发的loss cwnd减半然后线性增加（AIMD）</p>
+<p><strong>TCP Tahoe :</strong></p>
+<p>always sets <strong>cwnd</strong> to 1 (timeout or 3 duplicate acks)</p>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221003124835772.png" alt="image-20221003124835772"></p>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221113174621820.png" alt="image-20221113174621820"></p>
+<p>TCP throughput平均吞吐量</p>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221003124801776.png" alt="image-20221003124801776"></p>
+<h4 id="TCP-Fairness"><a href="#TCP-Fairness" class="headerlink" title="TCP Fairness"></a>TCP Fairness</h4><p>if K TCP sessions share same bottleneck link of bandwidth R, each should have average rate of R/K</p>
+<p>TCP比起UDP来说需要在意网络拥塞的状态，而不是像UDP不管不顾的一直发送</p>
+<p>application can open multiple parallel connections between two hosts</p>
+<p>一个应用通常同时使用多个TCP连接（否则一直建立解除TCP效率太低了）</p>
+<p>e.g., link of rate R with </p>
+<p>9 existing connections:</p>
+<p>• new app asks for 1 TCP, gets rate R/10</p>
+<p>• new app asks for 11 TCPs, gets just over R/2 </p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://chilh.top">chilh</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://chilh.top/post/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE-Chapter%202%20%20Transport%20Layer.html">https://chilh.top/post/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE-Chapter%202%20%20Transport%20Layer.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://chilh.top" target="_blank">Chilh</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/BUPT/">BUPT</a><a class="post-meta__tags" href="/tags/%E5%A4%A7%E4%B8%89%E4%B8%8A%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">大三上课程笔记</a><a class="post-meta__tags" href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE/">互联网协议</a></div><div class="post_share"><div class="social-share" data-image="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1664737061963-862d6a174a3b" data-sites="twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE-Chapter%205%20Security%20and%20Network%20Management.html" title="互联网协议-Chapter 5 Security and Network Management"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1671474087718-8bb4f50658aa.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">互联网协议-Chapter 5 Security and Network Management</div></div></a></div><div class="next-post pull-right"><a href="/post/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE-Chapter%201%20Introduction.html" title="互联网协议-Chapter 1 Introduction"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1671013319475-4dca8a10156e" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">互联网协议-Chapter 1 Introduction</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/post/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE-Chapter%201%20Introduction.html" title="互联网协议-Chapter 1 Introduction"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1671013319475-4dca8a10156e" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-29</div><div class="title">互联网协议-Chapter 1 Introduction</div></div></a></div><div><a href="/post/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE-Chapter%205%20Security%20and%20Network%20Management.html" title="互联网协议-Chapter 5 Security and Network Management"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1671474087718-8bb4f50658aa.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-29</div><div class="title">互联网协议-Chapter 5 Security and Network Management</div></div></a></div><div><a href="/post/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE-Chapter%203%20%20Network%20Layer.html" title="互联网协议-Chapter 3  Network Layer"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1671050579179-5cd444a8a166" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-29</div><div class="title">互联网协议-Chapter 3  Network Layer</div></div></a></div><div><a href="/post/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE-test.html" title="互联网协议-test"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1670979314026-7c0c4367c8b7.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-29</div><div class="title">互联网协议-test</div></div></a></div><div><a href="/post/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE-Chapter%204%20Datalink%20Layer.html" title="互联网协议-Chapter 4 Datalink Layer"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1653554604030-995729757eb0.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-29</div><div class="title">互联网协议-Chapter 4 Datalink Layer</div></div></a></div><div><a href="/post/1.1-Threads%20and%20Concurrency%20in%20Java%EF%BC%88%E4%B8%8A%EF%BC%89.html" title="1.1-Threads and Concurrency in Java（上）"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/porter-raab--mNr_4WfdCg-unsplash.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-30</div><div class="title">1.1-Threads and Concurrency in Java（上）</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/%E5%A4%B4%E5%83%8F.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">chilh</div><div class="author-info__description">记录学习笔记，学艺不精，大家多多评论指教</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">66</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:1547405085@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter-2-Transport-Layer"><span class="toc-number">1.</span> <span class="toc-text">Chapter 2   Transport Layer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%90%E7%BA%B2"><span class="toc-number">1.1.</span> <span class="toc-text">提纲</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Application-layer"><span class="toc-number">1.2.</span> <span class="toc-text">Application layer</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Application-layer"><span class="toc-number">1.2.1.</span> <span class="toc-text">1. Application layer</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Sockets"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">Sockets</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Addressing-processes"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">Addressing processes</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-different-addresses-in-TCP-x2F-IP"><span class="toc-number">1.2.1.3.</span> <span class="toc-text">4 different addresses in TCP&#x2F;IP</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Physical-address-Layer-2"><span class="toc-number">1.2.1.3.1.</span> <span class="toc-text">Physical address Layer 2</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Logical-address-Layer-3-32-bit-IPv4-128-bit-IPv6"><span class="toc-number">1.2.1.3.2.</span> <span class="toc-text">Logical address Layer 3 (32-bit , IPv4 128-bit IPv6)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Port-address-Layer-4-16-bit"><span class="toc-number">1.2.1.3.3.</span> <span class="toc-text">Port address Layer 4 (16-bit)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Application-specific-address-Layer-7-%E7%89%B9%E5%AE%9A%E5%BA%94%E7%94%A8%E5%9C%B0%E5%9D%80"><span class="toc-number">1.2.1.3.4.</span> <span class="toc-text">**Application-specific address Layer 7 **特定应用地址</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#application-protocol-defines"><span class="toc-number">1.2.1.4.</span> <span class="toc-text">application protocol defines</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-types-of-messages-exchanged"><span class="toc-number">1.2.1.4.1.</span> <span class="toc-text">1. types of messages exchanged</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-message-syntax"><span class="toc-number">1.2.1.4.2.</span> <span class="toc-text">2. message syntax</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-message-semantics-%E8%AF%AD%E4%B9%89"><span class="toc-number">1.2.1.4.3.</span> <span class="toc-text">3. message semantics (语义)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-rules-for-when-and-how-processes-send-amp-respond-to-messages"><span class="toc-number">1.2.1.4.4.</span> <span class="toc-text">4. rules for when and how processes send &amp; respond to messages</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#open-protocols"><span class="toc-number">1.2.1.4.5.</span> <span class="toc-text">open protocols:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#proprietary-protocols%E4%B8%93%E7%94%A8%EF%BC%88%E7%A7%81%E6%9C%89%EF%BC%89%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.2.1.4.6.</span> <span class="toc-text">proprietary protocols专用（私有）协议:</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#translation-layer"><span class="toc-number">1.3.</span> <span class="toc-text">translation layer</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Multiplexing-x2F-demultiplexing"><span class="toc-number">1.3.1.</span> <span class="toc-text">Multiplexing&#x2F;demultiplexing</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Multiplexing-Mux"><span class="toc-number">1.3.1.0.1.</span> <span class="toc-text">Multiplexing (Mux):</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Demultipliexing-Demux"><span class="toc-number">1.3.1.0.2.</span> <span class="toc-text">Demultipliexing (Demux)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#How-demultiplexing-works"><span class="toc-number">1.3.1.0.3.</span> <span class="toc-text">How demultiplexing works</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Connectionless-demux"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">Connectionless demux</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Connection-oriented-demux"><span class="toc-number">1.3.1.2.</span> <span class="toc-text">Connection-oriented demux</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Typical-port-numbers-for-applications"><span class="toc-number">1.3.1.3.</span> <span class="toc-text">Typical port numbers for applications</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UDP-User-Datagram-Protocol"><span class="toc-number">1.3.2.</span> <span class="toc-text">UDP: User Datagram Protocol</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Simplest-usable-Internet-transport-protocol"><span class="toc-number">1.3.2.0.1.</span> <span class="toc-text">Simplest usable Internet transport protocol</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#connectionless"><span class="toc-number">1.3.2.0.2.</span> <span class="toc-text">connectionless:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#UDP-use"><span class="toc-number">1.3.2.0.3.</span> <span class="toc-text">UDP use:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#reliable-transfer-over-UDP-%E7%94%A8udp%E5%AE%9E%E7%8E%B0%E5%8F%AF%E9%9D%A0%E4%BC%A0%E8%BE%93%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">1.3.2.0.4.</span> <span class="toc-text">reliable transfer over UDP: 用udp实现可靠传输的方法</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#UDP-checksum"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">UDP checksum</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Principles-of-reliable-data-transfer-%EF%BC%88rdf%EF%BC%89"><span class="toc-number">1.3.3.</span> <span class="toc-text">Principles of reliable data transfer （rdf）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%AF%E9%9D%A0%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93%E5%8E%9F%E7%90%86"><span class="toc-number">1.3.3.1.</span> <span class="toc-text">可靠数据传输原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#rdt1-0-reliable-transfer-over-a-reliable-channel"><span class="toc-number">1.3.3.2.</span> <span class="toc-text">rdt1.0: reliable transfer over a reliable channel</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#rdt2-0-channel-with-bit-errors"><span class="toc-number">1.3.3.3.</span> <span class="toc-text">rdt2.0: channel with bit errors</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#rdt2-1-sender-handles-corrupt-ACK-x2F-NAKs"><span class="toc-number">1.3.3.4.</span> <span class="toc-text">rdt2.1: sender, handles corrupt ACK&#x2F;NAKs</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#rdt2-2-a-NAK-free-protocol"><span class="toc-number">1.3.3.5.</span> <span class="toc-text">rdt2.2: a NAK-free protocol</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#rdt3-0-channels-with-errors-and-loss"><span class="toc-number">1.3.3.6.</span> <span class="toc-text">rdt3.0: channels with errors and loss</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Performance-of-rdt3-0"><span class="toc-number">1.3.3.7.</span> <span class="toc-text">Performance of rdt3.0</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pipelined-protocols"><span class="toc-number">1.3.4.</span> <span class="toc-text">Pipelined protocols</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#slide-window%E6%B5%81%E7%A8%8B"><span class="toc-number">1.3.4.1.</span> <span class="toc-text">slide window流程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#sender"><span class="toc-number">1.3.4.1.1.</span> <span class="toc-text">sender:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#reciver"><span class="toc-number">1.3.4.1.2.</span> <span class="toc-text">reciver</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Go-Back-N"><span class="toc-number">1.3.4.2.</span> <span class="toc-text">Go-Back-N</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#sender%EF%BC%9A"><span class="toc-number">1.3.4.2.1.</span> <span class="toc-text">sender：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Selective-repeat"><span class="toc-number">1.3.4.3.</span> <span class="toc-text">Selective repeat</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AA%97%E5%8F%A3%E9%95%BF%E5%BA%A6%E5%BF%85%E9%A1%BB%E5%B0%8F%E4%BA%8E%E7%AD%89%E4%BA%8E%E5%BA%8F%E5%8F%B7%E7%A9%BA%E9%97%B4%E5%A4%A7%E5%B0%8F%E4%B8%80%E5%8D%8A"><span class="toc-number">1.3.4.4.</span> <span class="toc-text">窗口长度必须小于等于序号空间大小一半</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP-%EF%BC%88Transmission-Control-Protocol%EF%BC%89"><span class="toc-number">1.3.5.</span> <span class="toc-text">TCP （Transmission Control Protocol）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#TCP-header"><span class="toc-number">1.3.5.1.</span> <span class="toc-text">TCP header</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#TCP-round-trip-time-timeout"><span class="toc-number">1.3.5.2.</span> <span class="toc-text">TCP round trip time, timeout</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#retransmission-scenarios"><span class="toc-number">1.3.5.3.</span> <span class="toc-text">retransmission scenarios</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#TCP-fast-retransmit"><span class="toc-number">1.3.5.4.</span> <span class="toc-text">TCP fast retransmit</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#TCP-flow-control"><span class="toc-number">1.3.5.5.</span> <span class="toc-text">TCP flow control</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MSS-and-MTU"><span class="toc-number">1.3.5.6.</span> <span class="toc-text">MSS and MTU</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Nagle%E2%80%99s-algorithm"><span class="toc-number">1.3.5.7.</span> <span class="toc-text">Nagle’s algorithm</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Nagle%E2%80%99s-algorithm-1"><span class="toc-number">1.3.5.7.1.</span> <span class="toc-text">Nagle’s algorithm</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Silly-Window-Syndrome"><span class="toc-number">1.3.5.7.2.</span> <span class="toc-text">Silly Window Syndrome</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%8F%91%E9%80%81%E7%AB%AF%E5%BC%95%E8%B5%B7%E7%9A%84%E7%B3%8A%E6%B6%82%E7%AA%97%E5%8F%A3%E7%BB%BC%E5%90%88%E7%97%87"><span class="toc-number">1.3.5.7.2.1.</span> <span class="toc-text">发送端引起的糊涂窗口综合症</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%8E%A5%E6%94%B6%E7%AB%AF%E5%BC%95%E8%B5%B7%E7%9A%84%E7%B3%8A%E6%B6%82%E7%AA%97%E5%8F%A3%E7%BB%BC%E5%90%88%E7%97%87"><span class="toc-number">1.3.5.7.2.2.</span> <span class="toc-text">接收端引起的糊涂窗口综合症</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Connection-Management"><span class="toc-number">1.3.5.8.</span> <span class="toc-text">Connection Management</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#TCP-3-way-handshake"><span class="toc-number">1.3.5.8.1.</span> <span class="toc-text">TCP 3-way handshake</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#TCP-closing-a-connection-%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B"><span class="toc-number">1.3.5.8.2.</span> <span class="toc-text">TCP: closing a connection 四次挥手</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Principles-of-congestion-control"><span class="toc-number">1.3.5.9.</span> <span class="toc-text">Principles of congestion control</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#TCP-congestion-control"><span class="toc-number">1.3.5.10.</span> <span class="toc-text">TCP congestion control</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#Slow-Start"><span class="toc-number">1.3.5.10.0.1.</span> <span class="toc-text">Slow Start</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#AIMD%EF%BC%88additive-increase-multiplicative-decrease%EF%BC%89"><span class="toc-number">1.3.5.10.1.</span> <span class="toc-text">AIMD（additive increase multiplicative decrease）</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#TCP-Fairness"><span class="toc-number">1.3.5.11.</span> <span class="toc-text">TCP Fairness</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/2023%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9%E7%9A%84%E7%95%99%E8%A8%80.html" title="2023最后一天的留言"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202312312339644.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2023最后一天的留言"/></a><div class="content"><a class="title" href="/post/2023%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9%E7%9A%84%E7%95%99%E8%A8%80.html" title="2023最后一天的留言">2023最后一天的留言</a><time datetime="2023-12-31T14:59:00.000Z" title="发表于 2023-12-31 22:59:00">2023-12-31</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/%E6%B5%B7%E8%B4%BC%E7%8E%8B%E7%9C%9F%E4%BA%BA%E7%89%88%E8%A7%82%E6%84%9F.html" title="海贼王真人版观感">海贼王真人版观感</a><time datetime="2023-09-07T02:16:37.000Z" title="发表于 2023-09-07 10:16:37">2023-09-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/ysyx%E9%A2%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-pa1.html" title="ysyx预学习记录--pa1"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202308101531521.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ysyx预学习记录--pa1"/></a><div class="content"><a class="title" href="/post/ysyx%E9%A2%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-pa1.html" title="ysyx预学习记录--pa1">ysyx预学习记录--pa1</a><time datetime="2023-08-10T07:27:15.000Z" title="发表于 2023-08-10 15:27:15">2023-08-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/DFT-S-OFDM.html" title="DFT-S-OFDM"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202307211649897.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DFT-S-OFDM"/></a><div class="content"><a class="title" href="/post/DFT-S-OFDM.html" title="DFT-S-OFDM">DFT-S-OFDM</a><time datetime="2023-07-21T08:45:03.000Z" title="发表于 2023-07-21 16:45:03">2023-07-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/%E9%98%BB%E5%A1%9E%E8%B5%8B%E5%80%BC%E5%92%8C%E9%9D%9E%E9%98%BB%E5%A1%9E%E8%B5%8B%E5%80%BC%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF.html" title="阻塞赋值和非阻塞赋值的应用场景"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202307121444978.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="阻塞赋值和非阻塞赋值的应用场景"/></a><div class="content"><a class="title" href="/post/%E9%98%BB%E5%A1%9E%E8%B5%8B%E5%80%BC%E5%92%8C%E9%9D%9E%E9%98%BB%E5%A1%9E%E8%B5%8B%E5%80%BC%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF.html" title="阻塞赋值和非阻塞赋值的应用场景">阻塞赋值和非阻塞赋值的应用场景</a><time datetime="2023-07-12T06:43:44.000Z" title="发表于 2023-07-12 14:43:44">2023-07-12</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1664737061963-862d6a174a3b')"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2023 By chilh</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadWaline () {
+  function insertCSS () {
+    const link = document.createElement("link")
+    link.rel = "stylesheet"
+    link.href = "https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.css"
+    document.head.appendChild(link)
+  }
+
+  function initWaline () {
+    const waline = Waline.init(Object.assign({
+      el: '#waline-wrap',
+      serverURL: 'https://chilh-comment-nwkfkyqk8-zhanzghouhe.vercel.app',
+      pageview: false,
+      dark: 'html[data-theme="dark"]',
+      path: window.location.pathname,
+      comment: false,
+    }, null))
+  }
+
+  if (typeof Waline === 'function') initWaline()
+  else {
+    insertCSS()
+    getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.js').then(initWaline)
+  }
+}
+
+if ('Waline' === 'Waline' || !true) {
+  if (true) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+  else setTimeout(loadWaline, 0)
+} else {
+  function loadOtherComment () {
+    loadWaline()
+  }
+}</script></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":85,"height":400,"hOffset":-18,"vOffset":25},"mobile":{"show":true},"react":{"opacity":0.7},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html>
