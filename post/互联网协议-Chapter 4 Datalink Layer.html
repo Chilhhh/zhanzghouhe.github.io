@@ -166,13 +166,18 @@ window.addEventListener('load',()=> { preloader.endLoading() })
 if (false) {
   document.addEventListener('pjax:send', () => { preloader.initLoading() })
   document.addEventListener('pjax:complete', () => { preloader.endLoading() })
-}</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/%E5%A4%B4%E5%83%8F.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">67</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 图库</span></a></div><div class="menus_item"><a class="site-page" href="/charts/"><i class="fa-fw fa fa-heartbeat"></i><span> 统计</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1653554604030-995729757eb0.webp')"><nav id="nav"><span id="blog-info"><a href="/" title="Chilh"><span class="site-name">Chilh</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 图库</span></a></div><div class="menus_item"><a class="site-page" href="/charts/"><i class="fa-fw fa fa-heartbeat"></i><span> 统计</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">互联网协议-Chapter 4 Datalink Layer</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-12-29T11:24:52.000Z" title="发表于 2022-12-29 19:24:52">2022-12-29</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-07-21T06:11:00.701Z" title="更新于 2023-07-21 14:11:00">2023-07-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A4%A7%E5%AD%A6%E7%AC%94%E8%AE%B0/">大学笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">8.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>33分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="互联网协议-Chapter 4 Datalink Layer"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Datalink"><a href="#Datalink" class="headerlink" title="Datalink"></a>Datalink</h1><p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/Datalink.png" alt="Datalink"></p>
-<h2 id="Link-layer-introduction"><a href="#Link-layer-introduction" class="headerlink" title="Link layer: introduction"></a>Link layer: introduction</h2><ul>
-<li><p>nodes：hosts and routers</p>
+}</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/%E5%A4%B4%E5%83%8F.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">67</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 图库</span></a></div><div class="menus_item"><a class="site-page" href="/charts/"><i class="fa-fw fa fa-heartbeat"></i><span> 统计</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1653554604030-995729757eb0.webp')"><nav id="nav"><span id="blog-info"><a href="/" title="Chilh"><span class="site-name">Chilh</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 图库</span></a></div><div class="menus_item"><a class="site-page" href="/charts/"><i class="fa-fw fa fa-heartbeat"></i><span> 统计</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">互联网协议-Chapter 4 Datalink Layer</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-12-29T11:24:52.000Z" title="发表于 2022-12-29 19:24:52">2022-12-29</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-07-21T06:11:00.701Z" title="更新于 2023-07-21 14:11:00">2023-07-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A4%A7%E5%AD%A6%E7%AC%94%E8%AE%B0/">大学笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">8.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>33分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="互联网协议-Chapter 4 Datalink Layer"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1>Datalink</h1>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/Datalink.png" alt="Datalink"></p>
+<h2 id="Link-layer-introduction">Link layer: introduction</h2>
+<ul>
+<li>
+<p>nodes：hosts and routers</p>
 </li>
-<li><p>links： communication channels that connect adjacent（相邻） nodes along the communication path</p>
+<li>
+<p>links： communication channels that connect adjacent（相邻） nodes along the communication path</p>
 </li>
-<li><p>layer-2 packet: frame, encapsulates datagram</p>
+<li>
+<p>layer-2 packet: frame, encapsulates datagram</p>
 </li>
 </ul>
 <blockquote>
@@ -181,33 +186,42 @@ if (false) {
 <p>datagram transferred by different link protocols over different links:</p>
 <p>在不同链路上传输的数据报的链路层协议是不同的</p>
 <p>each link protocol provides different services</p>
-<p> may or may not provide rdt over link</p>
-<h3 id="链路层服务"><a href="#链路层服务" class="headerlink" title="链路层服务"></a>链路层服务</h3><ul>
-<li><p><em>framing</em>：encapsulate datagram into frame, adding header, trailer</p>
+<p>may or may not provide rdt over link</p>
+<h3 id="链路层服务">链路层服务</h3>
+<ul>
+<li>
+<p><em>framing</em>：encapsulate datagram into frame, adding header, trailer</p>
 </li>
-<li><p><em>link access</em>:“MAC” addresses used in frame headers to identify source, destination </p>
+<li>
+<p><em>link access</em>:“MAC” addresses used in frame headers to identify source, destination</p>
 </li>
-<li><p><em>reliable delivery between adjacent nodes</em>: seldom used on low bit-error link (fiber, some twisted pair)   通常用于wireless links: high error rates</p>
+<li>
+<p><em>reliable delivery between adjacent nodes</em>: seldom used on low bit-error link (fiber, some twisted pair)   通常用于wireless links: high error rates</p>
 </li>
-<li><p><em>flow control:</em>  pacing between adjacent sending and receiving nodes</p>
+<li>
+<p><em>flow control:</em>  pacing between adjacent sending and receiving nodes</p>
 </li>
-<li><p><em>error detection</em>: errors caused by signal attenuation, noise. </p>
-<p>receiver detects presence of errors </p>
+<li>
+<p><em>error detection</em>: errors caused by signal attenuation, noise.</p>
+<p>receiver detects presence of errors</p>
 </li>
-<li><p><em>error correction:</em>  不仅可以检测错误，还可以检测错误出现的位置</p>
+<li>
+<p><em>error correction:</em>  不仅可以检测错误，还可以检测错误出现的位置</p>
 <p>receiver identifies <em>and corrects</em> bit error(s) without retransmission</p>
 </li>
-<li><p><em>half-duplex and full-duplex</em>：with half duplex, nodes at both ends of link can transmit, but not at same time</p>
+<li>
+<p><em>half-duplex and full-duplex</em>：with half duplex, nodes at both ends of link can transmit, but not at same time</p>
 </li>
 </ul>
-<h3 id="链路层在何处实现"><a href="#链路层在何处实现" class="headerlink" title="链路层在何处实现"></a>链路层在何处实现</h3><p>in each and every host, combination of hardware, software, firmware</p>
-<p>link layer implemented in “adaptor”网络适配器 (aka <em>network</em> interface card NIC 网络接口卡) or on a chip芯片</p>
+<h3 id="链路层在何处实现">链路层在何处实现</h3>
+<p>in each and every host, combination of hardware, software, firmware</p>
+<p>link layer implemented in "adaptor"网络适配器 (aka <em>network</em> interface card NIC 网络接口卡) or on a chip芯片</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221120211125944.png" alt="image-20221120211125944" style="zoom:67%;">
-
 <p>attaches into host’s system buses</p>
 <p>控制器接收frame并抽取出网络层数据报</p>
-<h2 id="Error-detection"><a href="#Error-detection" class="headerlink" title="Error detection"></a>Error detection</h2><p>EDC= Error Detection and Correction bits </p>
-<p>D = Data protected by error checking, may include header fields </p>
+<h2 id="Error-detection">Error detection</h2>
+<p>EDC= Error Detection and Correction bits</p>
+<p>D = Data protected by error checking, may include header fields</p>
 <p>通常D中不只包含数据报，同时包含链路层frame首部</p>
 <ul>
 <li>Error detection not 100% reliable!</li>
@@ -217,59 +231,71 @@ if (false) {
 <li>larger EDC field yields better detection and correction</li>
 </ul>
 <p>EDC的比特越多，检测和纠错效率越好</p>
-<h3 id="Parity-checking"><a href="#Parity-checking" class="headerlink" title="Parity checking"></a>Parity checking</h3><p><em>single bit parity:</em></p>
+<h3 id="Parity-checking">Parity checking</h3>
+<p><em>single bit parity:</em></p>
 <p>奇偶校验：发送方只需要包含一个附加的比特，选择它的值，<strong>使得ｄ＋１位中的１的总数总是偶数</strong>，如果总数为计数就说明至少有一个比特的错误</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221120212343297.png" alt="image-20221120212343297" style="zoom:67%;">
-
 <p><em>two-dimensional bit parity:</em> detect and correct single bit errors</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221120212650886.png" alt="image-20221120212650886" style="zoom:67%;">
-
 <p>二维奇偶校验可以检测出错误，并通过行和列的索引纠正它</p>
-<h3 id="Internet-checksum"><a href="#Internet-checksum" class="headerlink" title="Internet checksum"></a>Internet checksum</h3><p>校验和方法</p>
-<p>detect “errors”  in transmitted packet </p>
-<p> full packet checksum guaranteed UDP/TCP only（对首部和数据字段都计算checksum）</p>
+<h3 id="Internet-checksum">Internet checksum</h3>
+<p>校验和方法</p>
+<p>detect “errors”  in transmitted packet</p>
+<p>full packet checksum guaranteed UDP/TCP only（对首部和数据字段都计算checksum）</p>
 <p>具体方法：</p>
 <p>treat segment contents as sequence of 16-bit integers</p>
 <p>checksum: addition (1’s complement sum) of segment contents  求和之后的补码</p>
 <p>sender puts checksum value into UDP checksum field</p>
 <p>check if computed checksum equals checksum field value:</p>
 <p>• NO - error detected</p>
-<p>• YES - no error detected. </p>
-<h3 id="Cyclic-Redundancy-Check-CRC"><a href="#Cyclic-Redundancy-Check-CRC" class="headerlink" title="Cyclic Redundancy Check (CRC)"></a>Cyclic Redundancy Check (CRC)</h3><p>algorithm has good protection against bursts of errors.</p>
-<h2 id="Multiple-access-protocols"><a href="#Multiple-access-protocols" class="headerlink" title="Multiple access protocols"></a>Multiple access protocols</h2><h5 id="两种类型链路："><a href="#两种类型链路：" class="headerlink" title="两种类型链路："></a>两种类型链路：</h5><p>point-to-point (connect two computers only)</p>
+<p>• YES - no error detected.</p>
+<h3 id="Cyclic-Redundancy-Check-CRC">Cyclic Redundancy Check (CRC)</h3>
+<p>algorithm has good protection against bursts of errors.</p>
+<h2 id="Multiple-access-protocols">Multiple access protocols</h2>
+<h5 id="两种类型链路：">两种类型链路：</h5>
+<p>point-to-point (connect two computers only)</p>
 <p><em>broadcast (shared wire or medium)</em></p>
 <p>链路层中一个很重要的问题就是：如何协调多个发送和接收节点对一条<strong>单一共享广播信道</strong>的访问，这就是多路访问问题。为了避免冲突（collision，如果有多个节点同时传输数据帧而不受任何控制，传输的帧可能在接收方处碰撞，碰撞帧的信号纠缠在一起</p>
-<p>  “collision” – 2 or more transmissions at once</p>
+<p>“collision” – 2 or more transmissions at once</p>
 <p>采用<strong>多路访问协议</strong>（multiple access protocol）来规范它们在共享的广播信道（“share” medium）上的传输行为</p>
-<h5 id="理想的多路访问协议："><a href="#理想的多路访问协议：" class="headerlink" title="理想的多路访问协议："></a>理想的多路访问协议：</h5><p>给定：Rbps的广播信道</p>
+<h5 id="理想的多路访问协议：">理想的多路访问协议：</h5>
+<p>给定：Rbps的广播信道</p>
 <ol>
-<li><p>当一个节点要发送时，可以R速率发送</p>
+<li>
+<p>当一个节点要发送时，可以R速率发送</p>
 </li>
-<li><p>当M个节点要发送，每个可以以R/M的平均速率发送</p>
+<li>
+<p>当M个节点要发送，每个可以以R/M的平均速率发送</p>
 </li>
-<li><p>fully decentralized:</p>
+<li>
+<p>fully decentralized:</p>
 </li>
-<li><p>Simple</p>
+<li>
+<p>Simple</p>
 </li>
 </ol>
-<h5 id="三种多路访问协议类型"><a href="#三种多路访问协议类型" class="headerlink" title="三种多路访问协议类型"></a>三种多路访问协议类型</h5><p>Partition channel 信道划分协议, random access 随机接入协议, “take turns”轮流协议</p>
-<h3 id="Channel-partitioning-MAC-protocols"><a href="#Channel-partitioning-MAC-protocols" class="headerlink" title="Channel partitioning MAC protocols"></a>Channel partitioning MAC protocols</h3><h4 id="TDMA"><a href="#TDMA" class="headerlink" title="TDMA"></a>TDMA</h4><p>time division multiple access 时分多址</p>
+<h5 id="三种多路访问协议类型">三种多路访问协议类型</h5>
+<p>Partition channel 信道划分协议, random access 随机接入协议, “take turns”轮流协议</p>
+<h3 id="Channel-partitioning-MAC-protocols">Channel partitioning MAC protocols</h3>
+<h4 id="TDMA">TDMA</h4>
+<p>time division multiple access 时分多址</p>
 <p>时间域被分成周期循环的等长的<strong>时分复用帧（TDM帧）</strong>，并进一步划分每个时间帧为 N 个<strong>时隙（slot）</strong></p>
-<p>access to channel in “rounds” </p>
-<p>each station gets fixed length slot (length = packet transmission time) in each round </p>
+<p>access to channel in “rounds”</p>
+<p>each station gets fixed length slot (length = packet transmission time) in each round</p>
 <p>如果站点无帧传输，时隙空闲-&gt;浪费</p>
 <p>6站LAN，1、3、4有数据报，时隙2、5、6空闲</p>
 <p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221120221030502.png" alt="image-20221120221030502"></p>
-<p>大家占用相同的spectrum，但是按使用不同的时间段。比如把1秒钟（或更小的一个时间单位）分成六个相等的<a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=%D1%85%E2%96%91%D0%9F%D1%86%D0%A7%E2%95%A2%D1%89%D0%A7%E2%94%A4%D1%85%D0%9D%D0%A5%D1%84%E2%95%9C%D0%9D&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:1048437877%7D">小时间单位</a>，时间单位1给channel1用，<a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=%D1%86%D0%A7%E2%95%A2%D1%89%D0%A7%E2%94%A4%D1%85%D0%9D%D0%A5%D1%84%E2%95%9C%D0%9D2&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:1048437877%7D">时间单位2</a>给channel 2用…以此类推。</p>
-<h4 id="FDMA"><a href="#FDMA" class="headerlink" title="FDMA"></a>FDMA</h4><p> frequency division multiple access 频分复用</p>
+<p>大家占用相同的spectrum，但是按使用不同的时间段。比如把1秒钟（或更小的一个时间单位）分成六个相等的<a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=%D1%85%E2%96%91%D0%9F%D1%86%D0%A7%E2%95%A2%D1%89%D0%A7%E2%94%A4%D1%85%D0%9D%D0%A5%D1%84%E2%95%9C%D0%9D&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A1048437877%7D">小时间单位</a>，时间单位1给channel1用，<a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=%D1%86%D0%A7%E2%95%A2%D1%89%D0%A7%E2%94%A4%D1%85%D0%9D%D0%A5%D1%84%E2%95%9C%D0%9D2&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A1048437877%7D">时间单位2</a>给channel 2用…以此类推。</p>
+<h4 id="FDMA">FDMA</h4>
+<p>frequency division multiple access 频分复用</p>
 <p>channel spectrum divided into frequency bands</p>
 <p>each station assigned fixed frequency band</p>
 <p>分配给站点的频段如果没有被使用，则空闲</p>
 <p>6站LAN，1、3、4有数据报，频段2、5、 6空闲</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221120221614402.png" alt="image-20221120221614402" style="zoom:67%;">
-
-<h3 id="Random-access-protocols"><a href="#Random-access-protocols" class="headerlink" title="Random access protocols"></a>Random access protocols</h3><p><strong>when node has packet to send transmit at full channel data rate R.</strong></p>
-<p>two or more transmitting nodes ➜ “collision” </p>
+<h3 id="Random-access-protocols">Random access protocols</h3>
+<p><strong>when node has packet to send transmit at full channel data rate R.</strong></p>
+<p>two or more transmitting nodes ➜ “collision”</p>
 <p>在随机访问协议中，一个传输节点总是以信道的全部速率（即 R bps）进行发送。由于信道不划分，所以可能出现而且允许冲突，而冲突意味着数据传输失败，因此随机访问协议需要定义：</p>
 <p>1）如何检测冲突；</p>
 <p>2）如何从冲突中恢复</p>
@@ -280,7 +306,8 @@ if (false) {
 <p>• ALOHA</p>
 <p>• CSMA, CSMA/CD, CSMA/CA</p>
 <p>但是当一个节点检测到碰撞时，不会立即重发，而是会等待一个随机的时延，碰撞的每个节点随机选择时延的过程是独立的，所以有可能重发时可以避免碰撞</p>
-<h4 id="Slotted-ALOHA"><a href="#Slotted-ALOHA" class="headerlink" title="Slotted ALOHA"></a>Slotted ALOHA</h4><p>在对时隙 ALOHA 的描述中，我们做下列假设：</p>
+<h4 id="Slotted-ALOHA">Slotted ALOHA</h4>
+<p>在对时隙 ALOHA 的描述中，我们做下列假设：</p>
 <p>① 所有数据帧大小相同，假定所有帧由 L 比特组成；</p>
 <p>② 时间被划分成等长的时隙，每个时隙长度为 L / R 秒；</p>
 <p>③<strong>节点</strong>只能在时隙开始时刻发送数据帧（实际上是节点上的网络适配器，或称为网卡，来发送数据帧）。nodes start to transmit only slot beginning</p>
@@ -293,28 +320,32 @@ if (false) {
 <p>如果有冲突，该节点在时隙结束之前检测到这次冲突，并在下一个时隙以随机概率 p 重传该帧，直至成功。</p>
 <p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221120223513660.png" alt="image-20221120223513660"></p>
 <p>node 1,2,3在slot1 collision,然后2在slot4发送成功，1在slot8 发送成功，3在slot10成功</p>
-<h5 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h5><p>single active node can continuously transmit <strong>at full rate of channel</strong></p>
+<h5 id="优点">优点</h5>
+<p>single active node can continuously transmit <strong>at full rate of channel</strong></p>
 <p>highly decentralized: only slots in nodes need to be in sync</p>
 <p>simple</p>
-<h5 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h5><p>collisions, wasting slots  一旦碰撞就会产生时隙浪费</p>
+<h5 id="缺点">缺点</h5>
+<p>collisions, wasting slots  一旦碰撞就会产生时隙浪费</p>
 <p>idle slots 总会产生空时隙</p>
 <p>nodes may be able to detect collision in less than time to transmit packet</p>
 <p>节点检测冲突的时间&lt;帧传输的时间，必须等时钟到来才能重传</p>
 <p>clock synchronization</p>
-<h4 id="Pure-unslotted-ALOHA"><a href="#Pure-unslotted-ALOHA" class="headerlink" title="Pure (unslotted) ALOHA"></a>Pure (unslotted) ALOHA</h4><p>第一个 ALOHA 协议实际上是一个非时隙、完全分散的协议，也称为<strong>纯ALOHA 协议</strong></p>
-<p>unslotted Aloha: <strong>simpler, no synchronization</strong> </p>
+<h4 id="Pure-unslotted-ALOHA">Pure (unslotted) ALOHA</h4>
+<p>第一个 ALOHA 协议实际上是一个非时隙、完全分散的协议，也称为<strong>纯ALOHA 协议</strong></p>
+<p>unslotted Aloha: <strong>simpler, no synchronization</strong></p>
 <p>• transmit immediately 不必等时钟，立刻重传</p>
 <p>当有新的数据帧生成时，节点立刻将该帧完整地传输进广播信道，因此冲突的可能性增大。如果一个传输的帧与其他传输发生冲突，这个节点立即以概率 p重传该帧；否则，该节点等待<strong>一个帧传输时间</strong>后，再以概率 p重传该帧，重复以上过程直至成功</p>
 <p>collision probability increases:</p>
 <p>• frame sent at t0 collides with other frames sent in [$t_0$-1,$t_0$+1]：在[$t_0$-1,$t_0$]中发出的帧后半部分一定会与i 帧冲突，而i帧后半部分又会与[$t_0$,$t_0$+1]发出的帧冲突</p>
 <p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221120224424358.png" alt="image-20221120224424358"></p>
-<p> <strong>half as efficient as slotted: 效率是slotted ALOHA的一半</strong></p>
-<h4 id="CSMA-carrier-sense-multiple-access"><a href="#CSMA-carrier-sense-multiple-access" class="headerlink" title="CSMA (carrier sense multiple access)"></a>CSMA (carrier sense multiple access)</h4><p>ALOHA中节点在开始传输前，并不关心是否会发生冲突（不关心现在channel中是否有帧）</p>
+<p><strong>half as efficient as slotted: 效率是slotted ALOHA的一半</strong></p>
+<h4 id="CSMA-carrier-sense-multiple-access">CSMA (carrier sense multiple access)</h4>
+<p>ALOHA中节点在开始传输前，并不关心是否会发生冲突（不关心现在channel中是否有帧）</p>
 <p>载波侦听多路访问采用碰撞检测：如果和另一个帧同时发出，则停止发送，作废</p>
 <p><em>CSMA</em>: listen before transmit 载波侦听</p>
 <p>if channel sensed idle: transmit entire frame</p>
 <p>if channel sensed busy, defer transmission</p>
-<p>在发送数据帧之前，先监听信道，如果信道空闲，则发送<strong>完整帧</strong>；如果信道忙，则推迟发送：节点则等待直到监听到一小段时间空闲，然后开始传输。 </p>
+<p>在发送数据帧之前，先监听信道，如果信道空闲，则发送<strong>完整帧</strong>；如果信道忙，则推迟发送：节点则等待直到监听到一小段时间空闲，然后开始传输。</p>
 <p>发生collision的情况：</p>
 <p>因为有propagation delay 所以 two nodes may not hear each other’ s transmission</p>
 <p><strong>只要发生collision，整个packet的transmission time wasted</strong></p>
@@ -324,212 +355,225 @@ if (false) {
 <p>因此节点 B 开始传输，沿着广播链路在两个方向上传播它的比特，B 的比特沿着广</p>
 <p>播链路传播延迟不是零（虽然以接近光速传播）。尽管节点 B 在$t_1$时刻正在传输，<strong>但 B 传输的比特信号还没有到达节点 D，因此 D 在$t_1 $监听到信道空闲</strong>根据CSMA 协议，D 也开始传输它的数据帧。一个短暂的时间后，B 的传输开始在 D 干扰 D 的传输，也就是发生了冲突。</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221121090116928.png" alt="image-20221121090116928" style="zoom:67%;">
-
-<h4 id="CSMA-x2F-CD-collision-detection"><a href="#CSMA-x2F-CD-collision-detection" class="headerlink" title="CSMA/CD (collision detection)"></a>CSMA/CD (collision detection)</h4><p>前面的CSMA没有加入碰撞检测机制：一旦检测到碰撞，B和D都立刻停止传输（上图还在继续传输）</p>
+<h4 id="CSMA-CD-collision-detection">CSMA/CD (collision detection)</h4>
+<p>前面的CSMA没有加入碰撞检测机制：一旦检测到碰撞，B和D都立刻停止传输（上图还在继续传输）</p>
 <p>具有collision的CSMD</p>
 <p>• collisions <em>detected</em> within short time</p>
 <p>• colliding transmissions aborted, reducing channel wastage</p>
 <p>一但检测到collision，立刻结束传输</p>
-<p> B 和 D <strong>节点在发送数据的同时能检测冲突，一旦检测到冲突将立即停止传输</strong>，这样就能够<strong>减少信道资源的浪费</strong></p>
+<p>B 和 D <strong>节点在发送数据的同时能检测冲突，一旦检测到冲突将立即停止传输</strong>，这样就能够<strong>减少信道资源的浪费</strong></p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/20210219105153902.png" alt="хЬиш┐ЩщЗМцПТхЕехЫ╛чЙЗцППш┐░" style="zoom:80%;">
-
-<h5 id="Ethernet-CSMA-x2F-CD-algorithm"><a href="#Ethernet-CSMA-x2F-CD-algorithm" class="headerlink" title="Ethernet CSMA/CD algorithm"></a>Ethernet CSMA/CD algorithm</h5><ol>
-<li><p>Network Interface Card (NIC)从网络层收到 datagram, creates frame</p>
+<h5 id="Ethernet-CSMA-CD-algorithm">Ethernet CSMA/CD algorithm</h5>
+<ol>
+<li>
+<p>Network Interface Card (NIC)从网络层收到 datagram, creates frame</p>
 </li>
-<li><p>If NIC senses channel idle, 开始传输帧. If NIC senses channel busy, 等待直到信道idle, then transmits.</p>
+<li>
+<p>If NIC senses channel idle, 开始传输帧. If NIC senses channel busy, 等待直到信道idle, then transmits.</p>
 </li>
-<li><p>If NIC 传输 entire 帧 的过程中没有检测到其他帧在传输, NIC is done with frame</p>
+<li>
+<p>If NIC 传输 entire 帧 的过程中没有检测到其他帧在传输, NIC is done with frame</p>
 </li>
-<li><p>If NIC detects another transmission while transmitting, aborts and sends jam signal传输中止</p>
+<li>
+<p>If NIC detects another transmission while transmitting, aborts and sends jam signal传输中止</p>
 </li>
-<li><p>After aborting, NIC enters 2进制指数后退算法 <em>binary (exponential) backoff:</em> after <em>m</em> th collision, NIC chooses <em>K</em> at random from${0,1,2, … , 2^m-1}$ NIC waits K·512 bit times, <strong>returns to Step 2</strong></p>
+<li>
+<p>After aborting, NIC enters 2进制指数后退算法 <em>binary (exponential) backoff:</em> after <em>m</em> th collision, NIC chooses <em>K</em> at random from${0,1,2, … , 2^m-1}$ NIC waits K·512 bit times, <strong>returns to Step 2</strong></p>
 <p>在该帧经历了一连串的 m 次 (m &lt; 10) 碰撞后，节点随机地从${0,1,2, … , 2^m-1}$中选择一个 K 值，等待的时间量为 K ⋅ 512 比特的传输延迟（发送512比特时间的k倍）；在 10 次或更多次碰撞之后，从 {0,1,2,3,…,1023}中随机选择 K</p>
 </li>
 </ol>
-<h5 id="CSMA-x2F-CD-Frame-size"><a href="#CSMA-x2F-CD-Frame-size" class="headerlink" title="CSMA/CD: Frame size"></a>CSMA/CD: Frame size</h5><p>▪ Collision Window 碰撞窗口</p>
-<p> Related to end-to-end propagation delay 以太网端到端的往返时延 只有经过碰撞窗口这段时间还没检测到冲突，发送方才能肯定这次发送不会发生冲突。</p>
+<h5 id="CSMA-CD-Frame-size">CSMA/CD: Frame size</h5>
+<p>▪ Collision Window 碰撞窗口</p>
+<p>Related to end-to-end propagation delay 以太网端到端的往返时延 只有经过碰撞窗口这段时间还没检测到冲突，发送方才能肯定这次发送不会发生冲突。</p>
 <p>Minimum packet size must be greater than collision window</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221121094255864.png" alt="image-20221121094255864" style="zoom:67%;">
-
-<p>RTT = 2x5000m/2x10^8 m/s = 0.00005s </p>
+<p>RTT = 2x5000m/2x10^8 m/s = 0.00005s</p>
 <p>min frame size = 0.00005s x 10,000,000 bits/sec = (500 bits) ~64B(最小帧是RTT时间里发送的帧的长度)</p>
 <p>可以想象发送方发送一个持续时间小于RTT的帧，过了T（RTT一半）时间后在接收方发生碰撞，然而该碰撞有需要T时间传回来，此时该帧早已发完，不知道产生了碰撞。</p>
-<p> two frames are transmitted within certain time, collisions will occur. Both senders need to detect collision. The senders only detect collision during transmission. If transmission is too short, the senders cannot detect collision. If the transmission is long enough, the senders can detect collision.</p>
+<p>two frames are transmitted within certain time, collisions will occur. Both senders need to detect collision. The senders only detect collision during transmission. If transmission is too short, the senders cannot detect collision. If the transmission is long enough, the senders can detect collision.</p>
 <p>如果某主机发送一个帧的64字节仍无冲突，以后就不会再发生冲突了，<strong>称此主机捕获了信道</strong>。</p>
 <p>所以最小帧为64B，如果小于这个数，可能无法检测到冲突</p>
-<p>The transmitting station is still transmitting long enough for a corrupted signal to be detected </p>
-<h4 id="CSMA-x2F-CA（collision-avoid）"><a href="#CSMA-x2F-CA（collision-avoid）" class="headerlink" title="CSMA/CA（collision avoid）"></a>CSMA/CA（collision avoid）</h4><p>无线局域网中传输</p>
+<p>The transmitting station is still transmitting long enough for a corrupted signal to be detected</p>
+<h4 id="CSMA-CA（collision-avoid）">CSMA/CA（collision avoid）</h4>
+<p>无线局域网中传输</p>
 <p>802.11: 没有冲突检测</p>
 <p>一旦发出就一定发完整个帧</p>
 <p>由于自身信号强度远远大于其他信号：其他信号衰减weak received signals (fading)</p>
-<p>目标: <em>avoid collisions:</em> CSMA/C(ollision)A(voidance) </p>
+<p>目标: <em>avoid collisions:</em> CSMA/C(ollision)A(voidance)</p>
 <p>• 为了避免无CD带来的信道利用率低的问题，事前进行冲突避免</p>
 <p>无法感受到所有的冲突：存在隐藏站点问题</p>
-<h5 id="Hidden-and-Exposed-Station"><a href="#Hidden-and-Exposed-Station" class="headerlink" title="Hidden and Exposed Station"></a>Hidden and Exposed Station</h5><p>圈代表信号覆盖范围：有可能发生冲突的区域</p>
+<h5 id="Hidden-and-Exposed-Station">Hidden and Exposed Station</h5>
+<p>圈代表信号覆盖范围：有可能发生冲突的区域</p>
 <p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221124093649537.png" alt="image-20221124093649537"></p>
 <p>(a) The hidden station problem. A and C are hidden from each other</p>
 <p>隐藏终端问题可以简单定义为：<strong>节点之间（A与C）无法互相监听对方。但当其不可以同时传输时（如果A向B发送会进入C的范围造成冲突），其同时传输，从而导致冲突发生。隐藏终端在单个AP（或者单个Receiver）时就有可能发生。</strong></p>
 <p>(b) The exposed station problem. B is exposed to transmission from A</p>
 <p>暴露终端问题可以简单定义为：<strong>节点之间能够互相监听对方。但其可以同时传输时，其不传输（A在向范围内的节点传输，此时B明明可以向不在A范围内的传输，但是由于侦听到了A的信号，放弃了对C的传播），从而造成浪费。</strong></p>
 <p>所以802.11中不冲突检测，检测了也没用</p>
-<h5 id="如何解决：事前侦听"><a href="#如何解决：事前侦听" class="headerlink" title="如何解决：事前侦听"></a>如何解决：事前侦听</h5><p>1 如果感受到channel idle for <strong>DIFS</strong>（ <strong>Short InterFrame Space</strong>） then transmit entire frame (no CD)</p>
+<h5 id="如何解决：事前侦听">如何解决：事前侦听</h5>
+<p>1 如果感受到channel idle for <strong>DIFS</strong>（ <strong>Short InterFrame Space</strong>） then transmit entire frame (no CD)</p>
 <p>2 if 感受channel很忙，然后设置一个随机的backoff计时器，在信道空缺时候倒计时。当计数值减为 0，该站点发送整个数据帧并等待确认</p>
 <p>3.如果收到确认，发送站点知道它的帧已被目的站正确接收了，如果未收到确认，发送站点将重新进入回退阶段，并从一个更大的范围内选取随机值</p>
 <p><strong>DCF = Distributed Coordination Function</strong> 分布式协调功能</p>
 <p><strong>DIFS = DCF InterFrame Space</strong>分布式帧间间隔</p>
 <p><strong>SIFS = Short InterFrame Space</strong> 短帧间间隔</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221124095613926.png" alt="image-20221124095613926" style="zoom:67%;">
-
-<p>此外还可以进行预约信道：allow sender to “reserve” channel rather than random </p>
+<p>此外还可以进行预约信道：allow sender to “reserve” channel rather than random</p>
 <p>access of data frames: <strong>avoid collisions of long data frames</strong>为了避免长帧的冲突</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221124100936105.png" alt="image-20221124100936105" style="zoom:67%;">
-
 <p>使用CSMA向BS（base station）发送一个小的RTS（request-to-send） packets</p>
 <p>如果发送碰撞，就backoff重发</p>
 <p>预约成功后，BS broadcasts <strong>clear-to-send</strong> CTS in response to RTS</p>
 <p>目的是告诉发送方可以开始发了，告诉其他节点停止发送</p>
 <p><em>avoid data frame collisions completely</em> <em>using small reservation packets!</em></p>
-<h2 id="LANs"><a href="#LANs" class="headerlink" title="LANs"></a>LANs</h2><p>MAC（LAN or Physical or Ethernat）地址是48 bit MAC address (for most LANs) burned in NIC ROM只有NIC有关, also sometimes software settable</p>
+<h2 id="LANs">LANs</h2>
+<p>MAC（LAN or Physical or Ethernat）地址是48 bit MAC address (for most LANs) burned in NIC ROM只有NIC有关, also sometimes software settable</p>
 <p>e.g.: 1A-2F-BB-76-09-AD 十六进制表示每个小隔断里有８比特（48ｂｉｔ）</p>
 <p>function: <em>used “locally” to get frame from one interface to</em> <em>another physically-connected interface (same network, in IP addressing sense)</em></p>
 <p>each adapter on LAN has unique <em>LAN</em> address每个适配器具有一个MAC address</p>
 <p>IP地址是分层的，MAC地址平面化的</p>
-<p> FF-FF-FF-FF-FF-FF MAC广播地址</p>
+<p>FF-FF-FF-FF-FF-FF MAC广播地址</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221124104711786.png" alt="image-20221124104711786" style="zoom:50%;">
-
 <p>对于某些具有多个网卡的端设备，具有多个LAN地址</p>
 <p>世界上的每一个网卡MAC地址都不同：MAC address allocation administered by IEEE</p>
 <p>网卡制造商需要购买MAC address space</p>
 <p>MAC flat address ➜ portability mac address具有扁平结果，这决定了其网卡可以在不同设备中移植，而地址不会变</p>
 <p>• can move LAN card from one LAN to another</p>
 <p><strong>值得注意的是，交换机没有MAC地址！</strong></p>
-<h3 id="ARP-address-resolution-protocol"><a href="#ARP-address-resolution-protocol" class="headerlink" title="ARP: address resolution protocol"></a>ARP: address resolution protocol</h3><p>地址解析协议：Address Resolution Protocol, ARP is used to find the destination MAC address when only the destination IP address is known（已知IP地址查找MAC地址）</p>
+<h3 id="ARP-address-resolution-protocol">ARP: address resolution protocol</h3>
+<p>地址解析协议：Address Resolution Protocol, ARP is used to find the destination MAC address when only the destination IP address is known（已知IP地址查找MAC地址）</p>
 <p>each IP node (<strong>host, router</strong>) on LAN has ARP table</p>
 <p>&lt; IP address; MAC address; TTL&gt;格式</p>
-<p>TTL (Time To Live)：time after which address mapping will be forgotten </p>
+<p>TTL (Time To Live)：time after which address mapping will be forgotten</p>
 <p>存储MAC－IP pair直到 information that times out</p>
 <p>从表中删除每个映射的时间</p>
-<h5 id="子网中寻址"><a href="#子网中寻址" class="headerlink" title="子网中寻址"></a>子网中寻址</h5><p>具体流程：</p>
+<h5 id="子网中寻址">子网中寻址</h5>
+<p>具体流程：</p>
 <ul>
 <li>A wants to send datagram to B：B’s MAC address not in A’ s ARP table.（先查表，如果表里有对应IP的MAC直接用，如果没有开始广播）</li>
 <li>A broadcasts ARP query packet, containing B’s IP address （destination MAC address = FF-FF-FF-FF-FF-FF）此时所有节点都收到了这个查询</li>
 <li>B receives ARP packet, replies to A with its (B’s) MAC address</li>
 </ul>
 <p>把自己的MAC发送给A的MAC地址，而不是广播</p>
-<h5 id="routing-to-another-LAN"><a href="#routing-to-another-LAN" class="headerlink" title="routing to another LAN"></a>routing to another LAN</h5><p>send datagram from A to B via R</p>
+<h5 id="routing-to-another-LAN">routing to another LAN</h5>
+<p>send datagram from A to B via R</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221124221023899.png" alt="image-20221124221023899" style="zoom:67%;">
-
 <p>A creates link-layer frame with R’s MAC address as destination address, frame contains A-to-B IP datagram <strong>以R的MAC地址作为目的地，并把A到B的数据报封装进去</strong></p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221124221214900.png" alt="image-20221124221214900" style="zoom:67%;">
-
 <p>frame received at R, datagram removed, passed up to IP</p>
 <p>R creates link-layer frame with B’s MAC address as destination address, frame contains A-to-B IP datagram</p>
 <p><strong>传到R后将IP数据报提取出来然后封装成以B MAC地址为目的地的帧继续发（如果不知道地址，ARP查询）</strong></p>
 <p>全程源IP目标IP不变，但是源MAC和目标MAC始终在变</p>
-<h3 id="Ethernet"><a href="#Ethernet" class="headerlink" title="Ethernet"></a>Ethernet</h3><p>有线网络中最常使用的LAN技术（与802.3几乎一致），无线网络中最常用802.11</p>
-<h5 id="physical-topology"><a href="#physical-topology" class="headerlink" title="physical topology"></a>physical topology</h5><p><em>bus:</em> all nodes in same collision domain（都在一个碰撞域中）同一个碰撞域中使用CSMA/CD同一时间只有一个在传</p>
+<h3 id="Ethernet">Ethernet</h3>
+<p>有线网络中最常使用的LAN技术（与802.3几乎一致），无线网络中最常用802.11</p>
+<h5 id="physical-topology">physical topology</h5>
+<p><em>bus:</em> all nodes in same collision domain（都在一个碰撞域中）同一个碰撞域中使用CSMA/CD同一时间只有一个在传</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221124222053565.png" alt="image-20221124222053565" style="zoom:67%;">
-
 <p>两个端口同时发出一个帧在总线中，就会发生碰撞</p>
 <p><em>star:</em></p>
 <p>• active <em>switch</em> in center</p>
 <p>• each line runs a (separate) Ethernet protocol (nodes do not collide with each other)交换机内分端口发送不会产生碰撞（Ａ－＞Ｂ不影响Ｃ－＞Ｄ）</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221124222128514.png" alt="image-20221124222128514" style="zoom:67%;">
-
-<h4 id="Ethernet-frame-structure"><a href="#Ethernet-frame-structure" class="headerlink" title="Ethernet frame structure"></a>Ethernet frame structure</h4><p>sending adapter encapsulates IP datagram (or other network layer protocol packet) in Ethernet frame</p>
+<h4 id="Ethernet-frame-structure">Ethernet frame structure</h4>
+<p>sending adapter encapsulates IP datagram (or other network layer protocol packet) in Ethernet frame</p>
 <p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221124222324633.png" alt="image-20221124222324633"></p>
-<h6 id="preamble（前同步码）"><a href="#preamble（前同步码）" class="headerlink" title="preamble（前同步码）:"></a><em>preamble（前同步码）:</em></h6><p>7 bytes with pattern 10101010 followed by one byte with pattern 10101011前7比特都是10101010，最后一个是10101011</p>
+<h6 id="preamble（前同步码）"><em>preamble（前同步码）:</em></h6>
+<p>7 bytes with pattern 10101010 followed by one byte with pattern 10101011前7比特都是10101010，最后一个是10101011</p>
 <p><strong>used to synchronize receiver, sender clock rates</strong></p>
-<h6 id="addresses-6-byte-source-destination-MAC-addresses"><a href="#addresses-6-byte-source-destination-MAC-addresses" class="headerlink" title="addresses: 6 byte source, destination MAC addresses"></a><em>addresses:</em> 6 byte source, destination MAC addresses</h6><p>if adapter receives frame with <strong>matching destination address,</strong> or with <strong>broadcast address</strong> (e.g. ARP packet), it passes data in frame to network layer protocol</p>
-<h6 id="type-indicates-higher-layer-protocol-mostly-IP-but-others-possible）高层协议"><a href="#type-indicates-higher-layer-protocol-mostly-IP-but-others-possible）高层协议" class="headerlink" title="type: indicates higher layer protocol (mostly IP but others possible）高层协议"></a><em>type:</em> indicates higher layer protocol (mostly IP but others possible）高层协议</h6><h6 id="CRC-cyclic-redundancy-check-at-receiver"><a href="#CRC-cyclic-redundancy-check-at-receiver" class="headerlink" title="CRC: cyclic redundancy check at receiver"></a><em>CRC:</em> cyclic redundancy check at receiver</h6><p>发现错误就丢弃该frame</p>
-<h5 id="connectionless-no-handshaking-between-sending-and-receiving-NICs"><a href="#connectionless-no-handshaking-between-sending-and-receiving-NICs" class="headerlink" title="connectionless: no handshaking between sending and receiving NICs"></a><em>connectionless:</em> no handshaking between sending and receiving NICs</h5><p>不握手，直接发</p>
-<h5 id="unreliable-receiving-NIC-doesn’t-send-ACK-or-NACK-to-sending-NIC"><a href="#unreliable-receiving-NIC-doesn’t-send-ACK-or-NACK-to-sending-NIC" class="headerlink" title="unreliable: receiving NIC doesn’t send ACK or NACK to sending NIC"></a><em>unreliable:</em> receiving NIC doesn’t send ACK or NACK to sending NIC</h5><p>和UDP、IP一样，出错不归链路层管，从TCP再次生成分组重新封装成帧重发（或者应用层重发）</p>
+<h6 id="addresses-6-byte-source-destination-MAC-addresses"><em>addresses:</em> 6 byte source, destination MAC addresses</h6>
+<p>if adapter receives frame with <strong>matching destination address,</strong> or with <strong>broadcast address</strong> (e.g. ARP packet), it passes data in frame to network layer protocol</p>
+<h6 id="type-indicates-higher-layer-protocol-mostly-IP-but-others-possible）高层协议"><em>type:</em> indicates higher layer protocol (mostly IP but others possible）高层协议</h6>
+<h6 id="CRC-cyclic-redundancy-check-at-receiver"><em>CRC:</em> cyclic redundancy check at receiver</h6>
+<p>发现错误就丢弃该frame</p>
+<h5 id="connectionless-no-handshaking-between-sending-and-receiving-NICs"><em>connectionless:</em> no handshaking between sending and receiving NICs</h5>
+<p>不握手，直接发</p>
+<h5 id="unreliable-receiving-NIC-doesn’t-send-ACK-or-NACK-to-sending-NIC"><em>unreliable:</em> receiving NIC doesn’t send ACK or NACK to sending NIC</h5>
+<p>和UDP、IP一样，出错不归链路层管，从TCP再次生成分组重新封装成帧重发（或者应用层重发）</p>
 <p>只有使用上层的TCP，丢弃的帧才会重传</p>
-<h5 id="使用的MAC协议是unslotted-CSMA-x2F-CD-with-binary-backoff"><a href="#使用的MAC协议是unslotted-CSMA-x2F-CD-with-binary-backoff" class="headerlink" title="使用的MAC协议是unslotted CSMA/CD with binary backoff"></a>使用的MAC协议是<strong>unslotted <em>CSMA/CD with</em> <em>binary backoff</em></strong></h5><h4 id="Ethernet-switch"><a href="#Ethernet-switch" class="headerlink" title="Ethernet switch"></a>Ethernet switch</h4><p>store, forward Ethernet frames</p>
+<h5 id="使用的MAC协议是unslotted-CSMA-CD-with-binary-backoff">使用的MAC协议是<strong>unslotted <em>CSMA/CD with</em> <em>binary backoff</em></strong></h5>
+<h4 id="Ethernet-switch">Ethernet switch</h4>
+<p>store, forward Ethernet frames</p>
 <p>examine incoming frame’s MAC address, selectively forward frame to one-or-more outgoing links when frame is to be forwarded on segment, uses CSMA/CD to access segment</p>
 <p><em>transparent</em>：交换机对于子网中所有主机和路由器都是透明的</p>
 <p>主机并不知道有交换机存在（网络层面认为子网内一跳可达，链路层可能经过很多交换机）</p>
 <p><em>plug-and-play, self-learning</em>：不要configured，自学习得到交换表</p>
-<p> <strong><em>multiple</em> simultaneous transmissions</strong>：<strong>多重同步传输，同时有很多节点并发的发送</strong>，每个主机有dedicate，direct connection to switch，switch可以buffer frame，并且no collision （each link is its own collision domain）</p>
+<p><strong><em>multiple</em> simultaneous transmissions</strong>：<strong>多重同步传输，同时有很多节点并发的发送</strong>，每个主机有dedicate，direct connection to switch，switch可以buffer frame，并且no collision （each link is its own collision domain）</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221124224331897.png" alt="image-20221124224331897" style="zoom:67%;">
-
 <p><strong>A-to-A’ and B-to-B’ can transmit simultaneously</strong> （MAC协议在其中弱化了，因为几乎不存在碰撞）</p>
 <p>如何获取具有MAC－IP pair 的switch table? switch具有self-learning</p>
-<h5 id="Switch-self-learning"><a href="#Switch-self-learning" class="headerlink" title="Switch: self-learning"></a>Switch: self-learning</h5><p>switch <em>learns</em> which hosts can be reached through which interfaces</p>
+<h5 id="Switch-self-learning">Switch: self-learning</h5>
+<p>switch <em>learns</em> which hosts can be reached through which interfaces</p>
 <p>when frame received, switch “learns” location of sender: incoming LAN segment</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221124235638208.png" alt="image-20221124235638208" style="zoom:50%;">
-
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221124235702200.png" alt="image-20221124235702200" style="zoom:67%;">
-
 <p>初始时，switch table为空，当有主机经过交换机发送时，记录其端口以及MAC地址，并设置一个TTL（Time to Live），超过这个时间自动删除。</p>
 <p>帧发送到交换机，把A地址和1 接口存入交换表</p>
-<h5 id="frame-filtering-x2F-forwarding过滤转发"><a href="#frame-filtering-x2F-forwarding过滤转发" class="headerlink" title="frame filtering/forwarding过滤转发"></a>frame filtering/forwarding过滤转发</h5><p>过滤 (filtering) 是决定某个帧应该转发到某个接口还是应当将其丢弃的交换机功能</p>
+<h5 id="frame-filtering-forwarding过滤转发">frame filtering/forwarding过滤转发</h5>
+<p>过滤 (filtering) 是决定某个帧应该转发到某个接口还是应当将其丢弃的交换机功能</p>
 <p>转发 (forwarding） 是决定某个帧应该被导向哪个接口，并把该帧移动到那些接口</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221125001058054.png" alt="image-20221125001058054" style="zoom:67%;">
-
 <p>如果没有匹配的表项，直接广播，有匹配的但是和发送时使用的端口一样，无需再发回去，直接丢弃（过滤）</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221125001516364.png" alt="image-20221125001516364" style="zoom: 50%;">
-
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221125001530248.png" alt="image-20221125001530248" style="zoom:67%;">
-
 <p>在上个例子基础上，A的帧到达switch后A’的location unknown: <em>flood</em></p>
 <p>然后A’向A发送frame时，A已经在表中，所以可以直接从１输出</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221125002515918.png" alt="image-20221125002515918" style="zoom:67%;">
-
 <p>去的时候flood，回来时候走一条确定的路线</p>
-<h4 id="Switches-vs-routers"><a href="#Switches-vs-routers" class="headerlink" title="Switches vs. routers"></a>Switches vs. routers</h4><p>both are store-and-forward: </p>
+<h4 id="Switches-vs-routers">Switches vs. routers</h4>
+<p>both are store-and-forward:</p>
 <p><em>routers:</em> network-layer devices (examine network—layer headers)</p>
-<p><em>switches:</em> link-layer devices (examine link-layer headers)both have forwarding tables:          		</p>
+<p><em>switches:</em> link-layer devices (examine link-layer headers)both have forwarding tables:</p>
 <p><em>routers:</em> compute tables using routing algorithms, IP addresses，需要配置不是即插即用</p>
 <p><em>switches:</em> learn forwarding table using flooding, learning, MAC addresses，可以即插即用</p>
-<h3 id="WLANS"><a href="#WLANS" class="headerlink" title="WLANS"></a>WLANS</h3><p>wireless local area network </p>
+<h3 id="WLANS">WLANS</h3>
+<p>wireless local area network</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221125091620720.png" alt="image-20221125091620720" style="zoom: 50%;">
-
 <p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221125091636117.png" alt="image-20221125091636117" style="zoom:67%;">wireless host：may be stationary (non-mobile) or mobile</p>
 <p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221125091739013.png" alt="image-20221125091739013" style="zoom:50%;"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221125091916367.png" alt="image-20221125091916367" style="zoom:50%;">base station（AP） : connected to wired network</p>
-<p>sending packets between wired network and wireless host(s) </p>
-<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221125091948246.png" alt="image-20221125091948246" style="zoom:50%;">wireless link: connect </p>
+<p>sending packets between wired network and wireless host(s)</p>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221125091948246.png" alt="image-20221125091948246" style="zoom:50%;">wireless link: connect</p>
 <p>mobile(s) to base station</p>
 <ul>
-<li><p>ad hoc mode:自组织网络（不需要接入点(Access Point)） no <strong>base stations</strong>，<strong>route</strong> among themselves</p>
+<li>
+<p>ad hoc mode:自组织网络（不需要接入点(Access Point)） no <strong>base stations</strong>，<strong>route</strong> among themselves</p>
 <p>在Ad hoc网络中，结点具有转发能力，结点间的通信可能要经过多个中间结点的转发（多跳），这是Ad hoc网络与其他移动网络的最根本区别。</p>
 </li>
 </ul>
 <p>nodes can only transmit to other nodes within link coverage</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221125092715031.png" alt="image-20221125092715031" style="zoom:67%;">
-
 <p>不需要AP</p>
-<h4 id="802-11-WLAN"><a href="#802-11-WLAN" class="headerlink" title="802.11 WLAN"></a>802.11 WLAN</h4><p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221125221028008.png" alt="image-20221125221028008"></p>
+<h4 id="802-11-WLAN">802.11 WLAN</h4>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221125221028008.png" alt="image-20221125221028008"></p>
 <p>无线主机与基站通信base station = access point (AP)</p>
 <p>Basic Service Set <strong>基本服务集</strong> (BSS) contains:</p>
 <p>• wireless hosts</p>
 <p>• access point (AP): <strong>base station（家用路由器）是链路层设备</strong></p>
 <p>• ad hoc mode: hosts only 如果是自组织网络只有主机</p>
-<h5 id="802-11-frame"><a href="#802-11-frame" class="headerlink" title="802.11 frame"></a>802.11 frame</h5><p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221125221413045.png" alt="image-20221125221413045"></p>
+<h5 id="802-11-frame">802.11 frame</h5>
+<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221125221413045.png" alt="image-20221125221413045"></p>
 <p>Address1：要接收该帧的AP或主机的ＭＡＣ</p>
 <p>Address2: 发送该帧的站点的MAC地址</p>
 <p>Address３：与AP直接相连的路由器的MAC地址</p>
 <p>Address4：如果不用：<em>00-00-00-00-00-00</em></p>
-<h5 id="addressing"><a href="#addressing" class="headerlink" title="addressing"></a>addressing</h5><p>AP是链路层设备，它与IP地址无关，所以从路由器角度来看，<strong>它认为它与子网中一台主机H1直接相连：</strong></p>
+<h5 id="addressing">addressing</h5>
+<p>AP是链路层设备，它与IP地址无关，所以从路由器角度来看，<strong>它认为它与子网中一台主机H1直接相连：</strong></p>
 <p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221125224352531.png" alt="image-20221125224352531"></p>
 <p>H1生成一个802.11帧用AP的MAC地址和H1的MAC地址作为地址1和地址2，R1的MAC作为地址3，当AP接收到该帧，将其转换为以太网帧：源地址为H1 MAC目标地址为R1的MAC地址发往路由器（看起来好像是低一层的packet在这里deliver）</p>
 <p>802.11帧：</p>
 <p>上面是以byte为单位，下面是bit</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221130195851544.png" alt="image-20221130195851544" style="zoom:67%;">
-
-<h3 id="VLAN"><a href="#VLAN" class="headerlink" title="VLAN"></a>VLAN</h3><p>虚拟局域网：</p>
+<h3 id="VLAN">VLAN</h3>
+<p>虚拟局域网：</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221130201513856.png" alt="image-20221130201513856" style="zoom:67%;">
-
 <p>带有VLAN功能的交换机（们）可以被配置成：一个物理LAN基础设施，虚拟成多个虚拟的LANs</p>
 <p>在一个VLAN内主机可以彼此通信，仿佛与交换机直接相连。</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221130220836910.png" alt="image-20221130220836910" style="zoom:67%;">
-
 <p><em>流量隔离:</em> 从/到1-8端口的流量只会涉及到1-8</p>
 <p>动态成员: 成员可以在VLANs之间动态分配</p>
 <p>在VLANs间转发:通过路由器进行转发 (就像他们通过各自的交换机相联一样)</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221130221000519.png" alt="image-20221130221000519" style="zoom:67%;">
-
-<h3 id="Multiprotocol-label-switching-MPLS"><a href="#Multiprotocol-label-switching-MPLS" class="headerlink" title="Multiprotocol label switching (MPLS)"></a>Multiprotocol label switching (MPLS)</h3><ul>
+<h3 id="Multiprotocol-label-switching-MPLS">Multiprotocol label switching (MPLS)</h3>
+<ul>
 <li>纯IP网络是按照IP地址对分组进行转发的</li>
 </ul>
 <p>前缀匹配，转发的方法固定</p>
@@ -539,54 +583,44 @@ if (false) {
 <li>MPLS网络按照标签label进行分组的转发</li>
 </ul>
 <p>有基于标签的转发表</p>
-<p>▪ initial goal: high-speed IP forwarding using fixed length label (instead of IP address) </p>
+<p>▪ initial goal: high-speed IP forwarding using fixed length label (instead of IP address)</p>
 <p>•使用固定长度标识符(而不是最长前缀匹配)快速查找</p>
 <p>•借鉴虚拟电路(VC)方法 但IP数据报仍然保留IP地址!</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221130232115766.png" alt="image-20221130232115766" style="zoom:67%;">
-
-<h4 id="MPLS-capable-routers"><a href="#MPLS-capable-routers" class="headerlink" title="MPLS capable routers"></a>MPLS capable routers</h4><p>标签交换路由器</p>
+<h4 id="MPLS-capable-routers">MPLS capable routers</h4>
+<p>标签交换路由器</p>
 <p>只根据标签值将报文转发到出接口(不检查IP地址)</p>
 <p>MPLS forwarding table distinct from IP forwarding tables</p>
 <p><em>flexibility:</em> MPLS forwarding decisions can <em>differ</em> from those of IP</p>
-<p> 采用源地址和目标地址来路由到达同一个目标的流，不同路径（支持流量工程）</p>
+<p>采用源地址和目标地址来路由到达同一个目标的流，不同路径（支持流量工程）</p>
 <p>如果链路失效，能够快速重新路由: 预先计算好的备份链路 (对于VoIP有效)</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221130232738438.png" alt="image-20221130232738438" style="zoom:67%;">
-
-
-
 <p>▪ <em>IP routing:</em> <em>path to destination determined</em> <em>by destination address alone</em></p>
 <p>▪ <em>MPLS routing:</em> path to destination can be based on source <em>and</em> destination address</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221130234201683.png" alt="image-20221130234201683" style="zoom:67%;">
-
 <p>R4到A有两种路径</p>
-<h3 id="A-day-in-the-life"><a href="#A-day-in-the-life" class="headerlink" title="A day in the life"></a>A day in the life</h3><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221204113346524.png" alt="image-20221204113346524" style="zoom:50%;">
-
+<h3 id="A-day-in-the-life">A day in the life</h3>
+<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221204113346524.png" alt="image-20221204113346524" style="zoom:50%;">
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221204113358918.png" alt="image-20221204113358918" style="zoom:50%;">
-
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221204113411135.png" alt="image-20221204113411135" style="zoom:50%;">
-
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221204113425727.png" alt="image-20221204113425727" style="zoom:50%;">
-
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221204113449697.png" alt="image-20221204113449697" style="zoom:50%;">
-
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221204113505080.png" alt="image-20221204113505080" style="zoom:50%;">
-
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221204113520122.png" alt="image-20221204113520122" style="zoom:50%;">
-
 <p>我们假定 Bob启动他的便携机，然后将其用一根以太网电缆连接到学校的以太网交换</p>
 <p>机，交换机又与学校的路由器相连，如图6-32所示。学校的这台路由器与一个ISP连接，</p>
-<p>本例中 ISP为comcast. net。在本例中，comcast.net 为学校提供了DNS 服务;所以，DNS</p>
+<p>本例中 ISP为comcast. net。在本例中，<a target="_blank" rel="noopener" href="http://comcast.net">comcast.net</a> 为学校提供了DNS 服务;所以，DNS</p>
 <p>服务器驻留在 Comcast 网络中而不是学校网络中。我们将假设 DHCP服务器运行在路由器</p>
 <p>中，就像常见情况那样。当 Bob 首先将其便携机与网络连接时，没有IP 地址他就不能做任何事情（例如下载一个Web 网页）。所以，Bob 的便携机所采取的一个网络相关的动作是运行 DHCP 协议，以从本地 DHCP服务器获得一个IP 地址以及其他信息。</p>
 <p>1）Bob便携机上的操作系统生成一个DHCP请求报文（4.3.3节），并将这个报文放入具有目的端口67（DHCP服务器）和源端口68（DHCP客户）的UDP报文段（3.3节）链路层和局域网 327该UDP报文段则被放置在一个具有广播 IP目的地址（255.255.255.255）和源 IP地址0.0.0.0的IP数据报中（4.3.1节），因为 Bob的便携机还没有一个IP地址。</p>
 <p>2）包含 DHCP请求报文的IP数据报则被放置在以太网帧中。该以太网帧具有目的 MAC地址 FF∶FF∶FF∶FF∶FF∶FF，使该帧将广播到与交换机连接的所有设备（如果顺利的话也包括 DHCP 服务器）;该帧的源 MAC 地址是 Bob便携机的 MAC 地址00:16: D3:23:68:8A。</p>
 <p>3）包含 DHCP请求的广播以太网帧是第一个由 Bob便携机发送到以太网交换机的帧。该交换机在所有的出端口广播入帧，包括连接到路由器的端口。</p>
 <p>4）路由器在它的具有 MAC地址 00∶22∶6B∶45∶IF的接口接收到该广播以太网帧。该帧中包含 DHCP请求，并且从该以太网帧中抽取出 IP数据报。该数据报的广播IP 目的地址指示了这个IP 数据报应当由在该节点的高层协议处理，因此该数据报的载荷（一个UDP报文段）被分解（3.2节）向上到达 UDP，DHCP请求报文从此 UDP报文段中抽取出来。此时 DHCP服务器有了DHCP请求报文。</p>
-<p>5）我们假设运行在路由器中的 DHCP服务器能够以CIDR（4.3.3节）块68.85.2.0/24分配IP地址。所以本例中，在学校内使用的所有IP 地址都在 Comcast 的地址块中。我 们假设 DHCP服务器分配地址 68.85.2.101 给 Bob 的便携机。DHCP服务器生成包含这个IP地址以及 DNS 服务器的 IP 地址（68.87.71.226）、默认网关路由器的 IP 地址（68.85.2.1）和子网块（68.85.2.0/24）（（等价为”网络掩码”）的一个DHCP ACK报文。该DHCP报文被放入一个UDP报文段中，UDP报文段被放入一个IP数据报中，IP 数据报再被放入一个以太网帧中。这个以太网帧的源 MAC地址是路由器连到归属网络时接口的 MAC地址（00∶22∶6B∶45∶1F∶1B）、目的 MAC地址是 Bob便携机的 MAC地址（00∶16∶ D3∶23∶68∶8A）。</p>
+<p>5）我们假设运行在路由器中的 DHCP服务器能够以CIDR（4.3.3节）块68.85.2.0/24分配IP地址。所以本例中，在学校内使用的所有IP 地址都在 Comcast 的地址块中。我 们假设 DHCP服务器分配地址 68.85.2.101 给 Bob 的便携机。DHCP服务器生成包含这个IP地址以及 DNS 服务器的 IP 地址（68.87.71.226）、默认网关路由器的 IP 地址（68.85.2.1）和子网块（68.85.2.0/24）（（等价为"网络掩码"）的一个DHCP ACK报文。该DHCP报文被放入一个UDP报文段中，UDP报文段被放入一个IP数据报中，IP 数据报再被放入一个以太网帧中。这个以太网帧的源 MAC地址是路由器连到归属网络时接口的 MAC地址（00∶22∶6B∶45∶1F∶1B）、目的 MAC地址是 Bob便携机的 MAC地址（00∶16∶ D3∶23∶68∶8A）。</p>
 <p>6）包含 DHCP ACK 的以太网帧由路由器发送给交换机。因为交换机是自学习的，并且先前从 Bob便携机收到（包含 DHCP请求的）以太网帧，所以该交换机知道寻址到00∶16∶D3∶23∶68∶8A的帧仅从通向 Bob便携机的输出端口转发。</p>
 <p>7）Bob便携机接收到包含 DHCP ACK 的以太网帧，从该以太网帧中抽取IP 数据报，从IP数据报中抽取 UDP报文段，从 UDP报文段抽取 DHCP ACK报文。Bob 的 DHCP客户则记录下它的IP 地址和它的 DNS 服务器的 IP地址。它还在其IP转发表中安装默认网关的地址。Bob便携机将向该默认网关发送目的地址为其子网68.85.2.0/24 以外的所有数据报。此时，Bob 便携机已经初始化好它的网络组件、并准备开始处理 Web 网页获取。（注意到在第 4 章给出的四个步骤中仅有最后两个 DHCP步骤是实际必要的。）</p>
-<p>当Bob 将 <a target="_blank" rel="noopener" href="http://www.google.com/">www.google.com</a> 的 URL 键入其Web浏览器时，他开启了一长串事件，这将导致谷歌主页最终显示在其Web 浏览器上。Bob的 Web浏览器通过生成一个TCP套接字开始了该过程，套接字用于向<a target="_blank" rel="noopener" href="http://www.google.com发送http请求.为了生成该套接字,bob/">www.google.com发送HTTP请求。为了生成该套接字，Bob</a> 便携机将需要知道 <a target="_blank" rel="noopener" href="http://www.google.com/">www.google.com</a> 的IP地址。我们在2.4节中学过，使用 DNS协议提供这种名字到 IP地址的转换服务。</p>
-<p>8）Bob便携机上的操作系统因此生成一个 DNS查询报文（2.4.3节），将字符串<a target="_blank" rel="noopener" href="http://www.google.com放入dns报文的问题段中.该dns报文则放置在一个具有53号(dns/">www.google.com放入DNS报文的问题段中。该DNS报文则放置在一个具有53号（DNS</a> 服务器）目的端口的 UDP报文段中。该UDP报文段则被放入具有IP目的地址68.87.71.226和源IP 地址 68.85.2.101的IP数据报中。</p>
+<p>当Bob 将 <a target="_blank" rel="noopener" href="http://www.google.com">www.google.com</a> 的 URL 键入其Web浏览器时，他开启了一长串事件，这将导致谷歌主页最终显示在其Web 浏览器上。Bob的 Web浏览器通过生成一个TCP套接字开始了该过程，套接字用于向www.google.com发送HTTP请求。为了生成该套接字，Bob 便携机将需要知道 <a target="_blank" rel="noopener" href="http://www.google.com">www.google.com</a> 的IP地址。我们在2.4节中学过，使用 DNS协议提供这种名字到 IP地址的转换服务。</p>
+<p>8）Bob便携机上的操作系统因此生成一个 DNS查询报文（2.4.3节），将字符串www.google.com放入DNS报文的问题段中。该DNS报文则放置在一个具有53号（DNS 服务器）目的端口的 UDP报文段中。该UDP报文段则被放入具有IP目的地址68.87.71.226和源IP 地址 68.85.2.101的IP数据报中。</p>
 <p>9）Bob便携机则将包含 DNS请求报文的数据报放入一个以太网帧中。该帧将发送（在链路层寻址）到 Bob学校网络中的网关路由器。然而、即使 Bob 便携机经过上述第5步中的 DHCP ACK报文知道了学校网关路由器的IP 地址（68.85.2.1），但仍不知道该网关路由器的 MAC地址。为了获得该网关路由器的 MAC 地址，Bob 便携机将需要使用 ARP协议（6.4.1节）。</p>
 <p>10）Bob便携机生成一个具有目的IP地址68.85.2.1（默认网关）的ARP查询报文，将该ARP报文放置在一个具有广播目的地址（FF∶FF∶FF∶FF∶FF∶FF）的以太网帧中，并向交换机发送该以太网帧，交换机将该帧交付给所有连接的设备，包括网关路由器。</p>
 <p>11）网关路由器在通往学校网络的接口上接收到包含该 ARP查询报文的帧，发现在ARP报文中目标IP地址68.85.2.1匹配其接口的IP地址。网关路由器因此准备一个 ARP回答，指示它的 MAC地址00∶22∶∶6B∶45∶1F∶1B对应IP地址 68.85.2.1。它将ARP回答放在一个以太网帧中，其目的地址为00∶ 16∶D3∶23∶68∶8A（Bob 便携机），并向交换机发送该帧，再由交换机将帧交付给 Bob便携机。</p>
@@ -594,16 +628,16 @@ if (false) {
 <p>13）Bob便携机现在（最终!）能够使包含 DNS查询的以太网帧寻址到网关路由器的MAC地址。注意到在该帧中的IP数据报具有IP 目的地址 68.87.71.226（DNS服务器），而该帧具有目的地址00∶22∶6B∶45∶1F∶1B（网关路由器）。Bob 便携机向交换机发送该帧，交换机将该帧交付给网关路由器。</p>
 <p>14）网关路由器接收该帧并抽取包含 DNS 查询的IP数据报。路由器查找该数据报的目的地址（68.87.71.226），并根据其转发表决定该数据报应当发送到图6-32的 Comcast网络中最左边的路由器。IP数据报放置在链路层帧中，该链路适合将学校路由器连接到最左边 Comcast 路由器，并且该帧经这条链路发送。</p>
 <p>15）在 Comcast 网络中最左边的路由器接收到该帧，抽取IP数据报，检查该数据报的目的地址（68.87.71.226），并根据其转发表确定出接口，经过该接口朝着 DNS服务器转发数据报，而转发表已根据Comcast 的域内协议（如 RIP、OSPF 或IS-IS，5.3节）以及因特网的域间协议 BGP（5.4 节）所填写。</p>
-<p>16）最终包含 DNS查询的 IP 数据报到达了 DNS服务器。DNS服务器抽取出 DNS查询报文，在它的 DNS数据库中查找名字 <a target="_blank" rel="noopener" href="http://www.google.com(2.4/">www.google.com（2.4</a> 节），找到包含对应<a target="_blank" rel="noopener" href="http://www.google/">www.google</a>. com 的IP地址（64.233.169.105）的 DNS源记录。（假设它当前缓存在 DNS服务器中。）前面讲过这种缓存数据源于 google.com的权威 DNS 服务器（2.4.2节）。该DNS服务器形成了一个包含这种主机名到IP地址映射的 DNS 回答报文，将该DNS回答报文放入 UDP报文段中，该报文段放入寻址到 Bob便携机（68.85.2.101）的IP数据报中。该数据报将通过Comcast 网络反向转发到学校的路由器，并从这里经过以太网交换机到Bob 便携机。</p>
-<p>17）Bob便携机从 DNS报文抽取出服务器 <a target="_blank" rel="noopener" href="http://www.google.com/">www.google.com</a> 的IP地址。最终，在大量工作后，Bob 便携机此时准备接触 <a target="_blank" rel="noopener" href="http://www.google.com/">www.google.com</a> 服务器!链路层和局城网 329</p>
-<p>18）既然 Bob便携机有了 <a target="_blank" rel="noopener" href="http://www.google.com/">www.google.com</a> 的IP地址，它能够生成 TCP套接字，该套接字将用于向 <a target="_blank" rel="noopener" href="http://www.google.com/">www.google.com</a> 发送HTTP GET报文。当 Bob生成TCP套接字时，在 Bob便携机中的TCP 必须首先与<a target="_blank" rel="noopener" href="http://www.google.com/">www.google.com</a> 中的 TCP 执行三次握手（3.5.6节）。Bob便携机因此首先生成一个具有目的端口 80（针对 HTTP的）的 TCP SYN报文段，将该TCP报文段放置在具有目的IP地址64.233.169.105（<a target="_blank" rel="noopener" href="http://www.google.com)的ip数据报中,将该数据报放置在/">www.google.com）的IP数据报中，将该数据报放置在</a> MAC 地址为00∶22∶6B∶45∶1F∶1B（网关路由器）的帧中，并向交换机发送该帧。</p>
-<p>19）在学校网络、Comcast 网络和谷歌网络中的路由器朝着 <a target="_blank" rel="noopener" href="http://www.google/">www.google</a>. com转发包含TCP SYN的数据报，使用每台路由器中的转发表，如前面步骤 14~16那样。前面讲过支配分组经 Comcast 和谷歌网络之间域间链路转发的路由器转发表项，是由 BGP 协议决定的（第5章）。</p>
-<p>20）最终，包含TCP SYN的数据报到达 <a target="_blank" rel="noopener" href="http://www.googole/">www.googole</a>. com。从数据报抽取出 TCP SYN报文并分解到与端口 80相联系的欢迎套接字。对于谷歌 HTTP 服务器和 Bob便携机之间的TCP连接生成一个连接套接字（2.7节）。产生一个TCP SYNACK（3.5.6节）报文段，将其放入向 Bob 便携机寻址的一个数据报中，最后放入链路层帧中，该链路适合将www. google. com 连接到其第一跳路由器。</p>
+<p>16）最终包含 DNS查询的 IP 数据报到达了 DNS服务器。DNS服务器抽取出 DNS查询报文，在它的 DNS数据库中查找名字 <a target="_blank" rel="noopener" href="http://www.google.com">www.google.com</a>（2.4 节），找到包含对应www.google. com 的IP地址（64.233.169.105）的 DNS源记录。（假设它当前缓存在 DNS服务器中。）前面讲过这种缓存数据源于 google.com的权威 DNS 服务器（2.4.2节）。该DNS服务器形成了一个包含这种主机名到IP地址映射的 DNS 回答报文，将该DNS回答报文放入 UDP报文段中，该报文段放入寻址到 Bob便携机（68.85.2.101）的IP数据报中。该数据报将通过Comcast 网络反向转发到学校的路由器，并从这里经过以太网交换机到Bob 便携机。</p>
+<p>17）Bob便携机从 DNS报文抽取出服务器 <a target="_blank" rel="noopener" href="http://www.google.com">www.google.com</a> 的IP地址。最终，在大量工作后，Bob 便携机此时准备接触 <a target="_blank" rel="noopener" href="http://www.google.com">www.google.com</a> 服务器!链路层和局城网 329</p>
+<p>18）既然 Bob便携机有了 <a target="_blank" rel="noopener" href="http://www.google.com">www.google.com</a> 的IP地址，它能够生成 TCP套接字，该套接字将用于向 <a target="_blank" rel="noopener" href="http://www.google.com">www.google.com</a> 发送HTTP GET报文。当 Bob生成TCP套接字时，在 Bob便携机中的TCP <a target="_blank" rel="noopener" href="http://xn--www-b38dn1m2o1avx4gy3b.google.com">必须首先与www.google.com</a> 中的 TCP 执行三次握手（3.5.6节）。Bob便携机因此首先生成一个具有目的端口 80（针对 HTTP的）的 TCP SYN报文段，将该TCP报文段放置在具有目的IP地址64.233.169.105（<a target="_blank" rel="noopener" href="http://www.google.com">www.google.com</a>）的IP数据报中，将该数据报放置在 MAC 地址为00∶22∶6B∶45∶1F∶1B（网关路由器）的帧中，并向交换机发送该帧。</p>
+<p>19）在学校网络、Comcast 网络和谷歌网络中的路由器朝着 www.google. com转发包含TCP SYN的数据报，使用每台路由器中的转发表，如前面步骤 14~16那样。前面讲过支配分组经 Comcast 和谷歌网络之间域间链路转发的路由器转发表项，是由 BGP 协议决定的（第5章）。</p>
+<p>20）最终，包含TCP SYN的数据报到达 www.googole. com。从数据报抽取出 TCP SYN报文并分解到与端口 80相联系的欢迎套接字。对于谷歌 HTTP 服务器和 Bob便携机之间的TCP连接生成一个连接套接字（2.7节）。产生一个TCP SYNACK（3.5.6节）报文段，将其放入向 Bob 便携机寻址的一个数据报中，最后放入链路层帧中，该链路适合将www. google. com 连接到其第一跳路由器。</p>
 <p>21）包含TCP SYNACK 报文段的数据报通过谷歌、Comcast 和学校网络，最终到达Bob便携机的以太网卡。数据报在操作系统中分解到步骤18生成的TCP 套接字，从而进入连接状态。</p>
-<p>22）借助于Bob便携机上的套接字，现在（终于!）准备向 <a target="_blank" rel="noopener" href="http://www.google.com发送字节了,bob的浏览器生成包含要获取的url的/">www.google.com发送字节了，Bob的浏览器生成包含要获取的URL的</a> HTTP GET报文（2.2.3节）。HTTPGET报文则写入套接字，其中GET报文成为一个TCP报文段的载荷。该TCP报文段放置进一个数据报中，并交付到 www. google.com，如前面步骤18~20所述。</p>
-<p>23）在 <a target="_blank" rel="noopener" href="http://www.google.com的/">www.google.com的</a> HTTP服务器从 TCP套接字读取 HTTP GET报文，生成一个HTTP响应报文（2.2节），将请求的Web 页内容放入 HTTP响应体中，并将报文发送进TCP套接字中。</p>
+<p>22）借助于Bob便携机上的套接字，现在（终于!）准备向 www.google.com发送字节了，Bob的浏览器生成包含要获取的URL的 HTTP GET报文（2.2.3节）。HTTPGET报文则写入套接字，其中GET报文成为一个TCP报文段的载荷。该TCP报文段放置进一个数据报中，并交付到 www. <a target="_blank" rel="noopener" href="http://google.com">google.com</a>，如前面步骤18~20所述。</p>
+<p>23）在 www.google.com的 HTTP服务器从 TCP套接字读取 HTTP GET报文，生成一个HTTP响应报文（2.2节），将请求的Web 页内容放入 HTTP响应体中，并将报文发送进TCP套接字中。</p>
 <p>24）包含 HTTP回答报文的数据报通过谷歌、Comcast 和学校网络转发，到达 Bob便携机。Bob 的 Web 浏览器程序从套接字读取 HTTP响应，从 HTTP响应体中抽取Web 网页的html，并最终（终于!）显示了Web网页。</p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://chilh.top">chilh</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://chilh.top/post/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE-Chapter%204%20Datalink%20Layer.html">https://chilh.top/post/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE-Chapter%204%20Datalink%20Layer.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://chilh.top" target="_blank">Chilh</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/BUPT/">BUPT</a><a class="post-meta__tags" href="/tags/%E5%A4%A7%E4%B8%89%E4%B8%8A%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">大三上课程笔记</a><a class="post-meta__tags" href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE/">互联网协议</a></div><div class="post_share"><div class="social-share" data-image="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1653554604030-995729757eb0.webp" data-sites="twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE-test.html" title="互联网协议-test"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1670979314026-7c0c4367c8b7.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">互联网协议-test</div></div></a></div><div class="next-post pull-right"><a href="/post/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE-Chapter%201%20Introduction.html" title="互联网协议-Chapter 1 Introduction"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1671013319475-4dca8a10156e" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">互联网协议-Chapter 1 Introduction</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/post/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE-Chapter%203%20%20Network%20Layer.html" title="互联网协议-Chapter 3  Network Layer"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1671050579179-5cd444a8a166" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-29</div><div class="title">互联网协议-Chapter 3  Network Layer</div></div></a></div><div><a href="/post/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE-Chapter%202%20%20Transport%20Layer.html" title="互联网协议-Chapter 2  Transport Layer"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1664737061963-862d6a174a3b" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-29</div><div class="title">互联网协议-Chapter 2  Transport Layer</div></div></a></div><div><a href="/post/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE-Chapter%201%20Introduction.html" title="互联网协议-Chapter 1 Introduction"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1671013319475-4dca8a10156e" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-29</div><div class="title">互联网协议-Chapter 1 Introduction</div></div></a></div><div><a href="/post/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE-test.html" title="互联网协议-test"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1670979314026-7c0c4367c8b7.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-29</div><div class="title">互联网协议-test</div></div></a></div><div><a href="/post/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE-Chapter%205%20Security%20and%20Network%20Management.html" title="互联网协议-Chapter 5 Security and Network Management"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1671474087718-8bb4f50658aa.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-29</div><div class="title">互联网协议-Chapter 5 Security and Network Management</div></div></a></div><div><a href="/post/1.1-Threads%20and%20Concurrency%20in%20Java%EF%BC%88%E4%B8%8A%EF%BC%89.html" title="1.1-Threads and Concurrency in Java（上）"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/porter-raab--mNr_4WfdCg-unsplash.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-30</div><div class="title">1.1-Threads and Concurrency in Java（上）</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/%E5%A4%B4%E5%83%8F.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">chilh</div><div class="author-info__description">记录学习笔记，学艺不精，大家多多评论指教</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">67</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:1547405085@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Datalink"><span class="toc-number">1.</span> <span class="toc-text">Datalink</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Link-layer-introduction"><span class="toc-number">1.1.</span> <span class="toc-text">Link layer: introduction</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%93%BE%E8%B7%AF%E5%B1%82%E6%9C%8D%E5%8A%A1"><span class="toc-number">1.1.1.</span> <span class="toc-text">链路层服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%93%BE%E8%B7%AF%E5%B1%82%E5%9C%A8%E4%BD%95%E5%A4%84%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.1.2.</span> <span class="toc-text">链路层在何处实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Error-detection"><span class="toc-number">1.2.</span> <span class="toc-text">Error detection</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Parity-checking"><span class="toc-number">1.2.1.</span> <span class="toc-text">Parity checking</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Internet-checksum"><span class="toc-number">1.2.2.</span> <span class="toc-text">Internet checksum</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cyclic-Redundancy-Check-CRC"><span class="toc-number">1.2.3.</span> <span class="toc-text">Cyclic Redundancy Check (CRC)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Multiple-access-protocols"><span class="toc-number">1.3.</span> <span class="toc-text">Multiple access protocols</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%A4%E7%A7%8D%E7%B1%BB%E5%9E%8B%E9%93%BE%E8%B7%AF%EF%BC%9A"><span class="toc-number">1.3.0.0.1.</span> <span class="toc-text">两种类型链路：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%90%86%E6%83%B3%E7%9A%84%E5%A4%9A%E8%B7%AF%E8%AE%BF%E9%97%AE%E5%8D%8F%E8%AE%AE%EF%BC%9A"><span class="toc-number">1.3.0.0.2.</span> <span class="toc-text">理想的多路访问协议：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%89%E7%A7%8D%E5%A4%9A%E8%B7%AF%E8%AE%BF%E9%97%AE%E5%8D%8F%E8%AE%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.3.0.0.3.</span> <span class="toc-text">三种多路访问协议类型</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Channel-partitioning-MAC-protocols"><span class="toc-number">1.3.1.</span> <span class="toc-text">Channel partitioning MAC protocols</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#TDMA"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">TDMA</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#FDMA"><span class="toc-number">1.3.1.2.</span> <span class="toc-text">FDMA</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Random-access-protocols"><span class="toc-number">1.3.2.</span> <span class="toc-text">Random access protocols</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Slotted-ALOHA"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">Slotted ALOHA</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BC%98%E7%82%B9"><span class="toc-number">1.3.2.1.1.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9"><span class="toc-number">1.3.2.1.2.</span> <span class="toc-text">缺点</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Pure-unslotted-ALOHA"><span class="toc-number">1.3.2.2.</span> <span class="toc-text">Pure (unslotted) ALOHA</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSMA-carrier-sense-multiple-access"><span class="toc-number">1.3.2.3.</span> <span class="toc-text">CSMA (carrier sense multiple access)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSMA-x2F-CD-collision-detection"><span class="toc-number">1.3.2.4.</span> <span class="toc-text">CSMA&#x2F;CD (collision detection)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Ethernet-CSMA-x2F-CD-algorithm"><span class="toc-number">1.3.2.4.1.</span> <span class="toc-text">Ethernet CSMA&#x2F;CD algorithm</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CSMA-x2F-CD-Frame-size"><span class="toc-number">1.3.2.4.2.</span> <span class="toc-text">CSMA&#x2F;CD: Frame size</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSMA-x2F-CA%EF%BC%88collision-avoid%EF%BC%89"><span class="toc-number">1.3.2.5.</span> <span class="toc-text">CSMA&#x2F;CA（collision avoid）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Hidden-and-Exposed-Station"><span class="toc-number">1.3.2.5.1.</span> <span class="toc-text">Hidden and Exposed Station</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%EF%BC%9A%E4%BA%8B%E5%89%8D%E4%BE%A6%E5%90%AC"><span class="toc-number">1.3.2.5.2.</span> <span class="toc-text">如何解决：事前侦听</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LANs"><span class="toc-number">1.4.</span> <span class="toc-text">LANs</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ARP-address-resolution-protocol"><span class="toc-number">1.4.1.</span> <span class="toc-text">ARP: address resolution protocol</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AD%90%E7%BD%91%E4%B8%AD%E5%AF%BB%E5%9D%80"><span class="toc-number">1.4.1.0.1.</span> <span class="toc-text">子网中寻址</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#routing-to-another-LAN"><span class="toc-number">1.4.1.0.2.</span> <span class="toc-text">routing to another LAN</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ethernet"><span class="toc-number">1.4.2.</span> <span class="toc-text">Ethernet</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#physical-topology"><span class="toc-number">1.4.2.0.1.</span> <span class="toc-text">physical topology</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Ethernet-frame-structure"><span class="toc-number">1.4.2.1.</span> <span class="toc-text">Ethernet frame structure</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#preamble%EF%BC%88%E5%89%8D%E5%90%8C%E6%AD%A5%E7%A0%81%EF%BC%89"><span class="toc-number">1.4.2.1.0.1.</span> <span class="toc-text">preamble（前同步码）:</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#addresses-6-byte-source-destination-MAC-addresses"><span class="toc-number">1.4.2.1.0.2.</span> <span class="toc-text">addresses: 6 byte source, destination MAC addresses</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#type-indicates-higher-layer-protocol-mostly-IP-but-others-possible%EF%BC%89%E9%AB%98%E5%B1%82%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.4.2.1.0.3.</span> <span class="toc-text">type: indicates higher layer protocol (mostly IP but others possible）高层协议</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#CRC-cyclic-redundancy-check-at-receiver"><span class="toc-number">1.4.2.1.0.4.</span> <span class="toc-text">CRC: cyclic redundancy check at receiver</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#connectionless-no-handshaking-between-sending-and-receiving-NICs"><span class="toc-number">1.4.2.1.1.</span> <span class="toc-text">connectionless: no handshaking between sending and receiving NICs</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#unreliable-receiving-NIC-doesn%E2%80%99t-send-ACK-or-NACK-to-sending-NIC"><span class="toc-number">1.4.2.1.2.</span> <span class="toc-text">unreliable: receiving NIC doesn’t send ACK or NACK to sending NIC</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E7%9A%84MAC%E5%8D%8F%E8%AE%AE%E6%98%AFunslotted-CSMA-x2F-CD-with-binary-backoff"><span class="toc-number">1.4.2.1.3.</span> <span class="toc-text">使用的MAC协议是unslotted CSMA&#x2F;CD with binary backoff</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Ethernet-switch"><span class="toc-number">1.4.2.2.</span> <span class="toc-text">Ethernet switch</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Switch-self-learning"><span class="toc-number">1.4.2.2.1.</span> <span class="toc-text">Switch: self-learning</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#frame-filtering-x2F-forwarding%E8%BF%87%E6%BB%A4%E8%BD%AC%E5%8F%91"><span class="toc-number">1.4.2.2.2.</span> <span class="toc-text">frame filtering&#x2F;forwarding过滤转发</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Switches-vs-routers"><span class="toc-number">1.4.2.3.</span> <span class="toc-text">Switches vs. routers</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WLANS"><span class="toc-number">1.4.3.</span> <span class="toc-text">WLANS</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#802-11-WLAN"><span class="toc-number">1.4.3.1.</span> <span class="toc-text">802.11 WLAN</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#802-11-frame"><span class="toc-number">1.4.3.1.1.</span> <span class="toc-text">802.11 frame</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#addressing"><span class="toc-number">1.4.3.1.2.</span> <span class="toc-text">addressing</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#VLAN"><span class="toc-number">1.4.4.</span> <span class="toc-text">VLAN</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Multiprotocol-label-switching-MPLS"><span class="toc-number">1.4.5.</span> <span class="toc-text">Multiprotocol label switching (MPLS)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#MPLS-capable-routers"><span class="toc-number">1.4.5.1.</span> <span class="toc-text">MPLS capable routers</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#A-day-in-the-life"><span class="toc-number">1.4.6.</span> <span class="toc-text">A day in the life</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/2024-lastday.html" title="2024-总结"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202501010045372.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2024-总结"/></a><div class="content"><a class="title" href="/post/2024-lastday.html" title="2024-总结">2024-总结</a><time datetime="2024-12-31T14:59:00.000Z" title="发表于 2024-12-31 22:59:00">2024-12-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/riscv%20v%E6%89%A9%E5%B1%95%E7%BF%BB%E8%AF%91%E6%80%BB%E7%BB%93.html" title="v扩展翻译总结”"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202411102035591.jfif" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="v扩展翻译总结”"/></a><div class="content"><a class="title" href="/post/riscv%20v%E6%89%A9%E5%B1%95%E7%BF%BB%E8%AF%91%E6%80%BB%E7%BB%93.html" title="v扩展翻译总结”">v扩展翻译总结”</a><time datetime="2024-11-10T12:30:33.000Z" title="发表于 2024-11-10 20:30:33">2024-11-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/2023%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9%E7%9A%84%E7%95%99%E8%A8%80.html" title="2023最后一天的留言"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202312312339644.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2023最后一天的留言"/></a><div class="content"><a class="title" href="/post/2023%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9%E7%9A%84%E7%95%99%E8%A8%80.html" title="2023最后一天的留言">2023最后一天的留言</a><time datetime="2023-12-31T14:59:00.000Z" title="发表于 2023-12-31 22:59:00">2023-12-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/ysyx%E9%A2%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-pa1.html" title="ysyx预学习记录--pa1"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202308101531521.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ysyx预学习记录--pa1"/></a><div class="content"><a class="title" href="/post/ysyx%E9%A2%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-pa1.html" title="ysyx预学习记录--pa1">ysyx预学习记录--pa1</a><time datetime="2023-08-10T07:27:15.000Z" title="发表于 2023-08-10 15:27:15">2023-08-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/DFT-S-OFDM.html" title="DFT-S-OFDM"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202307211649897.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DFT-S-OFDM"/></a><div class="content"><a class="title" href="/post/DFT-S-OFDM.html" title="DFT-S-OFDM">DFT-S-OFDM</a><time datetime="2023-07-21T08:45:03.000Z" title="发表于 2023-07-21 16:45:03">2023-07-21</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1653554604030-995729757eb0.webp')"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2025 By chilh</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadWaline () {
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://chilh.top">chilh</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://chilh.top/post/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE-Chapter%204%20Datalink%20Layer.html">https://chilh.top/post/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE-Chapter%204%20Datalink%20Layer.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://chilh.top" target="_blank">Chilh</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/BUPT/">BUPT</a><a class="post-meta__tags" href="/tags/%E5%A4%A7%E4%B8%89%E4%B8%8A%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">大三上课程笔记</a><a class="post-meta__tags" href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE/">互联网协议</a></div><div class="post_share"><div class="social-share" data-image="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1653554604030-995729757eb0.webp" data-sites="twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE-test.html" title="互联网协议-test"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1670979314026-7c0c4367c8b7.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">互联网协议-test</div></div></a></div><div class="next-post pull-right"><a href="/post/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE-Chapter%205%20Security%20and%20Network%20Management.html" title="互联网协议-Chapter 5 Security and Network Management"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1671474087718-8bb4f50658aa.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">互联网协议-Chapter 5 Security and Network Management</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/post/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE-Chapter%201%20Introduction.html" title="互联网协议-Chapter 1 Introduction"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1671013319475-4dca8a10156e" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-29</div><div class="title">互联网协议-Chapter 1 Introduction</div></div></a></div><div><a href="/post/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE-Chapter%202%20%20Transport%20Layer.html" title="互联网协议-Chapter 2  Transport Layer"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1664737061963-862d6a174a3b" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-29</div><div class="title">互联网协议-Chapter 2  Transport Layer</div></div></a></div><div><a href="/post/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE-Chapter%203%20%20Network%20Layer.html" title="互联网协议-Chapter 3  Network Layer"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1671050579179-5cd444a8a166" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-29</div><div class="title">互联网协议-Chapter 3  Network Layer</div></div></a></div><div><a href="/post/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE-Chapter%205%20Security%20and%20Network%20Management.html" title="互联网协议-Chapter 5 Security and Network Management"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1671474087718-8bb4f50658aa.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-29</div><div class="title">互联网协议-Chapter 5 Security and Network Management</div></div></a></div><div><a href="/post/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE-test.html" title="互联网协议-test"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1670979314026-7c0c4367c8b7.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-29</div><div class="title">互联网协议-test</div></div></a></div><div><a href="/post/1.1-Threads%20and%20Concurrency%20in%20Java%EF%BC%88%E4%B8%8A%EF%BC%89.html" title="1.1-Threads and Concurrency in Java（上）"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/porter-raab--mNr_4WfdCg-unsplash.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-30</div><div class="title">1.1-Threads and Concurrency in Java（上）</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/%E5%A4%B4%E5%83%8F.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">chilh</div><div class="author-info__description">记录学习笔记，学艺不精，大家多多评论指教</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">67</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:1547405085@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">Datalink</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Link-layer-introduction"><span class="toc-number">1.1.</span> <span class="toc-text">Link layer: introduction</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%93%BE%E8%B7%AF%E5%B1%82%E6%9C%8D%E5%8A%A1"><span class="toc-number">1.1.1.</span> <span class="toc-text">链路层服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%93%BE%E8%B7%AF%E5%B1%82%E5%9C%A8%E4%BD%95%E5%A4%84%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.1.2.</span> <span class="toc-text">链路层在何处实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Error-detection"><span class="toc-number">1.2.</span> <span class="toc-text">Error detection</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Parity-checking"><span class="toc-number">1.2.1.</span> <span class="toc-text">Parity checking</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Internet-checksum"><span class="toc-number">1.2.2.</span> <span class="toc-text">Internet checksum</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cyclic-Redundancy-Check-CRC"><span class="toc-number">1.2.3.</span> <span class="toc-text">Cyclic Redundancy Check (CRC)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Multiple-access-protocols"><span class="toc-number">1.3.</span> <span class="toc-text">Multiple access protocols</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%A4%E7%A7%8D%E7%B1%BB%E5%9E%8B%E9%93%BE%E8%B7%AF%EF%BC%9A"><span class="toc-number">1.3.0.0.1.</span> <span class="toc-text">两种类型链路：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%90%86%E6%83%B3%E7%9A%84%E5%A4%9A%E8%B7%AF%E8%AE%BF%E9%97%AE%E5%8D%8F%E8%AE%AE%EF%BC%9A"><span class="toc-number">1.3.0.0.2.</span> <span class="toc-text">理想的多路访问协议：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%89%E7%A7%8D%E5%A4%9A%E8%B7%AF%E8%AE%BF%E9%97%AE%E5%8D%8F%E8%AE%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.3.0.0.3.</span> <span class="toc-text">三种多路访问协议类型</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Channel-partitioning-MAC-protocols"><span class="toc-number">1.3.1.</span> <span class="toc-text">Channel partitioning MAC protocols</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#TDMA"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">TDMA</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#FDMA"><span class="toc-number">1.3.1.2.</span> <span class="toc-text">FDMA</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Random-access-protocols"><span class="toc-number">1.3.2.</span> <span class="toc-text">Random access protocols</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Slotted-ALOHA"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">Slotted ALOHA</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BC%98%E7%82%B9"><span class="toc-number">1.3.2.1.1.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9"><span class="toc-number">1.3.2.1.2.</span> <span class="toc-text">缺点</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Pure-unslotted-ALOHA"><span class="toc-number">1.3.2.2.</span> <span class="toc-text">Pure (unslotted) ALOHA</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSMA-carrier-sense-multiple-access"><span class="toc-number">1.3.2.3.</span> <span class="toc-text">CSMA (carrier sense multiple access)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSMA-CD-collision-detection"><span class="toc-number">1.3.2.4.</span> <span class="toc-text">CSMA&#x2F;CD (collision detection)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Ethernet-CSMA-CD-algorithm"><span class="toc-number">1.3.2.4.1.</span> <span class="toc-text">Ethernet CSMA&#x2F;CD algorithm</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CSMA-CD-Frame-size"><span class="toc-number">1.3.2.4.2.</span> <span class="toc-text">CSMA&#x2F;CD: Frame size</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSMA-CA%EF%BC%88collision-avoid%EF%BC%89"><span class="toc-number">1.3.2.5.</span> <span class="toc-text">CSMA&#x2F;CA（collision avoid）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Hidden-and-Exposed-Station"><span class="toc-number">1.3.2.5.1.</span> <span class="toc-text">Hidden and Exposed Station</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%EF%BC%9A%E4%BA%8B%E5%89%8D%E4%BE%A6%E5%90%AC"><span class="toc-number">1.3.2.5.2.</span> <span class="toc-text">如何解决：事前侦听</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LANs"><span class="toc-number">1.4.</span> <span class="toc-text">LANs</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ARP-address-resolution-protocol"><span class="toc-number">1.4.1.</span> <span class="toc-text">ARP: address resolution protocol</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AD%90%E7%BD%91%E4%B8%AD%E5%AF%BB%E5%9D%80"><span class="toc-number">1.4.1.0.1.</span> <span class="toc-text">子网中寻址</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#routing-to-another-LAN"><span class="toc-number">1.4.1.0.2.</span> <span class="toc-text">routing to another LAN</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ethernet"><span class="toc-number">1.4.2.</span> <span class="toc-text">Ethernet</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#physical-topology"><span class="toc-number">1.4.2.0.1.</span> <span class="toc-text">physical topology</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Ethernet-frame-structure"><span class="toc-number">1.4.2.1.</span> <span class="toc-text">Ethernet frame structure</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#preamble%EF%BC%88%E5%89%8D%E5%90%8C%E6%AD%A5%E7%A0%81%EF%BC%89"><span class="toc-number">1.4.2.1.0.1.</span> <span class="toc-text">preamble（前同步码）:</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#addresses-6-byte-source-destination-MAC-addresses"><span class="toc-number">1.4.2.1.0.2.</span> <span class="toc-text">addresses: 6 byte source, destination MAC addresses</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#type-indicates-higher-layer-protocol-mostly-IP-but-others-possible%EF%BC%89%E9%AB%98%E5%B1%82%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.4.2.1.0.3.</span> <span class="toc-text">type: indicates higher layer protocol (mostly IP but others possible）高层协议</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#CRC-cyclic-redundancy-check-at-receiver"><span class="toc-number">1.4.2.1.0.4.</span> <span class="toc-text">CRC: cyclic redundancy check at receiver</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#connectionless-no-handshaking-between-sending-and-receiving-NICs"><span class="toc-number">1.4.2.1.1.</span> <span class="toc-text">connectionless: no handshaking between sending and receiving NICs</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#unreliable-receiving-NIC-doesn%E2%80%99t-send-ACK-or-NACK-to-sending-NIC"><span class="toc-number">1.4.2.1.2.</span> <span class="toc-text">unreliable: receiving NIC doesn’t send ACK or NACK to sending NIC</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E7%9A%84MAC%E5%8D%8F%E8%AE%AE%E6%98%AFunslotted-CSMA-CD-with-binary-backoff"><span class="toc-number">1.4.2.1.3.</span> <span class="toc-text">使用的MAC协议是unslotted CSMA&#x2F;CD with binary backoff</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Ethernet-switch"><span class="toc-number">1.4.2.2.</span> <span class="toc-text">Ethernet switch</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Switch-self-learning"><span class="toc-number">1.4.2.2.1.</span> <span class="toc-text">Switch: self-learning</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#frame-filtering-forwarding%E8%BF%87%E6%BB%A4%E8%BD%AC%E5%8F%91"><span class="toc-number">1.4.2.2.2.</span> <span class="toc-text">frame filtering&#x2F;forwarding过滤转发</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Switches-vs-routers"><span class="toc-number">1.4.2.3.</span> <span class="toc-text">Switches vs. routers</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WLANS"><span class="toc-number">1.4.3.</span> <span class="toc-text">WLANS</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#802-11-WLAN"><span class="toc-number">1.4.3.1.</span> <span class="toc-text">802.11 WLAN</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#802-11-frame"><span class="toc-number">1.4.3.1.1.</span> <span class="toc-text">802.11 frame</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#addressing"><span class="toc-number">1.4.3.1.2.</span> <span class="toc-text">addressing</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#VLAN"><span class="toc-number">1.4.4.</span> <span class="toc-text">VLAN</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Multiprotocol-label-switching-MPLS"><span class="toc-number">1.4.5.</span> <span class="toc-text">Multiprotocol label switching (MPLS)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#MPLS-capable-routers"><span class="toc-number">1.4.5.1.</span> <span class="toc-text">MPLS capable routers</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#A-day-in-the-life"><span class="toc-number">1.4.6.</span> <span class="toc-text">A day in the life</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/2024-lastday.html" title="2024-总结"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202501010045372.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2024-总结"/></a><div class="content"><a class="title" href="/post/2024-lastday.html" title="2024-总结">2024-总结</a><time datetime="2024-12-31T14:59:00.000Z" title="发表于 2024-12-31 22:59:00">2024-12-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/riscv%20v%E6%89%A9%E5%B1%95%E7%BF%BB%E8%AF%91%E6%80%BB%E7%BB%93.html" title="v扩展翻译总结”"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202411102035591.jfif" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="v扩展翻译总结”"/></a><div class="content"><a class="title" href="/post/riscv%20v%E6%89%A9%E5%B1%95%E7%BF%BB%E8%AF%91%E6%80%BB%E7%BB%93.html" title="v扩展翻译总结”">v扩展翻译总结”</a><time datetime="2024-11-10T12:30:33.000Z" title="发表于 2024-11-10 20:30:33">2024-11-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/2023%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9%E7%9A%84%E7%95%99%E8%A8%80.html" title="2023最后一天的留言"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202312312339644.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2023最后一天的留言"/></a><div class="content"><a class="title" href="/post/2023%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9%E7%9A%84%E7%95%99%E8%A8%80.html" title="2023最后一天的留言">2023最后一天的留言</a><time datetime="2023-12-31T14:59:00.000Z" title="发表于 2023-12-31 22:59:00">2023-12-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/ysyx%E9%A2%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-pa1.html" title="ysyx预学习记录--pa1"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202308101531521.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ysyx预学习记录--pa1"/></a><div class="content"><a class="title" href="/post/ysyx%E9%A2%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-pa1.html" title="ysyx预学习记录--pa1">ysyx预学习记录--pa1</a><time datetime="2023-08-10T07:27:15.000Z" title="发表于 2023-08-10 15:27:15">2023-08-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/DFT-S-OFDM.html" title="DFT-S-OFDM"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202307211649897.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DFT-S-OFDM"/></a><div class="content"><a class="title" href="/post/DFT-S-OFDM.html" title="DFT-S-OFDM">DFT-S-OFDM</a><time datetime="2023-07-21T08:45:03.000Z" title="发表于 2023-07-21 16:45:03">2023-07-21</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1653554604030-995729757eb0.webp')"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2025 By chilh</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadWaline () {
   function insertCSS () {
     const link = document.createElement("link")
     link.rel = "stylesheet"
