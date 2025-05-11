@@ -166,145 +166,128 @@ window.addEventListener('load',()=> { preloader.endLoading() })
 if (false) {
   document.addEventListener('pjax:send', () => { preloader.initLoading() })
   document.addEventListener('pjax:complete', () => { preloader.endLoading() })
-}</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/%E5%A4%B4%E5%83%8F.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">70</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 图库</span></a></div><div class="menus_item"><a class="site-page" href="/charts/"><i class="fa-fw fa fa-heartbeat"></i><span> 统计</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1671050579179-5cd444a8a166')"><nav id="nav"><span id="blog-info"><a href="/" title="Chilh"><span class="site-name">Chilh</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 图库</span></a></div><div class="menus_item"><a class="site-page" href="/charts/"><i class="fa-fw fa fa-heartbeat"></i><span> 统计</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">互联网协议-Chapter 3  Network Layer</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-12-29T11:24:52.000Z" title="发表于 2022-12-29 19:24:52">2022-12-29</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-07-21T06:11:10.004Z" title="更新于 2023-07-21 14:11:10">2023-07-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A4%A7%E5%AD%A6%E7%AC%94%E8%AE%B0/">大学笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">7.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>34分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="互联网协议-Chapter 3  Network Layer"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1>Network Layer</h1>
-<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221116181013270.png" alt="image-20221116181013270"></p>
-<h2 id="Overview">Overview</h2>
-<h3 id="network-layer-functions"><em>network-layer functions</em></h3>
-<p>▪<em>forwarding:</em> move packets from router’s input to appropriate router output（数据平面）路由器内</p>
+}</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/%E5%A4%B4%E5%83%8F.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">70</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 图库</span></a></div><div class="menus_item"><a class="site-page" href="/charts/"><i class="fa-fw fa fa-heartbeat"></i><span> 统计</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1671050579179-5cd444a8a166')"><nav id="nav"><span id="blog-info"><a href="/" title="Chilh"><span class="site-name">Chilh</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 图库</span></a></div><div class="menus_item"><a class="site-page" href="/charts/"><i class="fa-fw fa fa-heartbeat"></i><span> 统计</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">互联网协议-Chapter 3  Network Layer</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-12-29T11:24:52.000Z" title="发表于 2022-12-29 19:24:52">2022-12-29</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-07-21T06:11:10.004Z" title="更新于 2023-07-21 14:11:10">2023-07-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A4%A7%E5%AD%A6%E7%AC%94%E8%AE%B0/">大学笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">7.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>34分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="互联网协议-Chapter 3  Network Layer"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Network-Layer"><a href="#Network-Layer" class="headerlink" title="Network Layer"></a>Network Layer</h1><p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221116181013270.png" alt="image-20221116181013270"></p>
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><h3 id="network-layer-functions"><a href="#network-layer-functions" class="headerlink" title="network-layer functions"></a><em>network-layer functions</em></h3><p>▪<em>forwarding:</em> move packets from router’s input to appropriate router output（数据平面）路由器内</p>
 <p>▪<em>routing:</em> determine route taken by packets from source to destination（控制平面）整个过程</p>
-<h3 id="Network-layer">Network layer</h3>
-<ul>
-<li>
-<p>transport <strong>datagram</strong> from sending to receiving host</p>
+<h3 id="Network-layer"><a href="#Network-layer" class="headerlink" title="Network layer"></a>Network layer</h3><ul>
+<li><p>transport <strong>datagram</strong> from sending to receiving host</p>
 <p>on sending side encapsulates segments into datagrams（把TCP报文段封装为IP数据报）</p>
 <p>on receiving side, delivers segments to transport layer（把报文段上交给传输层）</p>
 </li>
-<li>
-<p>network layer 存在于主机和路由器之中，但是路由器只有下三层，不具备transport和application的功能</p>
+<li><p>network layer 存在于主机和路由器之中，但是路由器只有下三层，不具备transport和application的功能</p>
 </li>
-<li>
-<p>router examines header fields in all IP datagrams passing through it（路由器检查datagram的header）</p>
+<li><p>router examines header fields in all IP datagrams passing through it（路由器检查datagram的header）</p>
 </li>
 </ul>
-<h3 id="data-plane-control-plane">data plane, control plane</h3>
-<h4 id="Data-plane"><em>Data plane</em></h4>
-<p><strong>local, per-router function</strong></p>
+<h3 id="data-plane-control-plane"><a href="#data-plane-control-plane" class="headerlink" title="data plane, control plane"></a>data plane, control plane</h3><h4 id="Data-plane"><a href="#Data-plane" class="headerlink" title="Data plane"></a><em>Data plane</em></h4><p><strong>local, per-router function</strong></p>
 <p>determines how datagram arriving on router input port is forwarded to router output port</p>
 <p><strong>forwarding function</strong></p>
-<h4 id="Control-plane"><em>Control plane</em></h4>
-<p><strong>network-wide logic</strong></p>
+<h4 id="Control-plane"><a href="#Control-plane" class="headerlink" title="Control plane"></a><em>Control plane</em></h4><p><strong>network-wide logic</strong></p>
 <p>determines how datagram is routed among routers along end-end path from source host to destination host</p>
-<h5 id="two-control-plane-approaches">two control-plane approaches:</h5>
-<p>• <em>traditional routing algorithms:</em> implemented in routers（每个路由器实现转发和路由）</p>
+<h5 id="two-control-plane-approaches"><a href="#two-control-plane-approaches" class="headerlink" title="two control-plane approaches:"></a>two control-plane approaches:</h5><p>• <em>traditional routing algorithms:</em> implemented in routers（每个路由器实现转发和路由）</p>
 <p>• <em>software-defined networking</em> <em>(SDN)</em>: implemented in (remote) servers</p>
-<h6 id="traditional-routing-algorithms-Per-router-control-plane"><em>traditional routing algorithms:</em> Per-router control plane</h6>
-<p>Individual routing algorithm components <em>in each and every</em> <em>router</em> interact in the control plane</p>
+<h6 id="traditional-routing-algorithms-Per-router-control-plane"><a href="#traditional-routing-algorithms-Per-router-control-plane" class="headerlink" title="traditional routing algorithms: Per-router control plane"></a><em>traditional routing algorithms:</em> Per-router control plane</h6><p>Individual routing algorithm components <em>in each and every</em> <em>router</em> interact in the control plane</p>
 <p>路由选择算法在每台路由器中运行，并且在每台路由器中都包含转发和路由两种功能</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221005153912272.png" alt="image-20221005153912272" style="zoom:50%;">
-<h6 id="software-defined-networking-SDN-Logically-centralized-control-plane"><em>software-defined networking</em> *(SDN) :*Logically centralized control plane</h6>
-<p>A distinct (typically remote) controller interacts with local control agents (CAs)</p>
+
+<h6 id="software-defined-networking-SDN-Logically-centralized-control-plane"><a href="#software-defined-networking-SDN-Logically-centralized-control-plane" class="headerlink" title="software-defined networking *(SDN) :*Logically centralized control plane"></a><em>software-defined networking</em> *(SDN) :*Logically centralized control plane</h6><p>A distinct (typically remote) controller interacts with local control agents (CAs)</p>
 <p>控制平面与数据平面分离，路由选择设备只执行转发，远程控制器计算并分发转发表</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221005153854504.png" alt="image-20221005153854504" style="zoom:50%;">
-<h2 id="数据平面">数据平面</h2>
-<h3 id="Router-architecture-overview">Router architecture overview</h3>
-<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221005154934175.png" alt="image-20221005154934175" style="zoom:50%;">
-<h4 id="Input-port-functions">Input port functions</h4>
-<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221005155339876.png" alt="image-20221005155339876" style="zoom:67%;">
+
+<h2 id="数据平面"><a href="#数据平面" class="headerlink" title="数据平面"></a>数据平面</h2><h3 id="Router-architecture-overview"><a href="#Router-architecture-overview" class="headerlink" title="Router architecture overview"></a>Router architecture overview</h3><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221005154934175.png" alt="image-20221005154934175" style="zoom:50%;">
+
+<h4 id="Input-port-functions"><a href="#Input-port-functions" class="headerlink" title="Input port functions"></a>Input port functions</h4><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221005155339876.png" alt="image-20221005155339876" style="zoom:67%;">
+
 <p>从左向右：分别实现物理层和链路层</p>
 <ul>
-<li>
-<p>decentralized switching*:*分布式交换（在此处使用转发表查找输出端口） 从总览图可以看到SDN控制器把转发表发送此处。</p>
+<li><p>decentralized switching*:*分布式交换（在此处使用转发表查找输出端口） 从总览图可以看到SDN控制器把转发表发送此处。</p>
 </li>
-<li>
-<p>利用头部信息中的IP地址来查找输出段口有两种方法：</p>
+<li><p>利用头部信息中的IP地址来查找输出段口有两种方法：</p>
 <ol>
 <li><em>destination-based forwarding 基于目标转发:</em> 只是依赖于IP地址，判断区间来判断输出端口（有超过40亿种表项）</li>
 </ol>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221005160603008.png" alt="image-20221005160603008" style="zoom:50%;">
+
 <ul>
-<li>
-<p><strong>Longest prefix matching</strong>：最长前缀匹配</p>
-<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221005161048192.png" alt="image-20221005161048192" style="zoom:50%;">
-</li>
+<li><p><strong>Longest prefix matching</strong>：最长前缀匹配</p>
+<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221005161048192.png" alt="image-20221005161048192" style="zoom:50%;"></li>
 </ul>
 </li>
 </ul>
 <p>​                   匹配IP中前面的字段，匹配成功则发送对应端口</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221005194220261.png" alt="image-20221005194220261" style="zoom:50%;">
+
 <p>选取最长的前缀作为匹配</p>
-<p>often performed using ternary content addressable memories (TCAMs) specialised very high speed memory</p>
+<p> often performed using ternary content addressable memories (TCAMs) specialised very high speed memory</p>
 <p><em>content addressable:</em> present address to TCAM: retrieve address in one clock cycle, regardless of table size</p>
 <ol start="2">
-<li>
-<p><strong>generalized forwarding 通用转发:</strong></p>
-<p>forward based on any set of header field values，不只依赖于IP做转发，诸多因素会影响其转发</p>
+<li><p><strong>generalized forwarding 通用转发:</strong> </p>
+<p> forward based on any set of header field values，不只依赖于IP做转发，诸多因素会影响其转发</p>
 </li>
 </ol>
-<h4 id="Switching-fabrics">Switching fabrics</h4>
-<p><strong>transfer the packet from input buffer to appropriate output buffer</strong></p>
+<h4 id="Switching-fabrics"><a href="#Switching-fabrics" class="headerlink" title="Switching fabrics"></a>Switching fabrics</h4><p><strong>transfer the packet from input buffer to appropriate output buffer</strong></p>
 <p>switching rate: rate at which packets can be transfer from inputs to outputs</p>
 <p>• N inputs: switching rate N times line rate desirable</p>
 <p>switch rate是 input rate的N倍（假如N个数据入口）</p>
 <p><strong>three types of switching fabrics</strong></p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221005200416981.png" alt="image-20221005200416981" style="zoom:50%;">
-<h5 id="Switching-via-memory-内存交换">Switching via memory:内存交换</h5>
-<p>第一代路由器：本质为传统计算机 traditional computers with switching under direct control of CPU</p>
+
+<h5 id="Switching-via-memory-内存交换"><a href="#Switching-via-memory-内存交换" class="headerlink" title="Switching via memory:内存交换"></a>Switching via memory:内存交换</h5><p>第一代路由器：本质为传统计算机 traditional computers with switching under direct control of CPU</p>
 <p>packet copied to system’ s memory</p>
 <p>speed limited by memory bandwidth (2 bus crossings per datagram<strong>数据报通过总线两次（读＋写）</strong>)</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221005201440230.png" alt="image-20221005201440230" style="zoom:50%;">
-<h5 id="Switching-via-a-bus：-总线交换">Switching via a bus： 总线交换</h5>
-<p><strong>datagram from input port memory to output port memory via a shared bus</strong></p>
+
+<h5 id="Switching-via-a-bus：-总线交换"><a href="#Switching-via-a-bus：-总线交换" class="headerlink" title="Switching via a bus： 总线交换"></a>Switching via a bus： 总线交换</h5><p><strong>datagram from input port memory to output port memory via a shared bus</strong></p>
 <p><em>bus contention（总线竞争）:</em> switching speed limited by bus bandwidth</p>
 <p>分组可以到达所有输出端口，但是只有端口号匹配的端口才能保存</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221005201859824.png" alt="image-20221005201859824" style="zoom:67%;">
-<h5 id="Switching-via-interconnection-network-：互联网络交换">Switching via interconnection network ：互联网络交换</h5>
-<p><strong>overcome bus bandwidth limitations</strong></p>
-<p>advanced design: fragmenting datagram into fixed length cells, switch cells through the fabric.</p>
+
+<h5 id="Switching-via-interconnection-network-：互联网络交换"><a href="#Switching-via-interconnection-network-：互联网络交换" class="headerlink" title="Switching via interconnection network ：互联网络交换"></a>Switching via interconnection network ：互联网络交换</h5><p> <strong>overcome bus bandwidth limitations</strong></p>
+<p>advanced design: fragmenting datagram into fixed length cells, switch cells through the fabric. </p>
 <p>可以并行转发多个分组(输出端口不一样时)</p>
 <p>输出端口一致，仍要等待</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221116155839250.png" alt="image-20221116155839250" style="zoom:67%;">
-<h4 id="Output-ports">Output ports</h4>
-<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221005203018901.png" alt="image-20221005203018901" style="zoom:50%;">
-<h4 id="queue">queue</h4>
-<p>Datagram (packets) can be lost due to congestion, lack of buffers</p>
+
+<h4 id="Output-ports"><a href="#Output-ports" class="headerlink" title="Output ports"></a>Output ports</h4><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221005203018901.png" alt="image-20221005203018901" style="zoom:50%;">
+
+<h4 id="queue"><a href="#queue" class="headerlink" title="queue"></a>queue</h4><p>Datagram (packets) can be lost due to congestion, lack of buffers</p>
 <p>▪ <em>buffering</em> required when <strong>datagrams arrive from fabric faster than the transmission rate</strong></p>
 <p>▪ <em>scheduling discipline</em> chooses among queued datagrams for transmission调度规则来选择调度</p>
-<h5 id="Input-port-queuing">Input port queuing</h5>
-<p>switch rate slower than input ports combined -&gt; queueing may occur at <strong>input queues</strong></p>
+<h5 id="Input-port-queuing"><a href="#Input-port-queuing" class="headerlink" title="Input port queuing"></a>Input port queuing</h5><p>switch rate slower than input ports combined -&gt; queueing may occur at <strong>input queues</strong> </p>
 <ul>
 <li><em>queueing delay and loss due to input buffer overflow!</em></li>
 </ul>
 <p>Head-of-the-Line (HOL) blocking 线路前部阻塞 : queued datagram at front of queue prevents others in queue from moving forward</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221005204549535.png" alt="image-20221005204549535" style="zoom:50%;">
+
 <p><strong>当下方红色块在排队等待上方红色块交换时，绿色块不得已地被阻塞了</strong></p>
-<h5 id="Output-port-queueing">Output port queueing</h5>
-<p>buffering when switch rate via switch exceeds output line speed</p>
+<h5 id="Output-port-queueing"><a href="#Output-port-queueing" class="headerlink" title="Output port queueing"></a>Output port queueing</h5><p>buffering when switch rate via switch exceeds output line speed</p>
 <p><em>queueing (delay) and loss due to output port buffer</em> <em>overflow!</em></p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221005204729584.png" alt="image-20221005204729584" style="zoom:50%;">
+
 <p>buffering equal to （N条TCP流对应的Buffer数量）</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221005205040747.png" alt="image-20221005205040747" style="zoom:33%;">
-<h4 id="Scheduling-mechanisms">Scheduling mechanisms</h4>
-<p>调度机制：当分组到达输出端buffer时，选择某种mechanism将packets transmit到link</p>
+
+<h4 id="Scheduling-mechanisms"><a href="#Scheduling-mechanisms" class="headerlink" title="Scheduling mechanisms"></a>Scheduling mechanisms</h4><p>调度机制：当分组到达输出端buffer时，选择某种mechanism将packets transmit到link</p>
 <p><em>scheduling:</em> choose next packet to send on link.  选哪一个packet输出</p>
 <p>▪ FIFO scheduling – first in first out 先进先出</p>
 <p>​      弃尾：   If queue is full last packets are dropped.</p>
 <p>▪ Priority scheduling 优先调度</p>
-<p>​        Some packets are more important</p>
+<p>​        Some packets are more important </p>
 <p>​        会有一部分packet进入优先权队列</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221027103356484.png" alt="image-20221027103356484" style="zoom:67%;">
+
 <p>▪ Round robin scheduling 循环调度</p>
 <p>​       • If your queue is from several inputs ports treat them fairly</p>
 <p>​      • Pick a packet from input port 1, then 2, then 3, then 4</p>
 <p>​      • Port that is sending lots of traffic doesn’t block others. 不会阻塞别的端口</p>
 <p>​      • **Weighted Fair Queue加权公平排队 (like this but give some queues a little more priority – give a little more traffic（流量） to port 1) **可以给某个端口更多的加权</p>
-<h3 id="IP-Internet-Protocol">IP :Internet Protocol</h3>
-<h4 id="IP-datagram-format">IP datagram format</h4>
-<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221005212030239.png" alt="image-20221005212030239" style="zoom:67%;">
+<h3 id="IP-Internet-Protocol"><a href="#IP-Internet-Protocol" class="headerlink" title="IP :Internet Protocol"></a>IP :Internet Protocol</h3><h4 id="IP-datagram-format"><a href="#IP-datagram-format" class="headerlink" title="IP datagram format"></a>IP datagram format</h4><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221005212030239.png" alt="image-20221005212030239" style="zoom:67%;">
+
 <p>IP头部：20-60byte</p>
 <p>overhead（开销）：指头部</p>
 <p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221027105050722.png" alt="image-20221027105050722"></p>
-<h4 id="IP-fragmentation-reassembly">IP fragmentation, reassembly</h4>
-<p>数据报分片重组</p>
+<h4 id="IP-fragmentation-reassembly"><a href="#IP-fragmentation-reassembly" class="headerlink" title="IP fragmentation, reassembly"></a>IP fragmentation, reassembly</h4><p>数据报分片重组</p>
 <p><strong>network links have MTU</strong>（Maximum Transfer Unit ） （largest possible link-level frame）</p>
 <p>链路层有MTU,且不同路由之间链路的MTU可能不同</p>
 <p>MTU是链路层最大有效载荷（包括IP头部加IP信息）</p>
@@ -314,19 +297,20 @@ if (false) {
 <p>• one datagram becomes several datagrams “reassembled” only at final destination</p>
 <p>在目标主机重组</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221006090423533.png" alt="image-20221006090423533" style="zoom:50%;">
+
 <p>• IP header bits used to identify, and order related fragments</p>
 <p>将<strong>标识、标志</strong>和<strong>片偏移字段</strong>放在数据报首部</p>
 <p>为了让目的主机绝对地相信它已收到了 初始数据报的最后一个片，最后片的标志比特（fragflag）被设为0 、而所有其他片的标志比特被设为1，为了让目的主机确定是否丢失了片（且能按正础的顺序重新组装片）使用偏移字段（offset）指定该片应放在初始 IP 数据报的哪个位置(不算头部)</p>
-<p>20byte header+1480 segment data</p>
+<p>20byte header+1480 segment data  </p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221006090459530.png" alt="image-20221006090459530" style="zoom:67%;">
+
 <p>分片长度必须为8的整数倍：偏移量单位为8B</p>
 <p>MTU=1500bytes只能装1480的数据，此外offset是指该片的初始（第一个data）应该放在最终组合起来的数据报中的哪个位置（<strong>不算header</strong>，以8B为单位）最后一个的offset肯定是第一个非0 offset的整数倍</p>
 <p><strong>exercise:</strong></p>
-<p>An IP packet has 4620 bytes in total of which 20 bytes are the IP header. It enters a network that has a Maximum Transfer Unit of 1900 bytes.</p>
+<p>An IP packet has 4620 bytes in total of which 20 bytes are the IP header. It enters a network that has a Maximum Transfer Unit of 1900 bytes. </p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221006091621110.png" alt="image-20221006091621110" style="zoom:50%;">
-<h4 id="IPv4-addressing">IPv4 addressing</h4>
-<h5 id="introduction-2">introduction</h5>
-<p><em>IP address:</em> 32-bit identifier for host, router interface</p>
+
+<h4 id="IPv4-addressing"><a href="#IPv4-addressing" class="headerlink" title="IPv4 addressing"></a>IPv4 addressing</h4><h5 id="introduction"><a href="#introduction" class="headerlink" title="introduction"></a>introduction</h5><p><em>IP address:</em> 32-bit identifier for host, router interface</p>
 <p>一个iP地址与一个接口相关联 <em>associated</em> <em>with each interface</em>，而不是与包括该接口的主机或路由器相关联</p>
 <p>只有第三层的设备才有IP</p>
 <ul>
@@ -335,61 +319,69 @@ if (false) {
 <li>host typically has <strong>one or two</strong> interfaces IPv4 address notation(以太网+无线网)</li>
 </ul>
 <p>每个 IP 址长度为 32 比特（等价为4字节），因 此总共有大约 40 亿个可能的 iP , 这些地址通常按所谓点分十进制记法(dotted-decimal notation)书写，即地址中的每个字节用它的十进制形式书写，各字间以句点隔开</p>
-<p>There are three common notations to show an IPv4 address:</p>
+<p>There are three common notations to show an IPv4 address: </p>
 <p>• binary notation</p>
-<p>• dotted-decimal notation (most commonly used)</p>
-<p>• hexadecimal notation</p>
+<p>• dotted-decimal notation (most commonly used) </p>
+<p>• hexadecimal notation </p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221006092234012.png" alt="image-20221006092234012" style="zoom:80%;">
+
 <p><strong>exercise:</strong></p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221006092303478.png" alt="image-20221006092303478" style="zoom:50%;">
+
 <p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221027133704701.png" alt="image-20221027133704701"></p>
 <p>十进制转2进制</p>
-<h5 id="Subnets">Subnets</h5>
-<p>ip地址为subnet part（网络）（高位）+host part（低位）</p>
-<h6 id="what-’-s-a-subnet"><em>what</em>*’*<em>s a subnet ?</em></h6>
-<p><strong>device interfaces with same subnet part of IP address</strong></p>
+<h5 id="Subnets"><a href="#Subnets" class="headerlink" title="Subnets"></a>Subnets</h5><p>ip地址为subnet part（网络）（高位）+host part（低位）</p>
+<h6 id="what’s-a-subnet"><a href="#what’s-a-subnet" class="headerlink" title="what’s a subnet ?"></a><em>what<strong>’</strong>s a subnet ?</em></h6><p><strong>device interfaces with same subnet part of IP address</strong></p>
 <p>can physically reach each other <em>without</em> intervening router</p>
 <blockquote>
 <p>to determine the subnets, detach each interface from its host or router, creating islands of isolated networks</p>
 </blockquote>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221006105212450.png" alt="image-20221006105212450" style="zoom:50%;">
+
 <p>图中有6个子网</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221006100736953.png" alt="image-20221006100736953" style="zoom:67%;">
+
 <p><em>subnet mask (or slash</em> <em>notation)</em>: <em>number of bits</em> <em>taken to identify network</em></p>
 <p>子网掩码的长度也是32位，左边是网络位，用<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E4%BA%8C%E8%BF%9B%E5%88%B6?fromModule=lemma_inlink">二进制</a>数字“1”表示，1的数目等于网络位的长度；右边是主机位，用<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%95%B0%E5%AD%97/5920908?fromModule=lemma_inlink">二进制数字</a>“0”表示，0的数目等于主机位的长度。</p>
 <p>如：<em>223.1.3.0/24</em> 表示子网（子网位）部分有24位</p>
-<p>• <em>/8 size of old class A</em></p>
-<p>• <em>/16 size of class B</em></p>
+<p>• <em>/8 size of old class A</em> </p>
+<p>• <em>/16 size of class B</em> </p>
 <p>• <em>/24 size of class C</em></p>
-<h6 id="Three-Level-Addressing">Three-Level Addressing</h6>
-<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221006102118725.png" alt="image-20221006102118725" style="zoom:50%;">
+<h6 id="Three-Level-Addressing"><a href="#Three-Level-Addressing" class="headerlink" title="Three-Level Addressing"></a>Three-Level Addressing</h6><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221006102118725.png" alt="image-20221006102118725" style="zoom:50%;">
+
 <p>例如，<code>130.66.0.0是一个B类网络，它的主机位部分有两个字节</code>。当借用此网络的第三个字节的高两位分配子网时，其可用的子网地址分别为130.66.2.0和130.66.3.0。</p>
 <p>其中，130.66.2.216的网络地址为130.66.0.0，子网地址为130.66.2.0 主机位为216。（130.66.255.255、130.66.2.255不可作为host地址，是广播地址）</p>
-<h6 id="Network-mask-and-subnetwork-mask">Network mask and subnetwork mask</h6>
-<p>Subnetting increases length of <strong>netid</strong> and decreases length of <strong>hostid</strong>.</p>
+<h6 id="Network-mask-and-subnetwork-mask"><a href="#Network-mask-and-subnetwork-mask" class="headerlink" title="Network mask and subnetwork mask"></a>Network mask and subnetwork mask</h6><p>Subnetting increases length of <strong>netid</strong> and decreases length of <strong>hostid</strong>.</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221006101131042.png" alt="image-20221006101131042" style="zoom:70%;">
+
 <p>To divide a network to <strong>s</strong> number of subnetworks, each of equal numbers of hosts, the <strong>subnetid</strong> for each subnetwork can be calculated as</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221006101203339.png" alt="image-20221006101203339" style="zoom:67%;">
+
 <p>subnetid 包括 netid</p>
-<h6 id="Why-subnetting"><strong>Why subnetting ?</strong></h6>
-<p>▪ The idea of splitting a block to smaller blocks is referred to as subnetting.</p>
+<h6 id="Why-subnetting"><a href="#Why-subnetting" class="headerlink" title="Why subnetting ?"></a><strong>Why subnetting ?</strong></h6><p>▪ The idea of splitting a block to smaller blocks is referred to as subnetting.</p>
 <p>▪ In subnetting, a network is divided into several smaller subnetworks (subnets) <strong>with each subnetwork having its own subnetwork address</strong></p>
 <p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221006103524442.png" alt="image-20221006103524442"></p>
-<h6 id="Classful-IP-addressing-分类编址">Classful IP addressing 分类编址</h6>
-<p>In classful addressing, the IP address space is divided into five classes: A, B, C, D, E.</p>
+<h6 id="Classful-IP-addressing-分类编址"><a href="#Classful-IP-addressing-分类编址" class="headerlink" title="Classful IP addressing 分类编址"></a>Classful IP addressing 分类编址</h6><p>In classful addressing, the IP address space is divided into five classes: A, B, C, D, E. </p>
 <p>Starting number, n (first byte), shows whether Class A, B or C</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221027125327926.png" alt="image-20221027125327926" style="zoom:67%;">
+
 <p>• <strong>Class A</strong>: n &lt; 128 (($2^{24}-2$) hosts)          0</p>
 <p>• <strong>Class B</strong>: 128 &lt; n &lt; 192 (($2^{16}-2$) hosts) 10</p>
 <p>• <strong>Class C</strong>: 192 &lt; n &lt; 224 (($2^8-2$)hosts)   110</p>
 <p>去除全0和全1地址（全0为网络地址，全1为广播地址）</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221006102406906.png" alt="image-20221006102406906" style="zoom:90%;">
+
+
+
 <p>These addresses are “special” and not used on the general Internet. You use them to set up test networks or networks of machines not accessible from outside.、</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221006102804234.png" alt="image-20221006102804234" style="zoom:50%;">
-<h6 id="Classless-addressing">Classless addressing</h6>
-<p>In this architecture, the entire address space ($2^{32}$ addresses) is divided into blocks of different sizes.（可以任意分网络部分和主机部分，不用每8bit分一次，n可以等于0-32任何数）</p>
+
+
+
+<h6 id="Classless-addressing"><a href="#Classless-addressing" class="headerlink" title="Classless addressing"></a>Classless addressing</h6><p>In this architecture, the entire address space ($2^{32}$ addresses) is divided into blocks of different sizes.（可以任意分网络部分和主机部分，不用每8bit分一次，n可以等于0-32任何数）</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221006104357462.png" alt="image-20221006104357462" style="zoom:70%;">
-<p>slash notation ： CIDR (Classless InterDomain Routing) notation.</p>
+
+<p> slash notation ： CIDR (Classless InterDomain Routing) notation.</p>
 <p>For a /n address, the first n bits are the network address and the last 32-n bits are for the host.</p>
 <p>▪ Example 129.66.25.5/22</p>
 <ul>
@@ -411,94 +403,89 @@ if (false) {
 </blockquote>
 <p>​        <strong>10000001.01000010.000110</strong>11.11111111</p>
  <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221006104923565.png" alt="image-20221006104923565" style="zoom:50%;">
+
 <p>可以容纳2^m-1个主机</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221006105041972.png" alt="image-20221006105041972" style="zoom:50%;">
+
 <p>3个主机但是要去掉广播地址（网络地址可以用）</p>
-<h6 id="VLSM-variable-length-subnet-mask">VLSM(variable length subnet mask)</h6>
-<p>使用VLSM为某个网络分配地址。最有效的利用现有的地址空间。</p>
+<h6 id="VLSM-variable-length-subnet-mask"><a href="#VLSM-variable-length-subnet-mask" class="headerlink" title="VLSM(variable length subnet mask)"></a>VLSM(variable length subnet mask)</h6><p>使用VLSM为某个网络分配地址。最有效的利用现有的地址空间。</p>
 <p>所谓VLSM，就是说每个子网的子网id可变，这样比较灵活。</p>
 <p>Only classless routing protocols support VLSM</p>
-<h6 id="exercise-2">exercise:</h6>
-<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221006110539733.png" alt="image-20221006110539733"></p>
+<h6 id="exercise"><a href="#exercise" class="headerlink" title="exercise:"></a>exercise:</h6><p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221006110539733.png" alt="image-20221006110539733"></p>
 <ol>
-<li>
-<p>首先我们要知道整个网络能分配的ip有哪些。观察到题中给了192.168.1.0/24，可以知道前24位都不能分，后面8位都可以分。</p>
+<li><p>首先我们要知道整个网络能分配的ip有哪些。观察到题中给了192.168.1.0/24，可以知道前24位都不能分，后面8位都可以分。</p>
 </li>
-<li>
-<p><strong>start with the largest subnet to avoid waste</strong>，50(00110010)个host对应于 6bits (32&lt;50&lt;64),所以从后八位中取出前2位(后六位留给主机位)</p>
-<p>192.168.1.0 - 192.168.1.63 (allocate to the largest subnet with 50 hosts: 192.168.1.0/26)</p>
+<li><p><strong>start with the largest subnet to avoid waste</strong>，50(00110010)个host对应于 6bits (32&lt;50&lt;64),所以从后八位中取出前2位(后六位留给主机位)</p>
+<p>192.168.1.0 - 192.168.1.63 (allocate to the largest subnet with 50 hosts: 192.168.1.0/26) </p>
 <p>同理20=00010100 = 5 bits</p>
 <p>Reserve 5 bits for hosts</p>
 <p>192.168.1.0 – 192.168.1.63 (already allocated)</p>
 <p>192.168.1.64 - 192.168.1.95 (allocate to the subnet with 20 hosts: 192.168.1.64/27)</p>
 <p>192.168.1.96 – 192.168.1.127 (allocate to the other subnet with 20 hosts: 192.168.1.96/27)</p>
 </li>
-<li>
-<p>为路由器（点到点）分配ip</p>
+<li><p>为路由器（点到点）分配ip</p>
 <p><strong>/30 is commonly used for point-to-point WAN link/serial link between routers</strong></p>
 </li>
-<li>
-<p>2=00000010 = 2 bitsReserve 2 bits for hosts</p>
+<li><p>2=00000010 = 2 bitsReserve 2 bits for hosts</p>
 <p>192.168.1.128 -192.168.1.131 (allocated to link between routers: 192.168.1.128/30)</p>
-<p>192.168.1.132 -192.168.1.135 (allocated to link between routers: 192.168.1.132/30)</p>
-<p>192.168.1.136 -192.168.1.139 (allocated to link between routers: 192.168.1.136/30)</p>
+<p>192.168.1.132 -192.168.1.135 (allocated to link between routers: 192.168.1.132/30) </p>
+<p>192.168.1.136 -192.168.1.139 (allocated to link between routers: 192.168.1.136/30) </p>
 <p><strong>Only classless routing protocols support VLSM.</strong></p>
 </li>
 </ol>
-<h6 id="DHCP-Dynamic-Host-Configuration-Protocol">DHCP: Dynamic Host Configuration Protocol</h6>
-<p>allow host to <em>dynamically</em> obtain its IP address from network server when it joins network</p>
-<p>DHCP 许主机自动获取（被分配）IP 地址</p>
+<h6 id="DHCP-Dynamic-Host-Configuration-Protocol"><a href="#DHCP-Dynamic-Host-Configuration-Protocol" class="headerlink" title="DHCP: Dynamic Host Configuration Protocol"></a>DHCP: Dynamic Host Configuration Protocol</h6><p>allow host to <em>dynamically</em> obtain its IP address from network server when it joins network</p>
+<p>DHCP 许主机自动获取（被分配）IP 地址 </p>
 <p>• can renew its lease on address in use</p>
-<p>• allows reuse of addresses (only hold address while connected/“ on ”)</p>
+<p>• allows reuse of addresses (only hold address while connected/“ on ”) </p>
 <p>• support for mobile users who want to join network (more shortly)</p>
-<p>移动设备可以不用配置直接连接进网络</p>
+<p>   移动设备可以不用配置直接连接进网络</p>
 <p>每个子网具有DHCP服务器，通过一个中继代理路由器与之相连</p>
 <p>*DHCP :*新主机到达子网时的配置操作(这里配置的其实是私有网)</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221006122507325.png" alt="image-20221006122507325" style="zoom:50%;">
+
 <p>DHCP只在网络、子网中工作，因为broadcast只存在于子网中</p>
-<h6 id="DHCP过程">DHCP过程</h6>
-<ol>
-<li>
-<p>host broadcasts “DHCP discover” msg [optional]</p>
+<h6 id="DHCP过程"><a href="#DHCP过程" class="headerlink" title="DHCP过程"></a>DHCP过程</h6><ol>
+<li><p>host broadcasts “DHCP discover” msg [optional]</p>
 <p>DHCP发现报文（客户端寻找DHCP服务器）此时使用源IP 0.0.0.0和广播目的地址255.255.255.255. 该子网中所有节点都接收到此message（包括DHCP）</p>
 </li>
-<li>
-<p>DHCP server responds with “DHCP offer” msg [optional]</p>
+<li><p>DHCP server responds with “DHCP offer” msg [optional]</p>
 <p>DHCP服务提供报文，向客户端做出响应：向255.255.255.255进行广播为它分配到的新加入主机的IP。</p>
 <p>每个子网里有多个DHCP,经过DHCP discover 广播后，多个DHCP server都提供了IP</p>
 </li>
-<li>
-<p>host requests IP address: “DHCP request” msg</p>
+<li><p>host requests IP address: “DHCP request” msg</p>
 <p>客户端在接收到所有DHCP offer后选择一个想要的IP，并将这个IP对应的DHCPserver的IP地址封装成<strong>DHCP请求</strong>一起广播出去，对于该DHCP来说，意味着接收了它的IP。对于其他DHCP来说意味着拒绝了它的ip</p>
 <p>注意此时还没完全分配IP，所以还是使用0.0.0.0</p>
 </li>
-<li>
-<p>DHCP server sends address: “DHCP ack” msg</p>
+<li><p>DHCP server sends address: “DHCP ack” msg</p>
 <p>DHCP服务器确认请求（表示允许你用这个IP）</p>
 </li>
 </ol>
 <p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221006123133184.png" alt="image-20221006123133184"></p>
-<p>67 68是端口号（因为是UDP）</p>
+<p> 67 68是端口号（因为是UDP）</p>
 <p>可以发现，DHCP 交互中，<strong>全程都是使⽤</strong> <strong>UDP</strong> <strong>⼴播通信</strong></p>
 <ul>
-<li>
-<p><strong>DHCP can return more than just allocated IP address on subnet:</strong></p>
+<li><p><strong>DHCP can return more than just allocated IP address on subnet:</strong></p>
 <p>• <strong>address of first-hop router for client（destination ip）</strong></p>
-<p>便于以后发消息时候可以找到第一跳路由</p>
+<p>  便于以后发消息时候可以找到第一跳路由</p>
 <p>• name and IP address of DNS sever</p>
 <p>• network mask (indicating network versus host portion of address)</p>
 </li>
 </ul>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221006124136344.png" alt="image-20221006124136344" style="zoom: 67%;">
+
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221006124144846.png" alt="image-20221006124144846" style="zoom:67%;">
+
 <p>DHCP基于UDP</p>
-<h5 id="Hierarchical-addressing">Hierarchical addressing</h5>
-<p>提高效率</p>
+<h5 id="Hierarchical-addressing"><a href="#Hierarchical-addressing" class="headerlink" title="Hierarchical addressing"></a>Hierarchical addressing</h5><p>提高效率 </p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221116171336239.png" alt="image-20221116171336239" style="zoom: 67%;">
+
 <p>把organization1 转入isp1时ISP向Internet请求信息的子网地址多了一条信息</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221102174321926.png" alt="image-20221102174321926" style="zoom:67%;">
-<h4 id="NAT-network-address-translation">NAT: network address translation</h4>
-<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221102181534841.png" alt="image-20221102181534841" style="zoom:67%;">
+
+
+
+<h4 id="NAT-network-address-translation"><a href="#NAT-network-address-translation" class="headerlink" title="NAT: network address translation"></a>NAT: network address translation</h4><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221102181534841.png" alt="image-20221102181534841" style="zoom:67%;">
+
 <ul>
 <li>本地网络通过一个NAT router　（一个IP地址）与外界联系</li>
 </ul>
@@ -508,61 +495,51 @@ if (false) {
 </ul>
 <p>datagrams with source or destination in this network　have 10.0.0/24 address for source, destination (as usual)</p>
 <ul>
-<li>
-<p>range of addresses not needed from ISP: just one IP address for all devices 这个地址不是由ISP划分的（是路由器中DCHP使用保留地址进行分配的：不是E类地址）</p>
+<li><p>range of addresses not needed from ISP: just one IP address for all devices 这个地址不是由ISP划分的（是路由器中DCHP使用保留地址进行分配的：不是E类地址）</p>
 </li>
-<li>
-<p>can change addresses of devices in local network without notifying outside world在本地网络中更改，与外界无关</p>
+<li><p>can change addresses of devices in local network without notifying outside world在本地网络中更改，与外界无关</p>
 </li>
-<li>
-<p>can change ISP without changing addresses of devices in local network</p>
+<li><p>can change ISP without changing addresses of devices in local network</p>
 </li>
-<li>
-<p>devices inside local net not explicitly addressable, visible by outside world (a security plus)</p>
+<li><p>devices inside local net not explicitly addressable, visible by outside world (a security plus)</p>
 </li>
 </ul>
-<h5 id="implementation"><em>implementation</em></h5>
-<p>▪ <em>outgoing datagrams: replace</em> (source IP address, port #) of every outgoing datagram to (NAT IP address, new port #). . . remote clients/servers will respond using (NAT IP address, new port #) as destination addr</p>
+<p>　</p>
+<h5 id="implementation"><a href="#implementation" class="headerlink" title="implementation"></a><em>implementation</em></h5><p>▪ <em>outgoing datagrams: replace</em> (source IP address, port #) of every outgoing datagram to (NAT IP address, new port #). . . remote clients/servers will respond using (NAT IP address, new port #) as destination addr</p>
 <p>把LAN的源IP、端口替换为中NAT的IP和任意一个未在转换表中的端口</p>
 <p>▪ <em>remember (in NAT translation table)</em> every (source IP address, port #) to (NAT IP address, new port #) translation pair</p>
 <p>记录在NAT translation table</p>
 <p>▪ <em>incoming datagrams: replace</em> (NAT IP address, new port #) indest fields of every incoming datagram with the corresponding (source IP address, port #) stored in NAT table</p>
 <p>传回来的数据从NAT translate table中查询，转化为LAN地址和端口</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221102183657636.png" alt="image-20221102183657636" style="zoom:80%;">
-<p>16-bit port-number field 端口号字段为16bit:</p>
+
+<p>16-bit port-number field 端口号字段为16bit: </p>
 <p>• 60,000 simultaneous connections with a single LAN-side address!(可以支持超过60000个并行连接)</p>
-<h5 id="NAT几点争议：">NAT几点争议：</h5>
-<ul>
-<li>
-<p>routers should only process up to layer 3（但NAT router涉及到了port）</p>
+<h5 id="NAT几点争议："><a href="#NAT几点争议：" class="headerlink" title="NAT几点争议："></a>NAT几点争议：</h5><ul>
+<li><p>routers should only process up to layer 3（但NAT router涉及到了port）</p>
 </li>
-<li>
-<p>address shortage should be solved by IPv6</p>
+<li><p>address shortage should be solved by IPv6</p>
 </li>
-<li>
-<p>violates end-to-end argument (complexity should be at network “ends” not middle)</p>
+<li><p>violates end-to-end argument (complexity should be at network “ends” not middle)</p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43495262/article/details/106507357">(22条消息) 为什么我们的IP都是192.168.X.X ？_泼天猴的博客-CSDN博客_为什么都是192.168</a></p>
 </li>
 </ul>
-<h4 id="IPv6">IPv6</h4>
-<ul>
-<li>
-<p>32-bit address space be completely allocated(using 128 bit)</p>
+<h4 id="IPv6"><a href="#IPv6" class="headerlink" title="IPv6"></a>IPv6</h4><ul>
+<li><p>32-bit address space be completely allocated(using 128 bit)</p>
 </li>
-<li>
-<p><em>IPv6 datagram format:</em></p>
-<p>fixed-length <strong>40-byte</strong> header</p>
-<p><strong>no fragmentation allowed</strong></p>
-<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221105193951205.png" alt="image-20221105193951205"></p>
+<li><p><em>IPv6 datagram format:</em> </p>
+<p>   fixed-length <strong>40-byte</strong> header</p>
+<p>   <strong>no fragmentation allowed</strong></p>
+<p>   <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221105193951205.png" alt="image-20221105193951205"></p>
 </li>
 </ul>
-<h5 id="IPv6-datagram-format">IPv6 datagram format</h5>
-<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221102185608990.png" alt="image-20221102185608990" style="zoom:67%;">
+<h5 id="IPv6-datagram-format"><a href="#IPv6-datagram-format" class="headerlink" title="IPv6 datagram format"></a>IPv6 datagram format</h5><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221102185608990.png" alt="image-20221102185608990" style="zoom:67%;">
+
 <p><em>priority:</em> identify priority among datagrams in flow</p>
 <p><em>flow Label:</em> identify datagrams in same “flow.”</p>
 <p><em>next header:</em> identify upper layer protocol for data</p>
 <p><em>checksum</em>: removed entirely to reduce processing time at each hop 和TCP，UDP重复　删掉了</p>
-<p><em>options:</em> allowed, but outside of header, indicated by “Next Header” field</p>
+<p> <em>options:</em> allowed, but outside of header, indicated by “Next Header” field</p>
 <p>变成下一个header</p>
 <p>IPv6 相⽐ IPv4 的⾸部改进：<strong>取消了⾸部校验和字段。</strong> 因为在数据链路层和传输层都会校验，因此 IPv6 直接取消了 IP 的校验。</p>
 <p><strong>取消了分片</strong>重新组装相关字段。</p>
@@ -571,44 +548,46 @@ if (false) {
 <p><em>ICMPv6:</em> new version of ICMP (see later lecture)</p>
 <p>• additional message types, e.g. “Packet Too Big”</p>
 <p>• multicast group management functions</p>
-<h5 id="Transition-from-IPv4-to-IPv6">Transition from IPv4 to IPv6</h5>
-<p>not all routers can be upgraded simultaneously　路由器内部封装的协议是IPv４，无法同时把世界上的router全upgrade</p>
+<h5 id="Transition-from-IPv4-to-IPv6"><a href="#Transition-from-IPv4-to-IPv6" class="headerlink" title="Transition from IPv4 to IPv6"></a>Transition from IPv4 to IPv6</h5><p>not all routers can be upgraded simultaneously　路由器内部封装的协议是IPv４，无法同时把世界上的router全upgrade</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221102192333302.png" alt="image-20221102192333302" style="zoom:67%;">
+
 <p><em>tunneling:</em> IPv6 datagram carried as <em>payload</em> in IPv4 datagram among IPv4 routers</p>
 <p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221102193123521.png" alt="image-20221102193123521"></p>
 <p>ipv4数据报中的载荷是ipv6的全部数据报</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221102193229542.png" alt="image-20221102193229542" style="zoom:67%;">
-<h5 id="IPv6-and-IPv4">IPv6 and IPv4</h5>
-<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221117172814850.png" alt="image-20221117172814850"></p>
-<h3 id="Generalized-Forward-and-SDN">Generalized Forward and SDN</h3>
-<p>SDN allows more flexibility in the control and data plane.</p>
+
+<h5 id="IPv6-and-IPv4"><a href="#IPv6-and-IPv4" class="headerlink" title="IPv6 and IPv4"></a>IPv6 and IPv4</h5><p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221117172814850.png" alt="image-20221117172814850"></p>
+<h3 id="Generalized-Forward-and-SDN"><a href="#Generalized-Forward-and-SDN" class="headerlink" title="Generalized Forward and SDN"></a>Generalized Forward and SDN</h3><p>SDN allows more flexibility in the control and data plane.</p>
 <p>• Program your own control algorithms in language you know (Java, python etc).</p>
 <p>• Forwarding can use any part of the packet header.</p>
 <p>• Not a distributed system, but a single centralised control point.</p>
 <p>• Programmable, not fixed – you can program the controller in a high-level language that you know.</p>
 <p>• Create your own algorithms and test them on the network without spending a million dollars to create a new hardware router.</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221102195640593.png" alt="image-20221102195640593" style="zoom:67%;">
-<h5 id="OpenFlow-data-plane">OpenFlow data plane</h5>
-<p><strong>OpenFlow is a specific SDN protocol</strong>，帮助沟通控制平面和数据平面</p>
+
+<h5 id="OpenFlow-data-plane"><a href="#OpenFlow-data-plane" class="headerlink" title="OpenFlow data plane"></a>OpenFlow data plane</h5><p> <strong>OpenFlow is a specific SDN protocol</strong>，帮助沟通控制平面和数据平面</p>
 <p><em>flow</em>: defined by header fields</p>
 <p>generalized forwarding: simple packet-handling rules</p>
 <p><em>match+action:</em> different kinds of devices become one 集合这些设备的功能</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221116180735834.png" alt="image-20221116180735834" style="zoom:67%;">
+
+
+
 <p>通用转发的例子</p>
 <p>Flow Table Entries</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221102200559697.png" alt="image-20221102200559697" style="zoom:50%;">
+
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture%2Fimage-20221102200537687.png" alt="image-20221102200537687" style="zoom:67%;">
+
 <p>分组头部与流表不同字段匹配实现不同功能</p>
 <p>通用转发：并不是和基于目标转发一样只识别IP地址进行转发，而是整合了网络中各个层次的网络配置信息，由一些关键字和执行动作组成的灵活规则。</p>
 <p>当OpenFlow交换机收到一个数据包，将包头解析后与流表中流表项的匹配域进行匹配，匹配成功则执行指令</p>
-<h2 id="Control-Plane">Control Plane</h2>
-<p><em>data plane：    forwarding:</em> move packets from router’s input to appropriate router output</p>
+<h2 id="Control-Plane"><a href="#Control-Plane" class="headerlink" title="Control Plane"></a>Control Plane</h2><p><em>data plane：    forwarding:</em> move packets from router’s input to appropriate router output</p>
 <p><em>control plane：</em>  <em>routing:</em> determine route taken by packets from source to destination</p>
-<h3 id="Routing-protocols">Routing protocols</h3>
-<p><em>Routing protocol goal:</em> determine “good” paths (equivalently, routes), from sending hosts to receiving host, through network of routers 从发送方到接收方的过程中确定一条好路径</p>
+<h3 id="Routing-protocols"><a href="#Routing-protocols" class="headerlink" title="Routing protocols"></a>Routing protocols</h3><p><em>Routing protocol goal:</em> determine “good” paths (equivalently, routes), from sending hosts to receiving host, through network of routers 从发送方到接收方的过程中确定一条好路径</p>
 <p>▪ path: sequence of routers packets will traverse in going from given initial source host to given final destination host</p>
-<h4 id="Graph-abstraction-of-the-network">Graph abstraction of the network</h4>
-<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221105200917581.png" alt="image-20221105200917581" style="zoom:67%;">
+<h4 id="Graph-abstraction-of-the-network"><a href="#Graph-abstraction-of-the-network" class="headerlink" title="Graph abstraction of the network"></a>Graph abstraction of the network</h4><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221105200917581.png" alt="image-20221105200917581" style="zoom:67%;">
+
 <p>graph: G = (N,E） N个节点E条边的集合</p>
 <p>N = set of routers = { u, v, w, x, y, z }</p>
 <p>E = set of links ={ (u,v), (u,x), (u,w), (v,x), (v,w), (x,w), (x,y), (w,y), (w,z), (y,z) }</p>
@@ -617,21 +596,18 @@ if (false) {
 <p>cost could always be 1, or inversely related to bandwidth,or inversely related to congestion</p>
 </blockquote>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221105201152362.png" alt="image-20221105201152362" style="zoom:67%;">
+
 <p><em>routing algorithm:</em> algorithm that finds that least cost path</p>
 <ul>
-<li>
-<p>Routing algorithm classification</p>
+<li><p>Routing algorithm classification</p>
 </li>
-<li>
-<p><em>global or decentralized</em> <em>information</em></p>
+<li><p><em>global or decentralized</em> <em>information</em></p>
 <ol>
-<li>
-<p><em>global:</em></p>
+<li><p><em>global:</em></p>
 <p>▪ all routers have complete topology, link cost info</p>
 <p><strong>▪ “link state” algorithms</strong></p>
 </li>
-<li>
-<p><em>decentralized:</em></p>
+<li><p><em>decentralized:</em> </p>
 <p>▪ router knows physically-connected neighbors, link costs to neighbors</p>
 <p>▪ iterative process of computation, exchange of info with neighbors</p>
 <p>走一步看一步</p>
@@ -639,15 +615,12 @@ if (false) {
 </li>
 </ol>
 </li>
-<li>
-<p><em>static or dynamic</em></p>
+<li><p><em>static or dynamic</em></p>
 <ol>
-<li>
-<p><em>static:</em></p>
+<li><p><em>static:</em></p>
 <p>▪ routes change slowly over time路由随时间变化非常缓慢</p>
 </li>
-<li>
-<p><em>dynamic:</em></p>
+<li><p><em>dynamic:</em> </p>
 <p>▪ routes change more quickly</p>
 <p>周期性变化</p>
 <p>• periodic update</p>
@@ -656,12 +629,11 @@ if (false) {
 </ol>
 </li>
 </ul>
-<h4 id="A-link-state-routing-algorithm：Dijkstra-’-s-algorithm">A link-state routing algorithm：<em>Dijkstra</em>*’*<em>s algorithm</em></h4>
-<p>链路状态路由选择算法，是集中式路由算法</p>
-<p><em>Dijkstra</em>*’*<em>s algorithm</em></p>
-<p>via “link state broadcast” known net topology, link costs  to all nodes</p>
+<h4 id="A-link-state-routing-algorithm：Dijkstra’s-algorithm"><a href="#A-link-state-routing-algorithm：Dijkstra’s-algorithm" class="headerlink" title="A link-state routing algorithm：Dijkstra’s algorithm"></a>A link-state routing algorithm：<em>Dijkstra<strong>’</strong>s algorithm</em></h4><p>链路状态路由选择算法，是集中式路由算法</p>
+<p><em>Dijkstra<strong>’</strong>s algorithm</em></p>
+<p> via “link state broadcast” known net topology, link costs  to all nodes</p>
 <p>在开启算法之前，提前通过广播知道每个连接的开销</p>
-<p>after k iterations, know least cost path to k dest.’ s</p>
+<p> after k iterations, know least cost path to k dest.’ s</p>
 <p><strong>c(x,y)</strong>: link cost from node x to y; = ∞ if not direct neighbors</p>
 <p><strong>D(v)</strong>: current value of cost of path from source to dest. v</p>
 <p>源节点到v的最低开销</p>
@@ -683,163 +655,153 @@ if (false) {
 12 D(v) = min( D(v), D(w) + c(w,v) ) 
 13 /* new cost to v is either old cost to v or known shortest path cost to w plus cost from w to v */ 
 14 until all nodes in N'<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221105205256882.png" alt="image-20221105205256882"></p>
-<p>画圈：首先N’中只有u,现在找与其相连边中开销最小的作为路径如图（u，w）,此时N’中有u和w,找与这两个节点相邻，并且<strong>到u开销最小</strong>的：如图为x…如此循环直到到达目标节点。<strong>当LS算法结束时，我们发现对于每个节点我们都能找到到它的最短路径</strong></p>
+<p>画圈：首先N’中只有u,现在找与其相连边中开销最小的作为路径如图（u，w）,此时N’中有u和w,找与这两个节点相邻，并且<strong>到u开销最小</strong>的：如图为x………如此循环直到到达目标节点。<strong>当LS算法结束时，我们发现对于每个节点我们都能找到到它的最短路径</strong></p>
 <ul>
 <li>shortest-path tree from u：</li>
 </ul>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221105210703219.png" alt="image-20221105210703219" style="zoom:67%;">
+
 <ul>
 <li>forwarding table in u:</li>
 </ul>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221105210725775.png" alt="image-20221105210725775" style="zoom:67%;">
-<h5 id="algorithm-complexity"><em>algorithm complexity:</em></h5>
-<p>n nodes（不算源节点） 最坏情况迭代次数为 n(n+1)/2 comparisons: <strong>O(n2 )</strong></p>
-<h5 id="oscillations-possible："><em>oscillations possible</em>：</h5>
-<p>support link cost equals amount of carried traffic: 以流量为负载的情况</p>
+
+<h5 id="algorithm-complexity"><a href="#algorithm-complexity" class="headerlink" title="algorithm complexity:"></a><em>algorithm complexity:</em></h5><p> n nodes（不算源节点） 最坏情况迭代次数为 n(n+1)/2 comparisons: <strong>O(n2 )</strong></p>
+<h5 id="oscillations-possible："><a href="#oscillations-possible：" class="headerlink" title="oscillations possible："></a><em>oscillations possible</em>：</h5><p> support link cost equals amount of carried traffic: 以流量为负载的情况</p>
 <p>初始路由是B逆时针发送1个单位给A，D顺时针发送1个单位给A，C逆时针发送e个单位给B，B再给A</p>
 <p>当再次运行LS算法之后，B、C、D路由都将会认为顺时针路由费用最低</p>
 <p>再次运行LS算法，B、C、D路由器又将会向逆时针方向交付分组</p>
 <p>产生选择震荡</p>
 <p>（顺时针流量小拥堵时候，所有包都被路由表引导到逆时针，运行一会后，逆时针又会产生拥堵，所有包又被引导回顺时针）</p>
 <p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221105213015128.png" alt="image-20221105213015128"></p>
-<h4 id="Distance-vector-algorithm">Distance vector algorithm</h4>
-<p>距离向量算法是一种分散式路由算法，路由器不需要知道所有信息，只需要知道相邻路由的开销即可工作。然后通过迭代与相邻节点进行数据交换。</p>
-<p><em>Bellman-Ford equation (dynamic programming)</em></p>
+<h4 id="Distance-vector-algorithm"><a href="#Distance-vector-algorithm" class="headerlink" title="Distance vector algorithm"></a>Distance vector algorithm</h4><p>距离向量算法是一种分散式路由算法，路由器不需要知道所有信息，只需要知道相邻路由的开销即可工作。然后通过迭代与相邻节点进行数据交换。</p>
+<p><em>Bellman-Ford equation (dynamic programming)</em> </p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221105214410744.png" alt="image-20221105214410744" style="zoom:50%;">
+
 <p>x到y的最小开销为：x到所有neighbor的开销加这个邻居到y的开销的和的最小值</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221105214710850.png" alt="image-20221105214710850" style="zoom:67%;">
+
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221105215412848.png" alt="image-20221105215412848" style="zoom:50%;">
+
 <p>用距离向量Dx估计到所有点的距离</p>
 <p>▪ node x:</p>
 <p>• knows cost to each neighbor v: c(x,v)</p>
 <p>• maintains its neighbors’ distance vectors（X的neighbor的位置向量）. For each neighbor v, x maintains <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221105215744785.png" alt="image-20221105215744785" style="zoom: 50%;"></p>
-<h5 id="DV-characters">DV characters</h5>
-<ul>
+<h5 id="DV-characters"><a href="#DV-characters" class="headerlink" title="DV characters"></a>DV characters</h5><ul>
 <li><em>iterative, asynchronous:</em></li>
 </ul>
-<p>local iteration caused by local link cost change，Then DV update message from neighbor</p>
+<p> local iteration caused by local link cost change，Then DV update message from neighbor</p>
 <ul>
 <li><em>distributed:</em></li>
 </ul>
 <p>each node notifies neighbors <em>only</em> when its DV changes</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221105221222131.png" alt="image-20221105221222131" style="zoom:50%;">
+
+
+
 <ul>
-<li>
-<p>from time-to-time, each node sends its own distance vector estimate to neighbors</p>
+<li><p>from time-to-time, each node sends its own distance vector estimate to neighbors</p>
 </li>
-<li>
-<p>when x receives new DV estimate from neighbor, it updates its own DV using B-F eq</p>
+<li><p>when x receives new DV estimate from neighbor, it updates its own DV using B-F eq</p>
 </li>
 </ul>
 <p>每个节点不时的向邻居发送距离向量，如果x的distance vector因为bellman-ford方程发生改变，节点x将会向每个邻居发送更新后的距离向量，这继而让所有neighbor都更新自己的距离向量。</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221105220607658.png" alt="image-20221105220607658" style="zoom:50%;">
+
 <p>the estimate <em>Dx</em> <em>(y)</em> <em>converge to the actual least cost</em> dx (y)最终收敛到实际最短开销</p>
-<h5 id="DV-process">DV process</h5>
-<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221105222608355.png" alt="image-20221105222608355"></p>
+<h5 id="DV-process"><a href="#DV-process" class="headerlink" title="DV process"></a>DV process</h5><p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221105222608355.png" alt="image-20221105222608355"></p>
 <p>第一列的三个表是初始化的路由表，所以并没有上一个状态的邻居的距离向量（初始化为∞）。初始化后，每个节点向它的两个邻居发送距离向量（每个表中一行为一个距离向量），而在第二列表中由于距离向量更新，所以要按照bellman-ford公式重新计算路由表（计算过程看上图），而后由于y的距离向量在三张表里相同，所以并不发送，而xz会发送新值。最终无更新报文发送，则该算法达到了停止态。</p>
-<h5 id="link-cost-changes">link cost changes</h5>
-<p>❖ node detects local link cost change</p>
+<h5 id="link-cost-changes"><a href="#link-cost-changes" class="headerlink" title="link cost changes"></a>link cost changes</h5><p>❖ node detects local link cost change </p>
 <p>❖ updates routing info, recalculates distance vector</p>
 <p>❖ if DV changes, notify neighbors</p>
-<h6 id="开销减少的情况">开销减少的情况</h6>
-<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221105223949128.png" alt="image-20221105223949128" style="zoom:67%;">
+<h6 id="开销减少的情况"><a href="#开销减少的情况" class="headerlink" title="开销减少的情况"></a>开销减少的情况</h6><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221105223949128.png" alt="image-20221105223949128" style="zoom:67%;">
+
 <p><em>t0</em> : <em>y</em> detects link-cost change, updates its DV, informs its neighbors.</p>
 <p><em>t1</em> : <em>z</em> receives update from <em>y</em>, updates its table, computes new least cost to <em>x</em> , sends its neighbors its DV.</p>
 <p><em>t2</em> : <em>y</em> receives <em>z</em> ’s update, updates its distance table. <em>y</em> ’ s least costs do <em>not</em> change, so <em>y</em> does <em>not</em> send a message to <em>z</em>. 此时进入静止态。</p>
 <p>开销减少的好消息在网络中迅速传播</p>
-<h6 id="开销增多的情况">开销增多的情况</h6>
-<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221105224400644.png" alt="image-20221105224400644" style="zoom:67%;">
+<h6 id="开销增多的情况"><a href="#开销增多的情况" class="headerlink" title="开销增多的情况"></a>开销增多的情况</h6><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221105224400644.png" alt="image-20221105224400644" style="zoom:67%;">
+
 <p>开销增多的坏消息在网络中缓慢传播</p>
-<p>❖ node detects local link cost change</p>
+<p>❖ node detects local link cost change </p>
 <p>❖ <em>bad news travels slow</em> - “ count to infinity” problem!（路由选择环路）</p>
 <p>❖ 44 iterations before algorithm stabilizes ？？？</p>
-<p>解决方法：<em>poisoned reverse:</em>（毒性逆转）</p>
+<p>解决方法：*poisoned reverse:*（毒性逆转）</p>
 <p>❖ If Z routes through Y to get to X :</p>
 <p>▪ Z tells Y its (Z’s) distance to X is infinite (so Y won’ t route to X via Z)</p>
 <p>Z告诉Y:经过y到x的距离向量无穷大</p>
 <p>综上：LS ：source router需要全局的信息，而DV中每一个router只需要与邻居进行通信，neighbor会告诉它neighbor 已知的信息</p>
-<h3 id="intra-AS-routing-in-the-Internet">intra-AS routing in the Internet</h3>
-<p>现实中的路由器并不完全相同，而且拥有上亿（billions ）的规模，can ’t store all destinations in routing tables，永远无法收敛。</p>
+<h3 id="intra-AS-routing-in-the-Internet"><a href="#intra-AS-routing-in-the-Internet" class="headerlink" title="intra-AS routing in the Internet"></a>intra-AS routing in the Internet</h3><p>现实中的路由器并不完全相同，而且拥有上亿（billions ）的规模，can ’t store all destinations in routing tables，永远无法收敛。</p>
 <p>此外由于英特网是ISP的网络，每个ISP都want to control routing in its own network</p>
-<h4 id="autonomous-systems-AS"><strong>autonomous systems(AS)</strong></h4>
-<p>aggregate routers into regions</p>
-<h5 id="intra-AS-routing-域内路由选择">intra-AS routing <strong>域内路由选择</strong></h5>
-<p>将一个ISP的路由器和它们之间的链路聚合成一个AS，相同AS中路由器运行着相同的路由选择算法（all routers in AS must run <em>same</em> intra-domain protocol）</p>
+<h4 id="autonomous-systems-AS"><a href="#autonomous-systems-AS" class="headerlink" title="autonomous systems(AS)"></a><strong>autonomous systems(AS)</strong></h4><p>aggregate routers into regions</p>
+<h5 id="intra-AS-routing-域内路由选择"><a href="#intra-AS-routing-域内路由选择" class="headerlink" title="intra-AS routing 域内路由选择"></a>intra-AS routing <strong>域内路由选择</strong></h5><p>将一个ISP的路由器和它们之间的链路聚合成一个AS，相同AS中路由器运行着相同的路由选择算法（all routers in AS must run <em>same</em> intra-domain protocol）</p>
 <ul>
 <li><strong>gateway router:</strong> at “edge” of its own AS, has link(s) to router(s) in other AS’es</li>
 </ul>
-<h5 id="inter-AS-routing-域间路由选择">inter-AS routing <strong>域间路由选择</strong></h5>
-<p>gateways perform inter-domain routing</p>
+<h5 id="inter-AS-routing-域间路由选择"><a href="#inter-AS-routing-域间路由选择" class="headerlink" title="inter-AS routing 域间路由选择"></a>inter-AS routing <strong>域间路由选择</strong></h5><p>gateways perform inter-domain routing </p>
 <p>forwarding table configured by both intra and inter-AS routing algorithm</p>
 <p><strong>自治系统内部和自治系统外部，分别采用不同类别的路由选择协议，分别进行路由选择</strong></p>
 <ul>
-<li>
-<p>intra-AS routing determine entries for destinations within AS</p>
-<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221106221910787.png" alt="image-20221106221910787" style="zoom:70%;">
-</li>
+<li><p>intra-AS routing determine entries for destinations within AS</p>
+<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221106221910787.png" alt="image-20221106221910787" style="zoom:70%;"></li>
 </ul>
-<p>suppose router in AS1receives datagram destined outside of AS1</p>
+<p>suppose router in AS1receives datagram destined outside of AS1 </p>
 <p>AS1接收到其他AS中发来的datagram,它需要发到gateway router,必须知道目的地的是否可到达，同时把这个datagram的可传达性传达给别的AS，这个工作是由inter- AS routing负责</p>
 <p>router should forward packet to gateway router, but which one?</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221106222240737.png" alt="image-20221106222240737" style="zoom:80%;">
+
+
+
 <p>内部网关使用的协议：<em>interior gateway protocols (IGP)</em></p>
 <p>外部网关使用的协议：<strong>Border Gateway Protocol（BGP）</strong></p>
 <p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221106221501793.png" alt="image-20221106221501793"></p>
-<h4 id="Intra-AS-Routing：OSPF">Intra-AS Routing：OSPF</h4>
-<p>most common intra-AS routing protocols:</p>
+<h4 id="Intra-AS-Routing：OSPF"><a href="#Intra-AS-Routing：OSPF" class="headerlink" title="Intra-AS Routing：OSPF"></a>Intra-AS Routing：OSPF</h4><p>most common intra-AS routing protocols:</p>
 <p>• RIP: Routing Information Protocol 适合路由数量较少</p>
-<p>• OSPF: Open Shortest Path First</p>
-<p>• IGRP: Interior Gateway Routing Protocol</p>
-<h5 id="OSPF-Open-Shortest-Path-First">OSPF (Open Shortest Path First)</h5>
-<p>open指 publicly available公众可用</p>
+<p>• OSPF: Open Shortest Path First </p>
+<p>• IGRP: Interior Gateway Routing Protocol </p>
+<h5 id="OSPF-Open-Shortest-Path-First"><a href="#OSPF-Open-Shortest-Path-First" class="headerlink" title="OSPF (Open Shortest Path First)"></a>OSPF (Open Shortest Path First)</h5><p>open指 publicly available公众可用</p>
 <ul>
-<li>
-<p>link-state algorithm  使用LS</p>
+<li><p>link-state algorithm  使用LS</p>
 </li>
-<li>
-<p>route computation using Dijkstra’s algorithm，一台路由器构建整个AS的完整topology</p>
+<li><p>route computation using Dijkstra’s algorithm，一台路由器构建整个AS的完整topology</p>
 </li>
 </ul>
 <p>router floods（泛洪） OSPF link-state advertisements to all other routers in <em>entire</em> AS</p>
 <p>像所有路由器广播状态信息，每有一个链路变化，就泛洪一次，即使没状态变化也周期性泛洪</p>
 <p><strong>carried in OSPF messages directly over IP</strong></p>
-<h6 id="features">features</h6>
-<ol>
-<li>
-<p><em>security:</em> all OSPF messages authenticated 所有信息需要授权(to prevent intrusion)</p>
+<h6 id="features"><a href="#features" class="headerlink" title="features"></a>features</h6><ol>
+<li><p><em>security:</em> all OSPF messages authenticated 所有信息需要授权(to prevent intrusion) </p>
 </li>
-<li>
-<p>multiple same-cost paths allowed (only one path in RIP)</p>
+<li><p>multiple same-cost paths allowed (only one path in RIP)</p>
 <p>如果多条路开销一致，可以多路并行，分担开销</p>
 </li>
-<li>
-<p>integrated uni- and multi-cast support 对单播和多播综合支持</p>
+<li><p>integrated uni- and multi-cast support 对单播和多播综合支持</p>
 <p>Multicast OSPF (MOSPF) uses same topology data base as OSPF</p>
 </li>
-<li>
-<p>hierarchical 支持层次结构</p>
+<li><p>hierarchical 支持层次结构</p>
 </li>
 </ol>
-<h4 id="Internet-inter-AS-routing-BGP">Internet inter-AS routing: BGP</h4>
-<p>BGP (Border Gateway Protocol) 边界网关协议（每个AS统一的协议）</p>
+<h4 id="Internet-inter-AS-routing-BGP"><a href="#Internet-inter-AS-routing-BGP" class="headerlink" title="Internet inter-AS routing: BGP"></a>Internet inter-AS routing: BGP</h4><p>BGP (Border Gateway Protocol) 边界网关协议（每个AS统一的协议）</p>
 <p>autonomous system 间的协议</p>
 <p>将互联网中的ISP（glue）粘合在一起</p>
 <p>使用DV算法，告诉路由器路径</p>
 <p>BGP provides each AS a means to:</p>
 <p>• eBGP 外部BGP:    连接不同AS之间的链路</p>
-<p>obtain subnet reachability information from neighboring ASes (从相邻的ASes那里获得子网可达信息) 告诉别的子网"我在那"，接收到所有子网的"我在那"</p>
+<p> obtain subnet reachability information from neighboring ASes (从相邻的ASes那里获得子网可达信息) 告诉别的子网”我在那”，接收到所有子网的”我在那”</p>
 <p>• iBGP 内部BGP:      一个AS内部的BGP链路</p>
-<p>propagate reachability information to all AS internal routers.（将获得的子网可达信息传遍到AS内部的所有路由器）</p>
+<p>  propagate reachability information to all AS internal routers.（将获得的子网可达信息传遍到AS内部的所有路由器）</p>
 <p>BGP选择一条最好的路径去其他AS，基于reachability information and <em>policy</em></p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221109222911176.png" alt="image-20221109222911176" style="zoom:67%;">
+
 <p>BGP session: two BGP routers (“ peers ”) exchange BGP messages over semi-permanent TCP connection: 两个BGP router通过半永久TCP交换路由选择信息</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221109223330469.png" alt="image-20221109223330469" style="zoom:67%;">
+
 <p>向AS1 AS2通告前缀x的可达性信息</p>
 <p>when AS3 gateway router 3a advertises path AS3 ,X to AS2 gateway router 2c</p>
 <p>由于3a 参与AS3内所有路由运算，所有3a可以收集所有路由可达信息，并一起发给2c，相当于3a向2c承诺说 你可以通过我到达x</p>
-<h5 id="Path-attributes-and-BGP-routes">Path attributes and BGP routes</h5>
-<p>为了在多条路径中选择下一条，BGP在prefix里加入BGP attributes</p>
+<h5 id="Path-attributes-and-BGP-routes"><a href="#Path-attributes-and-BGP-routes" class="headerlink" title="Path attributes and BGP routes"></a>Path attributes and BGP routes</h5><p>为了在多条路径中选择下一条，BGP在prefix里加入BGP attributes </p>
 <p>prefix + attributes = “route” 前缀加属性=路由</p>
 <ul>
 <li>two important attributes:</li>
@@ -847,88 +809,79 @@ if (false) {
 <p>• AS-PATH: list of ASes through which prefix advertisement has passed 记录前缀通过了的AS，每通过一个AS，向列表中记录一个</p>
 <p>• NEXT-HOP: indicates specific internal-AS router to next hop AS</p>
 <p>如当路由为AS2 AS3 x，Nest hop为2a左侧接口的IP地址</p>
-<h5 id="Policy-based-routing"><em>Policy-based routing:</em></h5>
-<p>gateway receiving route advertisement uses <em>import policy</em> to accept/decline path</p>
-<p>当一个<strong>网关路由器</strong>接收到了一个路由通告, 使用<strong>输入策略</strong>来接受或过滤</p>
-<p>过滤原因例1：不想经过某个AS，转发某些前缀的分组</p>
+<h5 id="Policy-based-routing"><a href="#Policy-based-routing" class="headerlink" title="Policy-based routing:"></a><em>Policy-based routing:</em></h5><p>gateway receiving route advertisement uses <em>import policy</em> to accept/decline path</p>
+<p> 当一个<strong>网关路由器</strong>接收到了一个路由通告, 使用<strong>输入策略</strong>来接受或过滤</p>
+<p> 过滤原因例1：不想经过某个AS，转发某些前缀的分组 </p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221112141352063.png" alt="image-20221112141352063" style="zoom:67%;">
+
 <p>AS2 router 2c receives path advertisement AS3,X (via eBGP) from AS3 router 3a</p>
 <p>Based on AS2 policy, AS2 router 2c accepts path AS3,X, propagates (via iBGP) to all AS2 routers</p>
 <p>Based on AS2 policy, AS2 router 2a advertises (via eBGP) path AS2, AS3, X to AS1 router 1c</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221112142218374.png" alt="image-20221112142218374" style="zoom:67%;">
+
 <p>另一种policy：绕开AS2</p>
 <p>▪ Based on policy, AS1 gateway router 1c chooses path <em>AS3,X, and</em> <em>advertises path within AS1</em> <em>via iBGP</em></p>
-<h5 id="BGP-route-selection">BGP route selection</h5>
-<p>▪ router may learn about more than one route to destination AS, selects route based on:</p>
+<h5 id="BGP-route-selection"><a href="#BGP-route-selection" class="headerlink" title="BGP route selection"></a>BGP route selection</h5><p>▪ router may learn about more than one route to destination AS, selects route based on:</p>
 <ol>
-<li>
-<p>local preference value attribute: policy decision</p>
+<li><p>local preference value attribute: policy decision</p>
 </li>
-<li>
-<p>shortest AS-PATH</p>
+<li><p>shortest AS-PATH </p>
 </li>
-<li>
-<p>closest NEXT-HOP router: hot potato routing</p>
+<li><p>closest NEXT-HOP router: hot potato routing</p>
 </li>
-<li>
-<p>additional criteria</p>
+<li><p>additional criteria</p>
 </li>
 </ol>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221112143005029.png" alt="image-20221112143005029" style="zoom:67%;">
-<h3 id="SDN">SDN</h3>
-<p>easier network management: avoid router misconfigurations, greater flexibility of traffic flows</p>
+
+<h3 id="SDN"><a href="#SDN" class="headerlink" title="SDN"></a>SDN</h3><p>easier network management: avoid router misconfigurations, greater flexibility of traffic flows</p>
 <p>传统per-router control plane无法解决的问题：</p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221112152056262.png" alt="image-20221112152056262" style="zoom: 50%;">
-<h4 id="SDN特点">SDN特点</h4>
-<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221112155303138.png" alt="image-20221112155303138" style="zoom: 67%;">
+
+<h4 id="SDN特点"><a href="#SDN特点" class="headerlink" title="SDN特点"></a>SDN特点</h4><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221112155303138.png" alt="image-20221112155303138" style="zoom: 67%;">
+
 <p>通用“ flowbased” 基于流的匹配+行动</p>
-<p><em>可编程控制应用</em>在控制器之上以网络应用形式实现各种网络功能</p>
+<p> <em>可编程控制应用</em>在控制器之上以网络应用形式实现各种网络功能</p>
 <p>The control plane is “logically” centralised (it seems as if there is just one controller though there may be several for redundancy)</p>
-<h4 id="SDN结构">SDN结构</h4>
-<p><em>Data plane switches</em></p>
+<h4 id="SDN结构"><a href="#SDN结构" class="headerlink" title="SDN结构"></a>SDN结构</h4><p><em>Data plane switches</em></p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221112155651558.png" alt="image-20221112155651558" style="zoom:50%;">
+
 <p>fast, simple, commodity switches implementing generalized data-plane forwarding in hardware</p>
-<p>API for table-based switch control</p>
+<p> API for table-based switch control</p>
 <p>基于南向API（例如OpenFlow），SDN控制器访问基于流的交换机</p>
 <p><em>SDN controller (network OS):</em></p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221112160328364.png" alt="image-20221112160328364" style="zoom:50%;">
+
 <p>interacts with network control applications “above” via northbound API</p>
-<p>通过上面的北向API和网络控制应用交互</p>
+<p> 通过上面的北向API和网络控制应用交互</p>
 <p>interacts with network switches “below” via southbound API</p>
-<p>通过下面的南向API和网络交换机交互</p>
+<p> 通过下面的南向API和网络交换机交互</p>
 <p>southbound protocol –connects controller to switch</p>
-<p>northbound protocol --connects controller to apps</p>
+<p>northbound protocol –connects controller to apps</p>
 <p><em>network-control apps</em></p>
 <img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221112160927263.png" alt="image-20221112160927263" style="zoom:50%;">
+
 <p>implement control functions using lower-level services, API provided by SDN controller</p>
 <p>采用下层提供的服务（SDN控制器提供的API)，实现网络功能</p>
-<h5 id="OpenFlow-protocol">OpenFlow protocol</h5>
-<p>运行在SDN controller switch 之间，基于TCP</p>
-<h4 id="SDN-control-data-plane-interaction-example">SDN: control/data plane interaction example</h4>
-<img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221112161225598.png" alt="image-20221112161225598" style="zoom:67%;">
+<h5 id="OpenFlow-protocol"><a href="#OpenFlow-protocol" class="headerlink" title="OpenFlow protocol"></a>OpenFlow protocol</h5><p>运行在SDN controller switch 之间，基于TCP</p>
+<h4 id="SDN-control-x2F-data-plane-interaction-example"><a href="#SDN-control-x2F-data-plane-interaction-example" class="headerlink" title="SDN: control/data plane interaction example"></a>SDN: control/data plane interaction example</h4><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221112161225598.png" alt="image-20221112161225598" style="zoom:67%;">
+
 <ol>
-<li>
-<p>S1, experiencing link failure using OpenFlow port status message to notify controller</p>
+<li><p>S1, experiencing link failure using OpenFlow port status message to notify controller</p>
 <p>假设s1 s2之间端口，采用OpenFlow报文通告控制器</p>
 </li>
-<li>
-<p>SDN 控制器接收OpenFlow报文，更新链路状态信息</p>
+<li><p>SDN 控制器接收OpenFlow报文，更新链路状态信息</p>
 </li>
-<li>
-<p>Dijkstra路由算法应用被调用</p>
+<li><p>Dijkstra路由算法应用被调用</p>
 </li>
-<li>
-<p>Dijkstra路由算法访问控制器中的网络拓扑信息，链路状态信息计算新路由</p>
+<li><p>Dijkstra路由算法访问控制器中的网络拓扑信息，链路状态信息计算新路由</p>
 </li>
-<li>
-<p>链路状态路由app和SDN控制器中流表计算元件交互，计算出新的所需流表</p>
+<li><p>链路状态路由app和SDN控制器中流表计算元件交互，计算出新的所需流表</p>
 </li>
-<li>
-<p>控制器采用OpenFlow在交换机上安装新的需要更新的流表</p>
+<li><p>控制器采用OpenFlow在交换机上安装新的需要更新的流表</p>
 </li>
 </ol>
-<h3 id="ICMP-internet-control-message-protocol">ICMP: internet control message protocol</h3>
-<p>used by hosts &amp; routers to communicate network-level information</p>
+<h3 id="ICMP-internet-control-message-protocol"><a href="#ICMP-internet-control-message-protocol" class="headerlink" title="ICMP: internet control message protocol"></a>ICMP: internet control message protocol</h3><p>used by hosts &amp; routers to communicate network-level information</p>
 <p>最典型的用途是差错报告</p>
 <ul>
 <li>ICMP 的第一个功能是<strong>确认 IP 包是否能够成功到达目标地址</strong>，当两个设备通过互联网相连时，任意一个设备发送给另一个设备的 IP 包如果没有到达，就会生成 ICMP 数据包发送给设备共享。</li>
@@ -943,19 +896,18 @@ if (false) {
 <p>http中一些状态码就是基于ICMP</p>
 <p>ICMP报文类型：</p>
 <p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221113095707396.png" alt="image-20221113095707396"></p>
-<h4 id="Traceroute-and-ICMP">Traceroute and ICMP</h4>
-<blockquote>
+<h4 id="Traceroute-and-ICMP"><a href="#Traceroute-and-ICMP" class="headerlink" title="Traceroute and ICMP"></a>Traceroute and ICMP</h4><blockquote>
 <p>通过发送探测报文来获取链路地址信息。第一个探测报文TTL为1，到达第一个路由器时，TTL减1为0所以丢掉这个探测包，同时向源主机发回ICMP时间超过报文，这时源主机就获得了第一个路由器的IP地址；接着源主机发送第二个探测报文，TTL增1为2，到达第一个路由器TTL减1为1并转发探测包到第二个路由器，这时TTL减1为0，丢掉这个探测包并向源主机发回ICMP时间超过报文，源主机就获得了第二个路由器的IP地址；以此类推，直到探测报文到达traceroute的目的地，这时源主机就获得了到目的地的每一跳路由的IP地址</p>
 </blockquote>
-<p>source sends series of UDP segments to destination 源主机发送一系列不可达的UDP报文段，并且设置第一个数据报RTT为1 第二个为2…主机也为数据报启动定时器</p>
-<p>when datagram in <em>n</em>th set arrives to nth route， router discards datagram and sends source ICMP message (type 11, code 0) router丢弃数据报后，返回ICMP警告给源主机，这个报文包括 name of router &amp; IP address.</p>
+<p>source sends series of UDP segments to destination 源主机发送一系列不可达的UDP报文段，并且设置第一个数据报RTT为1 第二个为2……主机也为数据报启动定时器</p>
+<p>when datagram in <em>n</em>th set arrives to nth route， router discards datagram and sends source ICMP message (type 11, code 0) router丢弃数据报后，返回ICMP警告给源主机，这个报文包括 name of router &amp; IP address. </p>
 <p>when ICMP message arrives, source records RTTs.当这个ICMP message到达源主机，源主机记录RTT，记录第n台路由器的IP和名字</p>
 <p><em>stopping criteria（停止条件）:</em></p>
 <p>▪ UDP segment eventually arrives at destination host</p>
 <p>▪ destination returns ICMP “port unreachable”message (type 3, code 3)</p>
 <p>▪ source stops</p>
 <p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/image-20221113100656165.png" alt="image-20221113100656165"></p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://chilh.top">chilh</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://chilh.top/post/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE-Chapter%203%20%20Network%20Layer.html">https://chilh.top/post/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE-Chapter%203%20%20Network%20Layer.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://chilh.top" target="_blank">Chilh</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/BUPT/">BUPT</a><a class="post-meta__tags" href="/tags/%E5%A4%A7%E4%B8%89%E4%B8%8A%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">大三上课程笔记</a><a class="post-meta__tags" href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE/">互联网协议</a></div><div class="post_share"><div class="social-share" data-image="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1671050579179-5cd444a8a166" data-sites="twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE-Chapter%205%20Security%20and%20Network%20Management.html" title="互联网协议-Chapter 5 Security and Network Management"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1671474087718-8bb4f50658aa.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">互联网协议-Chapter 5 Security and Network Management</div></div></a></div><div class="next-post pull-right"><a href="/post/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE-Chapter%202%20%20Transport%20Layer.html" title="互联网协议-Chapter 2  Transport Layer"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1664737061963-862d6a174a3b" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">互联网协议-Chapter 2  Transport Layer</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/post/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE-Chapter%201%20Introduction.html" title="互联网协议-Chapter 1 Introduction"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1671013319475-4dca8a10156e" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-29</div><div class="title">互联网协议-Chapter 1 Introduction</div></div></a></div><div><a href="/post/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE-Chapter%202%20%20Transport%20Layer.html" title="互联网协议-Chapter 2  Transport Layer"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1664737061963-862d6a174a3b" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-29</div><div class="title">互联网协议-Chapter 2  Transport Layer</div></div></a></div><div><a href="/post/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE-Chapter%205%20Security%20and%20Network%20Management.html" title="互联网协议-Chapter 5 Security and Network Management"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1671474087718-8bb4f50658aa.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-29</div><div class="title">互联网协议-Chapter 5 Security and Network Management</div></div></a></div><div><a href="/post/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE-Chapter%204%20Datalink%20Layer.html" title="互联网协议-Chapter 4 Datalink Layer"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1653554604030-995729757eb0.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-29</div><div class="title">互联网协议-Chapter 4 Datalink Layer</div></div></a></div><div><a href="/post/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE-test.html" title="互联网协议-test"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1670979314026-7c0c4367c8b7.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-29</div><div class="title">互联网协议-test</div></div></a></div><div><a href="/post/1.1-Threads%20and%20Concurrency%20in%20Java%EF%BC%88%E4%B8%8A%EF%BC%89.html" title="1.1-Threads and Concurrency in Java（上）"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/porter-raab--mNr_4WfdCg-unsplash.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-30</div><div class="title">1.1-Threads and Concurrency in Java（上）</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/%E5%A4%B4%E5%83%8F.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">chilh</div><div class="author-info__description">记录学习笔记，学艺不精，大家多多评论指教</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">70</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:1547405085@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">Network Layer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Overview"><span class="toc-number">1.1.</span> <span class="toc-text">Overview</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#network-layer-functions"><span class="toc-number">1.1.1.</span> <span class="toc-text">network-layer functions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Network-layer"><span class="toc-number">1.1.2.</span> <span class="toc-text">Network layer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#data-plane-control-plane"><span class="toc-number">1.1.3.</span> <span class="toc-text">data plane, control plane</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Data-plane"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">Data plane</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Control-plane"><span class="toc-number">1.1.3.2.</span> <span class="toc-text">Control plane</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#two-control-plane-approaches"><span class="toc-number">1.1.3.2.1.</span> <span class="toc-text">two control-plane approaches:</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#traditional-routing-algorithms-Per-router-control-plane"><span class="toc-number">1.1.3.2.1.1.</span> <span class="toc-text">traditional routing algorithms: Per-router control plane</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#software-defined-networking-SDN-Logically-centralized-control-plane"><span class="toc-number">1.1.3.2.1.2.</span> <span class="toc-text">software-defined networking *(SDN) :*Logically centralized control plane</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%B9%B3%E9%9D%A2"><span class="toc-number">1.2.</span> <span class="toc-text">数据平面</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Router-architecture-overview"><span class="toc-number">1.2.1.</span> <span class="toc-text">Router architecture overview</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Input-port-functions"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">Input port functions</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Switching-fabrics"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">Switching fabrics</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Switching-via-memory-%E5%86%85%E5%AD%98%E4%BA%A4%E6%8D%A2"><span class="toc-number">1.2.1.2.1.</span> <span class="toc-text">Switching via memory:内存交换</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Switching-via-a-bus%EF%BC%9A-%E6%80%BB%E7%BA%BF%E4%BA%A4%E6%8D%A2"><span class="toc-number">1.2.1.2.2.</span> <span class="toc-text">Switching via a bus： 总线交换</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Switching-via-interconnection-network-%EF%BC%9A%E4%BA%92%E8%81%94%E7%BD%91%E7%BB%9C%E4%BA%A4%E6%8D%A2"><span class="toc-number">1.2.1.2.3.</span> <span class="toc-text">Switching via interconnection network ：互联网络交换</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Output-ports"><span class="toc-number">1.2.1.3.</span> <span class="toc-text">Output ports</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#queue"><span class="toc-number">1.2.1.4.</span> <span class="toc-text">queue</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Input-port-queuing"><span class="toc-number">1.2.1.4.1.</span> <span class="toc-text">Input port queuing</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Output-port-queueing"><span class="toc-number">1.2.1.4.2.</span> <span class="toc-text">Output port queueing</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Scheduling-mechanisms"><span class="toc-number">1.2.1.5.</span> <span class="toc-text">Scheduling mechanisms</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IP-Internet-Protocol"><span class="toc-number">1.2.2.</span> <span class="toc-text">IP :Internet Protocol</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#IP-datagram-format"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">IP datagram format</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#IP-fragmentation-reassembly"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">IP fragmentation, reassembly</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#IPv4-addressing"><span class="toc-number">1.2.2.3.</span> <span class="toc-text">IPv4 addressing</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#introduction-2"><span class="toc-number">1.2.2.3.1.</span> <span class="toc-text">introduction</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Subnets"><span class="toc-number">1.2.2.3.2.</span> <span class="toc-text">Subnets</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#what-%E2%80%99-s-a-subnet"><span class="toc-number">1.2.2.3.2.1.</span> <span class="toc-text">what*’*s a subnet ?</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Three-Level-Addressing"><span class="toc-number">1.2.2.3.2.2.</span> <span class="toc-text">Three-Level Addressing</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Network-mask-and-subnetwork-mask"><span class="toc-number">1.2.2.3.2.3.</span> <span class="toc-text">Network mask and subnetwork mask</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Why-subnetting"><span class="toc-number">1.2.2.3.2.4.</span> <span class="toc-text">Why subnetting ?</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Classful-IP-addressing-%E5%88%86%E7%B1%BB%E7%BC%96%E5%9D%80"><span class="toc-number">1.2.2.3.2.5.</span> <span class="toc-text">Classful IP addressing 分类编址</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Classless-addressing"><span class="toc-number">1.2.2.3.2.6.</span> <span class="toc-text">Classless addressing</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#VLSM-variable-length-subnet-mask"><span class="toc-number">1.2.2.3.2.7.</span> <span class="toc-text">VLSM(variable length subnet mask)</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#exercise-2"><span class="toc-number">1.2.2.3.2.8.</span> <span class="toc-text">exercise:</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#DHCP-Dynamic-Host-Configuration-Protocol"><span class="toc-number">1.2.2.3.2.9.</span> <span class="toc-text">DHCP: Dynamic Host Configuration Protocol</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#DHCP%E8%BF%87%E7%A8%8B"><span class="toc-number">1.2.2.3.2.10.</span> <span class="toc-text">DHCP过程</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Hierarchical-addressing"><span class="toc-number">1.2.2.3.3.</span> <span class="toc-text">Hierarchical addressing</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#NAT-network-address-translation"><span class="toc-number">1.2.2.4.</span> <span class="toc-text">NAT: network address translation</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#implementation"><span class="toc-number">1.2.2.4.1.</span> <span class="toc-text">implementation</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#NAT%E5%87%A0%E7%82%B9%E4%BA%89%E8%AE%AE%EF%BC%9A"><span class="toc-number">1.2.2.4.2.</span> <span class="toc-text">NAT几点争议：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#IPv6"><span class="toc-number">1.2.2.5.</span> <span class="toc-text">IPv6</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#IPv6-datagram-format"><span class="toc-number">1.2.2.5.1.</span> <span class="toc-text">IPv6 datagram format</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Transition-from-IPv4-to-IPv6"><span class="toc-number">1.2.2.5.2.</span> <span class="toc-text">Transition from IPv4 to IPv6</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#IPv6-and-IPv4"><span class="toc-number">1.2.2.5.3.</span> <span class="toc-text">IPv6 and IPv4</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generalized-Forward-and-SDN"><span class="toc-number">1.2.3.</span> <span class="toc-text">Generalized Forward and SDN</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#OpenFlow-data-plane"><span class="toc-number">1.2.3.0.1.</span> <span class="toc-text">OpenFlow data plane</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Control-Plane"><span class="toc-number">1.3.</span> <span class="toc-text">Control Plane</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Routing-protocols"><span class="toc-number">1.3.1.</span> <span class="toc-text">Routing protocols</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Graph-abstraction-of-the-network"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">Graph abstraction of the network</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#A-link-state-routing-algorithm%EF%BC%9ADijkstra-%E2%80%99-s-algorithm"><span class="toc-number">1.3.1.2.</span> <span class="toc-text">A link-state routing algorithm：Dijkstra*’*s algorithm</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#algorithm-complexity"><span class="toc-number">1.3.1.2.1.</span> <span class="toc-text">algorithm complexity:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#oscillations-possible%EF%BC%9A"><span class="toc-number">1.3.1.2.2.</span> <span class="toc-text">oscillations possible：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Distance-vector-algorithm"><span class="toc-number">1.3.1.3.</span> <span class="toc-text">Distance vector algorithm</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#DV-characters"><span class="toc-number">1.3.1.3.1.</span> <span class="toc-text">DV characters</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#DV-process"><span class="toc-number">1.3.1.3.2.</span> <span class="toc-text">DV process</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#link-cost-changes"><span class="toc-number">1.3.1.3.3.</span> <span class="toc-text">link cost changes</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%BC%80%E9%94%80%E5%87%8F%E5%B0%91%E7%9A%84%E6%83%85%E5%86%B5"><span class="toc-number">1.3.1.3.3.1.</span> <span class="toc-text">开销减少的情况</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%BC%80%E9%94%80%E5%A2%9E%E5%A4%9A%E7%9A%84%E6%83%85%E5%86%B5"><span class="toc-number">1.3.1.3.3.2.</span> <span class="toc-text">开销增多的情况</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#intra-AS-routing-in-the-Internet"><span class="toc-number">1.3.2.</span> <span class="toc-text">intra-AS routing in the Internet</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#autonomous-systems-AS"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">autonomous systems(AS)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#intra-AS-routing-%E5%9F%9F%E5%86%85%E8%B7%AF%E7%94%B1%E9%80%89%E6%8B%A9"><span class="toc-number">1.3.2.1.1.</span> <span class="toc-text">intra-AS routing 域内路由选择</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#inter-AS-routing-%E5%9F%9F%E9%97%B4%E8%B7%AF%E7%94%B1%E9%80%89%E6%8B%A9"><span class="toc-number">1.3.2.1.2.</span> <span class="toc-text">inter-AS routing 域间路由选择</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Intra-AS-Routing%EF%BC%9AOSPF"><span class="toc-number">1.3.2.2.</span> <span class="toc-text">Intra-AS Routing：OSPF</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#OSPF-Open-Shortest-Path-First"><span class="toc-number">1.3.2.2.1.</span> <span class="toc-text">OSPF (Open Shortest Path First)</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#features"><span class="toc-number">1.3.2.2.1.1.</span> <span class="toc-text">features</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Internet-inter-AS-routing-BGP"><span class="toc-number">1.3.2.3.</span> <span class="toc-text">Internet inter-AS routing: BGP</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Path-attributes-and-BGP-routes"><span class="toc-number">1.3.2.3.1.</span> <span class="toc-text">Path attributes and BGP routes</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Policy-based-routing"><span class="toc-number">1.3.2.3.2.</span> <span class="toc-text">Policy-based routing:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#BGP-route-selection"><span class="toc-number">1.3.2.3.3.</span> <span class="toc-text">BGP route selection</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SDN"><span class="toc-number">1.3.3.</span> <span class="toc-text">SDN</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#SDN%E7%89%B9%E7%82%B9"><span class="toc-number">1.3.3.1.</span> <span class="toc-text">SDN特点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SDN%E7%BB%93%E6%9E%84"><span class="toc-number">1.3.3.2.</span> <span class="toc-text">SDN结构</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#OpenFlow-protocol"><span class="toc-number">1.3.3.2.1.</span> <span class="toc-text">OpenFlow protocol</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SDN-control-data-plane-interaction-example"><span class="toc-number">1.3.3.3.</span> <span class="toc-text">SDN: control&#x2F;data plane interaction example</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ICMP-internet-control-message-protocol"><span class="toc-number">1.3.4.</span> <span class="toc-text">ICMP: internet control message protocol</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Traceroute-and-ICMP"><span class="toc-number">1.3.4.1.</span> <span class="toc-text">Traceroute and ICMP</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/%E7%BC%93%E5%AD%98%E6%9B%BF%E6%8D%A2%E7%AE%97%E6%B3%951-%E7%B2%97%E9%A2%97%E7%B2%92%E7%AD%96%E7%95%A5.html" title="缓存替换算法"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202505112103982.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="缓存替换算法"/></a><div class="content"><a class="title" href="/post/%E7%BC%93%E5%AD%98%E6%9B%BF%E6%8D%A2%E7%AE%97%E6%B3%951-%E7%B2%97%E9%A2%97%E7%B2%92%E7%AD%96%E7%95%A5.html" title="缓存替换算法">缓存替换算法</a><time datetime="2025-01-21T06:33:23.000Z" title="发表于 2025-01-21 14:33:23">2025-01-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/%E7%BC%93%E5%AD%98%E6%9B%BF%E6%8D%A2%E7%AE%97%E6%B3%950.html" title="Cache Replacement Policies - introduction"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202505112103982.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Cache Replacement Policies - introduction"/></a><div class="content"><a class="title" href="/post/%E7%BC%93%E5%AD%98%E6%9B%BF%E6%8D%A2%E7%AE%97%E6%B3%950.html" title="Cache Replacement Policies - introduction">Cache Replacement Policies - introduction</a><time datetime="2025-01-20T11:24:52.000Z" title="发表于 2025-01-20 19:24:52">2025-01-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/%E7%BC%93%E5%AD%98%E6%9B%BF%E6%8D%A2%E7%AE%97%E6%B3%952-%E7%BB%86%E9%A2%97%E7%B2%92%E7%AD%96%E7%95%A5.html" title="缓存替换算法"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202505112103982.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="缓存替换算法"/></a><div class="content"><a class="title" href="/post/%E7%BC%93%E5%AD%98%E6%9B%BF%E6%8D%A2%E7%AE%97%E6%B3%952-%E7%BB%86%E9%A2%97%E7%B2%92%E7%AD%96%E7%95%A5.html" title="缓存替换算法">缓存替换算法</a><time datetime="2025-01-20T11:24:52.000Z" title="发表于 2025-01-20 19:24:52">2025-01-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/2024-lastday.html" title="2024-总结"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202501010045372.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2024-总结"/></a><div class="content"><a class="title" href="/post/2024-lastday.html" title="2024-总结">2024-总结</a><time datetime="2024-12-31T14:59:00.000Z" title="发表于 2024-12-31 22:59:00">2024-12-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/riscv%20v%E6%89%A9%E5%B1%95%E7%BF%BB%E8%AF%91%E6%80%BB%E7%BB%93.html" title="v扩展翻译总结”"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202411102035591.jfif" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="v扩展翻译总结”"/></a><div class="content"><a class="title" href="/post/riscv%20v%E6%89%A9%E5%B1%95%E7%BF%BB%E8%AF%91%E6%80%BB%E7%BB%93.html" title="v扩展翻译总结”">v扩展翻译总结”</a><time datetime="2024-11-10T12:30:33.000Z" title="发表于 2024-11-10 20:30:33">2024-11-10</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1671050579179-5cd444a8a166')"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2025 By chilh</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadWaline () {
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://chilh.top">chilh</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://chilh.top/post/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE-Chapter%203%20%20Network%20Layer.html">https://chilh.top/post/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE-Chapter%203%20%20Network%20Layer.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://chilh.top" target="_blank">Chilh</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/BUPT/">BUPT</a><a class="post-meta__tags" href="/tags/%E5%A4%A7%E4%B8%89%E4%B8%8A%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">大三上课程笔记</a><a class="post-meta__tags" href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE/">互联网协议</a></div><div class="post_share"><div class="social-share" data-image="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1671050579179-5cd444a8a166" data-sites="twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE-Chapter%205%20Security%20and%20Network%20Management.html" title="互联网协议-Chapter 5 Security and Network Management"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1671474087718-8bb4f50658aa.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">互联网协议-Chapter 5 Security and Network Management</div></div></a></div><div class="next-post pull-right"><a href="/post/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE-Chapter%201%20Introduction.html" title="互联网协议-Chapter 1 Introduction"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1671013319475-4dca8a10156e" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">互联网协议-Chapter 1 Introduction</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/post/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE-Chapter%201%20Introduction.html" title="互联网协议-Chapter 1 Introduction"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1671013319475-4dca8a10156e" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-29</div><div class="title">互联网协议-Chapter 1 Introduction</div></div></a></div><div><a href="/post/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE-Chapter%205%20Security%20and%20Network%20Management.html" title="互联网协议-Chapter 5 Security and Network Management"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1671474087718-8bb4f50658aa.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-29</div><div class="title">互联网协议-Chapter 5 Security and Network Management</div></div></a></div><div><a href="/post/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE-Chapter%202%20%20Transport%20Layer.html" title="互联网协议-Chapter 2  Transport Layer"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1664737061963-862d6a174a3b" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-29</div><div class="title">互联网协议-Chapter 2  Transport Layer</div></div></a></div><div><a href="/post/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE-test.html" title="互联网协议-test"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1670979314026-7c0c4367c8b7.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-29</div><div class="title">互联网协议-test</div></div></a></div><div><a href="/post/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE-Chapter%204%20Datalink%20Layer.html" title="互联网协议-Chapter 4 Datalink Layer"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1653554604030-995729757eb0.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-29</div><div class="title">互联网协议-Chapter 4 Datalink Layer</div></div></a></div><div><a href="/post/1.1-Threads%20and%20Concurrency%20in%20Java%EF%BC%88%E4%B8%8A%EF%BC%89.html" title="1.1-Threads and Concurrency in Java（上）"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/porter-raab--mNr_4WfdCg-unsplash.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-30</div><div class="title">1.1-Threads and Concurrency in Java（上）</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/%E5%A4%B4%E5%83%8F.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">chilh</div><div class="author-info__description">记录学习笔记，学艺不精，大家多多评论指教</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">70</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:1547405085@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Network-Layer"><span class="toc-number">1.</span> <span class="toc-text">Network Layer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Overview"><span class="toc-number">1.1.</span> <span class="toc-text">Overview</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#network-layer-functions"><span class="toc-number">1.1.1.</span> <span class="toc-text">network-layer functions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Network-layer"><span class="toc-number">1.1.2.</span> <span class="toc-text">Network layer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#data-plane-control-plane"><span class="toc-number">1.1.3.</span> <span class="toc-text">data plane, control plane</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Data-plane"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">Data plane</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Control-plane"><span class="toc-number">1.1.3.2.</span> <span class="toc-text">Control plane</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#two-control-plane-approaches"><span class="toc-number">1.1.3.2.1.</span> <span class="toc-text">two control-plane approaches:</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#traditional-routing-algorithms-Per-router-control-plane"><span class="toc-number">1.1.3.2.1.1.</span> <span class="toc-text">traditional routing algorithms: Per-router control plane</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#software-defined-networking-SDN-Logically-centralized-control-plane"><span class="toc-number">1.1.3.2.1.2.</span> <span class="toc-text">software-defined networking *(SDN) :*Logically centralized control plane</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%B9%B3%E9%9D%A2"><span class="toc-number">1.2.</span> <span class="toc-text">数据平面</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Router-architecture-overview"><span class="toc-number">1.2.1.</span> <span class="toc-text">Router architecture overview</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Input-port-functions"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">Input port functions</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Switching-fabrics"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">Switching fabrics</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Switching-via-memory-%E5%86%85%E5%AD%98%E4%BA%A4%E6%8D%A2"><span class="toc-number">1.2.1.2.1.</span> <span class="toc-text">Switching via memory:内存交换</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Switching-via-a-bus%EF%BC%9A-%E6%80%BB%E7%BA%BF%E4%BA%A4%E6%8D%A2"><span class="toc-number">1.2.1.2.2.</span> <span class="toc-text">Switching via a bus： 总线交换</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Switching-via-interconnection-network-%EF%BC%9A%E4%BA%92%E8%81%94%E7%BD%91%E7%BB%9C%E4%BA%A4%E6%8D%A2"><span class="toc-number">1.2.1.2.3.</span> <span class="toc-text">Switching via interconnection network ：互联网络交换</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Output-ports"><span class="toc-number">1.2.1.3.</span> <span class="toc-text">Output ports</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#queue"><span class="toc-number">1.2.1.4.</span> <span class="toc-text">queue</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Input-port-queuing"><span class="toc-number">1.2.1.4.1.</span> <span class="toc-text">Input port queuing</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Output-port-queueing"><span class="toc-number">1.2.1.4.2.</span> <span class="toc-text">Output port queueing</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Scheduling-mechanisms"><span class="toc-number">1.2.1.5.</span> <span class="toc-text">Scheduling mechanisms</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IP-Internet-Protocol"><span class="toc-number">1.2.2.</span> <span class="toc-text">IP :Internet Protocol</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#IP-datagram-format"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">IP datagram format</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#IP-fragmentation-reassembly"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">IP fragmentation, reassembly</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#IPv4-addressing"><span class="toc-number">1.2.2.3.</span> <span class="toc-text">IPv4 addressing</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#introduction"><span class="toc-number">1.2.2.3.1.</span> <span class="toc-text">introduction</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Subnets"><span class="toc-number">1.2.2.3.2.</span> <span class="toc-text">Subnets</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#what%E2%80%99s-a-subnet"><span class="toc-number">1.2.2.3.2.1.</span> <span class="toc-text">what’s a subnet ?</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Three-Level-Addressing"><span class="toc-number">1.2.2.3.2.2.</span> <span class="toc-text">Three-Level Addressing</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Network-mask-and-subnetwork-mask"><span class="toc-number">1.2.2.3.2.3.</span> <span class="toc-text">Network mask and subnetwork mask</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Why-subnetting"><span class="toc-number">1.2.2.3.2.4.</span> <span class="toc-text">Why subnetting ?</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Classful-IP-addressing-%E5%88%86%E7%B1%BB%E7%BC%96%E5%9D%80"><span class="toc-number">1.2.2.3.2.5.</span> <span class="toc-text">Classful IP addressing 分类编址</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Classless-addressing"><span class="toc-number">1.2.2.3.2.6.</span> <span class="toc-text">Classless addressing</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#VLSM-variable-length-subnet-mask"><span class="toc-number">1.2.2.3.2.7.</span> <span class="toc-text">VLSM(variable length subnet mask)</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#exercise"><span class="toc-number">1.2.2.3.2.8.</span> <span class="toc-text">exercise:</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#DHCP-Dynamic-Host-Configuration-Protocol"><span class="toc-number">1.2.2.3.2.9.</span> <span class="toc-text">DHCP: Dynamic Host Configuration Protocol</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#DHCP%E8%BF%87%E7%A8%8B"><span class="toc-number">1.2.2.3.2.10.</span> <span class="toc-text">DHCP过程</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Hierarchical-addressing"><span class="toc-number">1.2.2.3.3.</span> <span class="toc-text">Hierarchical addressing</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#NAT-network-address-translation"><span class="toc-number">1.2.2.4.</span> <span class="toc-text">NAT: network address translation</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#implementation"><span class="toc-number">1.2.2.4.1.</span> <span class="toc-text">implementation</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#NAT%E5%87%A0%E7%82%B9%E4%BA%89%E8%AE%AE%EF%BC%9A"><span class="toc-number">1.2.2.4.2.</span> <span class="toc-text">NAT几点争议：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#IPv6"><span class="toc-number">1.2.2.5.</span> <span class="toc-text">IPv6</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#IPv6-datagram-format"><span class="toc-number">1.2.2.5.1.</span> <span class="toc-text">IPv6 datagram format</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Transition-from-IPv4-to-IPv6"><span class="toc-number">1.2.2.5.2.</span> <span class="toc-text">Transition from IPv4 to IPv6</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#IPv6-and-IPv4"><span class="toc-number">1.2.2.5.3.</span> <span class="toc-text">IPv6 and IPv4</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generalized-Forward-and-SDN"><span class="toc-number">1.2.3.</span> <span class="toc-text">Generalized Forward and SDN</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#OpenFlow-data-plane"><span class="toc-number">1.2.3.0.1.</span> <span class="toc-text">OpenFlow data plane</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Control-Plane"><span class="toc-number">1.3.</span> <span class="toc-text">Control Plane</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Routing-protocols"><span class="toc-number">1.3.1.</span> <span class="toc-text">Routing protocols</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Graph-abstraction-of-the-network"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">Graph abstraction of the network</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#A-link-state-routing-algorithm%EF%BC%9ADijkstra%E2%80%99s-algorithm"><span class="toc-number">1.3.1.2.</span> <span class="toc-text">A link-state routing algorithm：Dijkstra’s algorithm</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#algorithm-complexity"><span class="toc-number">1.3.1.2.1.</span> <span class="toc-text">algorithm complexity:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#oscillations-possible%EF%BC%9A"><span class="toc-number">1.3.1.2.2.</span> <span class="toc-text">oscillations possible：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Distance-vector-algorithm"><span class="toc-number">1.3.1.3.</span> <span class="toc-text">Distance vector algorithm</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#DV-characters"><span class="toc-number">1.3.1.3.1.</span> <span class="toc-text">DV characters</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#DV-process"><span class="toc-number">1.3.1.3.2.</span> <span class="toc-text">DV process</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#link-cost-changes"><span class="toc-number">1.3.1.3.3.</span> <span class="toc-text">link cost changes</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%BC%80%E9%94%80%E5%87%8F%E5%B0%91%E7%9A%84%E6%83%85%E5%86%B5"><span class="toc-number">1.3.1.3.3.1.</span> <span class="toc-text">开销减少的情况</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%BC%80%E9%94%80%E5%A2%9E%E5%A4%9A%E7%9A%84%E6%83%85%E5%86%B5"><span class="toc-number">1.3.1.3.3.2.</span> <span class="toc-text">开销增多的情况</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#intra-AS-routing-in-the-Internet"><span class="toc-number">1.3.2.</span> <span class="toc-text">intra-AS routing in the Internet</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#autonomous-systems-AS"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">autonomous systems(AS)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#intra-AS-routing-%E5%9F%9F%E5%86%85%E8%B7%AF%E7%94%B1%E9%80%89%E6%8B%A9"><span class="toc-number">1.3.2.1.1.</span> <span class="toc-text">intra-AS routing 域内路由选择</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#inter-AS-routing-%E5%9F%9F%E9%97%B4%E8%B7%AF%E7%94%B1%E9%80%89%E6%8B%A9"><span class="toc-number">1.3.2.1.2.</span> <span class="toc-text">inter-AS routing 域间路由选择</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Intra-AS-Routing%EF%BC%9AOSPF"><span class="toc-number">1.3.2.2.</span> <span class="toc-text">Intra-AS Routing：OSPF</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#OSPF-Open-Shortest-Path-First"><span class="toc-number">1.3.2.2.1.</span> <span class="toc-text">OSPF (Open Shortest Path First)</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#features"><span class="toc-number">1.3.2.2.1.1.</span> <span class="toc-text">features</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Internet-inter-AS-routing-BGP"><span class="toc-number">1.3.2.3.</span> <span class="toc-text">Internet inter-AS routing: BGP</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Path-attributes-and-BGP-routes"><span class="toc-number">1.3.2.3.1.</span> <span class="toc-text">Path attributes and BGP routes</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Policy-based-routing"><span class="toc-number">1.3.2.3.2.</span> <span class="toc-text">Policy-based routing:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#BGP-route-selection"><span class="toc-number">1.3.2.3.3.</span> <span class="toc-text">BGP route selection</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SDN"><span class="toc-number">1.3.3.</span> <span class="toc-text">SDN</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#SDN%E7%89%B9%E7%82%B9"><span class="toc-number">1.3.3.1.</span> <span class="toc-text">SDN特点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SDN%E7%BB%93%E6%9E%84"><span class="toc-number">1.3.3.2.</span> <span class="toc-text">SDN结构</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#OpenFlow-protocol"><span class="toc-number">1.3.3.2.1.</span> <span class="toc-text">OpenFlow protocol</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SDN-control-x2F-data-plane-interaction-example"><span class="toc-number">1.3.3.3.</span> <span class="toc-text">SDN: control&#x2F;data plane interaction example</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ICMP-internet-control-message-protocol"><span class="toc-number">1.3.4.</span> <span class="toc-text">ICMP: internet control message protocol</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Traceroute-and-ICMP"><span class="toc-number">1.3.4.1.</span> <span class="toc-text">Traceroute and ICMP</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/%E7%BC%93%E5%AD%98%E6%9B%BF%E6%8D%A2%E7%AE%97%E6%B3%951-%E7%B2%97%E9%A2%97%E7%B2%92%E7%AD%96%E7%95%A5.html" title="缓存替换算法"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202505112103982.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="缓存替换算法"/></a><div class="content"><a class="title" href="/post/%E7%BC%93%E5%AD%98%E6%9B%BF%E6%8D%A2%E7%AE%97%E6%B3%951-%E7%B2%97%E9%A2%97%E7%B2%92%E7%AD%96%E7%95%A5.html" title="缓存替换算法">缓存替换算法</a><time datetime="2025-01-21T06:33:23.000Z" title="发表于 2025-01-21 14:33:23">2025-01-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/%E7%BC%93%E5%AD%98%E6%9B%BF%E6%8D%A2%E7%AE%97%E6%B3%950.html" title="Cache Replacement Policies - introduction"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202505112103982.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Cache Replacement Policies - introduction"/></a><div class="content"><a class="title" href="/post/%E7%BC%93%E5%AD%98%E6%9B%BF%E6%8D%A2%E7%AE%97%E6%B3%950.html" title="Cache Replacement Policies - introduction">Cache Replacement Policies - introduction</a><time datetime="2025-01-20T11:24:52.000Z" title="发表于 2025-01-20 19:24:52">2025-01-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/%E7%BC%93%E5%AD%98%E6%9B%BF%E6%8D%A2%E7%AE%97%E6%B3%952-%E7%BB%86%E9%A2%97%E7%B2%92%E7%AD%96%E7%95%A5.html" title="缓存替换算法"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202505112103982.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="缓存替换算法"/></a><div class="content"><a class="title" href="/post/%E7%BC%93%E5%AD%98%E6%9B%BF%E6%8D%A2%E7%AE%97%E6%B3%952-%E7%BB%86%E9%A2%97%E7%B2%92%E7%AD%96%E7%95%A5.html" title="缓存替换算法">缓存替换算法</a><time datetime="2025-01-20T11:24:52.000Z" title="发表于 2025-01-20 19:24:52">2025-01-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/2024-lastday.html" title="2024-总结"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202501010045372.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2024-总结"/></a><div class="content"><a class="title" href="/post/2024-lastday.html" title="2024-总结">2024-总结</a><time datetime="2024-12-31T14:59:00.000Z" title="发表于 2024-12-31 22:59:00">2024-12-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/riscv%20v%E6%89%A9%E5%B1%95%E7%BF%BB%E8%AF%91%E6%80%BB%E7%BB%93.html" title="v扩展翻译总结”"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202411102035591.jfif" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="v扩展翻译总结”"/></a><div class="content"><a class="title" href="/post/riscv%20v%E6%89%A9%E5%B1%95%E7%BF%BB%E8%AF%91%E6%80%BB%E7%BB%93.html" title="v扩展翻译总结”">v扩展翻译总结”</a><time datetime="2024-11-10T12:30:33.000Z" title="发表于 2024-11-10 20:30:33">2024-11-10</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/photo-1671050579179-5cd444a8a166')"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2025 By chilh</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadWaline () {
   function insertCSS () {
     const link = document.createElement("link")
     link.rel = "stylesheet"

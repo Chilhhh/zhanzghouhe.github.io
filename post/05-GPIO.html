@@ -165,17 +165,12 @@ window.addEventListener('load',()=> { preloader.endLoading() })
 if (false) {
   document.addEventListener('pjax:send', () => { preloader.initLoading() })
   document.addEventListener('pjax:complete', () => { preloader.endLoading() })
-}</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/%E5%A4%B4%E5%83%8F.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">70</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 图库</span></a></div><div class="menus_item"><a class="site-page" href="/charts/"><i class="fa-fw fa fa-heartbeat"></i><span> 统计</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202306161931372.webp')"><nav id="nav"><span id="blog-info"><a href="/" title="Chilh"><span class="site-name">Chilh</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 图库</span></a></div><div class="menus_item"><a class="site-page" href="/charts/"><i class="fa-fw fa fa-heartbeat"></i><span> 统计</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">05-GPIO</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-06-16T10:00:35.000Z" title="发表于 2023-06-16 18:00:35">2023-06-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-07-21T06:15:19.486Z" title="更新于 2023-07-21 14:15:19">2023-07-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A4%A7%E5%AD%A6%E7%AC%94%E8%AE%B0/">大学笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>16分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="05-GPIO"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1>General Purpose Input Output</h1>
-<h2 id="Input-Output-Strategy-of-microprocessors"><strong>Input/Output Strategy of microprocessors</strong></h2>
-<h5 id="Memory-Mapped-I-O-MMIO">Memory Mapped I/O (MMIO)</h5>
-<p>• Main memory and peripheral I/O devices map into one single address space</p>
+}</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/%E5%A4%B4%E5%83%8F.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">70</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 图库</span></a></div><div class="menus_item"><a class="site-page" href="/charts/"><i class="fa-fw fa fa-heartbeat"></i><span> 统计</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202306161931372.webp')"><nav id="nav"><span id="blog-info"><a href="/" title="Chilh"><span class="site-name">Chilh</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 图库</span></a></div><div class="menus_item"><a class="site-page" href="/charts/"><i class="fa-fw fa fa-heartbeat"></i><span> 统计</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">05-GPIO</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-06-16T10:00:35.000Z" title="发表于 2023-06-16 18:00:35">2023-06-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-07-21T06:15:19.486Z" title="更新于 2023-07-21 14:15:19">2023-07-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A4%A7%E5%AD%A6%E7%AC%94%E8%AE%B0/">大学笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>16分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="05-GPIO"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="General-Purpose-Input-Output"><a href="#General-Purpose-Input-Output" class="headerlink" title="General Purpose Input Output"></a>General Purpose Input Output</h1><h2 id="Input-x2F-Output-Strategy-of-microprocessors"><a href="#Input-x2F-Output-Strategy-of-microprocessors" class="headerlink" title="Input/Output Strategy of microprocessors"></a><strong>Input/Output Strategy of microprocessors</strong></h2><h5 id="Memory-Mapped-I-x2F-O-MMIO"><a href="#Memory-Mapped-I-x2F-O-MMIO" class="headerlink" title="Memory Mapped I/O (MMIO)"></a>Memory Mapped I/O (MMIO)</h5><p>• Main memory and peripheral I/O devices map into one single address space</p>
 <p>主存储器和外设I/O设备映射到一个地址空间</p>
-<h5 id="Port-Mapped-I-O-PMIO">Port Mapped I/O (PMIO)</h5>
-<p>Peripherals have separate address space from main memory</p>
+<h5 id="Port-Mapped-I-x2F-O-PMIO"><a href="#Port-Mapped-I-x2F-O-PMIO" class="headerlink" title="Port Mapped I/O (PMIO)"></a>Port Mapped I/O (PMIO)</h5><p>Peripherals have separate address space from main memory</p>
 <p>外设与主存有独立的地址空间</p>
 <p>对I/O有特殊的CPU指令</p>
-<h4 id="Memory-Mapped-I-O">Memory-Mapped I/O</h4>
-<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202304161450545.png" alt="image-20220425141756575"></p>
+<h4 id="Memory-Mapped-I-x2F-O"><a href="#Memory-Mapped-I-x2F-O" class="headerlink" title="Memory-Mapped I/O"></a>Memory-Mapped I/O</h4><p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202304161450545.png" alt="image-20220425141756575"></p>
 <p><strong>Pros</strong> 优点</p>
 <ul>
 <li>No extra external circuitry required for I/O access - simpler &amp; cheaper.</li>
@@ -185,9 +180,8 @@ if (false) {
 <ul>
 <li>Uses up main memory space for peripherals</li>
 </ul>
-<h4 id="Port-Mapped-I-O">Port-Mapped I/O</h4>
-<p><img src="https://typorastroage.oss-cn-beijing.aliyuncs.com/img/image-20220425141926084.png" alt="image-20220425141926084"></p>
-<p><strong>Pros</strong></p>
+<h4 id="Port-Mapped-I-x2F-O"><a href="#Port-Mapped-I-x2F-O" class="headerlink" title="Port-Mapped I/O"></a>Port-Mapped I/O</h4><p><img src="https://typorastroage.oss-cn-beijing.aliyuncs.com/img/image-20220425141926084.png" alt="image-20220425141926084"></p>
+<p><strong>Pros</strong> </p>
 <ul>
 <li><strong>Separate I/O and memory access</strong></li>
 <li>Allows <strong>full memory space</strong> to be used for RAM</li>
@@ -199,8 +193,7 @@ if (false) {
 <li><strong>Special I/O functions</strong> harder to support for higher level language compilers</li>
 <li><strong>More instructions</strong> are required to accompolish the same task, e.g. test one bit on I/O</li>
 </ul>
-<h3 id="Input-Output-Pins-Ports">Input/Output ==Pins &amp; Ports==</h3>
-<p>Most of embedded microprocessors have <strong>I/O memory-mapped</strong></p>
+<h3 id="Input-x2F-Output-x3D-x3D-Pins-amp-Ports-x3D-x3D"><a href="#Input-x2F-Output-x3D-x3D-Pins-amp-Ports-x3D-x3D" class="headerlink" title="Input/Output ==Pins &amp; Ports=="></a>Input/Output ==Pins &amp; Ports==</h3><p>Most of embedded microprocessors have <strong>I/O memory-mapped</strong></p>
 <p>One <strong>key feature of a microcontroller</strong> is the versatility built into the input/output (I/O) circuits.</p>
 <ul>
 <li>Microprocessor designs, on the other hand, must add additional chips to interface with external circuitry.</li>
@@ -210,23 +203,19 @@ if (false) {
 <p>Microprocessor 没有 IO</p>
 </blockquote>
 <p>The function a pin performs can be <strong>easily programmed</strong>.</p>
-<h2 id="General-Purpose-Input-Output-GPIO"><strong>General Purpose Input Output (GPIO)</strong></h2>
-<h3 id="Basic-Concept"><strong>Basic Concept</strong></h3>
-<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202304161505373.png" alt="image-20230416150539336"></p>
+<h2 id="General-Purpose-Input-Output-GPIO"><a href="#General-Purpose-Input-Output-GPIO" class="headerlink" title="General Purpose Input Output (GPIO)"></a><strong>General Purpose Input Output (GPIO)</strong></h2><h3 id="Basic-Concept"><a href="#Basic-Concept" class="headerlink" title="Basic Concept"></a><strong>Basic Concept</strong></h3><p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202304161505373.png" alt="image-20230416150539336"></p>
 <p>• GPIO = General-purpose input and output (digital)</p>
 <p>​		• <strong>Input</strong>: program can determine if input signal is a 1 or a 0</p>
 <p>​		• <strong>Output</strong>: program can set output to 1 or 0</p>
 <p>• Can use this to interface with external devices</p>
 <p>​		• <strong>Input</strong>: switch</p>
 <p>​		• <strong>Output</strong>: LEDs</p>
-<h4 id="example">example</h4>
-<p>STM32家族的微控制器有几个数字端口，称为GPIO1, GPIO2, GPIO3，…</p>
+<h4 id="example"><a href="#example" class="headerlink" title="example"></a>example</h4><p>STM32家族的微控制器有几个数字端口，称为GPIO1, GPIO2, GPIO3，…</p>
 <p>每个端口有16位，因此有16个电引脚。引脚被称为Px_y，其中x是端口名称(1,2,3，…)，y是位(0,1，…)15)。<strong>the pin P2_3 is the bit 3 of the port 2.</strong></p>
 <p>port是指一组GPIO引脚，通常由多个引脚组成。每个port都有一个名称（例如GPIO1、GPIO2等），并且每个port中的每个引脚都有一个唯一的编号（例如P2_5）。可以将port视为一组相关联的GPIO引脚，它们通常用于执行相似的任务。</p>
-<p>Each PIN can be configured as <strong>Input</strong> or <strong>Output</strong></p>
+<p> Each PIN can be configured as <strong>Input</strong> or <strong>Output</strong></p>
 <p>Some PINs has also an <strong>alternate function</strong>, related to a peripheral</p>
-<h3 id="GPIO-Alternative-Functions"><strong>GPIO Alternative Functions</strong></h3>
-<p>Pins may have different features</p>
+<h3 id="GPIO-Alternative-Functions"><a href="#GPIO-Alternative-Functions" class="headerlink" title="GPIO Alternative Functions"></a><strong>GPIO Alternative Functions</strong></h3><p>Pins may have different features</p>
 <p>• To enable an alternate function, set up the appropriate register</p>
 <p>Pins may also <strong>have analogue paths for ADC / DAC</strong> etc.</p>
 <p>某些GPIO引脚可能具有模拟信号路径，可以用于连接模拟到数字转换器（ADC）或数字到模拟转换器（DAC）等外设。这意味着这些引脚可以用于读取或输出模拟信号，而不仅仅是数字信号。在使用这些引脚时，需要将它们配置为相应的模拟输入或输出，并使用适当的ADC或DAC外设进行读取或输出。</p>
@@ -236,16 +225,12 @@ if (false) {
 <li>Improves flexibility</li>
 </ul>
 <p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202304161512923.png" alt="image-20220425143229424"></p>
-<h3 id="GPIO-Input-Mode">==GPIO Input Mode==</h3>
-<ul>
-<li>
-<p>Ensure a known value on the input of a pin is left floating</p>
+<h3 id="x3D-x3D-GPIO-Input-Mode-x3D-x3D"><a href="#x3D-x3D-GPIO-Input-Mode-x3D-x3D" class="headerlink" title="==GPIO Input Mode=="></a>==GPIO Input Mode==</h3><ul>
+<li><p>Ensure a known value on the input of a pin is left floating</p>
 </li>
-<li>
-<p>For example, to <strong>get the switch SW1 to pull the pin to ground</strong>, we should enable the <code>pull-up</code></p>
+<li><p>For example, to <strong>get the switch SW1 to pull the pin to ground</strong>, we should enable the <code>pull-up</code></p>
 </li>
-<li>
-<p>In <code>pull-up</code> mode, the pin value is</p>
+<li><p>In <code>pull-up</code> mode, the pin value is</p>
 <ul>
 <li><code>HIGH</code> when SW1 is not pressed</li>
 <li><code>LOW</code> when SW1 is pressed</li>
@@ -253,18 +238,14 @@ if (false) {
 </li>
 </ul>
 <p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202304161519481.png" alt="image-20220425143429589"></p>
-<h5 id="pull-down">pull down</h5>
-<p>pressed switch PINMUX =1</p>
+<h5 id="pull-down"><a href="#pull-down" class="headerlink" title="pull down"></a>pull down</h5><p>pressed switch PINMUX =1 </p>
 <p>not pressed switch  PINMUX =0</p>
-<h5 id="pull-up">pull up</h5>
-<p>pressed switch PINMUX =0</p>
+<h5 id="pull-up"><a href="#pull-up" class="headerlink" title="pull up"></a>pull up</h5><p>pressed switch PINMUX =0</p>
 <p>not pressed switch  PINMUX =1</p>
-<h3 id="GPIO-Output-Mode"><strong>GPIO Output Mode</strong></h3>
-<p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202304161523368.png" alt="image-20230416152335326"></p>
+<h3 id="GPIO-Output-Mode"><a href="#GPIO-Output-Mode" class="headerlink" title="GPIO Output Mode"></a><strong>GPIO Output Mode</strong></h3><p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202304161523368.png" alt="image-20230416152335326"></p>
 <p>一个IOpin 输入电压以后，根据上拉还是下拉判断为0、1存到IDR寄存器</p>
 <p>ODR输出数据时候输出到Output control，改写为对应电压再输出引脚</p>
-<h4 id="input的时候如何判断0-还是-1">input的时候如何判断0 还是 1</h4>
-<ul>
+<h4 id="input的时候如何判断0-还是-1"><a href="#input的时候如何判断0-还是-1" class="headerlink" title="input的时候如何判断0 还是 1"></a>input的时候如何判断0 还是 1</h4><ul>
 <li>Input signal’s value is determined by voltage</li>
 <li>Input threshold voltages depend on supply voltage $V_{DD}$</li>
 <li>Excceding $V_{DD}$ or $GND$ may damage chip</li>
@@ -272,8 +253,7 @@ if (false) {
 <p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202304161527161.png" alt="image-20220425143850985"></p>
 <p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202304161543925.png" alt="image-20230416154323877"></p>
 <p>避免floating value区间</p>
-<h4 id="output的时候如何判断0-还是-1">output的时候如何判断0 还是 1</h4>
-<p>Nominal（标准） output voltages</p>
+<h4 id="output的时候如何判断0-还是-1"><a href="#output的时候如何判断0-还是-1" class="headerlink" title="output的时候如何判断0 还是 1"></a>output的时候如何判断0 还是 1</h4><p>Nominal（标准） output voltages</p>
 <p>• 1: VDD-0.5 V to VDD</p>
 <p>• 0: 0 to 0.5 V</p>
 <p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202304161529024.png" alt="image-20230416152957991"></p>
@@ -287,10 +267,8 @@ if (false) {
 <p>The ports are not capable of driving loads that require large currents.</p>
 <p>i.e. the output current is often limited in range of tens of mA.</p>
 <p>e.g. ARM Cortex-M-based MCUs, the maximum output current per pin is 5 mA.</p>
-<p>If necessary, buffers should be added externally to make sure the current drained from the microcontroller is reasonable</p>
-<h2 id="Controlling-the-GPIO"><strong>Controlling the GPIO</strong></h2>
-<h3 id="GPIO-Special-Function-Registers"><strong>GPIO Special Function Registers</strong></h3>
-<p>配置CPU或外围设备中硬件操作的寄存器</p>
+<p> If necessary, buffers should be added externally to make sure the current drained from the microcontroller is reasonable</p>
+<h2 id="Controlling-the-GPIO"><a href="#Controlling-the-GPIO" class="headerlink" title="Controlling the GPIO"></a><strong>Controlling the GPIO</strong></h2><h3 id="GPIO-Special-Function-Registers"><a href="#GPIO-Special-Function-Registers" class="headerlink" title="GPIO Special Function Registers"></a><strong>GPIO Special Function Registers</strong></h3><p>配置CPU或外围设备中硬件操作的寄存器</p>
 <p>Each general-purpose I/O port has:</p>
 <p>4 x 32-bit <strong>configuration</strong> registers:</p>
 <ul>
@@ -317,14 +295,13 @@ if (false) {
 <li>GPIOx_AFRH</li>
 <li>GPIOx_AFRL.</li>
 </ul>
-<h4 id="Mode-Register">Mode Register</h4>
-<p>偏移地址0x00</p>
+<h4 id="Mode-Register"><a href="#Mode-Register" class="headerlink" title="Mode Register"></a>Mode Register</h4><p>偏移地址0x00</p>
 <p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202304161551555.png" alt="image-20220425144956994"></p>
 <blockquote>
 <p>两个Bits为一组</p>
 </blockquote>
 <p>MODER allows a programmer to <strong>define the functionality of a GPIO pin</strong></p>
-<p>Each pin has ==2 bits== that permits the following configurations:</p>
+<p>Each pin has ==2 bits== that permits the following configurations:	</p>
 <ul>
 <li><code>00</code>: Input (reset state)</li>
 <li><code>01</code>: General purpose output mode</li>
@@ -334,8 +311,10 @@ if (false) {
 <pre class="line-numbers language-none"><code class="language-none">举例要把GPIO9进行设置为通用输出模式 则把19位18位 置为01 
 GPIOF -&gt;MODER &amp;= ~(3&lt;&lt;18);  //进行清零
 GPIOF -&gt;MODER |= 1&lt;&lt;18;     //进行配置<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h4 id="Pull-up-Pull-down-register">Pull-up/Pull-down register</h4>
-<p>偏移地址0x0C</p>
+
+
+
+<h4 id="Pull-up-x2F-Pull-down-register"><a href="#Pull-up-x2F-Pull-down-register" class="headerlink" title="Pull-up/Pull-down register"></a>Pull-up/Pull-down register</h4><p>偏移地址0x0C</p>
 <blockquote>
 <p>P12 Pull-down</p>
 <p>P0   Pull-up</p>
@@ -351,58 +330,54 @@ GPIOF -&gt;MODER |= 1&lt;&lt;18;     //进行配置<span aria-hidden="true" clas
 <pre class="line-numbers language-none"><code class="language-none">举例将GPIO口设置为上拉 需要将19 18 位进行清零然后赋值01
 GPIOF -&gt;PUPDR   &amp;=~(3&lt;&lt;18);
 GPIOF -&gt;PUPDR   |=1&lt;&lt;18;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h4 id="IRD-ODR">IRD/ODR</h4>
-<p>偏移地址0x10/0x14</p>
+
+<h4 id="IRD-x2F-ODR"><a href="#IRD-x2F-ODR" class="headerlink" title="IRD/ODR"></a>IRD/ODR</h4><p>偏移地址0x10/0x14</p>
 <p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202304161614574.png" alt="image-20220425145320382"></p>
 <p>Data Input/Output is <strong>performed through the IDR and ODR registers</strong></p>
 <blockquote>
 <p>ODR可以对单独的位进行书写</p>
 </blockquote>
 <p>Each pin is mapped to the specific bit, so ==only 16 bits are used in the registers==</p>
-<h4 id="CMSIS-to-access-registers"><strong>CMSIS to access registers</strong></h4>
-<p>查找和记住硬件控制寄存器的地址是很乏味的。</p>
+<h4 id="CMSIS-to-access-registers"><a href="#CMSIS-to-access-registers" class="headerlink" title="CMSIS to access registers"></a><strong>CMSIS to access registers</strong></h4><p>查找和记住硬件控制寄存器的地址是很乏味的。</p>
 <p>•相反，我们使用特殊的Clanguage支持。</p>
 <p>CMSIS是Cortex微控制器软件接口标准（Cortex Microcontroller Software Interface Standard）</p>
 <p>•Cortex微控制器软件接口标准CMSIS是一个独立于供应商的硬件抽象层，用于基于Arm®Cortex®处理器的微控制器。</p>
-<h4 id="Code-Structure">Code Structure</h4>
-<ul>
+<h4 id="Code-Structure"><a href="#Code-Structure" class="headerlink" title="Code Structure"></a>Code Structure</h4><ul>
 <li>Main code talks to the drivers, producing easy to read and understand code</li>
 </ul>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">//Port 2, bit 6</span>
 <span class="token function">gpio_set_mode</span><span class="token punctuation">(</span>P2_5<span class="token punctuation">,</span> Output<span class="token punctuation">)</span><span class="token comment">//设置</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <ul>
 <li>Drivers utilise CMSIS library and group relevant actions</li>
 </ul>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c">port_struct<span class="token operator">-&gt;</span>direction_reg <span class="token operator">=</span> output<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>port_struct是一个指向GPIO端口结构体的指针，direction_reg是该结构体中的一个成员变量，用于控制端口的方向。</p>
 <ul>
 <li>CMSIS transforms <strong>memory mapped registers into C structs</strong></li>
 </ul>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">PORT0</span> <span class="token expression"><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">struct</span> <span class="token class-name">PORT</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token number">0x2000030</span><span class="token punctuation">)</span></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>0x2000030是GPIO端口的基地址，而PORT结构体是用于访问该端口的数据结构。通过将该地址强制转换为指向PORT结构体的指针，并将其定义为宏，可以方便地在代码中引用该GPIO端口，并使用类似于PORT0-&gt;direction_reg = output这样的语法来配置和控制该端口。</p>
 <ul>
 <li>Registers directly control hardware</li>
 <li>Hardware drives IO pins physically</li>
 </ul>
 <p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202304161654890.png" alt="image-20220425145700139"></p>
-<h4 id="Drivers-Layer-How-It-Works">Drivers Layer: How It Works</h4>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">gpio_set</span><span class="token punctuation">(</span>Pin pin<span class="token punctuation">,</span> <span class="token keyword">int</span> value<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="Drivers-Layer-How-It-Works"><a href="#Drivers-Layer-How-It-Works" class="headerlink" title="Drivers Layer: How It Works"></a>Drivers Layer: How It Works</h4><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">gpio_set</span><span class="token punctuation">(</span>Pin pin<span class="token punctuation">,</span> <span class="token keyword">int</span> value<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <ol>
-<li>mask = 1 &lt;&lt; pin index<br>
-2) tmp = port_struct-&gt;data_reg &amp; ~mask (取mask的反)<br>
-3) tmp |= value &lt;&lt; pin index<br>
-4) port_struct-&gt;data_reg = tmp</li>
+<li>mask = 1 &lt;&lt; pin index<br> 2) tmp = port_struct-&gt;data_reg &amp; ~mask (取mask的反)<br> 3) tmp |= value &lt;&lt; pin index<br> 4) port_struct-&gt;data_reg = tmp</li>
 </ol>
 <p>e.g. <code>gpio_set(P2_5, 1)</code> with <code>PORT_DATA_REGISTER = 0b01010101</code></p>
 <ol>
-<li>
-<p>Create a mask for the bit we want to set (0b00100000)</p>
+<li><p>Create a mask for the bit we want to set (0b00100000)</p>
 <blockquote>
 <p>为我们想要设置的位创建一个掩码</p>
 </blockquote>
 </li>
-<li>
-<p>Invert the mask (0b11011111) to select all the other bits in the port data register,and save the status of the other bits (tmp = 0b01010101)</p>
+<li><p>Invert the mask (0b11011111) to select all the other bits in the port data register,and save the status of the other bits (tmp = 0b01010101)</p>
 </li>
 </ol>
 <blockquote>
@@ -410,8 +385,7 @@ GPIOF -&gt;PUPDR   |=1&lt;&lt;18;<span aria-hidden="true" class="line-numbers-ro
 <p>保留寄存器中其他位的状态，而只修改要设置的那一位（与上补码）并把本位清零</p>
 </blockquote>
 <ol start="3">
-<li>Move the new value of the bit into position, and or it with the new register value<br>
-(tmp = 0b01110101)</li>
+<li>Move the new value of the bit into position, and or it with the new register value<br>(tmp = 0b01110101)</li>
 </ol>
 <blockquote>
 <p>将改变的mark与原状态或起来(tmp = 0 b01110101)</p>
@@ -420,16 +394,13 @@ GPIOF -&gt;PUPDR   |=1&lt;&lt;18;<span aria-hidden="true" class="line-numbers-ro
 <li>Write the new data register value out to the port (PORT_DATA_REGISTER =0b01110101)</li>
 </ol>
 <blockquote>
-<p>将新的数据寄存器值写入端口(PORT_DATA_REGISTER =<br>
-0b01110101)</p>
+<p>将新的数据寄存器值写入端口(PORT_DATA_REGISTER =<br>0b01110101)</p>
 </blockquote>
 <hr>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">gpio_get</span><span class="token punctuation">(</span>Pin pin<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <ol>
-<li>mask = 1 &lt;&lt; pin index<br>
-2) tmp = port_struct-&gt;data_reg &amp; mask  (取mask)<br>
-3) tmp &gt;&gt;= pin index<br>
-4) return tmp</li>
+<li>mask = 1 &lt;&lt; pin index<br> 2) tmp = port_struct-&gt;data_reg &amp; mask  (取mask)<br> 3) tmp &gt;&gt;= pin index<br> 4) return tmp</li>
 </ol>
 <p>e.g. <code>gpio_get(P2_5)</code> with <code>PORT_DATA_REGISTER = 0b01110101</code></p>
 <blockquote>
@@ -441,8 +412,7 @@ GPIOF -&gt;PUPDR   |=1&lt;&lt;18;<span aria-hidden="true" class="line-numbers-ro
 <li>Bitshift the value to produce a one or zero (tmp = 0b00000001)</li>
 <li>Return the value of the pin back to the user</li>
 </ol>
-<h3 id="C-Interface-GPIO-Configuration">C Interface: GPIO Configuration</h3>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">/*! This enum describes the directional setup of a GPIO pin. */</span>
+<h3 id="C-Interface-GPIO-Configuration"><a href="#C-Interface-GPIO-Configuration" class="headerlink" title="C Interface: GPIO Configuration"></a>C Interface: GPIO Configuration</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">/*! This enum describes the directional setup of a GPIO pin. */</span>
 <span class="token keyword">typedef</span> <span class="token keyword">enum</span> <span class="token punctuation">{</span>
 	Reset<span class="token punctuation">,</span> <span class="token comment">//!&lt; Resets the pin-mode to the default value.</span>
 	Input<span class="token punctuation">,</span> <span class="token comment">//!&lt; Sets the pin as an input with no pull-up or pull-down.</span>
@@ -450,24 +420,27 @@ GPIOF -&gt;PUPDR   |=1&lt;&lt;18;<span aria-hidden="true" class="line-numbers-ro
 	PullUp<span class="token punctuation">,</span> <span class="token comment">//!&lt; Enables the internal pull-up resistor and sets as input.</span>
 	PullDown <span class="token comment">//!&lt; Enables the internal pull-down resistor and sets as input.</span>
 <span class="token punctuation">}</span> PinMode<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">/*! \brief Configures the output mode of a GPIO pin.
 * Used to set the GPIO as an input, output, and configure the
 * possible pull-up or pull-down resistors.
 * \param pin Pin to set.
 * \param mode New output mode of the pin.*/</span>
 <span class="token keyword">void</span> <span class="token function">gpio_set_mode</span><span class="token punctuation">(</span>Pin pin<span class="token punctuation">,</span> PinMode mode<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">/*! \brief Sets a pin to the specified logic level.
 * \parampin Pin to set.
 * \param value New logic level of the pin (0 is low, otherwise high).
 */</span>
 <span class="token keyword">void</span> <span class="token function">gpio_set</span><span class="token punctuation">(</span>Pin pin<span class="token punctuation">,</span> <span class="token keyword">int</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">/*! \brief Get the current logic level of a GPIO pin.
 * \param pin Pin to read.
 * \return The logic level of the GPIO pin (0 if low, 1 if high).
 */</span>
 <span class="token keyword">int</span> <span class="token function">gpio_get</span><span class="token punctuation">(</span>Pin pin<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="Examples">Examples</h2>
-<p><strong>Read a pushbutton and lit the LED</strong></p>
+
+<h2 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h2><p><strong>Read a pushbutton and lit the LED</strong></p>
 <p><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202304161701265.png" alt="image-20220425150132490"></p>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
@@ -483,11 +456,11 @@ GPIOF -&gt;PUPDR   |=1&lt;&lt;18;<span aria-hidden="true" class="line-numbers-ro
 <span class="token punctuation">}</span>
 
 <span class="token comment">//为啥这个不用设置上拉还是下拉</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <hr>
 <p><strong>目标:如果开关SW1被按下，只亮红色LED1，如果没有按下，只亮蓝色led2</strong></p>
 <ul>
-<li>用<code>Pullup</code>的话，SW1
-<ul>
+<li>用<code>Pullup</code>的话，SW1<ul>
 <li>没按下 -&gt; 1</li>
 <li>按下     -&gt; 0</li>
 </ul>
@@ -510,19 +483,23 @@ GPIOF -&gt;PUPDR   |=1&lt;&lt;18;<span aria-hidden="true" class="line-numbers-ro
 		<span class="token function">gpio_set</span><span class="token punctuation">(</span>P_LED1<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 	<span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="GPIO-in-keil">GPIO in keil</h2>
-<p>导包：</p>
+
+
+
+<h2 id="GPIO-in-keil"><a href="#GPIO-in-keil" class="headerlink" title="GPIO in keil"></a>GPIO in keil</h2><p>导包：</p>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"stm32f10x.h"</span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"platform.h"</span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"gpio.h"</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h3 id="设置模式">设置模式</h3>
-<p><strong>输出</strong></p>
+
+<h3 id="设置模式"><a href="#设置模式" class="headerlink" title="设置模式"></a>设置模式</h3><p><strong>输出</strong></p>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token function">gpio_set_mode</span><span class="token punctuation">(</span>PA_0<span class="token punctuation">,</span> Output<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p><strong>输入</strong></p>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token function">gpio_set_mode</span><span class="token punctuation">(</span>PA_1<span class="token punctuation">,</span> PullUp<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token function">gpio_set_mode</span><span class="token punctuation">(</span>PB_0<span class="token punctuation">,</span> PullDown<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="一个端口输入输出">一个端口输入输出</h3>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">volatile</span> <span class="token keyword">int</span> p<span class="token punctuation">,</span> q<span class="token punctuation">;</span>
+
+<h3 id="一个端口输入输出"><a href="#一个端口输入输出" class="headerlink" title="一个端口输入输出"></a>一个端口输入输出</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">volatile</span> <span class="token keyword">int</span> p<span class="token punctuation">,</span> q<span class="token punctuation">;</span>
 
 <span class="token comment">//读取电平值</span>
 p <span class="token operator">=</span> <span class="token function">gpio_get</span><span class="token punctuation">(</span>PA_13<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -530,34 +507,31 @@ q <span class="token operator">=</span> <span class="token function">gpio_get</s
 
 <span class="token comment">//设置电平值</span>
 <span class="token function">gpio_set</span><span class="token punctuation">(</span>PA_0<span class="token punctuation">,</span> PIN_HIGN<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <pre class="line-numbers language-c" data-language="c"><code class="language-c">PIN_HIGH <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
 PIN_LOW  <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h3 id="几个端口输入输出">几个端口输入输出</h3>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token function">gpio_get_range</span><span class="token punctuation">(</span>PA_2<span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="几个端口输入输出"><a href="#几个端口输入输出" class="headerlink" title="几个端口输入输出"></a>几个端口输入输出</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token function">gpio_get_range</span><span class="token punctuation">(</span>PA_2<span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <pre class="line-numbers language-none"><code class="language-none">gpio_set_range(Pinbase，count，value)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>基引脚，比特数，比特值</p>
-<h3 id="Toggle">Toggle</h3>
-<p>变成相反的电平</p>
+<h3 id="Toggle"><a href="#Toggle" class="headerlink" title="Toggle"></a>Toggle</h3><p>变成相反的电平</p>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token function">gpio_toggle</span><span class="token punctuation">(</span>PB_7<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h2 id="补充">补充</h2>
-<h3 id="GPIO基本结构">GPIO基本结构</h3>
-<p>每个GPIO内部都有这样的一个电路结构，这个结构在本文下面会具体介绍。</p>
+
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><h3 id="GPIO基本结构"><a href="#GPIO基本结构" class="headerlink" title="GPIO基本结构"></a>GPIO基本结构</h3><p>每个GPIO内部都有这样的一个电路结构，这个结构在本文下面会具体介绍。</p>
 <p><img src="https://typorastroage.oss-cn-beijing.aliyuncs.com/img/20180408224319518" alt="img"></p>
 <p>这边的电路图稍微提一下：</p>
 <ul>
-<li>
-<p>**保护二极管：IO引脚上下两边两个二极管用于防止引脚外部过高、过低的电压输入。**当引脚电压高于VDD时，上方的二极管导通；当引脚电压低于VSS时，下方的二极管导通，防止不正常电压引入芯片导致芯片烧毁。但是尽管如此，还是不能直接外接大功率器件，须加大功率及隔离电路驱动，防止烧坏芯片或者外接器件无法正常工作。</p>
+<li><p><strong>保护二极管：IO引脚上下两边两个二极管用于防止引脚外部过高、过低的电压输入。</strong>当引脚电压高于VDD时，上方的二极管导通；当引脚电压低于VSS时，下方的二极管导通，防止不正常电压引入芯片导致芯片烧毁。但是尽管如此，还是不能直接外接大功率器件，须加大功率及隔离电路驱动，防止烧坏芯片或者外接器件无法正常工作。</p>
 </li>
-<li>
-<p>**P-MOS管和N-MOS管：由P-MOS管和N-MOS管组成的单元电路使得GPIO具有“推挽输出”和“开漏输出”的模式。**这里的电路会在下面很详细地分析到。</p>
+<li><p><strong>P-MOS管和N-MOS管：由P-MOS管和N-MOS管组成的单元电路使得GPIO具有“推挽输出”和“开漏输出”的模式。</strong>这里的电路会在下面很详细地分析到。</p>
 </li>
-<li>
-<p>**TTL肖特基触发器：信号经过触发器后，模拟信号转化为0和1的数字信号。**但是，当GPIO引脚作为ADC采集电压的输入通道时，用其“模拟输入”功能，此时信号不再经过触发器进行TTL电平转换。ADC外设要采集到的原始的模拟信号。</p>
+<li><p><strong>TTL肖特基触发器：信号经过触发器后，模拟信号转化为0和1的数字信号。</strong>但是，当GPIO引脚作为ADC采集电压的输入通道时，用其“模拟输入”功能，此时信号不再经过触发器进行TTL电平转换。ADC外设要采集到的原始的模拟信号。</p>
 </li>
 </ul>
 <p>这里需要注意的是，在查看《STM32中文参考手册V10》中的GPIO的表格时，会看到有“FT”一列，这代表着这个GPIO口时兼容3.3V和5V的；如果没有标注“FT”，就代表着不兼容5V。</p>
-<h3 id="GPIO工作方式">GPIO工作方式</h3>
-<p>GPIO支持4种输入模式（浮空输入、上拉输入、下拉输入、模拟输入）和4种输出模式（开漏输出、开漏复用输出、推挽输出、推挽复用输出）。同时，GPIO还支持三种最大翻转速度（2MHz、10MHz、50MHz）。</p>
+<h3 id="GPIO工作方式"><a href="#GPIO工作方式" class="headerlink" title="GPIO工作方式"></a>GPIO工作方式</h3><p>GPIO支持4种输入模式（浮空输入、上拉输入、下拉输入、模拟输入）和4种输出模式（开漏输出、开漏复用输出、推挽输出、推挽复用输出）。同时，GPIO还支持三种最大翻转速度（2MHz、10MHz、50MHz）。</p>
 <p>每个I/O口可以自由编程，但I/O口寄存器必须按32位字被访问。</p>
 <ol>
 <li>GPIO_Mode_AIN 模拟输入</li>
@@ -569,31 +543,23 @@ PIN_LOW  <span class="token operator">=</span> <span class="token number">0</spa
 <li>GPIO_Mode_AF_OD 复用开漏输出</li>
 <li>GPIO_Mode_AF_PP 复用推挽输出</li>
 </ol>
-<h4 id="浮空输入模式">浮空输入模式</h4>
-<p><img src="https://typorastroage.oss-cn-beijing.aliyuncs.com/img/2018040822505125" alt="img"></p>
+<h4 id="浮空输入模式"><a href="#浮空输入模式" class="headerlink" title="浮空输入模式"></a>浮空输入模式</h4><p><img src="https://typorastroage.oss-cn-beijing.aliyuncs.com/img/2018040822505125" alt="img"></p>
 <p><strong>浮空输入模式下，I/O端口的电平信号直接进入输入数据寄存器。也就是说，I/O的电平状态是不确定的，完全由外部输入决定；<u>如果在该引脚悬空（在无信号输入）的情况下，读取该端口的电平是不确定的</u>。</strong></p>
-<h4 id="上拉输入模式">上拉输入模式</h4>
-<p><img src="https://typorastroage.oss-cn-beijing.aliyuncs.com/img/20180408225353767" alt="img"></p>
+<h4 id="上拉输入模式"><a href="#上拉输入模式" class="headerlink" title="上拉输入模式"></a>上拉输入模式</h4><p><img src="https://typorastroage.oss-cn-beijing.aliyuncs.com/img/20180408225353767" alt="img"></p>
 <p><strong>上拉输入模式下，I/O端口的电平信号直接进入输入数据寄存器。<u>但是在I/O端口悬空（在无信号输入）的情况下，输入端的电平可以保持在高电平</u>；并且在I/O端口输入为低电平的时候，输入端的电平也还是低电平。</strong></p>
-<h4 id="下拉输入模式">下拉输入模式</h4>
-<p><img src="https://typorastroage.oss-cn-beijing.aliyuncs.com/img/20180408225847140" alt="img"></p>
+<h4 id="下拉输入模式"><a href="#下拉输入模式" class="headerlink" title="下拉输入模式"></a>下拉输入模式</h4><p><img src="https://typorastroage.oss-cn-beijing.aliyuncs.com/img/20180408225847140" alt="img"></p>
 <p><strong>下拉输入模式下，I/O端口的电平信号直接进入输入数据寄存器。但是<u>在I/O端口悬空（在无信号输入）的情况下，输入端的电平可以保持在低电平</u>；并且在I/O端口输入为高电平的时候，输入端的电平也还是高电平。</strong></p>
-<h4 id="模拟输入模式">模拟输入模式</h4>
-<p><img src="https://typorastroage.oss-cn-beijing.aliyuncs.com/img/20180409125151818" alt="img"></p>
+<h4 id="模拟输入模式"><a href="#模拟输入模式" class="headerlink" title="模拟输入模式"></a>模拟输入模式</h4><p><img src="https://typorastroage.oss-cn-beijing.aliyuncs.com/img/20180409125151818" alt="img"></p>
 <p>模拟输入模式下，I/O端口的模拟信号（电压信号，而非电平信号）直接模拟输入到片上外设模块，比如ADC模块等等。</p>
-<h4 id="开漏输出模式">开漏输出模式</h4>
-<p><img src="https://typorastroage.oss-cn-beijing.aliyuncs.com/img/2018040912560259" alt="img"></p>
+<h4 id="开漏输出模式"><a href="#开漏输出模式" class="headerlink" title="开漏输出模式"></a>开漏输出模式</h4><p><img src="https://typorastroage.oss-cn-beijing.aliyuncs.com/img/2018040912560259" alt="img"></p>
 <p>开漏输出模式下，通过设置位设置/清除寄存器或者输出数据寄存器的值，途经N-MOS管，最终输出到I/O端口。这里要注意N-MOS管，当设置输出的值为高电平的时候，N-MOS管处于关闭状态，此时I/O端口的电平就不会由输出的高低电平决定，而是由I/O端口外部的上拉或者下拉决定；当设置输出的值为低电平的时候，N-MOS管处于开启状态，此时I/O端口的电平就是低电平。同时，I/O端口的电平也可以通过输入电路进行读取；注意，I/O端口的电平不一定是输出的电平。</p>
-<h4 id="开漏复用输出模式">开漏复用输出模式</h4>
-<p><img src="https://typorastroage.oss-cn-beijing.aliyuncs.com/img/201804091309492" alt="img"></p>
+<h4 id="开漏复用输出模式"><a href="#开漏复用输出模式" class="headerlink" title="开漏复用输出模式"></a>开漏复用输出模式</h4><p><img src="https://typorastroage.oss-cn-beijing.aliyuncs.com/img/201804091309492" alt="img"></p>
 <p>开漏复用输出模式，与开漏输出模式很是类似。只是输出的高低电平的来源，不是让CPU直接写输出数据寄存器，取而代之利用片上外设模块的复用功能输出来决定的。</p>
-<h4 id="推挽输出模式">推挽输出模式</h4>
-<p><img src="https://typorastroage.oss-cn-beijing.aliyuncs.com/img/20180409131225598" alt="img"></p>
+<h4 id="推挽输出模式"><a href="#推挽输出模式" class="headerlink" title="推挽输出模式"></a>推挽输出模式</h4><p><img src="https://typorastroage.oss-cn-beijing.aliyuncs.com/img/20180409131225598" alt="img"></p>
 <p>推挽输出模式下，通过设置位设置/清除寄存器或者输出数据寄存器的值，途经P-MOS管和N-MOS管，最终输出到I/O端口。这里要注意P-MOS管和N-MOS管，当设置输出的值为高电平的时候，P-MOS管处于开启状态，N-MOS管处于关闭状态，此时I/O端口的电平就由P-MOS管决定：高电平；当设置输出的值为低电平的时候，P-MOS管处于关闭状态，N-MOS管处于开启状态，此时I/O端口的电平就由N-MOS管决定：低电平。同时，I/O端口的电平也可以通过输入电路进行读取；注意，此时I/O端口的电平一定是输出的电平。</p>
-<h4 id="推挽复用输出模式">推挽复用输出模式</h4>
-<p><img src="https://typorastroage.oss-cn-beijing.aliyuncs.com/img/20180409131625100" alt="img"></p>
+<h4 id="推挽复用输出模式"><a href="#推挽复用输出模式" class="headerlink" title="推挽复用输出模式"></a>推挽复用输出模式</h4><p><img src="https://typorastroage.oss-cn-beijing.aliyuncs.com/img/20180409131625100" alt="img"></p>
 <p>推挽复用输出模式，与推挽输出模式很是类似。只是输出的高低电平的来源，不是让CPU直接写输出数据寄存器，取而代之利用片上外设模块的复用功能输出来决定的。</p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://chilh.top">chilh</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://chilh.top/post/05-GPIO.html">https://chilh.top/post/05-GPIO.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://chilh.top" target="_blank">Chilh</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%A4%A7%E4%B8%89%E4%B8%8B%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">大三下课程笔记</a><a class="post-meta__tags" href="/tags/BUPT/">BUPT</a></div><div class="post_share"><div class="social-share" data-image="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202306161931372.webp" data-sites="twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/07-timer.html" title="07-timer"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202306161931372.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">07-timer</div></div></a></div><div class="next-post pull-right"><a href="/post/04-Intertupt.html" title="04-Intertupt"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202306161931372.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">04-Intertupt</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/post/01%20Introduction.html" title="互联网应用笔记（一）"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202306221734670.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-20</div><div class="title">互联网应用笔记（一）</div></div></a></div><div><a href="/post/01-introduction.html" title="01- introduction"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202306161931372.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-16</div><div class="title">01- introduction</div></div></a></div><div><a href="/post/02%20stocker%20programming.html" title="互联网应用笔记（二）"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202306221734670.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-20</div><div class="title">互联网应用笔记（二）</div></div></a></div><div><a href="/post/02-ARM%20Cortex-M4.html" title="02-ARM Cortex-M4"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202306161931372.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-16</div><div class="title">02-ARM Cortex-M4</div></div></a></div><div><a href="/post/02.5%20linux.html" title="互联网应用笔记（三）"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202306221734670.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-20</div><div class="title">互联网应用笔记（三）</div></div></a></div><div><a href="/post/03-C%20as%20Implemented%20in%20Assembly%20Language.html" title="03-C as Implemented in Assembly Language"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202306161931372.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-16</div><div class="title">03-C as Implemented in Assembly Language</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/%E5%A4%B4%E5%83%8F.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">chilh</div><div class="author-info__description">记录学习笔记，学艺不精，大家多多评论指教</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">70</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:1547405085@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">General Purpose Input Output</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Input-Output-Strategy-of-microprocessors"><span class="toc-number">1.1.</span> <span class="toc-text">Input&#x2F;Output Strategy of microprocessors</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Memory-Mapped-I-O-MMIO"><span class="toc-number">1.1.0.0.1.</span> <span class="toc-text">Memory Mapped I&#x2F;O (MMIO)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Port-Mapped-I-O-PMIO"><span class="toc-number">1.1.0.0.2.</span> <span class="toc-text">Port Mapped I&#x2F;O (PMIO)</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Memory-Mapped-I-O"><span class="toc-number">1.1.0.1.</span> <span class="toc-text">Memory-Mapped I&#x2F;O</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Port-Mapped-I-O"><span class="toc-number">1.1.0.2.</span> <span class="toc-text">Port-Mapped I&#x2F;O</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Input-Output-Pins-Ports"><span class="toc-number">1.1.1.</span> <span class="toc-text">Input&#x2F;Output &#x3D;&#x3D;Pins &amp; Ports&#x3D;&#x3D;</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#General-Purpose-Input-Output-GPIO"><span class="toc-number">1.2.</span> <span class="toc-text">General Purpose Input Output (GPIO)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Basic-Concept"><span class="toc-number">1.2.1.</span> <span class="toc-text">Basic Concept</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#example"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">example</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GPIO-Alternative-Functions"><span class="toc-number">1.2.2.</span> <span class="toc-text">GPIO Alternative Functions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GPIO-Input-Mode"><span class="toc-number">1.2.3.</span> <span class="toc-text">&#x3D;&#x3D;GPIO Input Mode&#x3D;&#x3D;</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#pull-down"><span class="toc-number">1.2.3.0.1.</span> <span class="toc-text">pull down</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#pull-up"><span class="toc-number">1.2.3.0.2.</span> <span class="toc-text">pull up</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GPIO-Output-Mode"><span class="toc-number">1.2.4.</span> <span class="toc-text">GPIO Output Mode</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#input%E7%9A%84%E6%97%B6%E5%80%99%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD0-%E8%BF%98%E6%98%AF-1"><span class="toc-number">1.2.4.1.</span> <span class="toc-text">input的时候如何判断0 还是 1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#output%E7%9A%84%E6%97%B6%E5%80%99%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD0-%E8%BF%98%E6%98%AF-1"><span class="toc-number">1.2.4.2.</span> <span class="toc-text">output的时候如何判断0 还是 1</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Controlling-the-GPIO"><span class="toc-number">1.3.</span> <span class="toc-text">Controlling the GPIO</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GPIO-Special-Function-Registers"><span class="toc-number">1.3.1.</span> <span class="toc-text">GPIO Special Function Registers</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Mode-Register"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">Mode Register</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Pull-up-Pull-down-register"><span class="toc-number">1.3.1.2.</span> <span class="toc-text">Pull-up&#x2F;Pull-down register</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#IRD-ODR"><span class="toc-number">1.3.1.3.</span> <span class="toc-text">IRD&#x2F;ODR</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CMSIS-to-access-registers"><span class="toc-number">1.3.1.4.</span> <span class="toc-text">CMSIS to access registers</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Code-Structure"><span class="toc-number">1.3.1.5.</span> <span class="toc-text">Code Structure</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Drivers-Layer-How-It-Works"><span class="toc-number">1.3.1.6.</span> <span class="toc-text">Drivers Layer: How It Works</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C-Interface-GPIO-Configuration"><span class="toc-number">1.3.2.</span> <span class="toc-text">C Interface: GPIO Configuration</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Examples"><span class="toc-number">1.4.</span> <span class="toc-text">Examples</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GPIO-in-keil"><span class="toc-number">1.5.</span> <span class="toc-text">GPIO in keil</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.5.1.</span> <span class="toc-text">设置模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E7%AB%AF%E5%8F%A3%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA"><span class="toc-number">1.5.2.</span> <span class="toc-text">一个端口输入输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%A0%E4%B8%AA%E7%AB%AF%E5%8F%A3%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA"><span class="toc-number">1.5.3.</span> <span class="toc-text">几个端口输入输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Toggle"><span class="toc-number">1.5.4.</span> <span class="toc-text">Toggle</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A5%E5%85%85"><span class="toc-number">1.6.</span> <span class="toc-text">补充</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GPIO%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84"><span class="toc-number">1.6.1.</span> <span class="toc-text">GPIO基本结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GPIO%E5%B7%A5%E4%BD%9C%E6%96%B9%E5%BC%8F"><span class="toc-number">1.6.2.</span> <span class="toc-text">GPIO工作方式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%AE%E7%A9%BA%E8%BE%93%E5%85%A5%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.6.2.1.</span> <span class="toc-text">浮空输入模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8A%E6%8B%89%E8%BE%93%E5%85%A5%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.6.2.2.</span> <span class="toc-text">上拉输入模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8B%E6%8B%89%E8%BE%93%E5%85%A5%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.6.2.3.</span> <span class="toc-text">下拉输入模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E6%8B%9F%E8%BE%93%E5%85%A5%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.6.2.4.</span> <span class="toc-text">模拟输入模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%80%E6%BC%8F%E8%BE%93%E5%87%BA%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.6.2.5.</span> <span class="toc-text">开漏输出模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%80%E6%BC%8F%E5%A4%8D%E7%94%A8%E8%BE%93%E5%87%BA%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.6.2.6.</span> <span class="toc-text">开漏复用输出模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%A8%E6%8C%BD%E8%BE%93%E5%87%BA%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.6.2.7.</span> <span class="toc-text">推挽输出模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%A8%E6%8C%BD%E5%A4%8D%E7%94%A8%E8%BE%93%E5%87%BA%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.6.2.8.</span> <span class="toc-text">推挽复用输出模式</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/%E7%BC%93%E5%AD%98%E6%9B%BF%E6%8D%A2%E7%AE%97%E6%B3%951-%E7%B2%97%E9%A2%97%E7%B2%92%E7%AD%96%E7%95%A5.html" title="缓存替换算法"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202505112103982.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="缓存替换算法"/></a><div class="content"><a class="title" href="/post/%E7%BC%93%E5%AD%98%E6%9B%BF%E6%8D%A2%E7%AE%97%E6%B3%951-%E7%B2%97%E9%A2%97%E7%B2%92%E7%AD%96%E7%95%A5.html" title="缓存替换算法">缓存替换算法</a><time datetime="2025-01-21T06:33:23.000Z" title="发表于 2025-01-21 14:33:23">2025-01-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/%E7%BC%93%E5%AD%98%E6%9B%BF%E6%8D%A2%E7%AE%97%E6%B3%950.html" title="Cache Replacement Policies - introduction"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202505112103982.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Cache Replacement Policies - introduction"/></a><div class="content"><a class="title" href="/post/%E7%BC%93%E5%AD%98%E6%9B%BF%E6%8D%A2%E7%AE%97%E6%B3%950.html" title="Cache Replacement Policies - introduction">Cache Replacement Policies - introduction</a><time datetime="2025-01-20T11:24:52.000Z" title="发表于 2025-01-20 19:24:52">2025-01-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/%E7%BC%93%E5%AD%98%E6%9B%BF%E6%8D%A2%E7%AE%97%E6%B3%952-%E7%BB%86%E9%A2%97%E7%B2%92%E7%AD%96%E7%95%A5.html" title="缓存替换算法"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202505112103982.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="缓存替换算法"/></a><div class="content"><a class="title" href="/post/%E7%BC%93%E5%AD%98%E6%9B%BF%E6%8D%A2%E7%AE%97%E6%B3%952-%E7%BB%86%E9%A2%97%E7%B2%92%E7%AD%96%E7%95%A5.html" title="缓存替换算法">缓存替换算法</a><time datetime="2025-01-20T11:24:52.000Z" title="发表于 2025-01-20 19:24:52">2025-01-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/2024-lastday.html" title="2024-总结"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202501010045372.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2024-总结"/></a><div class="content"><a class="title" href="/post/2024-lastday.html" title="2024-总结">2024-总结</a><time datetime="2024-12-31T14:59:00.000Z" title="发表于 2024-12-31 22:59:00">2024-12-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/riscv%20v%E6%89%A9%E5%B1%95%E7%BF%BB%E8%AF%91%E6%80%BB%E7%BB%93.html" title="v扩展翻译总结”"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202411102035591.jfif" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="v扩展翻译总结”"/></a><div class="content"><a class="title" href="/post/riscv%20v%E6%89%A9%E5%B1%95%E7%BF%BB%E8%AF%91%E6%80%BB%E7%BB%93.html" title="v扩展翻译总结”">v扩展翻译总结”</a><time datetime="2024-11-10T12:30:33.000Z" title="发表于 2024-11-10 20:30:33">2024-11-10</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202306161931372.webp')"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2025 By chilh</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadWaline () {
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://chilh.top">chilh</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://chilh.top/post/05-GPIO.html">https://chilh.top/post/05-GPIO.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://chilh.top" target="_blank">Chilh</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%A4%A7%E4%B8%89%E4%B8%8B%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">大三下课程笔记</a><a class="post-meta__tags" href="/tags/BUPT/">BUPT</a></div><div class="post_share"><div class="social-share" data-image="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202306161931372.webp" data-sites="twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/07-timer.html" title="07-timer"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202306161931372.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">07-timer</div></div></a></div><div class="next-post pull-right"><a href="/post/04-Intertupt.html" title="04-Intertupt"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202306161931372.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">04-Intertupt</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/post/01%20Introduction.html" title="互联网应用笔记（一）"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202306221734670.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-20</div><div class="title">互联网应用笔记（一）</div></div></a></div><div><a href="/post/01-introduction.html" title="01- introduction"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202306161931372.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-16</div><div class="title">01- introduction</div></div></a></div><div><a href="/post/02.5%20linux.html" title="互联网应用笔记（三）"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202306221734670.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-20</div><div class="title">互联网应用笔记（三）</div></div></a></div><div><a href="/post/02%20stocker%20programming.html" title="互联网应用笔记（二）"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202306221734670.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-20</div><div class="title">互联网应用笔记（二）</div></div></a></div><div><a href="/post/03-C%20as%20Implemented%20in%20Assembly%20Language.html" title="03-C as Implemented in Assembly Language"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202306161931372.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-16</div><div class="title">03-C as Implemented in Assembly Language</div></div></a></div><div><a href="/post/02-ARM%20Cortex-M4.html" title="02-ARM Cortex-M4"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202306161931372.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-16</div><div class="title">02-ARM Cortex-M4</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/%E5%A4%B4%E5%83%8F.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">chilh</div><div class="author-info__description">记录学习笔记，学艺不精，大家多多评论指教</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">70</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:1547405085@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#General-Purpose-Input-Output"><span class="toc-number">1.</span> <span class="toc-text">General Purpose Input Output</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Input-x2F-Output-Strategy-of-microprocessors"><span class="toc-number">1.1.</span> <span class="toc-text">Input&#x2F;Output Strategy of microprocessors</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Memory-Mapped-I-x2F-O-MMIO"><span class="toc-number">1.1.0.0.1.</span> <span class="toc-text">Memory Mapped I&#x2F;O (MMIO)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Port-Mapped-I-x2F-O-PMIO"><span class="toc-number">1.1.0.0.2.</span> <span class="toc-text">Port Mapped I&#x2F;O (PMIO)</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Memory-Mapped-I-x2F-O"><span class="toc-number">1.1.0.1.</span> <span class="toc-text">Memory-Mapped I&#x2F;O</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Port-Mapped-I-x2F-O"><span class="toc-number">1.1.0.2.</span> <span class="toc-text">Port-Mapped I&#x2F;O</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Input-x2F-Output-x3D-x3D-Pins-amp-Ports-x3D-x3D"><span class="toc-number">1.1.1.</span> <span class="toc-text">Input&#x2F;Output &#x3D;&#x3D;Pins &amp; Ports&#x3D;&#x3D;</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#General-Purpose-Input-Output-GPIO"><span class="toc-number">1.2.</span> <span class="toc-text">General Purpose Input Output (GPIO)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Basic-Concept"><span class="toc-number">1.2.1.</span> <span class="toc-text">Basic Concept</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#example"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">example</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GPIO-Alternative-Functions"><span class="toc-number">1.2.2.</span> <span class="toc-text">GPIO Alternative Functions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#x3D-x3D-GPIO-Input-Mode-x3D-x3D"><span class="toc-number">1.2.3.</span> <span class="toc-text">&#x3D;&#x3D;GPIO Input Mode&#x3D;&#x3D;</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#pull-down"><span class="toc-number">1.2.3.0.1.</span> <span class="toc-text">pull down</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#pull-up"><span class="toc-number">1.2.3.0.2.</span> <span class="toc-text">pull up</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GPIO-Output-Mode"><span class="toc-number">1.2.4.</span> <span class="toc-text">GPIO Output Mode</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#input%E7%9A%84%E6%97%B6%E5%80%99%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD0-%E8%BF%98%E6%98%AF-1"><span class="toc-number">1.2.4.1.</span> <span class="toc-text">input的时候如何判断0 还是 1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#output%E7%9A%84%E6%97%B6%E5%80%99%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD0-%E8%BF%98%E6%98%AF-1"><span class="toc-number">1.2.4.2.</span> <span class="toc-text">output的时候如何判断0 还是 1</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Controlling-the-GPIO"><span class="toc-number">1.3.</span> <span class="toc-text">Controlling the GPIO</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GPIO-Special-Function-Registers"><span class="toc-number">1.3.1.</span> <span class="toc-text">GPIO Special Function Registers</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Mode-Register"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">Mode Register</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Pull-up-x2F-Pull-down-register"><span class="toc-number">1.3.1.2.</span> <span class="toc-text">Pull-up&#x2F;Pull-down register</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#IRD-x2F-ODR"><span class="toc-number">1.3.1.3.</span> <span class="toc-text">IRD&#x2F;ODR</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CMSIS-to-access-registers"><span class="toc-number">1.3.1.4.</span> <span class="toc-text">CMSIS to access registers</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Code-Structure"><span class="toc-number">1.3.1.5.</span> <span class="toc-text">Code Structure</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Drivers-Layer-How-It-Works"><span class="toc-number">1.3.1.6.</span> <span class="toc-text">Drivers Layer: How It Works</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C-Interface-GPIO-Configuration"><span class="toc-number">1.3.2.</span> <span class="toc-text">C Interface: GPIO Configuration</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Examples"><span class="toc-number">1.4.</span> <span class="toc-text">Examples</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GPIO-in-keil"><span class="toc-number">1.5.</span> <span class="toc-text">GPIO in keil</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.5.1.</span> <span class="toc-text">设置模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E7%AB%AF%E5%8F%A3%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA"><span class="toc-number">1.5.2.</span> <span class="toc-text">一个端口输入输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%A0%E4%B8%AA%E7%AB%AF%E5%8F%A3%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA"><span class="toc-number">1.5.3.</span> <span class="toc-text">几个端口输入输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Toggle"><span class="toc-number">1.5.4.</span> <span class="toc-text">Toggle</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A5%E5%85%85"><span class="toc-number">1.6.</span> <span class="toc-text">补充</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GPIO%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84"><span class="toc-number">1.6.1.</span> <span class="toc-text">GPIO基本结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GPIO%E5%B7%A5%E4%BD%9C%E6%96%B9%E5%BC%8F"><span class="toc-number">1.6.2.</span> <span class="toc-text">GPIO工作方式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%AE%E7%A9%BA%E8%BE%93%E5%85%A5%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.6.2.1.</span> <span class="toc-text">浮空输入模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8A%E6%8B%89%E8%BE%93%E5%85%A5%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.6.2.2.</span> <span class="toc-text">上拉输入模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8B%E6%8B%89%E8%BE%93%E5%85%A5%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.6.2.3.</span> <span class="toc-text">下拉输入模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E6%8B%9F%E8%BE%93%E5%85%A5%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.6.2.4.</span> <span class="toc-text">模拟输入模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%80%E6%BC%8F%E8%BE%93%E5%87%BA%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.6.2.5.</span> <span class="toc-text">开漏输出模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%80%E6%BC%8F%E5%A4%8D%E7%94%A8%E8%BE%93%E5%87%BA%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.6.2.6.</span> <span class="toc-text">开漏复用输出模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%A8%E6%8C%BD%E8%BE%93%E5%87%BA%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.6.2.7.</span> <span class="toc-text">推挽输出模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%A8%E6%8C%BD%E5%A4%8D%E7%94%A8%E8%BE%93%E5%87%BA%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.6.2.8.</span> <span class="toc-text">推挽复用输出模式</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/%E7%BC%93%E5%AD%98%E6%9B%BF%E6%8D%A2%E7%AE%97%E6%B3%951-%E7%B2%97%E9%A2%97%E7%B2%92%E7%AD%96%E7%95%A5.html" title="缓存替换算法"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202505112103982.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="缓存替换算法"/></a><div class="content"><a class="title" href="/post/%E7%BC%93%E5%AD%98%E6%9B%BF%E6%8D%A2%E7%AE%97%E6%B3%951-%E7%B2%97%E9%A2%97%E7%B2%92%E7%AD%96%E7%95%A5.html" title="缓存替换算法">缓存替换算法</a><time datetime="2025-01-21T06:33:23.000Z" title="发表于 2025-01-21 14:33:23">2025-01-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/%E7%BC%93%E5%AD%98%E6%9B%BF%E6%8D%A2%E7%AE%97%E6%B3%950.html" title="Cache Replacement Policies - introduction"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202505112103982.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Cache Replacement Policies - introduction"/></a><div class="content"><a class="title" href="/post/%E7%BC%93%E5%AD%98%E6%9B%BF%E6%8D%A2%E7%AE%97%E6%B3%950.html" title="Cache Replacement Policies - introduction">Cache Replacement Policies - introduction</a><time datetime="2025-01-20T11:24:52.000Z" title="发表于 2025-01-20 19:24:52">2025-01-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/%E7%BC%93%E5%AD%98%E6%9B%BF%E6%8D%A2%E7%AE%97%E6%B3%952-%E7%BB%86%E9%A2%97%E7%B2%92%E7%AD%96%E7%95%A5.html" title="缓存替换算法"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202505112103982.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="缓存替换算法"/></a><div class="content"><a class="title" href="/post/%E7%BC%93%E5%AD%98%E6%9B%BF%E6%8D%A2%E7%AE%97%E6%B3%952-%E7%BB%86%E9%A2%97%E7%B2%92%E7%AD%96%E7%95%A5.html" title="缓存替换算法">缓存替换算法</a><time datetime="2025-01-20T11:24:52.000Z" title="发表于 2025-01-20 19:24:52">2025-01-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/2024-lastday.html" title="2024-总结"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202501010045372.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2024-总结"/></a><div class="content"><a class="title" href="/post/2024-lastday.html" title="2024-总结">2024-总结</a><time datetime="2024-12-31T14:59:00.000Z" title="发表于 2024-12-31 22:59:00">2024-12-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/riscv%20v%E6%89%A9%E5%B1%95%E7%BF%BB%E8%AF%91%E6%80%BB%E7%BB%93.html" title="v扩展翻译总结”"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202411102035591.jfif" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="v扩展翻译总结”"/></a><div class="content"><a class="title" href="/post/riscv%20v%E6%89%A9%E5%B1%95%E7%BF%BB%E8%AF%91%E6%80%BB%E7%BB%93.html" title="v扩展翻译总结”">v扩展翻译总结”</a><time datetime="2024-11-10T12:30:33.000Z" title="发表于 2024-11-10 20:30:33">2024-11-10</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202306161931372.webp')"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2025 By chilh</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadWaline () {
   function insertCSS () {
     const link = document.createElement("link")
     link.rel = "stylesheet"
