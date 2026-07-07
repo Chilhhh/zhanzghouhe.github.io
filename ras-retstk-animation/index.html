@@ -1,0 +1,994 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RAS 四指针表项动画</title>
+  <style>
+    :root {
+      --bg: #f7f8fa;
+      --panel: #ffffff;
+      --ink: #111827;
+      --muted: #667085;
+      --line: #b9c0ca;
+      --line-strong: #4b5563;
+      --blue: #1d4ed8;
+      --green: #087443;
+      --orange: #b45309;
+      --red: #b42318;
+      --purple: #6d28d9;
+      --soft-blue: #e8f0ff;
+      --soft-green: #e8f6ef;
+      --soft-orange: #fff4e5;
+      --soft-red: #fff1f0;
+      --shadow: 0 10px 24px rgba(16, 24, 40, .08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--ink);
+      font: 14px/1.42 "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+    }
+
+    header {
+      padding: 20px 24px 12px;
+      background: #fff;
+      border-bottom: 1px solid #d9dee7;
+    }
+
+    h1 {
+      margin: 0 0 6px;
+      font-size: 24px;
+      letter-spacing: 0;
+    }
+
+    .sub {
+      max-width: 1180px;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: minmax(740px, 1fr) 360px;
+      gap: 16px;
+      padding: 16px;
+    }
+
+    .board, .sidePanel {
+      background: var(--panel);
+      border: 1px solid #d9dee7;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .board {
+      padding: 16px;
+      overflow: auto;
+    }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #e4e7ec;
+    }
+
+    button {
+      height: 36px;
+      border-radius: 6px;
+      border: 1px solid #cbd5e1;
+      background: #fff;
+      color: var(--ink);
+      padding: 0 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    button.primary { background: #182230; color: #fff; border-color: #182230; }
+    button.warn { background: var(--soft-red); color: var(--red); border-color: #f3b5ae; }
+
+    .inputGroup {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-left: 8px;
+      color: var(--muted);
+    }
+
+    input, select {
+      height: 34px;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      padding: 0 8px;
+      font: inherit;
+      background: #fff;
+    }
+
+    #addrInput { width: 110px; }
+    #flushSelect { width: 240px; }
+
+    .tables {
+      display: grid;
+      grid-template-columns: 640px 72px 640px;
+      gap: 18px;
+      align-items: start;
+      justify-content: center;
+      min-width: max-content;
+    }
+
+    .stackPanel {
+      position: relative;
+      width: 640px;
+      min-width: 640px;
+      padding: 8px 118px 8px 118px;
+    }
+
+    .stackTitle {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin: 0 0 8px;
+      font-weight: 800;
+    }
+
+    .stackTitle span:last-child {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      background: #fff;
+    }
+
+    td {
+      height: 30px;
+      border: 1px solid var(--line-strong);
+      padding: 0 8px;
+      vertical-align: middle;
+      font-variant-numeric: tabular-nums;
+    }
+
+    td.idx {
+      width: 34px;
+      text-align: center;
+      color: #344054;
+      background: #f9fafb;
+      font-weight: 700;
+      padding: 0;
+    }
+
+    td.value {
+      position: relative;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    tr.valid td.value { background: #fbfdff; }
+    tr.writeSpec td.value { background: var(--soft-orange); outline: 2px solid var(--orange); outline-offset: -2px; }
+    tr.writeComm td.value { background: var(--soft-green); outline: 2px solid var(--green); outline-offset: -2px; }
+    tr.read td.value { background: var(--soft-blue); outline: 2px solid var(--blue); outline-offset: -2px; }
+    tr.flush td.value { background: var(--soft-red); }
+
+    .entryMeta {
+      color: var(--muted);
+      font-size: 11px;
+      margin-left: 8px;
+    }
+
+    .ptrArrow {
+      position: absolute;
+      display: block;
+      width: 124px;
+      height: 22px;
+      line-height: 22px;
+      color: var(--ink);
+      font: 12px/1 Consolas, "Cascadia Mono", monospace;
+      pointer-events: none;
+      transition: top 180ms ease;
+      white-space: nowrap;
+      z-index: 2;
+    }
+
+    .ptrArrow.left {
+      left: 6px;
+      padding-right: 34px;
+      text-align: right;
+    }
+
+    .ptrArrow.right {
+      right: 6px;
+      padding-left: 34px;
+      text-align: left;
+    }
+
+    .ptrArrow::after {
+      content: "";
+      position: absolute;
+      top: 11px;
+      width: 28px;
+      border-top: 2px solid currentColor;
+    }
+
+    .ptrArrow.left::before {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 6px;
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+      border-left: 7px solid currentColor;
+    }
+
+    .ptrArrow.right::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 6px;
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+      border-right: 7px solid currentColor;
+    }
+
+    .ptrArrow.left::after { right: 5px; }
+    .ptrArrow.right::after { left: 5px; }
+
+    .ptrArrow.specWr { color: var(--orange); }
+    .ptrArrow.specTop { color: var(--purple); }
+    .ptrArrow.cmtTop { color: var(--green); }
+    .ptrArrow.cmtBtm { color: var(--blue); }
+    .ptrArrow.readPtr { color: #1f2937; font-weight: 800; }
+
+    .flow {
+      min-height: 560px;
+      display: grid;
+      grid-template-rows: 1fr 1fr 1fr;
+      align-items: center;
+      justify-items: center;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .flowArrow {
+      width: 44px;
+      height: 56px;
+      position: relative;
+    }
+
+    .flowArrow::before {
+      content: "";
+      position: absolute;
+      left: 20px;
+      top: 2px;
+      height: 38px;
+      border-left: 2px solid var(--line-strong);
+    }
+
+    .flowArrow::after {
+      content: "";
+      position: absolute;
+      left: 10px;
+      top: 36px;
+      width: 20px;
+      height: 20px;
+      border-right: 2px solid var(--line-strong);
+      border-bottom: 2px solid var(--line-strong);
+      transform: rotate(45deg);
+    }
+
+    .side {
+      display: grid;
+      gap: 12px;
+      align-content: start;
+    }
+
+    .sidePanel {
+      padding: 14px;
+      box-shadow: none;
+    }
+
+    h2 {
+      margin: 0 0 10px;
+      font-size: 16px;
+      letter-spacing: 0;
+    }
+
+    .ptrGrid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .ptrCard {
+      border: 1px solid #d9dee7;
+      border-radius: 8px;
+      padding: 9px;
+      background: #fbfcfe;
+      min-height: 78px;
+    }
+
+    .ptrCard strong {
+      display: block;
+      font-size: 12px;
+      margin-bottom: 4px;
+    }
+
+    .ptrCard .value {
+      font-size: 22px;
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .ptrCard .hint {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .eventBox {
+      min-height: 116px;
+      border: 1px solid #d9dee7;
+      border-radius: 8px;
+      padding: 10px;
+      background: #fbfcfe;
+    }
+
+    #eventTitle {
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    #eventText { color: var(--muted); }
+
+    .code {
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 8px;
+      background: #101828;
+      color: #e5e7eb;
+      font: 12px/1.5 Consolas, "Cascadia Mono", monospace;
+      white-space: pre-wrap;
+    }
+
+    .retOut {
+      display: grid;
+      gap: 8px;
+      min-height: 0;
+    }
+
+    .retOut div {
+      display: grid;
+      grid-template-columns: 74px minmax(0, 1fr);
+      gap: 8px;
+      align-items: center;
+    }
+
+    .retOut strong {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .retOut span {
+      min-width: 0;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .history {
+      display: grid;
+      gap: 6px;
+      max-height: 240px;
+      overflow: auto;
+    }
+
+    .histItem {
+      border: 1px solid #e4e7ec;
+      border-radius: 6px;
+      padding: 7px 8px;
+      color: var(--muted);
+      font-size: 12px;
+      background: #fff;
+    }
+
+    .histItem:first-child {
+      color: var(--ink);
+      border-color: #cbd5e1;
+      background: #f8fafc;
+    }
+
+    @media (max-width: 1120px) {
+      main { grid-template-columns: 1fr; }
+      .tables { grid-template-columns: 640px; }
+      .flow { display: none; }
+      .stackPanel { max-width: none; margin: 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>RAS 表项级四指针动画</h1>
+    <p class="sub">
+      表格视图按你给的示意图显示每个 entry。点击按钮触发 call、ret、call+ret、commit 或 flush；
+      左表是 speculative return stack，右表是 committed return stack。
+    </p>
+  </header>
+
+  <main>
+    <section class="board">
+      <div class="toolbar">
+        <button id="callBtn" class="primary">CALL</button>
+        <button id="retBtn">RET</button>
+        <button id="callRetBtn">CALL + RET</button>
+        <button id="commitBtn">COMMIT</button>
+        <button id="flushBtn" class="warn">FLUSH</button>
+        <button id="resetBtn">RESET</button>
+        <label class="inputGroup">返回地址 <input id="addrInput" value="call_1+4"></label>
+        <label class="inputGroup">Flush 到 BRI checkpoint <select id="flushSelect"></select></label>
+      </div>
+
+      <div class="tables">
+        <div class="stackPanel" id="specPanel">
+          <div class="stackTitle"><span>Speculative table</span><span>spec_wr_ptr / spec_top_ptr</span></div>
+          <table id="specTable" aria-label="speculative return stack"></table>
+        </div>
+
+        <div class="flow">
+          <div>
+            <div id="flowTop">call 写 spec</div>
+            <div class="flowArrow"></div>
+          </div>
+          <div id="flowMid">ret 读栈顶</div>
+          <div>
+            <div class="flowArrow"></div>
+            <div id="flowBottom">commit 写 cmt</div>
+          </div>
+        </div>
+
+        <div class="stackPanel" id="commPanel">
+          <div class="stackTitle"><span>Committed table</span><span>cmt_top_ptr / cmt_btm_ptr</span></div>
+          <table id="commTable" aria-label="committed return stack"></table>
+        </div>
+      </div>
+    </section>
+
+    <aside class="side">
+      <div class="sidePanel">
+        <h2>四个指针</h2>
+        <div class="ptrGrid">
+          <div class="ptrCard">
+            <strong>spec_wr_ptr</strong>
+            <div class="value" id="specWrVal"></div>
+            <div class="hint">下一次 call 写入位置</div>
+          </div>
+          <div class="ptrCard">
+            <strong>spec_top_ptr</strong>
+            <div class="value" id="specTopVal"></div>
+            <div class="hint">等待 commit 的最老 spec entry</div>
+          </div>
+          <div class="ptrCard">
+            <strong>cmt_top_ptr</strong>
+            <div class="value" id="cmtTopVal"></div>
+            <div class="hint">committed top, ret 读 top-1</div>
+          </div>
+          <div class="ptrCard">
+            <strong>cmt_btm_ptr</strong>
+            <div class="value" id="cmtBtmVal"></div>
+            <div class="hint">满时前移，丢最老项</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidePanel">
+        <h2>当前动作</h2>
+        <div class="eventBox">
+          <div id="eventTitle">Reset</div>
+          <div id="eventText"></div>
+          <div id="eventCode" class="code"></div>
+        </div>
+      </div>
+
+      <div class="sidePanel">
+        <h2>RET output entry</h2>
+        <div class="eventBox retOut">
+          <div><strong>valid</strong><span id="retOutValid">0</span></div>
+          <div><strong>source</strong><span id="retOutSource">-</span></div>
+          <div><strong>entry</strong><span id="retOutEntry">-</span></div>
+          <div><strong>target</strong><span id="retOutTarget">-</span></div>
+          <div><strong>read_ptr</strong><span id="retOutPtr">-</span></div>
+          <div><strong>comm_tag</strong><span id="retOutComm">-</span></div>
+        </div>
+      </div>
+
+      <div class="sidePanel">
+        <h2>操作历史</h2>
+        <div id="history" class="history"></div>
+      </div>
+    </aside>
+  </main>
+
+  <script>
+    const SIZE = 16;
+    const blankEntry = () => ({ valid: false, value: "", commPtr: null, note: "" });
+
+    let state;
+    let serial = 1;
+    let history = [];
+    let checkpoints = [];
+    let checkpointSerial = 0;
+
+    const el = {
+      specTable: document.getElementById("specTable"),
+      commTable: document.getElementById("commTable"),
+      specPanel: document.getElementById("specPanel"),
+      commPanel: document.getElementById("commPanel"),
+      addrInput: document.getElementById("addrInput"),
+      eventTitle: document.getElementById("eventTitle"),
+      eventText: document.getElementById("eventText"),
+      eventCode: document.getElementById("eventCode"),
+      retOutValid: document.getElementById("retOutValid"),
+      retOutSource: document.getElementById("retOutSource"),
+      retOutEntry: document.getElementById("retOutEntry"),
+      retOutTarget: document.getElementById("retOutTarget"),
+      retOutPtr: document.getElementById("retOutPtr"),
+      retOutComm: document.getElementById("retOutComm"),
+      history: document.getElementById("history"),
+      flushSelect: document.getElementById("flushSelect"),
+      specWrVal: document.getElementById("specWrVal"),
+      specTopVal: document.getElementById("specTopVal"),
+      cmtTopVal: document.getElementById("cmtTopVal"),
+      cmtBtmVal: document.getElementById("cmtBtmVal")
+    };
+
+    function ptr(index = 0, color = 0) {
+      return { index: ((index % SIZE) + SIZE) % SIZE, color: color & 1 };
+    }
+
+    function clonePtr(p) {
+      return ptr(p.index, p.color);
+    }
+
+    function inc(p, n = 1) {
+      let index = p.index;
+      let color = p.color;
+      for (let i = 0; i < n; i++) {
+        index += 1;
+        if (index === SIZE) {
+          index = 0;
+          color ^= 1;
+        }
+      }
+      return ptr(index, color);
+    }
+
+    function dec(p, n = 1) {
+      let index = p.index;
+      let color = p.color;
+      for (let i = 0; i < n; i++) {
+        index -= 1;
+        if (index < 0) {
+          index = SIZE - 1;
+          color ^= 1;
+        }
+      }
+      return ptr(index, color);
+    }
+
+    function samePtr(a, b) {
+      return a && b && a.index === b.index && a.color === b.color;
+    }
+
+    function ptrText(p) {
+      return `${p.color}:${String(p.index).padStart(2, "0")}`;
+    }
+
+    function isEmpty() {
+      return samePtr(state.cmtTopPtr, state.cmtBtmPtr);
+    }
+
+    function isFull() {
+      return state.cmtTopPtr.index === state.cmtBtmPtr.index && state.cmtTopPtr.color !== state.cmtBtmPtr.color;
+    }
+
+    function initState() {
+      state = {
+        spec: Array.from({ length: SIZE }, blankEntry),
+        comm: Array.from({ length: SIZE }, blankEntry),
+        specWrPtr: ptr(0),
+        specTopPtr: ptr(0),
+        cmtTopPtr: ptr(0),
+        cmtBtmPtr: ptr(0),
+        retOut: {
+          valid: false,
+          source: "-",
+          entry: "-",
+          target: "-",
+          readPtr: "-",
+          commTag: "-"
+        },
+        last: {
+          title: "Reset",
+          text: "所有 valid 清零，四个指针回到 0:00。",
+          code: "spec_wr_ptr = 0\nspec_top_ptr = 0\ncmt_top_ptr  = 0\ncmt_btm_ptr  = 0",
+          specWrite: null,
+          commWrite: null,
+          read: null,
+          flush: false
+        }
+      };
+      serial = 1;
+      history = [];
+      checkpoints = [];
+      checkpointSerial = 0;
+      pushHistory("RESET", "四个指针清零");
+    }
+
+    function nextAddr() {
+      const raw = el.addrInput.value.trim();
+      const value = raw || `call_${serial}+4`;
+      serial += 1;
+      el.addrInput.value = `call_${serial}+4`;
+      return value;
+    }
+
+    function pushHistory(kind, text) {
+      checkpoints.unshift({
+        id: String(++checkpointSerial),
+        label: `${kind}: ${text}`,
+        specWrPtr: clonePtr(state.specWrPtr),
+        specTopPtr: clonePtr(state.specTopPtr),
+        cmtTopPtr: clonePtr(state.cmtTopPtr),
+        cmtBtmPtr: clonePtr(state.cmtBtmPtr)
+      });
+      checkpoints = checkpoints.slice(0, 32);
+      history.unshift({ kind, text, ptrs: pointerSummary() });
+      history = history.slice(0, 16);
+    }
+
+    function pointerSummary() {
+      if (!state) return "";
+      return `S_WR=${ptrText(state.specWrPtr)}, S_TOP=${ptrText(state.specTopPtr)}, C_TOP=${ptrText(state.cmtTopPtr)}, C_BTM=${ptrText(state.cmtBtmPtr)}`;
+    }
+
+    function indexInCircularRange(index, start, end) {
+      if (start === end) return false;
+      if (start < end) return index >= start && index < end;
+      return index >= start || index < end;
+    }
+
+    function indexInActiveSpecWindow(index, top, wr) {
+      return indexInCircularRange(index, top.index, wr.index);
+    }
+
+    function restoreBriCheckpoint(cp) {
+      state.specWrPtr = clonePtr(cp.specWrPtr);
+      state.specTopPtr = clonePtr(cp.specTopPtr);
+      state.cmtTopPtr = clonePtr(cp.cmtTopPtr);
+      state.cmtBtmPtr = clonePtr(cp.cmtBtmPtr);
+
+      for (let i = 0; i < SIZE; i++) {
+        if (!indexInActiveSpecWindow(i, state.specTopPtr, state.specWrPtr)) {
+          state.spec[i] = blankEntry();
+        }
+      }
+    }
+
+    function doCall(label) {
+      const value = label || nextAddr();
+      const wr = clonePtr(state.specWrPtr);
+      const cmtDst = clonePtr(state.cmtTopPtr);
+      state.spec[wr.index] = {
+        valid: true,
+        value,
+        commPtr: cmtDst,
+        note: `wr=${ptrText(wr)}, cmt=${ptrText(cmtDst)}`
+      };
+
+      state.specWrPtr = inc(state.specWrPtr);
+      if (isFull()) state.cmtBtmPtr = inc(state.cmtBtmPtr);
+      state.cmtTopPtr = inc(state.cmtTopPtr);
+
+      state.last = {
+        title: "CALL",
+        text: `按 RTL，call 写 speculative[${wr.index}]，同时推进 BRI 里的 cmt_top_ptr/COMM_SP；committed 表项本身还没有写。未来 commit 目标是 committed[${cmtDst.index}]。`,
+        code: "rs_push_bri_p0[SPEC_WP] = SPEC_WP + 1\nrs_push_bri_p0[COMM_SP] = rs_push_pop ? COMM_SP : COMM_SP + 1\ncommitted table write waits for commit",
+        specWrite: wr.index,
+        commWrite: null,
+        read: null,
+        flush: false
+      };
+      pushHistory("CALL", `${value} -> spec[${wr.index}]`);
+      render();
+    }
+
+    function findSpecOverride(readPtr) {
+      for (let i = 0; i < SIZE; i++) {
+        const entry = state.spec[i];
+        if (entry.valid && samePtr(entry.commPtr, readPtr)) return { index: i, entry };
+      }
+      return null;
+    }
+
+    function currentRetOutput() {
+      if (isEmpty()) {
+        return {
+          valid: false,
+          source: "-",
+          entry: "-",
+          target: "-",
+          readPtr: "-",
+          commTag: "-"
+        };
+      }
+
+      const read = dec(state.cmtTopPtr);
+      const override = findSpecOverride(read);
+      const commEntry = state.comm[read.index];
+      const source = override ? `spec[${override.index}]` : `committed[${read.index}]`;
+      const retValid = !!override || commEntry.valid;
+      return {
+        valid: retValid,
+        source: retValid ? source : "invalid",
+        entry: retValid ? (override ? String(override.index) : String(read.index)) : "-",
+        target: override ? override.entry.value : (commEntry.valid ? commEntry.value : "-"),
+        readPtr: ptrText(read),
+        commTag: override && override.entry.commPtr ? ptrText(override.entry.commPtr) : ptrText(read)
+      };
+    }
+
+    function doRet() {
+      if (isEmpty()) {
+        state.retOut = {
+          valid: false,
+          source: "-",
+          entry: "-",
+          target: "-",
+          readPtr: "-",
+          commTag: "-"
+        };
+        state.last = {
+          title: "RET",
+          text: "committed stack 为空，ret 没有可读返回地址。",
+          code: "cmt_top_ptr == cmt_btm_ptr\nret_valid = 0",
+          specWrite: null,
+          commWrite: null,
+          read: null,
+          flush: false
+        };
+        pushHistory("RET", "empty");
+        render();
+        return;
+      }
+
+      const read = dec(state.cmtTopPtr);
+      const override = findSpecOverride(read);
+      const commEntry = state.comm[read.index];
+      const source = override ? `spec[${override.index}]` : `committed[${read.index}]`;
+      const retValid = !!override || commEntry.valid;
+      const value = override ? override.entry.value : (commEntry.valid ? commEntry.value : "-");
+      state.retOut = {
+        valid: retValid,
+        source: retValid ? source : "invalid",
+        entry: retValid ? (override ? String(override.index) : String(read.index)) : "-",
+        target: value,
+        readPtr: ptrText(read),
+        commTag: override && override.entry.commPtr ? ptrText(override.entry.commPtr) : ptrText(read)
+      };
+
+      state.cmtTopPtr = read;
+      state.last = {
+        title: "RET",
+        text: `ret 读 cmt_top_ptr-1 = ${ptrText(read)}。${override ? "命中 speculative override，" : ""}预测目标来自 ${source}: ${value}。`,
+        code: "comm_retstk_ptr = cmt_top_ptr - 1\ncmt_top_ptr <= comm_retstk_ptr\nread = spec_match ? spec_entry : committed_entry",
+        specWrite: null,
+        commWrite: null,
+        read: read.index,
+        flush: false
+      };
+      pushHistory("RET", `${source} -> ${value}`);
+      render();
+    }
+
+    function doCallRet() {
+      const value = nextAddr();
+      const wr = clonePtr(state.specWrPtr);
+      const cmtDst = clonePtr(state.cmtTopPtr);
+      state.spec[wr.index] = {
+        valid: true,
+        value,
+        commPtr: cmtDst,
+        note: `push+pop, cmt=${ptrText(cmtDst)}`
+      };
+      state.specWrPtr = inc(state.specWrPtr);
+
+      const read = isEmpty() ? null : dec(state.cmtTopPtr);
+      state.last = {
+        title: "CALL + RET",
+        text: `同一预测窗口内 call 和 ret 同时发生：spec_wr_ptr 前进，但 cmt_top_ptr 保持不变。新 entry 写入 speculative[${wr.index}]。`,
+        code: "rs_push_pop_p0 = 1\nspec_wr_ptr <= spec_wr_ptr + 1\ncmt_top_ptr <= cmt_top_ptr",
+        specWrite: wr.index,
+        commWrite: null,
+        read: read ? read.index : null,
+        flush: false
+      };
+      pushHistory("CALL+RET", `${value} -> spec[${wr.index}], C_TOP hold`);
+      render();
+    }
+
+    function doCommit() {
+      const rd = clonePtr(state.specTopPtr);
+      const entry = state.spec[rd.index];
+      if (!entry.valid) {
+        state.last = {
+          title: "COMMIT",
+          text: `spec_top_ptr 指向 speculative[${rd.index}]，但该 entry 无效，没有可提交内容。`,
+          code: "if (!spec_valid[spec_top_ptr]) commit_noop",
+          specWrite: null,
+          commWrite: null,
+          read: null,
+          flush: false
+        };
+        pushHistory("COMMIT", "no valid spec entry");
+        render();
+        return;
+      }
+
+      const dst = entry.commPtr || rd;
+      state.comm[dst.index] = {
+        valid: true,
+        value: entry.value,
+        commPtr: null,
+        note: `from spec[${rd.index}]`
+      };
+      state.spec[rd.index] = blankEntry();
+      state.specTopPtr = inc(state.specTopPtr);
+      state.last = {
+        title: "COMMIT",
+        text: `commit 把 speculative[${rd.index}] 搬到 committed[${dst.index}]，推进的是 rs_spec_bp/spec_top_ptr；BRI 里的 cmt_top_ptr 不在 commit 这里推进。`,
+        code: "comm_retstk_we[entry.comm] = rs_commit\ncomm_entry <= spec_entry\nrs_spec_bp <= rs_spec_bp + 1\nCOMM_SP hold",
+        specWrite: null,
+        commWrite: dst.index,
+        read: null,
+        flush: false
+      };
+      pushHistory("COMMIT", `spec[${rd.index}] -> committed[${dst.index}]`);
+      render();
+    }
+
+    function doFlush() {
+      const target = checkpoints.find(c => c.id === el.flushSelect.value) || checkpoints[0];
+      if (!target) return;
+      const oldSummary = pointerSummary();
+      restoreBriCheckpoint(target);
+      state.last = {
+        title: "FLUSH",
+        text: `按 RTL，flush 使用随分支保存的 BRI 快照恢复指针：${target.label}。committed 表项不清空；这里只清掉恢复后 active spec window 之外的 speculative 项。原指针：${oldSummary}。`,
+        code: "rs_bri_e2 = bx_flush_rs_bri_e2 or er_flush_rs_bri_f4\nSPEC_WP/COMM_SP/COMM_BP <= saved BRI\ncommitted table entries hold",
+        specWrite: null,
+        commWrite: null,
+        read: null,
+        flush: true
+      };
+      pushHistory("FLUSH", `to ${target.label}`);
+      render();
+    }
+
+    function buildTable(table) {
+      table.innerHTML = "";
+      for (let i = 0; i < SIZE; i++) {
+        const tr = document.createElement("tr");
+        tr.dataset.idx = String(i);
+        tr.innerHTML = `<td class="idx">${i}</td><td class="value"></td>`;
+        table.appendChild(tr);
+      }
+    }
+
+    function setRows(table, data, type) {
+      for (let i = 0; i < SIZE; i++) {
+        const tr = table.querySelector(`tr[data-idx="${i}"]`);
+        const td = tr.querySelector(".value");
+        const entry = data[i];
+        tr.className = "";
+        if (entry.valid) tr.classList.add("valid");
+        if (type === "spec" && state.last.specWrite === i) tr.classList.add("writeSpec");
+        if (type === "comm" && state.last.commWrite === i) tr.classList.add("writeComm");
+        if (type === "comm" && state.last.read === i) tr.classList.add("read");
+        if (state.last.flush && entry.valid) tr.classList.add("flush");
+        td.innerHTML = entry.valid
+          ? `${entry.value}<span class="entryMeta">${entry.note || ""}</span>`
+          : "";
+      }
+    }
+
+    function rowTop(panel, index) {
+      const row = panel.querySelector(`tr[data-idx="${index}"]`);
+      if (!row) return 0;
+      const panelRect = panel.getBoundingClientRect();
+      const rowRect = row.getBoundingClientRect();
+      return rowRect.top - panelRect.top + (rowRect.height / 2) - 12;
+    }
+
+    function drawArrow(panel, side, klass, label, index, lane = 0) {
+      const div = document.createElement("div");
+      div.className = `ptrArrow ${side} ${klass}`;
+      div.style.top = `${rowTop(panel, index) + lane * 12}px`;
+      div.textContent = label;
+      panel.appendChild(div);
+    }
+
+    function drawPointers() {
+      document.querySelectorAll(".ptrArrow").forEach(n => n.remove());
+      drawArrow(el.specPanel, "left", "specWr", "spec_wr_ptr", state.specWrPtr.index);
+      drawArrow(el.specPanel, "right", "specTop", "spec_top_ptr", state.specTopPtr.index);
+      drawArrow(el.commPanel, "left", "cmtTop", "cmt_top_ptr", state.cmtTopPtr.index);
+      drawArrow(el.commPanel, "right", "cmtBtm", "cmt_btm_ptr", state.cmtBtmPtr.index);
+      if (state.last.read !== null) {
+        const readLane = state.last.read === state.cmtTopPtr.index ? 1 : 0;
+        drawArrow(el.commPanel, "left", "readPtr", "read", state.last.read, readLane);
+      }
+    }
+
+    function render() {
+      const selectedFlush = el.flushSelect.value;
+      const retOut = currentRetOutput();
+      setRows(el.specTable, state.spec, "spec");
+      setRows(el.commTable, state.comm, "comm");
+      drawPointers();
+
+      el.specWrVal.textContent = ptrText(state.specWrPtr);
+      el.specTopVal.textContent = ptrText(state.specTopPtr);
+      el.cmtTopVal.textContent = ptrText(state.cmtTopPtr);
+      el.cmtBtmVal.textContent = ptrText(state.cmtBtmPtr);
+      el.eventTitle.textContent = state.last.title;
+      el.eventText.textContent = state.last.text;
+      el.eventCode.textContent = state.last.code;
+      el.retOutValid.textContent = retOut.valid ? "1" : "0";
+      el.retOutSource.textContent = retOut.source;
+      el.retOutEntry.textContent = retOut.entry;
+      el.retOutTarget.textContent = retOut.target;
+      el.retOutPtr.textContent = retOut.readPtr;
+      el.retOutComm.textContent = retOut.commTag;
+
+      el.history.innerHTML = history.map(h =>
+        `<div class="histItem"><strong>${h.kind}</strong> ${h.text}<br>${h.ptrs}</div>`
+      ).join("");
+
+      el.flushSelect.innerHTML = checkpoints.map((c, idx) =>
+        `<option value="${c.id}">${idx === 0 ? "当前: " : ""}${c.label}</option>`
+      ).join("");
+      if (checkpoints.some(c => c.id === selectedFlush)) {
+        el.flushSelect.value = selectedFlush;
+      } else if (checkpoints.length > 1) {
+        el.flushSelect.value = checkpoints[1].id;
+      } else {
+        el.flushSelect.value = checkpoints[0]?.id || "";
+      }
+    }
+
+    buildTable(el.specTable);
+    buildTable(el.commTable);
+    initState();
+    render();
+
+    document.getElementById("callBtn").addEventListener("click", () => doCall());
+    document.getElementById("retBtn").addEventListener("click", doRet);
+    document.getElementById("callRetBtn").addEventListener("click", doCallRet);
+    document.getElementById("commitBtn").addEventListener("click", doCommit);
+    document.getElementById("flushBtn").addEventListener("click", doFlush);
+    document.getElementById("resetBtn").addEventListener("click", () => { initState(); render(); });
+    window.addEventListener("resize", drawPointers);
+  </script>
+</body>
+</html>
