@@ -1,0 +1,360 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>如何减少主 BTB 查找功耗？——Arm US11029959B2 专利解析 | Chilh</title><meta name="author" content="chilh"><meta name="copyright" content="chilh"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Arm US11029959B2 专利解析，通过提前传递 way prediction 与 coverage flag，选择性激活或完全抑制主 BTB 查找。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何减少主 BTB 查找功耗？——Arm US11029959B2 专利解析">
+<meta property="og:url" content="https://chilh.top/post/%E4%B8%BBBTB%E6%9F%A5%E6%89%BE%E5%8A%9F%E8%80%97-Arm-US11029959B2.html">
+<meta property="og:site_name" content="Chilh">
+<meta property="og:description" content="Arm US11029959B2 专利解析，通过提前传递 way prediction 与 coverage flag，选择性激活或完全抑制主 BTB 查找。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/%E5%A4%B4%E5%83%8F.png">
+<meta property="article:published_time" content="2025-12-19T12:30:00.000Z">
+<meta property="article:modified_time" content="2026-07-23T04:37:39.142Z">
+<meta property="article:author" content="chilh">
+<meta property="article:tag" content="处理器">
+<meta property="article:tag" content="ic">
+<meta property="article:tag" content="branch-prediction">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/%E5%A4%B4%E5%83%8F.png"><link rel="shortcut icon" href="/"><link rel="canonical" href="https://chilh.top/post/%E4%B8%BBBTB%E6%9F%A5%E6%89%BE%E5%8A%9F%E8%80%97-Arm-US11029959B2.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"prismjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: chilh","link":"链接: ","source":"来源: Chilh","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '如何减少主 BTB 查找功耗？——Arm US11029959B2 专利解析',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-07-23 12:37:39'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script><script>LA.init({id:"Jz34H84gllFAWP2o",ck:"Jz34H84gllFAWP2o"})</script><script src="https://sdk.51.la/perf/js-sdk-perf.min.js" crossorigin="anonymous"></script><script> new LingQue.Monitor().init({id:"Jz365mPYN13QqIwT"});</script><script src="https://npm.elemecdn.com/echarts@4.9.0/dist/echarts.min.js"></script><script src="https://npm.elemecdn.com/echarts@4.9.0/map/js/china.js"></script><script src="https://npm.elemecdn.com/echarts@4.9.0/dist/echarts.min.js"></script><meta name="generator" content="Hexo 6.1.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+
+if (false) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/%E5%A4%B4%E5%83%8F.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">77</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 图库</span></a></div><div class="menus_item"><a class="site-page" href="/charts/"><i class="fa-fw fa fa-heartbeat"></i><span> 统计</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Chilh"><span class="site-name">Chilh</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 图库</span></a></div><div class="menus_item"><a class="site-page" href="/charts/"><i class="fa-fw fa fa-heartbeat"></i><span> 统计</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">如何减少主 BTB 查找功耗？——Arm US11029959B2 专利解析</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-12-19T12:30:00.000Z" title="发表于 2025-12-19 20:30:00">2025-12-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-07-23T04:37:39.142Z" title="更新于 2026-07-23 12:37:39">2026-07-23</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A4%84%E7%90%86%E5%99%A8%E6%8A%80%E6%9C%AF/">处理器技术</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>9分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="如何减少主 BTB 查找功耗？——Arm US11029959B2 专利解析"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="如何减少主-BTB-查找功耗？"><a href="#如何减少主-BTB-查找功耗？" class="headerlink" title="如何减少主 BTB 查找功耗？"></a>如何减少主 BTB 查找功耗？</h1><blockquote>
+<p><strong>Arm 分支预测专利解析 · 02</strong><br>上一篇：<a href="/post/arm%E4%B8%93%E5%88%A9%E5%88%86%E6%9E%90%E7%B3%BB%E5%88%97-%E4%B8%80.html">分支跳过技术：Branch Sequence Detector</a> · 下一篇：<a href="/post/BTB%E5%8D%95%E5%91%BD%E4%B8%AD%E6%8D%B7%E5%BE%84%E8%B7%AF%E5%BE%84-Arm-US10817298B2.html">BTB 多分支命中要排序，单分支命中能否走捷径？</a></p>
+</blockquote>
+<blockquote>
+<p>专利：<strong>US 11,029,959 B2，Branch Target Look Up Suppression</strong><br>申请人及受让人：Arm Limited<br>发明人：Yasuo Ishii、Muhammad Umar Farooq、Chris Abernathy<br>申请号：16/120,674；申请日：2018-09-04；授权日：2021-06-08<br>原文：<a target="_blank" rel="noopener" href="https://patents.google.com/patent/US11029959B2/en">Google Patents（授权专利全文）</a> · <a target="_blank" rel="noopener" href="https://patents.justia.com/patent/20200073666">Justia（申请公开全文）</a> · <a href="/post/%E4%B8%BBBTB%E6%9F%A5%E6%89%BE%E5%8A%9F%E8%80%97-Arm-US11029959B2/US11029959B2.pdf">授权 PDF</a></p>
+</blockquote>
+<p>这项专利用一组随路径提前传递的 <code>way prediction + flag</code> 控制主 BTB。way prediction 关闭确定没有目标的 way；flag 确认 micro-BTB 已覆盖当前 block 的全部目标后，关闭整个主 BTB lookup。</p>
+<p>控制信息针对“下一次将要预测的 block”生成。前端处理 block A 时已经知道预测后继 block B，于是把 B 的主 BTB way 分布和覆盖状态挂在 A→B 这条路径上。再次从 A 走向 B，主 BTB 在访问开始前就能决定开哪些 way。</p>
+<span id="more"></span>
+
+<h2 id="1-主-BTB-的功耗花在哪里"><a href="#1-主-BTB-的功耗花在哪里" class="headerlink" title="1. 主 BTB 的功耗花在哪里"></a>1. 主 BTB 的功耗花在哪里</h2><p>专利中的 main branch target storage 是 set-associative BTB。同一 instruction block 内可以有多条分支，每个 way 保存其中一条分支的 target prediction。以 Fig. 2B 的四路结构为例，一个 set 可同时返回 BNE 和 BGT 两个目标，方向预测逻辑再选择程序序最早的 predicted-taken 分支。</p>
+<p>micro-BTB 是容量更小的 secondary branch target storage，用于缓存主 BTB 的常用目标。前端通常会并行查询 main BTB、micro-BTB 和方向预测器；micro-BTB 命中可以更快给出目标，但 main BTB 的多路阵列仍可能在同一拍被激活。</p>
+<p>本专利把主 BTB 的访问分成三档：</p>
+<table>
+<thead>
+<tr>
+<th>提前得到的信息</th>
+<th>主 BTB 动作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>没有可靠信息</td>
+<td>激活全部 way</td>
+</tr>
+<tr>
+<td>way prediction 有效</td>
+<td>只激活标为 1 的 way</td>
+</tr>
+<tr>
+<td>coverage flag 有效，或 way prediction 全 0</td>
+<td>完全抑制 lookup</td>
+</tr>
+</tbody></table>
+<h2 id="2-Fig-2B：四路只开-way-1-和-way-3"><a href="#2-Fig-2B：四路只开-way-1-和-way-3" class="headerlink" title="2. Fig. 2B：四路只开 way 1 和 way 3"></a>2. Fig. 2B：四路只开 way 1 和 way 3</h2><p>Fig. 2A 的 block 204 从地址 <code>[X]</code> 开始，其中有 BNE、BGT 两条分支。到达 <code>[X]</code> 有两条路径：block 200 中的 BL 跳到 <code>[X]</code>，或者 block 202 从 <code>[X-32B]</code> 顺序进入 <code>[X]</code>。</p>
+<p>Fig. 2B 给出的主 BTB set 为：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">way 0：空
+way 1：BNE target
+way 2：空
+way 3：BGT target
+
+way prediction = 0 1 0 1
+flag = 0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>前端只激活 way 1、way 3。way 0、way 2 的数据阵列和比较路径可以保持关闭。flag 为 0，因为 micro-BTB 的一个 entry 在该实施例中只能缓存这个 block 的一个 target，无法同时覆盖 BNE 和 BGT。</p>
+<p>Fig. 2C 只在 way 1 保存 BNE：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">way prediction = 0 1 0 0
+flag = 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>BNE target 已经缓存进 micro-BTB，因而这个 block 在 main BTB 中的全部 target 都能从 secondary storage 得到。下次处理 <code>[X]</code> 时，main BTB 无需读取 way 1，也无需做 tag 比较；lookup control 直接关闭整个主 BTB。</p>
+<p><img src="/post/%E4%B8%BBBTB%E6%9F%A5%E6%89%BE%E5%8A%9F%E8%80%97-Arm-US11029959B2/images/figures/fig2-two-way-vs-single-way.png" alt="Fig. 2A-2C：两目标时选择 way 1/3；单目标已被 micro-BTB 覆盖时设置 FLAG=1"></p>
+<p>flag 表示“覆盖关系”，不等同于“这个 block 只有一条分支”。授权 Claim 1 的表述是：main BTB 为预测后继 block 保存的全部 branch target predictions 都已经存在于 secondary branch target storage。Fig. 2C 使用“至多一个 main-BTB target，且这个 target 已被 micro-BTB 缓存”作为具体置位条件；该条件写进 Claim 4。</p>
+<h2 id="3-way-prediction-和-flag-存在哪里"><a href="#3-way-prediction-和-flag-存在哪里" class="headerlink" title="3. way prediction 和 flag 存在哪里"></a>3. way prediction 和 flag 存在哪里</h2><p>程序流进入下一 block 有两种来源，专利为两种来源各放一份元数据。</p>
+<h3 id="predicted-taken-路径：放进-micro-BTB-entry"><a href="#predicted-taken-路径：放进-micro-BTB-entry" class="headerlink" title="predicted taken 路径：放进 micro-BTB entry"></a>predicted taken 路径：放进 micro-BTB entry</h3><p>当前 block 中有一条 predicted-taken branch，下一 block 从该分支的 target 开始。micro-BTB entry 保存：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th align="right">Fig. 3A 编号</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>source</td>
+<td align="right">304</td>
+<td>源分支地址</td>
+</tr>
+<tr>
+<td>target</td>
+<td align="right">306</td>
+<td>预测目标地址</td>
+</tr>
+<tr>
+<td>way prediction</td>
+<td align="right">308</td>
+<td>target block 在 main BTB 中需要激活的 way</td>
+</tr>
+<tr>
+<td>flag</td>
+<td align="right">310</td>
+<td>target block 的全部 main-BTB target 是否已被 micro-BTB 覆盖</td>
+</tr>
+</tbody></table>
+<h3 id="sequential-路径：放进-way-predictor-entry"><a href="#sequential-路径：放进-way-predictor-entry" class="headerlink" title="sequential 路径：放进 way predictor entry"></a>sequential 路径：放进 way predictor entry</h3><p>当前 block 没有 predicted-taken branch，下一 block 为当前地址加 32B。way predictor entry 保存 <code>source + way prediction + flag</code>，无需再保存 target，因为顺序后继地址可以直接计算。</p>
+<p><img src="/post/%E4%B8%BBBTB%E6%9F%A5%E6%89%BE%E5%8A%9F%E8%80%97-Arm-US11029959B2/images/figures/fig3-micro-btb-way-predictor-fields.png" alt="Fig. 3A-3C：micro-BTB 和 way predictor 都携带下一 block 的 way prediction 与 flag"></p>
+<p>方向预测完成前，前端还不知道这次会走 taken target 还是 sequential successor。Fig. 4 让 micro-BTB 406 和 way predictor 408 在 P1 并行读取，branch prediction logic 420 得出方向后，pipeline control 412 选择对应路径的元数据。</p>
+<h2 id="4-Fig-4：lookup-control-在主-BTB-访问前拿到控制位"><a href="#4-Fig-4：lookup-control-在主-BTB-访问前拿到控制位" class="headerlink" title="4. Fig. 4：lookup control 在主 BTB 访问前拿到控制位"></a>4. Fig. 4：lookup control 在主 BTB 访问前拿到控制位</h2><p>Fig. 4 的预测流水线包含 P0-P4：</p>
+<ul>
+<li>P0：instruction fetch control 402 选择当前 block 地址；</li>
+<li>P1：main BTB 404、micro-BTB 406、way predictor 408 发起访问；</li>
+<li>P2：主 BTB 输出进入寄存级 418，micro-BTB/way predictor 信息进入 414/416；</li>
+<li>P3-P4：保存连续两个 prediction unit 的结果，供 way prediction and flag generation 424 建立前后继关系。</li>
+</ul>
+<p>main BTB 前端有 lookup control 410。它可以激活全部 way、激活 way prediction 指定的子集，或完全阻止 lookup。micro-BTB 命中且分支方向预测为 taken 时，target 可直接送往 instruction fetch control；main BTB 的结果则作为容量更大的后备来源。</p>
+<p><img src="/post/%E4%B8%BBBTB%E6%9F%A5%E6%89%BE%E5%8A%9F%E8%80%97-Arm-US11029959B2/images/figures/fig4-prediction-pipeline.png" alt="Fig. 4：main BTB、micro-BTB、way predictor 与 lookup control 的流水线连接"></p>
+<p>这里的节能动作发生在阵列激活前。等主 BTB 读完再丢弃多余 way，只能减少后续选择逻辑，无法省下阵列读取本身的动态功耗。</p>
+<h2 id="5-元数据如何从相邻-prediction-unit-学出来"><a href="#5-元数据如何从相邻-prediction-unit-学出来" class="headerlink" title="5. 元数据如何从相邻 prediction unit 学出来"></a>5. 元数据如何从相邻 prediction unit 学出来</h2><p>Fig. 5 把 block A 和其预测后继 B 同时放在流水线中观察。当 A 在 P4、B 在 P3 时，电路已经知道两件事：</p>
+<ol>
+<li>A 是被 predicted-taken branch 截断，还是顺序结束；</li>
+<li>B 的 main BTB 哪些 way 实际含有 target，以及这些 target 是否都在 micro-BTB 中。</li>
+</ol>
+<p>虚线框 500 就是这对相邻 prediction unit。</p>
+<p><img src="/post/%E4%B8%BBBTB%E6%9F%A5%E6%89%BE%E5%8A%9F%E8%80%97-Arm-US11029959B2/images/figures/fig5-block-pair-pipeline.png" alt="Fig. 5：P4 中的 A 与 P3 中的 B 形成前后继对，用于生成 B 的 way prediction/flag"></p>
+<p>更新位置由 A 的退出方式决定：</p>
+<ul>
+<li>A 由 predicted-taken branch 结束：把 B 的 way prediction/flag 写进该源分支的 micro-BTB entry；</li>
+<li>A 顺序结束：把 B 的 way prediction/flag 写进以 A 为 source 的 way predictor entry。</li>
+</ul>
+<p>之后再次遇到 A，micro-BTB 与 way predictor 两套候选都会提前读出。方向预测决定走 taken 或 not-taken 路径，并选择 B 对应的主 BTB 激活配置。</p>
+<h2 id="6-Fig-6-的实际控制流程"><a href="#6-Fig-6-的实际控制流程" class="headerlink" title="6. Fig. 6 的实际控制流程"></a>6. Fig. 6 的实际控制流程</h2><p>Fig. 6 从 step 600 开始：</p>
+<ol>
+<li>取下一 instruction block；</li>
+<li>step 602 查看当前控制信息是否要求激活至少一个 BTB way；</li>
+<li>有 way 要开：step 604 并行查询 main BTB、micro-BTB、way predictor；</li>
+<li>没有 way 要开，或 flag 已置位：step 606 只查 micro-BTB 与 way predictor；</li>
+<li>当前 block 没有 predicted-taken branch：用 way predictor 命中的元数据配置顺序后继；</li>
+<li>当前 block 有 predicted-taken branch：用 micro-BTB 命中的元数据配置 target block；</li>
+<li>对应的小表未命中：恢复 full BTB way activation。</li>
+</ol>
+<p><img src="/post/%E4%B8%BBBTB%E6%9F%A5%E6%89%BE%E5%8A%9F%E8%80%97-Arm-US11029959B2/images/figures/fig6-lookup-control-flow.png" alt="Fig. 6：flag/way prediction 命中时选择性激活，元数据缺失时恢复全路访问"></p>
+<p>回退到全路访问保证了正确性。way predictor 或 micro-BTB 未命中只会损失节能机会，不会让前端永久看不到 main BTB 中的目标。</p>
+<h2 id="7-flag-会失效，专利给了明确的维护规则"><a href="#7-flag-会失效，专利给了明确的维护规则" class="headerlink" title="7. flag 会失效，专利给了明确的维护规则"></a>7. flag 会失效，专利给了明确的维护规则</h2><p>coverage flag 依赖 main BTB 与 micro-BTB 的内容关系。任一侧发生替换或新增，旧 flag 都可能失真。说明书和从属 Claim 给出几种处理方式：</p>
+<ul>
+<li>micro-BTB 中 target block 的 entry 被替换时，使对应 way prediction 失效；</li>
+<li>简化实现可以清除 micro-BTB 中全部 flag；</li>
+<li>同一次替换也可以清除 way predictor 中全部 flag；</li>
+<li>main BTB 为某 block 新增 branch target prediction 时，使对应 source 的 way prediction 失效。</li>
+</ul>
+<p>全局清 flag 比精确反向追踪更简单，代价是短时间回到全路访问。新路径重新经过流水线后会再次生成元数据。</p>
+<h2 id="8-授权-Claim-1-20-覆盖什么"><a href="#8-授权-Claim-1-20-覆盖什么" class="headerlink" title="8. 授权 Claim 1-20 覆盖什么"></a>8. 授权 Claim 1-20 覆盖什么</h2><h3 id="Claim-1：主组合"><a href="#Claim-1：主组合" class="headerlink" title="Claim 1：主组合"></a>Claim 1：主组合</h3><p>Claim 1 要求：instruction fetch circuitry、main branch target storage、缓存其目标的 secondary branch target storage、两级并行 lookup 能力、set-associative main storage、标识下一 block 有效 way 的 way prediction，以及表明 secondary 已覆盖全部 main target 的 flag。flag 处于 active value 时抑制下一 block 的 main lookup。</p>
+<h3 id="Claim-2-10：两种后继路径与三档访问"><a href="#Claim-2-10：两种后继路径与三档访问" class="headerlink" title="Claim 2-10：两种后继路径与三档访问"></a>Claim 2-10：两种后继路径与三档访问</h3><ul>
+<li>Claim 2：顺序后继的元数据放在 way prediction storage；</li>
+<li>Claim 3：taken target 后继的元数据与 secondary storage 中的 branch target prediction 关联；</li>
+<li>Claim 4：至多一条 main target 且已缓存时置 flag；</li>
+<li>Claim 5-6：secondary 容量小于 main，且一个 secondary entry 可只保存一个 block target；</li>
+<li>Claim 7：way prediction 全部为 0 时抑制 main lookup；</li>
+<li>Claim 8：way prediction 为 0 的 way 不激活；</li>
+<li>Claim 9：最早 predicted-taken branch 决定 target 后继，无 taken 则选择 sequential successor；</li>
+<li>Claim 10：micro-BTB 与 way predictor 并行读取，方向预测结果选择其一。</li>
+</ul>
+<h3 id="Claim-11-18：流水线学习与一致性"><a href="#Claim-11-18：流水线学习与一致性" class="headerlink" title="Claim 11-18：流水线学习与一致性"></a>Claim 11-18：流水线学习与一致性</h3><ul>
+<li>Claim 11-14：用相邻流水级中的前后 block 生成、写入 way prediction/flag；</li>
+<li>Claim 15-17：secondary entry 替换时使相关预测或全部 flag 失效；</li>
+<li>Claim 18：main storage 新增 target 时使对应 way prediction 失效。</li>
+</ul>
+<p>Claim 19 把 Claim 1 的组合写成方法，Claim 20 使用 means-plus-function 形式再次覆盖装置。</p>
+<p>四个 way、32B block、P0-P4 都来自附图实施例。独立 Claim 1 没有限定 way 数量、block 字节数或具体流水级数。</p>
+<h2 id="9-这项设计的边界"><a href="#9-这项设计的边界" class="headerlink" title="9. 这项设计的边界"></a>9. 这项设计的边界</h2><h3 id="flag-需要全覆盖证明"><a href="#flag-需要全覆盖证明" class="headerlink" title="flag 需要全覆盖证明"></a>flag 需要全覆盖证明</h3><p>micro-BTB 命中一条 target 并不足以关闭 main BTB。flag 只有在该 block 的全部 main-BTB target 都能由 secondary storage 提供时才有效。Fig. 2B 中 BNE 已缓存也不能关主 BTB，因为 BGT 仍只存在于 main BTB。</p>
+<h3 id="way-prediction-节省的是动态激活"><a href="#way-prediction-节省的是动态激活" class="headerlink" title="way prediction 节省的是动态激活"></a>way prediction 节省的是动态激活</h3><p>main BTB 的总容量没有减少，未命中和内容变化时仍会全路访问。收益取决于有效元数据的命中率、每个 block 的 target 分布以及多路阵列读取的功耗占比。</p>
+<h3 id="元数据描述的是路径相关的后继"><a href="#元数据描述的是路径相关的后继" class="headerlink" title="元数据描述的是路径相关的后继"></a>元数据描述的是路径相关的后继</h3><p>同一个 block 可能由 jump target 到达，也可能由 sequential flow 到达。专利分别使用 micro-BTB 和 way predictor 保存两条来源的后继信息，避免用单一表项混合不同路径。</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>这项专利给主 BTB 加了两级关断条件。<code>0 1 0 1 + FLAG=0</code> 只读 way 1、way 3；<code>0 1 0 0 + FLAG=1</code> 直接跳过 main BTB。前端利用相邻 prediction unit 学出下一 block 的 way 分布，再按 taken target 或 sequential successor 把元数据写进 micro-BTB 或 way predictor。</p>
+<p>主 BTB 继续提供容量，micro-BTB 继续提供低延迟目标，way prediction 和 coverage flag 负责减少不必要的阵列激活。</p>
+<hr>
+<p><strong>原文与文件</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://patents.google.com/patent/US11029959B2/en">US 11,029,959 B2 授权专利全文（Google Patents）</a></li>
+<li><a target="_blank" rel="noopener" href="https://patents.justia.com/patent/20200073666">US 2020/0073666 A1 申请公开全文（Justia）</a></li>
+<li><a href="/post/%E4%B8%BBBTB%E6%9F%A5%E6%89%BE%E5%8A%9F%E8%80%97-Arm-US11029959B2/US11029959B2.pdf">US 11,029,959 B2 授权 PDF（本地文件）</a></li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://chilh.top">chilh</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://chilh.top/post/%E4%B8%BBBTB%E6%9F%A5%E6%89%BE%E5%8A%9F%E8%80%97-Arm-US11029959B2.html">https://chilh.top/post/%E4%B8%BBBTB%E6%9F%A5%E6%89%BE%E5%8A%9F%E8%80%97-Arm-US11029959B2.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://chilh.top" target="_blank">Chilh</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%A4%84%E7%90%86%E5%99%A8/">处理器</a><a class="post-meta__tags" href="/tags/ic/">ic</a><a class="post-meta__tags" href="/tags/branch-prediction/">branch-prediction</a></div><div class="post_share"><div class="social-share" data-image="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/%E5%A4%B4%E5%83%8F.png" data-sites="twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/arm%E4%B8%93%E5%88%A9%E5%88%86%E6%9E%90%E7%B3%BB%E5%88%97-%E4%B8%80.html" title="分支跳过技术：Branch Sequence Detector——Arm 专利解析"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/20251216234835959.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">分支跳过技术：Branch Sequence Detector——Arm 专利解析</div></div></a></div><div class="next-post pull-right"><a href="/post/BTB%E5%8D%95%E5%91%BD%E4%B8%AD%E6%8D%B7%E5%BE%84%E8%B7%AF%E5%BE%84-Arm-US10817298B2.html" title="BTB 多分支命中要排序，单分支命中能否走捷径？——Arm US10817298B2 专利解析"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">BTB 多分支命中要排序，单分支命中能否走捷径？——Arm US10817298B2 专利解析</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/post/BTB%E5%8D%95%E5%91%BD%E4%B8%AD%E6%8D%B7%E5%BE%84%E8%B7%AF%E5%BE%84-Arm-US10817298B2.html" title="BTB 多分支命中要排序，单分支命中能否走捷径？——Arm US10817298B2 专利解析"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-12-22</div><div class="title">BTB 多分支命中要排序，单分支命中能否走捷径？——Arm US10817298B2 专利解析</div></div></a></div><div><a href="/post/ITTAGE%E5%88%86%E7%BA%A7%E9%98%BB%E6%96%ADBHI-Arm-US11861368B2.html" title="不清空 GHR，如何按历史长度分级阻断 BHI？——Arm US11861368B2 专利解析"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-12-28</div><div class="title">不清空 GHR，如何按历史长度分级阻断 BHI？——Arm US11861368B2 专利解析</div></div></a></div><div><a href="/post/arm%E4%B8%93%E5%88%A9%E5%88%86%E6%9E%90%E7%B3%BB%E5%88%97-%E4%B8%80.html" title="分支跳过技术：Branch Sequence Detector——Arm 专利解析"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/20251216234835959.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-12-16</div><div class="title">分支跳过技术：Branch Sequence Detector——Arm 专利解析</div></div></a></div><div><a href="/post/Taken%E8%AF%AF%E9%A2%84%E6%B5%8B%E5%BF%AB%E9%80%9F%E6%81%A2%E5%A4%8D-Arm-US11086629B2.html" title="预测 taken 的分支实际 not-taken 时，前端如何快速恢复？——Arm US11086629B2 专利解析"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-12-25</div><div class="title">预测 taken 的分支实际 not-taken 时，前端如何快速恢复？——Arm US11086629B2 专利解析</div></div></a></div><div><a href="/post/%E7%BC%93%E5%AD%98%E6%9B%BF%E6%8D%A2%E7%AE%97%E6%B3%950.html" title="Cache Replacement Policies - introduction"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202505112103982.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-01-20</div><div class="title">Cache Replacement Policies - introduction</div></div></a></div><div><a href="/post/RAS-return-stack-four-pointer-animation.html" title="RAS Return Stack 四指针工作模式动画"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-07-07</div><div class="title">RAS Return Stack 四指针工作模式动画</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/%E5%A4%B4%E5%83%8F.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">chilh</div><div class="author-info__description">记录学习笔记，学艺不精，大家多多评论指教</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">77</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:1547405085@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%87%8F%E5%B0%91%E4%B8%BB-BTB-%E6%9F%A5%E6%89%BE%E5%8A%9F%E8%80%97%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">如何减少主 BTB 查找功耗？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%B8%BB-BTB-%E7%9A%84%E5%8A%9F%E8%80%97%E8%8A%B1%E5%9C%A8%E5%93%AA%E9%87%8C"><span class="toc-number">1.1.</span> <span class="toc-text">1. 主 BTB 的功耗花在哪里</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Fig-2B%EF%BC%9A%E5%9B%9B%E8%B7%AF%E5%8F%AA%E5%BC%80-way-1-%E5%92%8C-way-3"><span class="toc-number">1.2.</span> <span class="toc-text">2. Fig. 2B：四路只开 way 1 和 way 3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-way-prediction-%E5%92%8C-flag-%E5%AD%98%E5%9C%A8%E5%93%AA%E9%87%8C"><span class="toc-number">1.3.</span> <span class="toc-text">3. way prediction 和 flag 存在哪里</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#predicted-taken-%E8%B7%AF%E5%BE%84%EF%BC%9A%E6%94%BE%E8%BF%9B-micro-BTB-entry"><span class="toc-number">1.3.1.</span> <span class="toc-text">predicted taken 路径：放进 micro-BTB entry</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sequential-%E8%B7%AF%E5%BE%84%EF%BC%9A%E6%94%BE%E8%BF%9B-way-predictor-entry"><span class="toc-number">1.3.2.</span> <span class="toc-text">sequential 路径：放进 way predictor entry</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Fig-4%EF%BC%9Alookup-control-%E5%9C%A8%E4%B8%BB-BTB-%E8%AE%BF%E9%97%AE%E5%89%8D%E6%8B%BF%E5%88%B0%E6%8E%A7%E5%88%B6%E4%BD%8D"><span class="toc-number">1.4.</span> <span class="toc-text">4. Fig. 4：lookup control 在主 BTB 访问前拿到控制位</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%85%83%E6%95%B0%E6%8D%AE%E5%A6%82%E4%BD%95%E4%BB%8E%E7%9B%B8%E9%82%BB-prediction-unit-%E5%AD%A6%E5%87%BA%E6%9D%A5"><span class="toc-number">1.5.</span> <span class="toc-text">5. 元数据如何从相邻 prediction unit 学出来</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-Fig-6-%E7%9A%84%E5%AE%9E%E9%99%85%E6%8E%A7%E5%88%B6%E6%B5%81%E7%A8%8B"><span class="toc-number">1.6.</span> <span class="toc-text">6. Fig. 6 的实际控制流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-flag-%E4%BC%9A%E5%A4%B1%E6%95%88%EF%BC%8C%E4%B8%93%E5%88%A9%E7%BB%99%E4%BA%86%E6%98%8E%E7%A1%AE%E7%9A%84%E7%BB%B4%E6%8A%A4%E8%A7%84%E5%88%99"><span class="toc-number">1.7.</span> <span class="toc-text">7. flag 会失效，专利给了明确的维护规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E6%8E%88%E6%9D%83-Claim-1-20-%E8%A6%86%E7%9B%96%E4%BB%80%E4%B9%88"><span class="toc-number">1.8.</span> <span class="toc-text">8. 授权 Claim 1-20 覆盖什么</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Claim-1%EF%BC%9A%E4%B8%BB%E7%BB%84%E5%90%88"><span class="toc-number">1.8.1.</span> <span class="toc-text">Claim 1：主组合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Claim-2-10%EF%BC%9A%E4%B8%A4%E7%A7%8D%E5%90%8E%E7%BB%A7%E8%B7%AF%E5%BE%84%E4%B8%8E%E4%B8%89%E6%A1%A3%E8%AE%BF%E9%97%AE"><span class="toc-number">1.8.2.</span> <span class="toc-text">Claim 2-10：两种后继路径与三档访问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Claim-11-18%EF%BC%9A%E6%B5%81%E6%B0%B4%E7%BA%BF%E5%AD%A6%E4%B9%A0%E4%B8%8E%E4%B8%80%E8%87%B4%E6%80%A7"><span class="toc-number">1.8.3.</span> <span class="toc-text">Claim 11-18：流水线学习与一致性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-%E8%BF%99%E9%A1%B9%E8%AE%BE%E8%AE%A1%E7%9A%84%E8%BE%B9%E7%95%8C"><span class="toc-number">1.9.</span> <span class="toc-text">9. 这项设计的边界</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#flag-%E9%9C%80%E8%A6%81%E5%85%A8%E8%A6%86%E7%9B%96%E8%AF%81%E6%98%8E"><span class="toc-number">1.9.1.</span> <span class="toc-text">flag 需要全覆盖证明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#way-prediction-%E8%8A%82%E7%9C%81%E7%9A%84%E6%98%AF%E5%8A%A8%E6%80%81%E6%BF%80%E6%B4%BB"><span class="toc-number">1.9.2.</span> <span class="toc-text">way prediction 节省的是动态激活</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%83%E6%95%B0%E6%8D%AE%E6%8F%8F%E8%BF%B0%E7%9A%84%E6%98%AF%E8%B7%AF%E5%BE%84%E7%9B%B8%E5%85%B3%E7%9A%84%E5%90%8E%E7%BB%A7"><span class="toc-number">1.9.3.</span> <span class="toc-text">元数据描述的是路径相关的后继</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E8%AF%AD"><span class="toc-number">1.10.</span> <span class="toc-text">结语</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/RAS-return-stack-four-pointer-animation.html" title="RAS Return Stack 四指针工作模式动画">RAS Return Stack 四指针工作模式动画</a><time datetime="2026-07-07T15:50:00.000Z" title="发表于 2026-07-07 23:50:00">2026-07-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/2027%E6%80%BB%E7%BB%93.html" title="2027总结">2027总结</a><time datetime="2026-02-16T13:59:09.000Z" title="发表于 2026-02-16 21:59:09">2026-02-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/ITTAGE%E5%88%86%E7%BA%A7%E9%98%BB%E6%96%ADBHI-Arm-US11861368B2.html" title="不清空 GHR，如何按历史长度分级阻断 BHI？——Arm US11861368B2 专利解析">不清空 GHR，如何按历史长度分级阻断 BHI？——Arm US11861368B2 专利解析</a><time datetime="2025-12-28T12:30:00.000Z" title="发表于 2025-12-28 20:30:00">2025-12-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/Taken%E8%AF%AF%E9%A2%84%E6%B5%8B%E5%BF%AB%E9%80%9F%E6%81%A2%E5%A4%8D-Arm-US11086629B2.html" title="预测 taken 的分支实际 not-taken 时，前端如何快速恢复？——Arm US11086629B2 专利解析">预测 taken 的分支实际 not-taken 时，前端如何快速恢复？——Arm US11086629B2 专利解析</a><time datetime="2025-12-25T12:30:00.000Z" title="发表于 2025-12-25 20:30:00">2025-12-25</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/BTB%E5%8D%95%E5%91%BD%E4%B8%AD%E6%8D%B7%E5%BE%84%E8%B7%AF%E5%BE%84-Arm-US10817298B2.html" title="BTB 多分支命中要排序，单分支命中能否走捷径？——Arm US10817298B2 专利解析">BTB 多分支命中要排序，单分支命中能否走捷径？——Arm US10817298B2 专利解析</a><time datetime="2025-12-22T12:30:00.000Z" title="发表于 2025-12-22 20:30:00">2025-12-22</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2026 By chilh</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadWaline () {
+  function insertCSS () {
+    const link = document.createElement("link")
+    link.rel = "stylesheet"
+    link.href = "https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.css"
+    document.head.appendChild(link)
+  }
+
+  function initWaline () {
+    const waline = Waline.init(Object.assign({
+      el: '#waline-wrap',
+      serverURL: 'https://chilh-comment-nwkfkyqk8-zhanzghouhe.vercel.app',
+      pageview: false,
+      dark: 'html[data-theme="dark"]',
+      path: window.location.pathname,
+      comment: false,
+    }, null))
+  }
+
+  if (typeof Waline === 'function') initWaline()
+  else {
+    insertCSS()
+    getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.js').then(initWaline)
+  }
+}
+
+if ('Waline' === 'Waline' || !true) {
+  if (true) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+  else setTimeout(loadWaline, 0)
+} else {
+  function loadOtherComment () {
+    loadWaline()
+  }
+}</script></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":85,"height":400,"hOffset":-18,"vOffset":25},"mobile":{"show":true},"react":{"opacity":0.7},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html>

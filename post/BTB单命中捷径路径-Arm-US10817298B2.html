@@ -1,0 +1,827 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>BTB 多分支命中要排序，单分支命中能否走捷径？——Arm US10817298B2 专利解析 | Chilh</title><meta name="author" content="chilh"><meta name="copyright" content="chilh"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Arm US10817298B2 专利解析，讨论多分支 BTB 如何在单命中场景绕过目标排序路径，提前完成前端重定向。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BTB 多分支命中要排序，单分支命中能否走捷径？——Arm US10817298B2 专利解析">
+<meta property="og:url" content="https://chilh.top/post/BTB%E5%8D%95%E5%91%BD%E4%B8%AD%E6%8D%B7%E5%BE%84%E8%B7%AF%E5%BE%84-Arm-US10817298B2.html">
+<meta property="og:site_name" content="Chilh">
+<meta property="og:description" content="Arm US10817298B2 专利解析，讨论多分支 BTB 如何在单命中场景绕过目标排序路径，提前完成前端重定向。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/%E5%A4%B4%E5%83%8F.png">
+<meta property="article:published_time" content="2025-12-22T12:30:00.000Z">
+<meta property="article:modified_time" content="2026-07-23T04:36:47.630Z">
+<meta property="article:author" content="chilh">
+<meta property="article:tag" content="处理器">
+<meta property="article:tag" content="ic">
+<meta property="article:tag" content="branch-prediction">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/%E5%A4%B4%E5%83%8F.png"><link rel="shortcut icon" href="/"><link rel="canonical" href="https://chilh.top/post/BTB%E5%8D%95%E5%91%BD%E4%B8%AD%E6%8D%B7%E5%BE%84%E8%B7%AF%E5%BE%84-Arm-US10817298B2.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"prismjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: chilh","link":"链接: ","source":"来源: Chilh","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'BTB 多分支命中要排序，单分支命中能否走捷径？——Arm US10817298B2 专利解析',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-07-23 12:36:47'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script><script>LA.init({id:"Jz34H84gllFAWP2o",ck:"Jz34H84gllFAWP2o"})</script><script src="https://sdk.51.la/perf/js-sdk-perf.min.js" crossorigin="anonymous"></script><script> new LingQue.Monitor().init({id:"Jz365mPYN13QqIwT"});</script><script src="https://npm.elemecdn.com/echarts@4.9.0/dist/echarts.min.js"></script><script src="https://npm.elemecdn.com/echarts@4.9.0/map/js/china.js"></script><script src="https://npm.elemecdn.com/echarts@4.9.0/dist/echarts.min.js"></script><meta name="generator" content="Hexo 6.1.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+
+if (false) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/%E5%A4%B4%E5%83%8F.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">77</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 图库</span></a></div><div class="menus_item"><a class="site-page" href="/charts/"><i class="fa-fw fa fa-heartbeat"></i><span> 统计</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Chilh"><span class="site-name">Chilh</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 图库</span></a></div><div class="menus_item"><a class="site-page" href="/charts/"><i class="fa-fw fa fa-heartbeat"></i><span> 统计</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">BTB 多分支命中要排序，单分支命中能否走捷径？——Arm US10817298B2 专利解析</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-12-22T12:30:00.000Z" title="发表于 2025-12-22 20:30:00">2025-12-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-07-23T04:36:47.630Z" title="更新于 2026-07-23 12:36:47">2026-07-23</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A4%84%E7%90%86%E5%99%A8%E6%8A%80%E6%9C%AF/">处理器技术</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">5.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>21分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="BTB 多分支命中要排序，单分支命中能否走捷径？——Arm US10817298B2 专利解析"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="BTB-多分支命中时要排序，但单分支命中能不能走捷径，提前重定向？"><a href="#BTB-多分支命中时要排序，但单分支命中能不能走捷径，提前重定向？" class="headerlink" title="BTB 多分支命中时要排序，但单分支命中能不能走捷径，提前重定向？"></a>BTB 多分支命中时要排序，但单分支命中能不能走捷径，提前重定向？</h1><blockquote>
+<p><strong>Arm 分支预测专利解析 · 03</strong><br>上一篇：<a href="/post/%E4%B8%BBBTB%E6%9F%A5%E6%89%BE%E5%8A%9F%E8%80%97-Arm-US11029959B2.html">如何减少主 BTB 查找功耗？</a> · 下一篇：<a href="/post/Taken%E8%AF%AF%E9%A2%84%E6%B5%8B%E5%BF%AB%E9%80%9F%E6%81%A2%E5%A4%8D-Arm-US11086629B2.html">预测 taken 的分支实际 not-taken 时，前端如何快速恢复？</a></p>
+</blockquote>
+<p>支持一个 fetch block 内多个分支目标的 BTB，可以提高预测覆盖率，却也把 offset 比较和目标排序带进了前端关键路径。这篇文章解析 Arm US10817298B2：如何为常见的单命中场景增加一条 shortcut path，在保留多分支预测能力的同时，更早给出 next fetch address。</p>
+<span id="more"></span>
+
+<h2 id="1-背景：BTB-target-prediction-的延迟会直接影响前端取指"><a href="#1-背景：BTB-target-prediction-的延迟会直接影响前端取指" class="headerlink" title="1. 背景：BTB target prediction 的延迟会直接影响前端取指"></a>1. 背景：BTB target prediction 的延迟会直接影响前端取指</h2><p>在高性能处理器前端中，Branch Target Buffer，也就是 BTB，用于预测分支指令 taken 时的目标地址。当前端要取一个 fetch block 时，BTB 会根据 fetch block address 查找这个 block 中是否存在分支指令，以及这些分支的 predicted target address。</p>
+<p>如果 BTB 命中，并且对应分支被 branch direction predictor 预测为 taken，那么该 target address 就会反馈给 fetch stage，用作下一次取指地址。</p>
+<p>这篇 Arm US10817298B2 专利的标题是：</p>
+<blockquote>
+<p><strong>Shortcut path for a branch target buffer</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>分支目标缓冲器的捷径路径</strong></p>
+</blockquote>
+<p>专利摘要中说明：BTB 可以为同一个 fetch block 返回多个 predicted target addresses；当 lookup 发现该 fetch block 中有多条 branch 的预测目标时，需要 branch target selecting circuitry 从多个 target 中选择 next fetch block address。但当满足预定条件时，可以通过一个绕过 selecting circuitry 的 shortcut path，直接把 lookup 得到的 predicted target address 作为 next fetch block address。</p>
+<hr>
+<h2 id="2-先说结论"><a href="#2-先说结论" class="headerlink" title="2. 先说结论"></a>2. 先说结论</h2><p>这篇专利的核心可以概括为：</p>
+<blockquote>
+<p>一个支持同一 fetch block 多个 branch target 命中的 BTB，正常情况下需要排序逻辑选择 program order 中最早的 predicted taken branch；但如果本次 BTB lookup 只有一个 branch target 命中，那么根本不需要排序，可以通过简单 AND-OR shortcut path 直接输出 target address，从而比完整 branch target selecting circuitry 至少早一拍得到 next fetch block address。</p>
+</blockquote>
+<p>更短地说：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">多命中：走完整排序逻辑；
+单命中：走 shortcut path，绕过排序逻辑。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>它优化的是：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">BTB target selection latency<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>不是 BTB 容量，也不是 predictor accuracy 本身。</p>
+<hr>
+<h2 id="3-为什么-BTB-需要支持一个-fetch-block-多个-branch？"><a href="#3-为什么-BTB-需要支持一个-fetch-block-多个-branch？" class="headerlink" title="3. 为什么 BTB 需要支持一个 fetch block 多个 branch？"></a>3. 为什么 BTB 需要支持一个 fetch block 多个 branch？</h2><p>如果一个 fetch block 包含多条指令，就可能包含多条 branch。</p>
+<p>例如 32B fetch block：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">Fetch block X:
+  instr0
+  B1
+  instr2
+  B2
+  instr4
+  B3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>如果 BTB 每个 fetch block 只允许存一条 branch target，那么它最多只能预测 B1、B2、B3 中的一条。<br>如果第一条 branch 实际 not-taken，后面的 branch 可能 taken，但 BTB 已经没有后续 target 信息，前端就会 miss 掉这次控制流变化。</p>
+<p>所以更强的设计是：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">同一个 fetch block 可以在 BTB 中命中多个 branch target。<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>例如：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">BTB lookup for block X:
+  way0 -&gt; B1 target
+  way1 -&gt; B2 target
+  way2 -&gt; empty
+  way3 -&gt; B3 target<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这样 branch coverage 更好。</p>
+<p>专利中也说明，若限制 BTB 每个 fetch block 只返回一个 target，会无法预测同一 block 内第二条或更多 branch；因此使用可以为同一 fetch block 存储多个 target addresses 的 BTB 能提高 branch prediction coverage。</p>
+<hr>
+<h2 id="4-多个-target-命中时，为什么需要排序？"><a href="#4-多个-target-命中时，为什么需要排序？" class="headerlink" title="4. 多个 target 命中时，为什么需要排序？"></a>4. 多个 target 命中时，为什么需要排序？</h2><p>如果同一个 fetch block 中有多个 branch target 命中，并且不止一条被方向预测器预测为 taken，那么前端必须选择 <strong>program order 中最早的 predicted taken branch</strong>。</p>
+<p>例如：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">Fetch block X:
+  0x100: instr
+  0x104: B1 predicted not-taken
+  0x108: instr
+  0x10C: B2 predicted taken
+  0x110: B3 predicted taken<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>正确的 next fetch block address 应该是：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">target(B2)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>而不是 <code>target(B3)</code>。</p>
+<p>因为如果 B2 taken，B3 根本不会执行到。<br>所以 branch target selecting circuitry 要做：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">1. 找到哪些 BTB ways hit；
+2. 结合 BDP 判断哪些 branch predicted taken；
+3. 比较这些 branch 在 fetch block 内的 offset；
+4. 选择 offset 最小的 predicted taken branch；
+5. 输出它的 target address。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这就是完整 target selection / sorting path。</p>
+<p>问题是，这条路径会比较慢。</p>
+<hr>
+<h2 id="5-完整排序路径为什么慢？"><a href="#5-完整排序路径为什么慢？" class="headerlink" title="5. 完整排序路径为什么慢？"></a>5. 完整排序路径为什么慢？</h2><p>完整路径有依赖链：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">BTB SRAM read
+  ↓
+tag compare / hit detect
+  ↓
+BDP taken qualification
+  ↓
+offset compare / earliest taken selection
+  ↓
+target mux
+  ↓
+next fetch block address<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>特别是：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">必须先知道哪些 way hit、哪些 branch predicted taken，
+才能比较 offset 并选择 earliest predicted taken branch。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>专利中也指出，branch target selecting circuitry 可能需要考虑 branch addresses 和 taken/not-taken 预测，因此会增加 branch prediction latency。</p>
+<p>对高频 superscalar core 来说，这个路径可能无法在一拍内完成。</p>
+<hr>
+<h2 id="6-关键观察：多数-fetch-block-其实只有-0-或-1-条-branch"><a href="#6-关键观察：多数-fetch-block-其实只有-0-或-1-条-branch" class="headerlink" title="6. 关键观察：多数 fetch block 其实只有 0 或 1 条 branch"></a>6. 关键观察：多数 fetch block 其实只有 0 或 1 条 branch</h2><p>专利的关键观察是：</p>
+<blockquote>
+<p>虽然一个 fetch block 中存在多条 branch 的情况并不少，因此支持 multiple hits 是值得的；但实际中大多数 fetch block 只有 0 条或 1 条 branch。对于只有 1 条 branch 的情况，根本不需要完整排序逻辑。</p>
+</blockquote>
+<p>专利中还给了一个典型统计口径：以 32B fetch block 为例，某些 benchmark 中大约 30% fetch block 没有 branch，40% 有 1 条 branch，约 30% 有多条 branch。</p>
+<p>所以：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">多分支 block:
+    需要 sorting，不能省
+
+单分支 block:
+    target 唯一，不需要 sorting
+
+无分支 block:
+    顺序取指，不需要 target selection<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这就是 shortcut path 的动机。</p>
+<hr>
+<h2 id="7-整体结构：BTB-sorting-path-shortcut-path"><a href="#7-整体结构：BTB-sorting-path-shortcut-path" class="headerlink" title="7. 整体结构：BTB + sorting path + shortcut path"></a>7. 整体结构：BTB + sorting path + shortcut path</h2><p><img src="/post/BTB%E5%8D%95%E5%91%BD%E4%B8%AD%E6%8D%B7%E5%BE%84%E8%B7%AF%E5%BE%84-Arm-US10817298B2/images/US10817298B2/page-01.png" alt="Figure 1: 专利 Figure 1，处理器流水线整体结构。建议标出 Branch Predictor、Fetch、Decode、Rename、Issue、Execute、Writeback"></p>
+<p><img src="/post/BTB%E5%8D%95%E5%91%BD%E4%B8%AD%E6%8D%B7%E5%BE%84%E8%B7%AF%E5%BE%84-Arm-US10817298B2/images/US10817298B2/page-02.png" alt="Figure 2: 专利 Figure 2，Branch Predictor 内部结构。建议标出 BDP、BTB、Fetch Queue、next fetch block address feedback"></p>
+<p>简化后的结构如下：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">Fetch block address
+        ↓
++-------------------+
+| BTB lookup        |
+| multi-way SRAM    |
++-------------------+
+   |        |
+   |        +------------------------+
+   |                                 |
+   ↓                                 ↓
+Shortcut path                 Full sorting path
+AND-OR tree                   hit + taken + offset compare
+   |                                 |
+   +-------------+-------------------+
+                 ↓
+          Next fetch block address<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>其中：</p>
+<table>
+<thead>
+<tr>
+<th>路径</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Full sorting path</td>
+<td>多个 BTB ways 命中时，选最早 predicted taken branch</td>
+</tr>
+<tr>
+<td>Shortcut path</td>
+<td>只有一个 BTB way 命中时，直接输出唯一 target</td>
+</tr>
+<tr>
+<td>Control circuitry</td>
+<td>判断是否可以用 shortcut path</td>
+</tr>
+<tr>
+<td>Onehot detection</td>
+<td>检测本次 BTB lookup 是否只有一个 hit</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="8-BTB-的-set-associative-结构"><a href="#8-BTB-的-set-associative-结构" class="headerlink" title="8. BTB 的 set-associative 结构"></a>8. BTB 的 set-associative 结构</h2><p><img src="/post/BTB%E5%8D%95%E5%91%BD%E4%B8%AD%E6%8D%B7%E5%BE%84%E8%B7%AF%E5%BE%84-Arm-US10817298B2/images/US10817298B2/page-03.png" alt="Figure 3: 专利 Figure 3，N-way set-associative BTB。建议画出 index、tag、offset、target、branch type、return flag"></p>
+<p>专利中的 BTB 是 N-way set-associative 结构。<br>一个 fetch block address 会索引到一个 set，该 set 中有 N 个 way。</p>
+<p>例如 N=4：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">BTB set indexed by fetch block X:
+  way0: tag + offset + target + type
+  way1: tag + offset + target + type
+  way2: tag + offset + target + type
+  way3: tag + offset + target + type<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>每个 entry 可以包含：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">tag
+offset
+predicted target address
+branch type indicator
+function return indicator<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>offset 表示该 branch 在 fetch block 内的位置。<br>例如：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">fetch block X starts at 0x100
+
+branch at 0x108:
+    offset = 0x08
+
+branch at 0x11C:
+    offset = 0x1C<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>排序逻辑就是根据 offset 来判断哪条 branch 更早。</p>
+<hr>
+<h2 id="9-Hit-条件：tag-match-offset-有效性"><a href="#9-Hit-条件：tag-match-offset-有效性" class="headerlink" title="9. Hit 条件：tag match + offset 有效性"></a>9. Hit 条件：tag match + offset 有效性</h2><p>专利中 BTB lookup 不只是 tag match，还考虑 offset。</p>
+<p>因为有时 fetch block address 可能不是自然对齐边界，或者 fetch 从 block 中间开始。<br>此时如果 BTB entry 对应的 branch 在 fetch start 之前，就不应该被认为是当前 fetch block 的有效命中。</p>
+<p>所以 hit 条件可以理解为：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">hit =
+    entry.tag == fetch_block.tag
+    AND
+    entry.offset &gt;= fetch_start_offset<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这样可以避免命中当前 fetch 起点之前的 branch。</p>
+<p>专利中明确描述，BTB entry 的 offset value 会与 fetch block address 的 offset portion 比较，若 entry offset 大于等于 fetch offset，且 tag 匹配，则该 way hit。</p>
+<hr>
+<h2 id="10-Full-sorting-path：多命中时选择-earliest-predicted-taken-branch"><a href="#10-Full-sorting-path：多命中时选择-earliest-predicted-taken-branch" class="headerlink" title="10. Full sorting path：多命中时选择 earliest predicted taken branch"></a>10. Full sorting path：多命中时选择 earliest predicted taken branch</h2><p><img src="/post/BTB%E5%8D%95%E5%91%BD%E4%B8%AD%E6%8D%B7%E5%BE%84%E8%B7%AF%E5%BE%84-Arm-US10817298B2/images/US10817298B2/page-07.png" alt="Figure 4: 专利 Figure 7，简化版 branch target selecting circuitry。建议画出 hit signals、BDP taken signals、offset compare、target mux"></p>
+<p>完整路径大致如下：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">for each way:
+    way_hit = tag_match &amp;&amp; offset_valid
+    way_taken = BDP predicts taken for this branch
+    way_valid_taken = way_hit &amp;&amp; way_taken
+
+select way with smallest offset among way_valid_taken
+
+next_fetch_block_address = selected_way.target<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>伪代码：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">candidates = []
+
+for way in BTB_ways:
+    if hit[way] &amp;&amp; taken[way]:
+        candidates.append((offset[way], target[way]))
+
+if candidates not empty:
+    select candidate with smallest offset
+    next_pc = candidate.target
+else:
+    next_pc = sequential_pc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这个路径准确，但慢。</p>
+<hr>
+<h2 id="11-Shortcut-path：单命中时不排序"><a href="#11-Shortcut-path：单命中时不排序" class="headerlink" title="11. Shortcut path：单命中时不排序"></a>11. Shortcut path：单命中时不排序</h2><p><img src="/post/BTB%E5%8D%95%E5%91%BD%E4%B8%AD%E6%8D%B7%E5%BE%84%E8%B7%AF%E5%BE%84-Arm-US10817298B2/images/US10817298B2/page-05.png" alt="Figure 5: 专利 Figure 4，BTB shortcut path。建议画出 BTB ways、shortcut path bypassing branch target selecting circuitry、control mux"></p>
+<p>如果本次 BTB lookup 只有一个 way hit：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">hit vector = 0100<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>那就没有必要比较 offset。<br>因为只有一个候选 target，直接输出即可。</p>
+<p>于是 shortcut path 可以做：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">target_shortcut =
+    OR over all ways:
+        hit[way] &amp; taken[way] &amp; target[way]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>当只有一个 hit 且它 predicted taken 时，AND-OR tree 输出就是正确 target。</p>
+<p>如果多个 hit：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">hit vector = 1010<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>AND-OR tree 可能把多个 target OR 在一起，结果是 garbage / corrupt value。<br>所以 shortcut path 只能在 onehot 条件下使用。</p>
+<p>专利中明确描述，shortcut path 可由多个 AND gates 和 OR gates 组成，每个 target address 与对应 taken signal 相与，再把各路结果 OR 起来；当只有一个 hit 时结果正确，多 hit 时结果可能损坏，因此必须由 control circuitry 控制是否采用。</p>
+<hr>
+<h2 id="12-Onehot-detection：判断-shortcut-是否安全"><a href="#12-Onehot-detection：判断-shortcut-是否安全" class="headerlink" title="12. Onehot detection：判断 shortcut 是否安全"></a>12. Onehot detection：判断 shortcut 是否安全</h2><p>核心判断是：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">BTB 是否只命中一个 predicted target？<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>也就是 onehot：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">hit vector = 0001 =&gt; onehot
+hit vector = 0010 =&gt; onehot
+hit vector = 0100 =&gt; onehot
+hit vector = 1000 =&gt; onehot
+
+hit vector = 0000 =&gt; no hit
+hit vector = 1010 =&gt; multiple hits<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>当 onehot 成立：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">shortcut output == full sorting output<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>当 onehot 不成立且有多个 hits：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">shortcut output may be corrupt
+must use full sorting path<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>专利主权利要求中也明确写到，control circuitry 包含 onehot detection circuitry；当检测到 BTB lookup 对 fetch block 只存储一个 branch instruction 的 predicted target address 时，选择 shortcut path 输出的 predicted target；当检测到有多个 predicted target addresses 时，选择 branch target sorting circuitry 的输出。</p>
+<hr>
+<h2 id="13-图-5-方法流程"><a href="#13-图-5-方法流程" class="headerlink" title="13. 图 5 方法流程"></a>13. 图 5 方法流程</h2><p><img src="/post/BTB%E5%8D%95%E5%91%BD%E4%B8%AD%E6%8D%B7%E5%BE%84%E8%B7%AF%E5%BE%84-Arm-US10817298B2/images/US10817298B2/page-05.png" alt="Figure 6: 专利 Figure 5，shortcut path 流程图。建议画出 BTB lookup、判断 predetermined condition、shortcut path、sorting path"></p>
+<p>流程可以整理为：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">Step 1:
+    lookup BTB using fetch block address
+
+Step 2:
+    BTB returns hit vector + target addresses + offsets + branch info
+
+Step 3:
+    determine whether shortcut condition passes
+
+Step 4a:
+    if shortcut condition passes:
+        next fetch block address = shortcut output
+        next BTB lookup can start earlier
+
+Step 4b:
+    if shortcut condition fails:
+        next fetch block address = full sorting output
+        next BTB lookup starts later<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>伪代码：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">lookup_result = BTB.lookup(fetch_block_pc)
+
+if onehot(lookup_result.hit_vector) and no_exception:
+    next_pc = shortcut_path(lookup_result)
+else:
+    next_pc = full_sorting_path(lookup_result)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>专利中说明，当 predetermined condition 满足时，下一次 BTB lookup 可以比条件失败时至少早一个 processing cycle。</p>
+<hr>
+<h2 id="14-为什么能省一拍？"><a href="#14-为什么能省一拍？" class="headerlink" title="14. 为什么能省一拍？"></a>14. 为什么能省一拍？</h2><p>专利中给了一个很直观的 pipeline 例子。</p>
+<p>如果 branch prediction 需要 2 cycles 才给出 target：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">Stage 0: X     X+1   X+2   Y
+Stage 1:       X     X+1
+Stage 2:             X<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>当 X 在 Stage 2 才发现 next fetch 应该是 Y 时，前面已经发起了 X+1、X+2 的 fetch，这些都要丢弃。</p>
+<p>如果 shortcut path 能让 prediction 只用 1 cycle：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">Stage 0: X     X+1   Y
+Stage 1:       X<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>那么只浪费 X+1，Y 能更早开始。<br>这既提升性能，也减少 I-cache 和 branch predictor 上的无效访问功耗。</p>
+<p>专利中也明确指出，若 branch prediction result 可从 2 cycles 缩短到 1 cycle，就能减少 unnecessary fetches，使正确 fetch 更早发起，从而节省功耗并改善性能。</p>
+<hr>
+<h2 id="15-Shortcut-path-的硬件形态：AND-OR-tree"><a href="#15-Shortcut-path-的硬件形态：AND-OR-tree" class="headerlink" title="15. Shortcut path 的硬件形态：AND-OR tree"></a>15. Shortcut path 的硬件形态：AND-OR tree</h2><p><img src="/post/BTB%E5%8D%95%E5%91%BD%E4%B8%AD%E6%8D%B7%E5%BE%84%E8%B7%AF%E5%BE%84-Arm-US10817298B2/images/US10817298B2/page-06.png" alt="Figure 7: 专利 Figure 6，完整 branch predictor datapath。建议标出 speculative MUX、AND-OR tree、onehot check、normal target MUX、sort logic"></p>
+<p>shortcut path 可以非常简单：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">for each way:
+    gated_target[way] = target[way] &amp; hit[way] &amp; taken[way]
+
+shortcut_target = OR(gated_target[0],
+                     gated_target[1],
+                     ...
+                     gated_target[N-1])<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>如果只有一个 way 有效：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">shortcut_target = that way's target<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>如果多个 way 有效：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">shortcut_target = targetA OR targetB
+=&gt; meaningless<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>但没关系，因为 onehot check 会阻止它被采用。</p>
+<p>这是一种典型的 speculative fast path：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">先用简单逻辑快速生成一个可能正确的 target；
+再用 onehot/control 判断是否允许提交这个 target。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<hr>
+<h2 id="16-如果-onehot-check-还没算完，可以先投机使用-shortcut-吗？"><a href="#16-如果-onehot-check-还没算完，可以先投机使用-shortcut-吗？" class="headerlink" title="16. 如果 onehot check 还没算完，可以先投机使用 shortcut 吗？"></a>16. 如果 onehot check 还没算完，可以先投机使用 shortcut 吗？</h2><p>可以。</p>
+<p>专利提到：如果判断 predetermined condition 需要一些时间，BTB 可以先使用 shortcut path 提供的 next fetch block address，投机发起下一次 lookup。之后如果发现 condition 其实失败，就丢弃投机 lookup 结果，并用 full sorting path 的 target 重新发起 lookup。</p>
+<p>也就是：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">cycle N:
+    shortcut target produced early
+    speculatively start BTB lookup for shortcut target
+
+cycle N+1:
+    condition resolved
+
+    if condition passed:
+        keep speculative lookup
+
+    if condition failed:
+        discard speculative lookup
+        restart using sorted target<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这类似很多前端 predictor 的 design philosophy：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">fast path 先跑；
+slow path 校验；
+错了再 squash/restart。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<hr>
+<h2 id="17-为什么不是所有-onehot-都一定用-shortcut？"><a href="#17-为什么不是所有-onehot-都一定用-shortcut？" class="headerlink" title="17. 为什么不是所有 onehot 都一定用 shortcut？"></a>17. 为什么不是所有 onehot 都一定用 shortcut？</h2><p>专利虽然以 onehot 为核心条件，但还提出了一些 exception。<br>也就是说：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">onehot 是必要条件；
+但不一定是充分条件。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>有些情况即使 BTB 只有一个 hit，也可能不适合 shortcut。</p>
+<hr>
+<h2 id="18-Exception-1：branch-prediction-resource-快满了"><a href="#18-Exception-1：branch-prediction-resource-快满了" class="headerlink" title="18. Exception 1：branch prediction resource 快满了"></a>18. Exception 1：branch prediction resource 快满了</h2><p>如果某些前端资源快满，例如：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">fetch queue 快满
+return address predictor 快满<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>此时过快地产生下一个 fetch address 反而可能造成 pipeline stall。<br>不走 shortcut、慢一拍输出 target，反而给资源释放留出时间。</p>
+<p>专利中提到，如果至少一个 branch prediction resource 的 spare capacity 小于等于阈值，则 predetermined condition 可以判定失败，不使用 shortcut path。资源例子包括 fetch queue 和 return address predictor。</p>
+<p>可以理解为：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">前端资源紧张时，不急着加速；
+避免把队列推爆。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<hr>
+<h2 id="19-Exception-2：特殊-branch-type，例如-polymorphic-branch"><a href="#19-Exception-2：特殊-branch-type，例如-polymorphic-branch" class="headerlink" title="19. Exception 2：特殊 branch type，例如 polymorphic branch"></a>19. Exception 2：特殊 branch type，例如 polymorphic branch</h2><p>有些 branch target 不稳定，例如 indirect / polymorphic branch。</p>
+<p>专利中特别提到 polymorphic branch：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">同一条 branch 历史上出现过多个不同 target address<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>这种 branch 可能需要更复杂的 predictor 来判断 target，而不是简单使用 BTB 中当前 target。</p>
+<p>如果 shortcut path 太早输出 target，可能会绕过更准确但更慢的预测逻辑。</p>
+<p>所以：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">if branch type == polymorphic:
+    disable shortcut
+    use full selecting/sorting path or other predictor<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>专利中说明，BTB 可以为每个 predicted target address 存 type identifying information，用于指示该 branch 是否属于不应使用 shortcut 的类型；polymorphic branch 是一个例子。</p>
+<hr>
+<h2 id="20-Exception-3：其他-branch-target-predictor-也命中"><a href="#20-Exception-3：其他-branch-target-predictor-也命中" class="headerlink" title="20. Exception 3：其他 branch target predictor 也命中"></a>20. Exception 3：其他 branch target predictor 也命中</h2><p>现代前端可能不只有 main BTB，还可能有：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">micro predictor / L0 BTB
+return address predictor
+main BTB
+polymorphic target predictor<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>如果同一个 fetch address 在多个 predictor 中都命中，就需要更高层的 sorting / selection logic 决定谁优先。</p>
+<p>例如：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">main BTB hit
+micro predictor hit
+return address predictor hit<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>这种情况下，即使 main BTB 自己只有 onehot，直接走 main BTB shortcut 也未必正确，因为可能应该采用 micro predictor 或 RAS 的结果。</p>
+<p>所以专利提出：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">如果至少一个 further branch target predictor 也提供了 predicted target address，
+则 shortcut condition 可以失败。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>进一步的 predictor 可以是 micro-predictor，它比 BTB 更快但覆盖更少。</p>
+<hr>
+<h2 id="21-图-8：和-micro-predictor-x2F-return-address-predictor-协同"><a href="#21-图-8：和-micro-predictor-x2F-return-address-predictor-协同" class="headerlink" title="21. 图 8：和 micro-predictor / return address predictor 协同"></a>21. 图 8：和 micro-predictor / return address predictor 协同</h2><p><img src="/post/BTB%E5%8D%95%E5%91%BD%E4%B8%AD%E6%8D%B7%E5%BE%84%E8%B7%AF%E5%BE%84-Arm-US10817298B2/images/US10817298B2/page-08.png" alt="Figure 8: 专利 Figure 8，多 predictor 结构。建议标出 Main Predictor、Micro Predictor、Return Address Predictor、Sorting Logic、Low Resource Signal"></p>
+<p>专利图 8 中描述了更完整的系统：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">Main branch predictor:
+    BTB + BDP + shortcut path
+
+Micro-predictor:
+    更小、更快，覆盖更少
+
+Return address predictor:
+    专门预测 function return target
+
+Sorting logic:
+    多个 predictor 同时命中时选择最终 next fetch block address<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>如果 micro-predictor 命中，可能已经通过更快的 shortcut path 给出 target。<br>如果 return address predictor 命中，并且 BTB entry 表明这是 return branch，则 sorting logic 可能优先使用 return predictor 的结果。</p>
+<p>这时 main BTB shortcut 就不一定有意义。</p>
+<p>所以 shortcut path 不是孤立机制，它必须和整个 predictor hierarchy 协同。</p>
+<hr>
+<h2 id="22-Shortcut-path-和前一篇-BTB-lookup-suppression-的区别"><a href="#22-Shortcut-path-和前一篇-BTB-lookup-suppression-的区别" class="headerlink" title="22. Shortcut path 和前一篇 BTB lookup suppression 的区别"></a>22. Shortcut path 和前一篇 BTB lookup suppression 的区别</h2><p>这篇专利和前面那篇 <strong>Branch target look up suppression</strong> 很像，但优化点不同。</p>
+<table>
+<thead>
+<tr>
+<th>专利</th>
+<th>核心目标</th>
+<th>关键机制</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Branch target look up suppression</td>
+<td>降低 main BTB 访问功耗</td>
+<td>micro BTB coverage flag 有效时 suppress main BTB lookup</td>
+</tr>
+<tr>
+<td>Shortcut path for BTB</td>
+<td>降低 BTB target selection latency</td>
+<td>onehot 命中时 bypass sorting path</td>
+</tr>
+</tbody></table>
+<p>前一篇是：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">这次 main BTB 要不要查？<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>这一篇是：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">main BTB 查出来后，要不要走完整排序？<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>所以它们发生在不同阶段：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">Lookup suppression:
+    BTB lookup 前/lookup 控制阶段
+
+Shortcut path:
+    BTB lookup 后/target selection 阶段<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>二者可以组合使用：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">如果 main BTB 根本不用查：
+    走 micro BTB
+
+如果 main BTB 查了且只有一个 hit：
+    走 shortcut path
+
+如果 main BTB 查了且多个 hit：
+    走 full sorting path<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<hr>
+<h2 id="23-这个方案的收益"><a href="#23-这个方案的收益" class="headerlink" title="23. 这个方案的收益"></a>23. 这个方案的收益</h2><h3 id="23-1-降低单命中-BTB-lookup-的-target-latency"><a href="#23-1-降低单命中-BTB-lookup-的-target-latency" class="headerlink" title="23.1 降低单命中 BTB lookup 的 target latency"></a>23.1 降低单命中 BTB lookup 的 target latency</h3><p>只有一个 branch target 命中时，可以绕过 offset compare / sorting logic，提前得到 next fetch block address。</p>
+<h3 id="23-2-减少无效顺序-fetch"><a href="#23-2-减少无效顺序-fetch" class="headerlink" title="23.2 减少无效顺序 fetch"></a>23.2 减少无效顺序 fetch</h3><p>target 越早反馈，X+1、X+2 等错误顺序 fetch 越少。</p>
+<h3 id="23-3-降低功耗"><a href="#23-3-降低功耗" class="headerlink" title="23.3 降低功耗"></a>23.3 降低功耗</h3><p>减少不必要的 I-cache lookup、fetch queue entry、branch predictor lookup。</p>
+<h3 id="23-4-保留多分支-fetch-block-的预测覆盖"><a href="#23-4-保留多分支-fetch-block-的预测覆盖" class="headerlink" title="23.4 保留多分支 fetch block 的预测覆盖"></a>23.4 保留多分支 fetch block 的预测覆盖</h3><p>多命中时仍然走完整 sorting path，保留同一 fetch block 多 branch target 的能力。</p>
+<h3 id="23-5-实现成本低"><a href="#23-5-实现成本低" class="headerlink" title="23.5 实现成本低"></a>23.5 实现成本低</h3><p>shortcut path 可以由简单 AND-OR gate tree 实现；onehot detection 也相对简单。</p>
+<hr>
+<h2 id="24-这个方案的代价"><a href="#24-这个方案的代价" class="headerlink" title="24. 这个方案的代价"></a>24. 这个方案的代价</h2><h3 id="24-1-需要额外-shortcut-datapath"><a href="#24-1-需要额外-shortcut-datapath" class="headerlink" title="24.1 需要额外 shortcut datapath"></a>24.1 需要额外 shortcut datapath</h3><p>虽然逻辑简单，但仍然增加一条并行路径。</p>
+<h3 id="24-2-onehot-x2F-exception-检查增加控制复杂度"><a href="#24-2-onehot-x2F-exception-检查增加控制复杂度" class="headerlink" title="24.2 onehot / exception 检查增加控制复杂度"></a>24.2 onehot / exception 检查增加控制复杂度</h3><p>不能只看 hit 数，还可能需要考虑资源压力、branch type、其他 predictor 命中等。</p>
+<h3 id="24-3-多命中时-shortcut-output-可能是错误值"><a href="#24-3-多命中时-shortcut-output-可能是错误值" class="headerlink" title="24.3 多命中时 shortcut output 可能是错误值"></a>24.3 多命中时 shortcut output 可能是错误值</h3><p>必须确保多命中时不采用 shortcut output，或能丢弃 speculative lookup 结果。</p>
+<h3 id="24-4-如果投机使用-shortcut，需要-restart-机制"><a href="#24-4-如果投机使用-shortcut，需要-restart-机制" class="headerlink" title="24.4 如果投机使用 shortcut，需要 restart 机制"></a>24.4 如果投机使用 shortcut，需要 restart 机制</h3><p>当 shortcut 被提前使用但之后发现 condition failed，需要 discard lookup result 并用 sorting target 重启。</p>
+<h3 id="24-5-对前端时序设计敏感"><a href="#24-5-对前端时序设计敏感" class="headerlink" title="24.5 对前端时序设计敏感"></a>24.5 对前端时序设计敏感</h3><p>shortcut path 目的是进关键路径，因此 AND-OR tree、onehot detection、taken qualification 都要非常短。</p>
+<hr>
+<h2 id="25-和普通-BTB-设计的区别"><a href="#25-和普通-BTB-设计的区别" class="headerlink" title="25. 和普通 BTB 设计的区别"></a>25. 和普通 BTB 设计的区别</h2><p>普通多路 BTB 设计：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">lookup all ways
+detect hits
+combine with taken predictions
+sort by offset
+select earliest predicted taken target
+feedback next PC<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>本专利增加：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">parallel shortcut path:
+    target = OR(hit &amp; taken &amp; target)
+
+onehot check:
+    if exactly one BTB hit:
+        use shortcut target early
+    else:
+        use full sorting target<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>也就是：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">不是取消完整排序逻辑；
+而是让 common case 绕过它。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<hr>
+<h2 id="26-权利要求核心翻译"><a href="#26-权利要求核心翻译" class="headerlink" title="26. 权利要求核心翻译"></a>26. 权利要求核心翻译</h2><h3 id="Claim-1：主权利要求"><a href="#Claim-1：主权利要求" class="headerlink" title="Claim 1：主权利要求"></a>Claim 1：主权利要求</h3><p>主权利要求保护的是一种 apparatus，包括：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">1. branch target buffer，包含多个 ways；
+2. BTB 根据 fetch block address 查找该 block 内一个或多个 branch target；
+3. branch target sorting circuitry；
+4. 当多个 ways 命中多个 predicted target addresses 时，
+   sorting circuitry 比较这些 branches 的 offsets，
+   找出 block 中最早 predicted taken branch；
+5. shortcut path 绕过 sorting circuitry，
+   直接转发某个 way 中的 predicted target address；
+6. control circuitry 包含 onehot detection circuitry；
+7. 如果 lookup 只发现一个 branch target，则选择 shortcut path；
+8. 如果 lookup 发现多个 branch target，则选择 sorting circuitry 输出。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这是整篇专利的核心保护范围。</p>
+<hr>
+<h3 id="Claim-2：N-way-set-associative-BTB"><a href="#Claim-2：N-way-set-associative-BTB" class="headerlink" title="Claim 2：N-way set-associative BTB"></a>Claim 2：N-way set-associative BTB</h3><p>Claim 2 保护的是：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">BTB 是 N-way set-associative，
+并根据 fetch block address 并行查 N 个 ways，
+最多识别 N 条 branch instructions 的 predicted target addresses。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<hr>
+<h3 id="Claim-4–6：低资源时禁用-shortcut"><a href="#Claim-4–6：低资源时禁用-shortcut" class="headerlink" title="Claim 4–6：低资源时禁用 shortcut"></a>Claim 4–6：低资源时禁用 shortcut</h3><p>这些权利要求保护：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">如果某个 branch prediction resource 的 spare capacity
+小于等于 threshold，则 shortcut condition failed。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>资源可以包括：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">fetch queue
+return address predictor<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<hr>
+<h3 id="Claim-7–9：特殊-branch-type-禁用-shortcut"><a href="#Claim-7–9：特殊-branch-type-禁用-shortcut" class="headerlink" title="Claim 7–9：特殊 branch type 禁用 shortcut"></a>Claim 7–9：特殊 branch type 禁用 shortcut</h3><p>这些权利要求保护：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">如果 BTB 命中的是 predetermined type branch，
+则 shortcut condition failed。
+
+BTB entry 可以存 type identifying information。
+该 predetermined type 可以是 polymorphic branch。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<hr>
+<h3 id="Claim-10–11：其他-target-predictor-命中时禁用-shortcut"><a href="#Claim-10–11：其他-target-predictor-命中时禁用-shortcut" class="headerlink" title="Claim 10–11：其他 target predictor 命中时禁用 shortcut"></a>Claim 10–11：其他 target predictor 命中时禁用 shortcut</h3><p>这些权利要求保护：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">如果至少一个 further branch target predictor
+也对同一 fetch block address 提供 predicted target address，
+则 shortcut condition failed。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>进一步 predictor 可以是 micro-predictor：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">更快，但覆盖更少。<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<hr>
+<h3 id="Claim-12–14：提前-speculative-lookup-和失败重启"><a href="#Claim-12–14：提前-speculative-lookup-和失败重启" class="headerlink" title="Claim 12–14：提前 speculative lookup 和失败重启"></a>Claim 12–14：提前 speculative lookup 和失败重启</h3><p>这些权利要求保护：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">1. shortcut condition 满足时，BTB 可以至少早一个 cycle 执行 next lookup；
+2. BTB 可以在 condition 尚未完全确定前，先用 shortcut target 做 speculative next lookup；
+3. 如果后来发现 condition failed，则丢弃该 speculative lookup，并用 sorting circuitry target 重启。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<hr>
+<h3 id="Claim-15：AND-OR-shortcut-path"><a href="#Claim-15：AND-OR-shortcut-path" class="headerlink" title="Claim 15：AND-OR shortcut path"></a>Claim 15：AND-OR shortcut path</h3><p>Claim 15 保护 shortcut path 的具体逻辑：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">1. 多个 AND gates：
+   each target address AND corresponding taken signal
+
+2. 一个或多个 OR gates：
+   combine all AND outputs
+
+3. OR output 作为 next fetch block address。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这是硬件实现层面的关键 claim。</p>
+<hr>
+<h2 id="27-这篇专利真正保护的技术点"><a href="#27-这篇专利真正保护的技术点" class="headerlink" title="27. 这篇专利真正保护的技术点"></a>27. 这篇专利真正保护的技术点</h2><p>这篇专利真正保护的不是普通 BTB，也不是普通多路 set-associative cache，而是：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">1. BTB 支持同一个 fetch block 多个 branch target 命中；
+2. 多命中时，通过 sorting circuitry 比较 offset，选择最早 predicted taken branch；
+3. 同时提供 shortcut path，绕过 sorting circuitry；
+4. onehot detection 检测本次 lookup 是否只有一个 branch target 命中；
+5. onehot 时使用 shortcut path 提前输出 next fetch block address；
+6. 多命中时使用完整 sorting path；
+7. shortcut path 可以由 AND-OR tree 实现；
+8. 可以在 condition 完全判定前先 speculative next lookup；
+9. condition failed 时丢弃 shortcut lookup 并重启；
+10. 低资源、特殊 branch type、其他 predictor 命中等情况可禁用 shortcut。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>核心思想是：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">保留多 branch BTB 的覆盖能力，
+但让单 branch common case 绕过昂贵排序逻辑。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<hr>
+<h2 id="28-从微架构角度看，它的本质是什么？"><a href="#28-从微架构角度看，它的本质是什么？" class="headerlink" title="28. 从微架构角度看，它的本质是什么？"></a>28. 从微架构角度看，它的本质是什么？</h2><p>我认为这篇专利的本质是：</p>
+<blockquote>
+<p>在 BTB 多 target 支持带来的复杂 target selection 路径旁边，增加一条针对 onehot common case 的快速旁路路径，使单命中 fetch block 不必为多命中 case 的排序代价买单。</p>
+</blockquote>
+<p>可以抽象成：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">BTB 多 way：
+    为 coverage 服务
+
+sorting circuitry：
+    为 multi-branch correctness 服务
+
+shortcut path：
+    为 single-branch latency 服务<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这是一种典型的 <strong>common-case fast path</strong>：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">少数复杂情况保留完整逻辑；
+多数简单情况走快速路径。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>它和处理器里很多 bypass / forwarding / early wakeup 思路类似，都是：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">不要让 common case 等 worst case 的完整处理链路。<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<hr>
+<h2 id="29-总结"><a href="#29-总结" class="headerlink" title="29. 总结"></a>29. 总结</h2><p>Arm US10817298B2 这篇专利解决的是一个很具体的前端时序问题：支持同一 fetch block 多个 branch target 命中的 BTB 可以提高预测覆盖率，但多个 target 命中时需要 branch target sorting circuitry 来比较 offset、结合 taken prediction，选择 program order 中最早的 predicted taken branch。这个排序路径比较慢，会增加 next fetch block address 的反馈延迟。</p>
+<p>专利的方案是在 BTB 后增加一个 shortcut path：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">当 BTB lookup 只有一个 predicted target address 命中时，
+绕过 branch target sorting circuitry，
+直接用简单 AND-OR tree 输出 target address。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>只有一个命中时，shortcut path 的结果和完整 sorting path 相同；多个命中时，shortcut path 结果可能错误，因此必须由 onehot detection 和 control circuitry 控制是否采用。</p>
+<p>这个机制的价值在于：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">既保留多分支 fetch block 的预测能力，
+又避免单分支 common case 承担完整排序延迟。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>从整个 Arm 分支预测专利系列看，这篇可以和 <strong>BTB lookup suppression</strong> 放在一起理解：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">BTB lookup suppression：
+    尽量不查大 BTB，省功耗。
+
+BTB shortcut path：
+    查了 BTB 后，尽量不走慢排序，省延迟。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>二者共同体现了一个方向：</p>
+<blockquote>
+<p><strong>现代前端分支预测器不仅要“预测得准”，还要在每个 cycle 内尽可能早、尽可能省地给出 next fetch address。</strong></p>
+</blockquote>
+<p><img src="/post/BTB%E5%8D%95%E5%91%BD%E4%B8%AD%E6%8D%B7%E5%BE%84%E8%B7%AF%E5%BE%84-Arm-US10817298B2/images/_summary/US10817298B2_summary.png" alt="Figure 9: 建议插入自绘总结图，展示 “BTB 多 way lookup → onehot 检测 → onehot 走 shortcut AND-OR path → multi-hit 走 offset sorting path → next fetch block address” 的完整流程"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://chilh.top">chilh</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://chilh.top/post/BTB%E5%8D%95%E5%91%BD%E4%B8%AD%E6%8D%B7%E5%BE%84%E8%B7%AF%E5%BE%84-Arm-US10817298B2.html">https://chilh.top/post/BTB%E5%8D%95%E5%91%BD%E4%B8%AD%E6%8D%B7%E5%BE%84%E8%B7%AF%E5%BE%84-Arm-US10817298B2.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://chilh.top" target="_blank">Chilh</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%A4%84%E7%90%86%E5%99%A8/">处理器</a><a class="post-meta__tags" href="/tags/ic/">ic</a><a class="post-meta__tags" href="/tags/branch-prediction/">branch-prediction</a></div><div class="post_share"><div class="social-share" data-image="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/%E5%A4%B4%E5%83%8F.png" data-sites="twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/%E4%B8%BBBTB%E6%9F%A5%E6%89%BE%E5%8A%9F%E8%80%97-Arm-US11029959B2.html" title="如何减少主 BTB 查找功耗？——Arm US11029959B2 专利解析"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">如何减少主 BTB 查找功耗？——Arm US11029959B2 专利解析</div></div></a></div><div class="next-post pull-right"><a href="/post/Taken%E8%AF%AF%E9%A2%84%E6%B5%8B%E5%BF%AB%E9%80%9F%E6%81%A2%E5%A4%8D-Arm-US11086629B2.html" title="预测 taken 的分支实际 not-taken 时，前端如何快速恢复？——Arm US11086629B2 专利解析"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">预测 taken 的分支实际 not-taken 时，前端如何快速恢复？——Arm US11086629B2 专利解析</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/post/ITTAGE%E5%88%86%E7%BA%A7%E9%98%BB%E6%96%ADBHI-Arm-US11861368B2.html" title="不清空 GHR，如何按历史长度分级阻断 BHI？——Arm US11861368B2 专利解析"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-12-28</div><div class="title">不清空 GHR，如何按历史长度分级阻断 BHI？——Arm US11861368B2 专利解析</div></div></a></div><div><a href="/post/arm%E4%B8%93%E5%88%A9%E5%88%86%E6%9E%90%E7%B3%BB%E5%88%97-%E4%B8%80.html" title="分支跳过技术：Branch Sequence Detector——Arm 专利解析"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/20251216234835959.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-12-16</div><div class="title">分支跳过技术：Branch Sequence Detector——Arm 专利解析</div></div></a></div><div><a href="/post/Taken%E8%AF%AF%E9%A2%84%E6%B5%8B%E5%BF%AB%E9%80%9F%E6%81%A2%E5%A4%8D-Arm-US11086629B2.html" title="预测 taken 的分支实际 not-taken 时，前端如何快速恢复？——Arm US11086629B2 专利解析"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-12-25</div><div class="title">预测 taken 的分支实际 not-taken 时，前端如何快速恢复？——Arm US11086629B2 专利解析</div></div></a></div><div><a href="/post/%E4%B8%BBBTB%E6%9F%A5%E6%89%BE%E5%8A%9F%E8%80%97-Arm-US11029959B2.html" title="如何减少主 BTB 查找功耗？——Arm US11029959B2 专利解析"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-12-19</div><div class="title">如何减少主 BTB 查找功耗？——Arm US11029959B2 专利解析</div></div></a></div><div><a href="/post/%E7%BC%93%E5%AD%98%E6%9B%BF%E6%8D%A2%E7%AE%97%E6%B3%950.html" title="Cache Replacement Policies - introduction"><img class="cover" src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/202505112103982.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-01-20</div><div class="title">Cache Replacement Policies - introduction</div></div></a></div><div><a href="/post/RAS-return-stack-four-pointer-animation.html" title="RAS Return Stack 四指针工作模式动画"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-07-07</div><div class="title">RAS Return Stack 四指针工作模式动画</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://chilh-1311344212.cos.ap-beijing.myqcloud.com/picture/%E5%A4%B4%E5%83%8F.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">chilh</div><div class="author-info__description">记录学习笔记，学艺不精，大家多多评论指教</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">77</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:1547405085@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#BTB-%E5%A4%9A%E5%88%86%E6%94%AF%E5%91%BD%E4%B8%AD%E6%97%B6%E8%A6%81%E6%8E%92%E5%BA%8F%EF%BC%8C%E4%BD%86%E5%8D%95%E5%88%86%E6%94%AF%E5%91%BD%E4%B8%AD%E8%83%BD%E4%B8%8D%E8%83%BD%E8%B5%B0%E6%8D%B7%E5%BE%84%EF%BC%8C%E6%8F%90%E5%89%8D%E9%87%8D%E5%AE%9A%E5%90%91%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">BTB 多分支命中时要排序，但单分支命中能不能走捷径，提前重定向？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E8%83%8C%E6%99%AF%EF%BC%9ABTB-target-prediction-%E7%9A%84%E5%BB%B6%E8%BF%9F%E4%BC%9A%E7%9B%B4%E6%8E%A5%E5%BD%B1%E5%93%8D%E5%89%8D%E7%AB%AF%E5%8F%96%E6%8C%87"><span class="toc-number">1.1.</span> <span class="toc-text">1. 背景：BTB target prediction 的延迟会直接影响前端取指</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%85%88%E8%AF%B4%E7%BB%93%E8%AE%BA"><span class="toc-number">1.2.</span> <span class="toc-text">2. 先说结论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%B8%BA%E4%BB%80%E4%B9%88-BTB-%E9%9C%80%E8%A6%81%E6%94%AF%E6%8C%81%E4%B8%80%E4%B8%AA-fetch-block-%E5%A4%9A%E4%B8%AA-branch%EF%BC%9F"><span class="toc-number">1.3.</span> <span class="toc-text">3. 为什么 BTB 需要支持一个 fetch block 多个 branch？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%A4%9A%E4%B8%AA-target-%E5%91%BD%E4%B8%AD%E6%97%B6%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E6%8E%92%E5%BA%8F%EF%BC%9F"><span class="toc-number">1.4.</span> <span class="toc-text">4. 多个 target 命中时，为什么需要排序？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%AE%8C%E6%95%B4%E6%8E%92%E5%BA%8F%E8%B7%AF%E5%BE%84%E4%B8%BA%E4%BB%80%E4%B9%88%E6%85%A2%EF%BC%9F"><span class="toc-number">1.5.</span> <span class="toc-text">5. 完整排序路径为什么慢？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E5%85%B3%E9%94%AE%E8%A7%82%E5%AF%9F%EF%BC%9A%E5%A4%9A%E6%95%B0-fetch-block-%E5%85%B6%E5%AE%9E%E5%8F%AA%E6%9C%89-0-%E6%88%96-1-%E6%9D%A1-branch"><span class="toc-number">1.6.</span> <span class="toc-text">6. 关键观察：多数 fetch block 其实只有 0 或 1 条 branch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E6%95%B4%E4%BD%93%E7%BB%93%E6%9E%84%EF%BC%9ABTB-sorting-path-shortcut-path"><span class="toc-number">1.7.</span> <span class="toc-text">7. 整体结构：BTB + sorting path + shortcut path</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-BTB-%E7%9A%84-set-associative-%E7%BB%93%E6%9E%84"><span class="toc-number">1.8.</span> <span class="toc-text">8. BTB 的 set-associative 结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-Hit-%E6%9D%A1%E4%BB%B6%EF%BC%9Atag-match-offset-%E6%9C%89%E6%95%88%E6%80%A7"><span class="toc-number">1.9.</span> <span class="toc-text">9. Hit 条件：tag match + offset 有效性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-Full-sorting-path%EF%BC%9A%E5%A4%9A%E5%91%BD%E4%B8%AD%E6%97%B6%E9%80%89%E6%8B%A9-earliest-predicted-taken-branch"><span class="toc-number">1.10.</span> <span class="toc-text">10. Full sorting path：多命中时选择 earliest predicted taken branch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-Shortcut-path%EF%BC%9A%E5%8D%95%E5%91%BD%E4%B8%AD%E6%97%B6%E4%B8%8D%E6%8E%92%E5%BA%8F"><span class="toc-number">1.11.</span> <span class="toc-text">11. Shortcut path：单命中时不排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-Onehot-detection%EF%BC%9A%E5%88%A4%E6%96%AD-shortcut-%E6%98%AF%E5%90%A6%E5%AE%89%E5%85%A8"><span class="toc-number">1.12.</span> <span class="toc-text">12. Onehot detection：判断 shortcut 是否安全</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-%E5%9B%BE-5-%E6%96%B9%E6%B3%95%E6%B5%81%E7%A8%8B"><span class="toc-number">1.13.</span> <span class="toc-text">13. 图 5 方法流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%83%BD%E7%9C%81%E4%B8%80%E6%8B%8D%EF%BC%9F"><span class="toc-number">1.14.</span> <span class="toc-text">14. 为什么能省一拍？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15-Shortcut-path-%E7%9A%84%E7%A1%AC%E4%BB%B6%E5%BD%A2%E6%80%81%EF%BC%9AAND-OR-tree"><span class="toc-number">1.15.</span> <span class="toc-text">15. Shortcut path 的硬件形态：AND-OR tree</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#16-%E5%A6%82%E6%9E%9C-onehot-check-%E8%BF%98%E6%B2%A1%E7%AE%97%E5%AE%8C%EF%BC%8C%E5%8F%AF%E4%BB%A5%E5%85%88%E6%8A%95%E6%9C%BA%E4%BD%BF%E7%94%A8-shortcut-%E5%90%97%EF%BC%9F"><span class="toc-number">1.16.</span> <span class="toc-text">16. 如果 onehot check 还没算完，可以先投机使用 shortcut 吗？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#17-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E6%98%AF%E6%89%80%E6%9C%89-onehot-%E9%83%BD%E4%B8%80%E5%AE%9A%E7%94%A8-shortcut%EF%BC%9F"><span class="toc-number">1.17.</span> <span class="toc-text">17. 为什么不是所有 onehot 都一定用 shortcut？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#18-Exception-1%EF%BC%9Abranch-prediction-resource-%E5%BF%AB%E6%BB%A1%E4%BA%86"><span class="toc-number">1.18.</span> <span class="toc-text">18. Exception 1：branch prediction resource 快满了</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#19-Exception-2%EF%BC%9A%E7%89%B9%E6%AE%8A-branch-type%EF%BC%8C%E4%BE%8B%E5%A6%82-polymorphic-branch"><span class="toc-number">1.19.</span> <span class="toc-text">19. Exception 2：特殊 branch type，例如 polymorphic branch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#20-Exception-3%EF%BC%9A%E5%85%B6%E4%BB%96-branch-target-predictor-%E4%B9%9F%E5%91%BD%E4%B8%AD"><span class="toc-number">1.20.</span> <span class="toc-text">20. Exception 3：其他 branch target predictor 也命中</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#21-%E5%9B%BE-8%EF%BC%9A%E5%92%8C-micro-predictor-x2F-return-address-predictor-%E5%8D%8F%E5%90%8C"><span class="toc-number">1.21.</span> <span class="toc-text">21. 图 8：和 micro-predictor &#x2F; return address predictor 协同</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#22-Shortcut-path-%E5%92%8C%E5%89%8D%E4%B8%80%E7%AF%87-BTB-lookup-suppression-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.22.</span> <span class="toc-text">22. Shortcut path 和前一篇 BTB lookup suppression 的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#23-%E8%BF%99%E4%B8%AA%E6%96%B9%E6%A1%88%E7%9A%84%E6%94%B6%E7%9B%8A"><span class="toc-number">1.23.</span> <span class="toc-text">23. 这个方案的收益</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#23-1-%E9%99%8D%E4%BD%8E%E5%8D%95%E5%91%BD%E4%B8%AD-BTB-lookup-%E7%9A%84-target-latency"><span class="toc-number">1.23.1.</span> <span class="toc-text">23.1 降低单命中 BTB lookup 的 target latency</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#23-2-%E5%87%8F%E5%B0%91%E6%97%A0%E6%95%88%E9%A1%BA%E5%BA%8F-fetch"><span class="toc-number">1.23.2.</span> <span class="toc-text">23.2 减少无效顺序 fetch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#23-3-%E9%99%8D%E4%BD%8E%E5%8A%9F%E8%80%97"><span class="toc-number">1.23.3.</span> <span class="toc-text">23.3 降低功耗</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#23-4-%E4%BF%9D%E7%95%99%E5%A4%9A%E5%88%86%E6%94%AF-fetch-block-%E7%9A%84%E9%A2%84%E6%B5%8B%E8%A6%86%E7%9B%96"><span class="toc-number">1.23.4.</span> <span class="toc-text">23.4 保留多分支 fetch block 的预测覆盖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#23-5-%E5%AE%9E%E7%8E%B0%E6%88%90%E6%9C%AC%E4%BD%8E"><span class="toc-number">1.23.5.</span> <span class="toc-text">23.5 实现成本低</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#24-%E8%BF%99%E4%B8%AA%E6%96%B9%E6%A1%88%E7%9A%84%E4%BB%A3%E4%BB%B7"><span class="toc-number">1.24.</span> <span class="toc-text">24. 这个方案的代价</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#24-1-%E9%9C%80%E8%A6%81%E9%A2%9D%E5%A4%96-shortcut-datapath"><span class="toc-number">1.24.1.</span> <span class="toc-text">24.1 需要额外 shortcut datapath</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#24-2-onehot-x2F-exception-%E6%A3%80%E6%9F%A5%E5%A2%9E%E5%8A%A0%E6%8E%A7%E5%88%B6%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="toc-number">1.24.2.</span> <span class="toc-text">24.2 onehot &#x2F; exception 检查增加控制复杂度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#24-3-%E5%A4%9A%E5%91%BD%E4%B8%AD%E6%97%B6-shortcut-output-%E5%8F%AF%E8%83%BD%E6%98%AF%E9%94%99%E8%AF%AF%E5%80%BC"><span class="toc-number">1.24.3.</span> <span class="toc-text">24.3 多命中时 shortcut output 可能是错误值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#24-4-%E5%A6%82%E6%9E%9C%E6%8A%95%E6%9C%BA%E4%BD%BF%E7%94%A8-shortcut%EF%BC%8C%E9%9C%80%E8%A6%81-restart-%E6%9C%BA%E5%88%B6"><span class="toc-number">1.24.4.</span> <span class="toc-text">24.4 如果投机使用 shortcut，需要 restart 机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#24-5-%E5%AF%B9%E5%89%8D%E7%AB%AF%E6%97%B6%E5%BA%8F%E8%AE%BE%E8%AE%A1%E6%95%8F%E6%84%9F"><span class="toc-number">1.24.5.</span> <span class="toc-text">24.5 对前端时序设计敏感</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#25-%E5%92%8C%E6%99%AE%E9%80%9A-BTB-%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.25.</span> <span class="toc-text">25. 和普通 BTB 设计的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#26-%E6%9D%83%E5%88%A9%E8%A6%81%E6%B1%82%E6%A0%B8%E5%BF%83%E7%BF%BB%E8%AF%91"><span class="toc-number">1.26.</span> <span class="toc-text">26. 权利要求核心翻译</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Claim-1%EF%BC%9A%E4%B8%BB%E6%9D%83%E5%88%A9%E8%A6%81%E6%B1%82"><span class="toc-number">1.26.1.</span> <span class="toc-text">Claim 1：主权利要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Claim-2%EF%BC%9AN-way-set-associative-BTB"><span class="toc-number">1.26.2.</span> <span class="toc-text">Claim 2：N-way set-associative BTB</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Claim-4%E2%80%936%EF%BC%9A%E4%BD%8E%E8%B5%84%E6%BA%90%E6%97%B6%E7%A6%81%E7%94%A8-shortcut"><span class="toc-number">1.26.3.</span> <span class="toc-text">Claim 4–6：低资源时禁用 shortcut</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Claim-7%E2%80%939%EF%BC%9A%E7%89%B9%E6%AE%8A-branch-type-%E7%A6%81%E7%94%A8-shortcut"><span class="toc-number">1.26.4.</span> <span class="toc-text">Claim 7–9：特殊 branch type 禁用 shortcut</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Claim-10%E2%80%9311%EF%BC%9A%E5%85%B6%E4%BB%96-target-predictor-%E5%91%BD%E4%B8%AD%E6%97%B6%E7%A6%81%E7%94%A8-shortcut"><span class="toc-number">1.26.5.</span> <span class="toc-text">Claim 10–11：其他 target predictor 命中时禁用 shortcut</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Claim-12%E2%80%9314%EF%BC%9A%E6%8F%90%E5%89%8D-speculative-lookup-%E5%92%8C%E5%A4%B1%E8%B4%A5%E9%87%8D%E5%90%AF"><span class="toc-number">1.26.6.</span> <span class="toc-text">Claim 12–14：提前 speculative lookup 和失败重启</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Claim-15%EF%BC%9AAND-OR-shortcut-path"><span class="toc-number">1.26.7.</span> <span class="toc-text">Claim 15：AND-OR shortcut path</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#27-%E8%BF%99%E7%AF%87%E4%B8%93%E5%88%A9%E7%9C%9F%E6%AD%A3%E4%BF%9D%E6%8A%A4%E7%9A%84%E6%8A%80%E6%9C%AF%E7%82%B9"><span class="toc-number">1.27.</span> <span class="toc-text">27. 这篇专利真正保护的技术点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#28-%E4%BB%8E%E5%BE%AE%E6%9E%B6%E6%9E%84%E8%A7%92%E5%BA%A6%E7%9C%8B%EF%BC%8C%E5%AE%83%E7%9A%84%E6%9C%AC%E8%B4%A8%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">1.28.</span> <span class="toc-text">28. 从微架构角度看，它的本质是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#29-%E6%80%BB%E7%BB%93"><span class="toc-number">1.29.</span> <span class="toc-text">29. 总结</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/RAS-return-stack-four-pointer-animation.html" title="RAS Return Stack 四指针工作模式动画">RAS Return Stack 四指针工作模式动画</a><time datetime="2026-07-07T15:50:00.000Z" title="发表于 2026-07-07 23:50:00">2026-07-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/2027%E6%80%BB%E7%BB%93.html" title="2027总结">2027总结</a><time datetime="2026-02-16T13:59:09.000Z" title="发表于 2026-02-16 21:59:09">2026-02-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/ITTAGE%E5%88%86%E7%BA%A7%E9%98%BB%E6%96%ADBHI-Arm-US11861368B2.html" title="不清空 GHR，如何按历史长度分级阻断 BHI？——Arm US11861368B2 专利解析">不清空 GHR，如何按历史长度分级阻断 BHI？——Arm US11861368B2 专利解析</a><time datetime="2025-12-28T12:30:00.000Z" title="发表于 2025-12-28 20:30:00">2025-12-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/Taken%E8%AF%AF%E9%A2%84%E6%B5%8B%E5%BF%AB%E9%80%9F%E6%81%A2%E5%A4%8D-Arm-US11086629B2.html" title="预测 taken 的分支实际 not-taken 时，前端如何快速恢复？——Arm US11086629B2 专利解析">预测 taken 的分支实际 not-taken 时，前端如何快速恢复？——Arm US11086629B2 专利解析</a><time datetime="2025-12-25T12:30:00.000Z" title="发表于 2025-12-25 20:30:00">2025-12-25</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/BTB%E5%8D%95%E5%91%BD%E4%B8%AD%E6%8D%B7%E5%BE%84%E8%B7%AF%E5%BE%84-Arm-US10817298B2.html" title="BTB 多分支命中要排序，单分支命中能否走捷径？——Arm US10817298B2 专利解析">BTB 多分支命中要排序，单分支命中能否走捷径？——Arm US10817298B2 专利解析</a><time datetime="2025-12-22T12:30:00.000Z" title="发表于 2025-12-22 20:30:00">2025-12-22</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2026 By chilh</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadWaline () {
+  function insertCSS () {
+    const link = document.createElement("link")
+    link.rel = "stylesheet"
+    link.href = "https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.css"
+    document.head.appendChild(link)
+  }
+
+  function initWaline () {
+    const waline = Waline.init(Object.assign({
+      el: '#waline-wrap',
+      serverURL: 'https://chilh-comment-nwkfkyqk8-zhanzghouhe.vercel.app',
+      pageview: false,
+      dark: 'html[data-theme="dark"]',
+      path: window.location.pathname,
+      comment: false,
+    }, null))
+  }
+
+  if (typeof Waline === 'function') initWaline()
+  else {
+    insertCSS()
+    getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.js').then(initWaline)
+  }
+}
+
+if ('Waline' === 'Waline' || !true) {
+  if (true) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+  else setTimeout(loadWaline, 0)
+} else {
+  function loadOtherComment () {
+    loadWaline()
+  }
+}</script></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":85,"height":400,"hOffset":-18,"vOffset":25},"mobile":{"show":true},"react":{"opacity":0.7},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html>
